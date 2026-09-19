@@ -1,0 +1,23 @@
+query,matched_concept,num_direct_causes,num_multi_hop_paths,is_hallucination,is_hallucination_gold,error_type,SRS,Context_Relevance,Groundedness,CCD,latency_seconds
+What causes heart disease?,heart disease,5,20,No,Yes,False Negative,0.7030239,0.6774454,0.6064554,3.0,54.1305
+What leads to heart disease?,heart disease,5,20,No,No,Correct,0.7323633,0.6131797,0.8248648,3.0,78.0063
+What are the causes of heart disease?,heart disease,5,20,No,No,Correct,0.7300885,0.738573,0.55337524,3.0,43.5511
+What factors contribute to heart disease?,heart disease,5,20,Yes,Yes,Correct,1.0000001,0.80037796,0.6103215,3.0,66.3359
+What causes cardiovascular disease?,heart disease,5,20,No,Yes,False Negative,0.7260865,0.66057146,0.5287774,3.0,47.4225
+What causes lung cancer?,lung cancer,2,2,No,No,Correct,0.7704179,0.7042702,0.85880834,2.0,35.2159
+What leads to lung cancer?,lung cancer,2,2,No,No,Correct,0.84294987,0.7063566,0.8591343,2.0,34.6904
+What are the causes of lung cancer?,lung cancer,2,2,No,No,Correct,0.83149225,0.6499907,0.85880834,2.0,35.4613
+What factors contribute to lung cancer?,lung cancer,2,2,No,No,Correct,1.0,0.59938145,0.85880834,2.0,34.3907
+What causes migraine?,migraine,5,5,Yes,No,False Positive,0.79995954,0.67801696,0.61768484,2.0,53.209
+What causes migraines?,migraine,5,5,No,No,Correct,0.8615608,0.74784124,0.74767053,2.0,49.0821
+What triggers migraine?,migraine,5,5,Yes,No,False Positive,0.9956152,0.7129299,0.6041019,2.0,52.1564
+What factors contribute to migraine?,migraine,5,5,No,No,Correct,1.0,0.81995046,0.65444165,2.0,42.8568
+What causes asthma?,asthma,5,10,No,Yes,False Negative,0.84202147,0.76363254,0.59094983,2.5,43.3055
+What leads to asthma?,asthma,5,10,No,No,Correct,0.8543543,0.5653672,0.63833153,2.5,43.7661
+What factors contribute to asthma?,asthma,5,10,Yes,No,False Positive,1.0000001,0.7369511,0.57364833,2.5,47.8498
+What causes depression?,depression,5,10,Yes,No,False Positive,0.81542933,0.7452844,0.6995407,2.5,60.436
+What leads to depression?,depression,5,10,Yes,No,False Positive,0.80651253,0.5840324,0.63541627,2.5,53.1796
+What factors contribute to depression?,depression,5,10,Yes,No,False Positive,1.0000001,0.7423077,0.60362774,2.5,52.2657
+What causes stroke?,stroke,5,15,No,No,Correct,0.8625543,0.7641356,0.54004085,3.0,45.1419
+What leads to stroke?,stroke,5,15,No,No,Correct,0.75571954,0.5559441,0.624103,3.0,54.2321
+What factors contribute to stroke?,stroke,5,15,No,Yes,False Negative,1.0,0.6586597,0.75475967,3.0,65.4464

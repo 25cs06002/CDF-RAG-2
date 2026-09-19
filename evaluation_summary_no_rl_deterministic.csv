@@ -1,0 +1,22 @@
+Metric,Value
+Queries Evaluated,22.0
+Causal Retrieval Coverage,1.0
+Causal Chain Depth,2.5
+Semantic Refinement Score,1.0
+Context Relevance,0.6903696656227112
+Groundedness,0.6746975183486938
+Average Answer Length,14.590909090909092
+Hallucination Rate,0.3181818181818182
+Retrieval Success Rate,1.0
+Average Direct Causes,4.454545454545454
+Total Direct Causes,98.0
+Total Execution Time (s),870.6713000000001
+Average Latency (s),39.57596818181818
+Average Latency (ms),39575.97136363636
+Minimum Latency (ms),23796.06
+Maximum Latency (ms),68236.49
+Median Latency (ms),39413.36
+Average Throughput (QPS),0.02737727272727273
+Minimum Throughput (QPS),0.0147
+Maximum Throughput (QPS),0.042
+Refinement Success Rate,1.0

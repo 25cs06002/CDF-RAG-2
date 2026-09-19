@@ -1,0 +1,234 @@
+query,refinement_type,refined_query_text,refined_query,matched_concept,direct_causes,num_direct_causes,multi_hop_paths,num_multi_hop_paths,retrieval_success,rewritten_knowledge,final_response,is_hallucination,latency_seconds,latency_ms,query_throughput_qps,status,SRS,Context_Relevance,Groundedness,Final_Answer_Length,CCD,Causal_Retrieval,Hallucinated,Latency_Seconds_Calculated,Latency_ms_Calculated,Throughput_QPS_Calculated,Retrieved_Cause_Count,Refinement_Success,is_hallucination_gold
+What causes heart disease?,No Refinement,What causes heart disease?,heart disease,heart disease,Diabetes; Genetic predisposition; High blood pressure; Poor diet; Smoking,5,Smoking → heart disease; High blood pressure → heart disease; Diabetes → heart disease; Genetic predisposition → Diabetes → heart disease; Family history of disease → Genetic predisposition → Diabetes → heart disease; Inherited traits from parents → Genetic predisposition → Diabetes → heart disease; Environmental factors during pregnancy → Genetic predisposition → Diabetes → heart disease; Exposure to certain toxins → Genetic predisposition → Diabetes → heart disease; Random chance and natural selection → Genetic predisposition → Diabetes → heart disease; Family history of diabetes → Diabetes → heart disease; Poor diet → Diabetes → heart disease; Lack of physical activity → Diabetes → heart disease; Insulin resistance → Diabetes → heart disease; Poor diet → heart disease; Genetic predisposition → heart disease; Family history of disease → Genetic predisposition → heart disease; Inherited traits from parents → Genetic predisposition → heart disease; Environmental factors during pregnancy → Genetic predisposition → heart disease; Exposure to certain toxins → Genetic predisposition → heart disease; Random chance and natural selection → Genetic predisposition → heart disease,20,Yes,"Based on the provided evidence-grounded medical knowledge rewriting system, I will reorganize the evidence to answer the query ""What causes heart disease?""
+
+ DIRECT CAUSAL EVIDENCE
+1. Diabetes → heart disease
+2. High blood pressure → heart disease
+3. Smoking → heart disease
+4. Genetic predisposition → Diabetes → heart disease
+
+Since there are no direct causal relationships between other factors and heart disease, I will not include them in the output.
+
+OUTPUT:
+""Heart disease is caused by diabetes, high blood pressure, and smoking.""","Heart disease is caused by diabetes, high blood pressure, and smoking.",No,38.3233,38323.28,0.0261,SUCCESS,0.9999999,0.6774454,0.6064554,11,3.0,1,0,38.3233,38323.28,0.0261,5,1,Yes
+What leads to heart disease?,No Refinement,What leads to heart disease?,heart disease,heart disease,Diabetes; Genetic predisposition; High blood pressure; Poor diet; Smoking,5,Smoking → heart disease; High blood pressure → heart disease; Diabetes → heart disease; Genetic predisposition → Diabetes → heart disease; Family history of disease → Genetic predisposition → Diabetes → heart disease; Inherited traits from parents → Genetic predisposition → Diabetes → heart disease; Environmental factors during pregnancy → Genetic predisposition → Diabetes → heart disease; Exposure to certain toxins → Genetic predisposition → Diabetes → heart disease; Random chance and natural selection → Genetic predisposition → Diabetes → heart disease; Family history of diabetes → Diabetes → heart disease; Poor diet → Diabetes → heart disease; Lack of physical activity → Diabetes → heart disease; Insulin resistance → Diabetes → heart disease; Poor diet → heart disease; Genetic predisposition → heart disease; Family history of disease → Genetic predisposition → heart disease; Inherited traits from parents → Genetic predisposition → heart disease; Environmental factors during pregnancy → Genetic predisposition → heart disease; Exposure to certain toxins → Genetic predisposition → heart disease; Random chance and natural selection → Genetic predisposition → heart disease,20,Yes,"Based on the provided evidence-grounded medical knowledge rewriting system, I will reorganize the information to answer the query ""What leads to heart disease?""
+
+Direct Causal Evidence:
+1. Diabetes
+2. Genetic predisposition
+3. High blood pressure
+4. Poor diet
+5. Smoking
+
+Multi-Hop Causal Evidence:
+1. Smoking → heart disease
+2. High blood pressure → heart disease
+3. Diabetes → heart disease
+4. Genetic predisposition → Diabetes → heart disease
+5. Family history of disease → Genetic predisposition → Diabetes → heart disease
+6. Inherited traits from parents → Genetic predisposition → Diabetes → heart disease
+7. Environmental factors during pregnancy → Genetic predisposition → Diabetes → heart disease
+8. Exposure to certain toxins → Genetic predisposition → Diabetes → heart disease
+9. Random chance and natural selection → Genetic predisposition → Diabetes → heart disease
+10. Family history of diabetes → Diabetes → heart disease
+11. Poor diet → Diabetes → heart disease
+12. Lack of physical activity → Diabetes → heart disease
+13. Insulin resistance → Diabetes → heart disease
+14. Poor diet → heart disease
+15. Genetic predisposition → heart disease
+16. Family history of disease → Genetic predisposition → heart disease
+17. Inherited traits from parents → Genetic predisposition → heart disease
+18. Environmental factors during pregnancy → Genetic predisposition → heart disease
+19. Exposure to certain toxins → Genetic predisposition → heart disease
+20. Random chance and natural selection → Genetic predisposition → heart disease
+
+Strict Rules:
+No additional information can be added or inferred beyond what is explicitly present in the evidence.
+
+Therefore, based on the provided evidence-grounded medical knowledge rewriting system, I will report:
+
+""Heart disease is caused by Diabetes, Genetic predisposition, High blood pressure, Poor diet, and Smoking.""","""Heart disease is caused by Diabetes, Genetic predisposition, High blood pressure, Poor diet, and Smoking.""",No,68.2365,68236.49,0.0147,SUCCESS,1.0,0.6131797,0.8248648,15,3.0,1,0,68.2365,68236.49,0.0147,5,1,No
+What are the causes of heart disease?,No Refinement,What are the causes of heart disease?,heart disease,heart disease,Diabetes; Genetic predisposition; High blood pressure; Poor diet; Smoking,5,Smoking → heart disease; High blood pressure → heart disease; Diabetes → heart disease; Genetic predisposition → Diabetes → heart disease; Family history of disease → Genetic predisposition → Diabetes → heart disease; Inherited traits from parents → Genetic predisposition → Diabetes → heart disease; Environmental factors during pregnancy → Genetic predisposition → Diabetes → heart disease; Exposure to certain toxins → Genetic predisposition → Diabetes → heart disease; Random chance and natural selection → Genetic predisposition → Diabetes → heart disease; Family history of diabetes → Diabetes → heart disease; Poor diet → Diabetes → heart disease; Lack of physical activity → Diabetes → heart disease; Insulin resistance → Diabetes → heart disease; Poor diet → heart disease; Genetic predisposition → heart disease; Family history of disease → Genetic predisposition → heart disease; Inherited traits from parents → Genetic predisposition → heart disease; Environmental factors during pregnancy → Genetic predisposition → heart disease; Exposure to certain toxins → Genetic predisposition → heart disease; Random chance and natural selection → Genetic predisposition → heart disease,20,Yes,"Based on the provided evidence-grounded medical knowledge rewriting system, I can generate a response to the query ""What are the causes of heart disease?"".
+
+
+""Heart disease is caused by Diabetes, Genetic predisposition, High blood pressure, Poor diet, and Smoking.""","""Heart disease is caused by Diabetes, Genetic predisposition, High blood pressure, Poor diet, and Smoking.""",No,32.9565,32956.49,0.0303,SUCCESS,1.0000002,0.738573,0.55337524,15,3.0,1,0,32.9565,32956.49,0.0303,5,1,No
+What factors contribute to heart disease?,No Refinement,What factors contribute to heart disease?,heart disease,heart disease,Diabetes; Genetic predisposition; High blood pressure; Poor diet; Smoking,5,Smoking → heart disease; High blood pressure → heart disease; Diabetes → heart disease; Genetic predisposition → Diabetes → heart disease; Family history of disease → Genetic predisposition → Diabetes → heart disease; Inherited traits from parents → Genetic predisposition → Diabetes → heart disease; Environmental factors during pregnancy → Genetic predisposition → Diabetes → heart disease; Exposure to certain toxins → Genetic predisposition → Diabetes → heart disease; Random chance and natural selection → Genetic predisposition → Diabetes → heart disease; Family history of diabetes → Diabetes → heart disease; Poor diet → Diabetes → heart disease; Lack of physical activity → Diabetes → heart disease; Insulin resistance → Diabetes → heart disease; Poor diet → heart disease; Genetic predisposition → heart disease; Family history of disease → Genetic predisposition → heart disease; Inherited traits from parents → Genetic predisposition → heart disease; Environmental factors during pregnancy → Genetic predisposition → heart disease; Exposure to certain toxins → Genetic predisposition → heart disease; Random chance and natural selection → Genetic predisposition → heart disease,20,Yes,"Based on the provided evidence-grounded medical knowledge rewriting system, I will reorganize the information to answer the query ""What factors contribute to heart disease?""
+
+According to the DIRECT CAUSAL EVIDENCE:
+
+1. Diabetes → heart disease
+2. High blood pressure → heart disease
+3. Smoking → heart disease
+4. Genetic predisposition → Diabetes → heart disease
+
+These are the direct causal relationships explicitly present in the evidence.
+
+No additional information can be added or inferred beyond these direct causes, as per RULES 5-7 and 11.","According to the Structured Knowledge, the following factors contribute to heart disease:
+
+1. Diabetes
+2. High blood pressure
+3. Smoking
+4. Genetic predisposition (specifically, genetic predisposition leading to diabetes)
+
+These are the direct causal relationships explicitly present in the evidence.",Yes,56.7182,56718.23,0.0176,SUCCESS,1.0000001,0.80037796,0.6103215,40,3.0,1,1,56.7182,56718.23,0.0176,5,1,Yes
+What causes cardiovascular disease?,No Refinement,What causes cardiovascular disease?,heart disease,heart disease,Diabetes; Genetic predisposition; High blood pressure; Poor diet; Smoking,5,Smoking → heart disease; High blood pressure → heart disease; Diabetes → heart disease; Genetic predisposition → Diabetes → heart disease; Family history of disease → Genetic predisposition → Diabetes → heart disease; Inherited traits from parents → Genetic predisposition → Diabetes → heart disease; Environmental factors during pregnancy → Genetic predisposition → Diabetes → heart disease; Exposure to certain toxins → Genetic predisposition → Diabetes → heart disease; Random chance and natural selection → Genetic predisposition → Diabetes → heart disease; Family history of diabetes → Diabetes → heart disease; Poor diet → Diabetes → heart disease; Lack of physical activity → Diabetes → heart disease; Insulin resistance → Diabetes → heart disease; Poor diet → heart disease; Genetic predisposition → heart disease; Family history of disease → Genetic predisposition → heart disease; Inherited traits from parents → Genetic predisposition → heart disease; Environmental factors during pregnancy → Genetic predisposition → heart disease; Exposure to certain toxins → Genetic predisposition → heart disease; Random chance and natural selection → Genetic predisposition → heart disease,20,Yes,"Based on the provided evidence-grounded medical knowledge rewriting system, I will reorganize the causal relationships for cardiovascular disease.
+
+
+Cardiovascular disease is caused by:
+Diabetes
+High blood pressure
+Smoking
+Poor diet
+Genetic predisposition
+
+
+These are the direct causes explicitly present in the DIRECT CAUSAL EVIDENCE.","Cardiovascular disease is caused by diabetes, high blood pressure, smoking, and poor diet.",No,40.5034,40503.44,0.0247,SUCCESS,1.0000001,0.66057146,0.5287774,13,3.0,1,0,40.5034,40503.44,0.0247,5,1,Yes
+What causes lung cancer?,No Refinement,What causes lung cancer?,lung cancer,lung cancer,Radon exposure; Smoking,2,Smoking → lung cancer; Radon exposure → lung cancer,2,Yes,Lung cancer is caused by Radon exposure and Smoking.,Lung cancer is caused by Radon exposure and Smoking.,No,23.7998,23799.83,0.042,SUCCESS,1.0000001,0.7042702,0.85880834,9,2.0,1,0,23.7998,23799.83,0.042,2,1,No
+What leads to lung cancer?,No Refinement,What leads to lung cancer?,lung cancer,lung cancer,Radon exposure; Smoking,2,Smoking → lung cancer; Radon exposure → lung cancer,2,Yes,Lung cancer is caused by Radon exposure and Smoking.,Smoking and Radon exposure are causes of lung cancer.,No,23.9876,23987.57,0.0417,SUCCESS,0.9999999,0.6692914,0.85880834,9,2.0,1,0,23.9876,23987.57,0.0417,2,1,No
+What are the causes of lung cancer?,No Refinement,What are the causes of lung cancer?,lung cancer,lung cancer,Radon exposure; Smoking,2,Smoking → lung cancer; Radon exposure → lung cancer,2,Yes,Lung cancer is caused by Radon exposure and Smoking.,Lung cancer is caused by Radon exposure and Smoking.,No,24.528,24528.01,0.0408,SUCCESS,1.0000001,0.6499907,0.85880834,9,2.0,1,0,24.528,24528.01,0.0408,2,1,No
+What factors contribute to lung cancer?,No Refinement,What factors contribute to lung cancer?,lung cancer,lung cancer,Radon exposure; Smoking,2,Smoking → lung cancer; Radon exposure → lung cancer,2,Yes,Lung cancer is caused by Radon exposure and Smoking.,Lung cancer is caused by Radon exposure and Smoking.,No,23.7961,23796.06,0.042,SUCCESS,1.0,0.59938145,0.85880834,9,2.0,1,0,23.7961,23796.06,0.042,2,1,No
+What causes migraine?,No Refinement,What causes migraine?,migraine,migraine,Environmental toxins; Food sensitivities; Hormonal changes; Sleep deprivation; Stress,5,Stress → migraine; Sleep deprivation → migraine; Hormonal changes → migraine; Food sensitivities → migraine; Environmental toxins → migraine,5,Yes,"Based on the provided evidence-grounded medical knowledge rewriting system, I will organize the evidence retrieved from a causal knowledge graph to answer the query ""What causes migraine?"":
+
+Migraine is caused by:
+- Environmental toxins
+- Food sensitivities
+- Hormonal changes
+- Sleep deprivation
+- Stress","Migraine is caused by environmental toxins, food sensitivities, hormonal changes, sleep deprivation, and stress.",Yes,41.7707,41770.72,0.0239,SUCCESS,1.0000002,0.67801696,0.61768484,14,2.0,1,1,41.7707,41770.72,0.0239,5,1,No
+What causes migraines?,No Refinement,What causes migraines?,migraine,migraine,Environmental toxins; Food sensitivities; Hormonal changes; Sleep deprivation; Stress,5,Stress → migraine; Sleep deprivation → migraine; Hormonal changes → migraine; Food sensitivities → migraine; Environmental toxins → migraine,5,Yes,"Based on the provided evidence-grounded medical knowledge rewriting system, I will reorganize the information to answer the query ""What causes migraines?""
+
+DIRECT CAUSAL EVIDENCE
+1. Environmental toxins → migraine
+2. Food sensitivities → migraine
+3. Hormonal changes → migraine
+4. Sleep deprivation → migraine
+5. Stress → migraine
+
+Since there are multiple direct causal relationships, I will provide a comprehensive list of causes:
+
+""Migraines are caused by environmental toxins, food sensitivities, hormonal changes, sleep deprivation, and stress.""","Migraines are caused by environmental toxins, food sensitivities, hormonal changes, sleep deprivation, and stress.",No,41.3444,41344.41,0.0242,SUCCESS,1.0,0.74784124,0.74767053,14,2.0,1,0,41.3444,41344.41,0.0242,5,1,No
+What triggers migraine?,No Refinement,What triggers migraine?,migraine,migraine,Environmental toxins; Food sensitivities; Hormonal changes; Sleep deprivation; Stress,5,Stress → migraine; Sleep deprivation → migraine; Hormonal changes → migraine; Food sensitivities → migraine; Environmental toxins → migraine,5,Yes,"Based on the provided evidence-grounded medical knowledge rewriting system, I will organize the evidence retrieved from a causal knowledge graph to answer the query ""What triggers migraine?"":
+
+Migraine is caused by:
+- Environmental toxins
+- Food sensitivities
+- Hormonal changes
+- Sleep deprivation
+- Stress","Migraine can be triggered by environmental toxins, food sensitivities, hormonal changes, sleep deprivation, and stress.",Yes,42.7807,42780.73,0.0234,SUCCESS,0.9999999,0.7129299,0.6041019,15,2.0,1,1,42.7807,42780.73,0.0234,5,1,No
+What factors contribute to migraine?,No Refinement,What factors contribute to migraine?,migraine,migraine,Environmental toxins; Food sensitivities; Hormonal changes; Sleep deprivation; Stress,5,Stress → migraine; Sleep deprivation → migraine; Hormonal changes → migraine; Food sensitivities → migraine; Environmental toxins → migraine,5,Yes,"Based on the provided evidence-grounded medical knowledge rewriting system, I will organize the information to answer the query ""What factors contribute to migraine?"":
+
+Migraine is caused by:
+- Environmental toxins
+- Food sensitivities
+- Hormonal changes
+- Sleep deprivation
+- Stress","Migraine is caused by environmental toxins, food sensitivities, hormonal changes, sleep deprivation, and stress.",No,35.3222,35322.2,0.0283,SUCCESS,1.0,0.81995046,0.65444165,14,2.0,1,0,35.3222,35322.2,0.0283,5,1,No
+What causes asthma?,No Refinement,What causes asthma?,asthma,asthma,Air pollution; Allergies; Environmental toxins; Genetic predisposition; Respiratory infections,5,Air pollution → asthma; Allergies → asthma; Respiratory infections → asthma; Genetic predisposition → asthma; Family history of disease → Genetic predisposition → asthma; Inherited traits from parents → Genetic predisposition → asthma; Environmental factors during pregnancy → Genetic predisposition → asthma; Exposure to certain toxins → Genetic predisposition → asthma; Random chance and natural selection → Genetic predisposition → asthma; Environmental toxins → asthma,10,Yes,"Based on the provided evidence-grounded medical knowledge rewriting system, I will reorganize the information to answer the query ""What causes asthma?"".
+
+
+Asthma is caused by:
+Air pollution
+Allergies
+Respiratory infections
+
+
+These relationships are explicitly present in the DIRECT CAUSAL EVIDENCE.","Asthma is caused by air pollution, allergies, and respiratory infections.",No,31.5337,31533.65,0.0317,SUCCESS,1.0000001,0.76363254,0.59094983,10,2.5,1,0,31.5337,31533.65,0.0317,5,1,Yes
+What leads to asthma?,No Refinement,What leads to asthma?,asthma,asthma,Air pollution; Allergies; Environmental toxins; Genetic predisposition; Respiratory infections,5,Air pollution → asthma; Allergies → asthma; Respiratory infections → asthma; Genetic predisposition → asthma; Family history of disease → Genetic predisposition → asthma; Inherited traits from parents → Genetic predisposition → asthma; Environmental factors during pregnancy → Genetic predisposition → asthma; Exposure to certain toxins → Genetic predisposition → asthma; Random chance and natural selection → Genetic predisposition → asthma; Environmental toxins → asthma,10,Yes,"Based on the provided evidence-grounded medical knowledge rewriting system, I will organize the causal relationships related to asthma:
+
+Asthma is caused by:
+Air pollution
+Allergies
+Respiratory infections
+Genetic predisposition
+
+Note: The above answer only includes direct causal statements explicitly present in the DIRECT CAUSAL EVIDENCE.","Asthma is caused by:
+
+1. Air pollution
+2. Allergies
+3. Respiratory infections
+4. Genetic predisposition",No,32.374,32374.03,0.0309,SUCCESS,0.99999994,0.5653672,0.63833153,15,2.5,1,0,32.374,32374.03,0.0309,5,1,No
+What factors contribute to asthma?,No Refinement,What factors contribute to asthma?,asthma,asthma,Air pollution; Allergies; Environmental toxins; Genetic predisposition; Respiratory infections,5,Air pollution → asthma; Allergies → asthma; Respiratory infections → asthma; Genetic predisposition → asthma; Family history of disease → Genetic predisposition → asthma; Inherited traits from parents → Genetic predisposition → asthma; Environmental factors during pregnancy → Genetic predisposition → asthma; Exposure to certain toxins → Genetic predisposition → asthma; Random chance and natural selection → Genetic predisposition → asthma; Environmental toxins → asthma,10,Yes,"Based on the provided evidence-grounded medical knowledge rewriting system, I will organize the factors that contribute to asthma:
+
+Asthma is caused by air pollution, allergies, and respiratory infections.","Asthma is caused by air pollution, allergies, and respiratory infections.",Yes,36.9115,36911.52,0.0271,SUCCESS,1.0000001,0.7369511,0.57364833,10,2.5,1,1,36.9115,36911.52,0.0271,5,1,No
+What causes depression?,No Refinement,What causes depression?,depression,depression,Chronic stress; Genetic predisposition; Lack of social support; Poor sleep habits; Traumatic event,5,Lack of social support → depression; Traumatic event → depression; Chronic stress → depression; Poor sleep habits → depression; Genetic predisposition → depression; Family history of disease → Genetic predisposition → depression; Inherited traits from parents → Genetic predisposition → depression; Environmental factors during pregnancy → Genetic predisposition → depression; Exposure to certain toxins → Genetic predisposition → depression; Random chance and natural selection → Genetic predisposition → depression,10,Yes,"Based on the provided evidence-grounded medical knowledge rewriting system, I will reorganize the information to answer the query ""What causes depression?""
+
+According to the DIRECT CAUSAL EVIDENCE:
+
+1. Chronic stress → depression
+2. Lack of social support → depression
+3. Traumatic event → depression
+4. Poor sleep habits → depression
+5. Genetic predisposition → depression
+
+These are the direct causal relationships explicitly present in the evidence.
+
+Therefore, I will report the direct causes exactly as follows:
+
+""Depression is caused by chronic stress, lack of social support, traumatic event, and poor sleep habits.""","Depression is caused by chronic stress, lack of social support, traumatic event, and poor sleep habits.",Yes,53.8548,53854.81,0.0186,SUCCESS,1.0000001,0.7452844,0.6995407,16,2.5,1,1,53.8548,53854.81,0.0186,5,1,No
+What leads to depression?,No Refinement,What leads to depression?,depression,depression,Chronic stress; Genetic predisposition; Lack of social support; Poor sleep habits; Traumatic event,5,Lack of social support → depression; Traumatic event → depression; Chronic stress → depression; Poor sleep habits → depression; Genetic predisposition → depression; Family history of disease → Genetic predisposition → depression; Inherited traits from parents → Genetic predisposition → depression; Environmental factors during pregnancy → Genetic predisposition → depression; Exposure to certain toxins → Genetic predisposition → depression; Random chance and natural selection → Genetic predisposition → depression,10,Yes,"Based on the provided evidence-grounded medical knowledge rewriting system, I will organize the causal relationships related to depression:
+
+Depression is caused by:
+- Chronic stress
+- Genetic predisposition
+- Lack of social support
+- Poor sleep habits
+- Traumatic event","Depression is caused by chronic stress, genetic predisposition, lack of social support, poor sleep habits, and traumatic event.",Yes,45.1844,45184.44,0.0221,SUCCESS,1.0,0.5840324,0.63541627,18,2.5,1,1,45.1844,45184.44,0.0221,5,1,No
+What factors contribute to depression?,No Refinement,What factors contribute to depression?,depression,depression,Chronic stress; Genetic predisposition; Lack of social support; Poor sleep habits; Traumatic event,5,Lack of social support → depression; Traumatic event → depression; Chronic stress → depression; Poor sleep habits → depression; Genetic predisposition → depression; Family history of disease → Genetic predisposition → depression; Inherited traits from parents → Genetic predisposition → depression; Environmental factors during pregnancy → Genetic predisposition → depression; Exposure to certain toxins → Genetic predisposition → depression; Random chance and natural selection → Genetic predisposition → depression,10,Yes,"Based on the provided evidence-grounded medical knowledge rewriting system, I will organize the factors that contribute to depression:
+
+Depression is caused by:
+- Chronic stress
+- Genetic predisposition
+- Lack of social support
+- Poor sleep habits
+- Traumatic event","Depression is caused by chronic stress, genetic predisposition, lack of social support, poor sleep habits, and traumatic event.",Yes,45.465,45465.0,0.022,SUCCESS,1.0000001,0.7423077,0.60362774,18,2.5,1,1,45.465,45465.0,0.022,5,1,No
+What causes stroke?,No Refinement,What causes stroke?,stroke,stroke,Atherosclerosis; Blood clots; Diabetes; High blood pressure; Traumatic brain injury,5,High blood pressure → stroke; Diabetes → stroke; Genetic predisposition → Diabetes → stroke; Family history of disease → Genetic predisposition → Diabetes → stroke; Inherited traits from parents → Genetic predisposition → Diabetes → stroke; Environmental factors during pregnancy → Genetic predisposition → Diabetes → stroke; Exposure to certain toxins → Genetic predisposition → Diabetes → stroke; Random chance and natural selection → Genetic predisposition → Diabetes → stroke; Family history of diabetes → Diabetes → stroke; Poor diet → Diabetes → stroke; Lack of physical activity → Diabetes → stroke; Insulin resistance → Diabetes → stroke; Atherosclerosis → stroke; Blood clots → stroke; Traumatic brain injury → stroke,15,Yes,"Based on the provided causal knowledge graph evidence, here is the rewritten answer:
+
+""Stroke is caused by Atherosclerosis, Blood clots, Diabetes, High blood pressure, and Traumatic brain injury.""
+
+This response adheres to the provided rules and only includes direct causal statements from the DIRECT CAUSAL EVIDENCE.","Based on the Structured Knowledge, stroke is caused by Atherosclerosis, Blood clots, Diabetes, High blood pressure, and Traumatic brain injury.",No,36.9537,36953.7,0.0271,SUCCESS,1.0,0.7641356,0.54004085,20,3.0,1,0,36.9537,36953.7,0.0271,5,1,No
+What leads to stroke?,No Refinement,What leads to stroke?,stroke,stroke,Atherosclerosis; Blood clots; Diabetes; High blood pressure; Traumatic brain injury,5,High blood pressure → stroke; Diabetes → stroke; Genetic predisposition → Diabetes → stroke; Family history of disease → Genetic predisposition → Diabetes → stroke; Inherited traits from parents → Genetic predisposition → Diabetes → stroke; Environmental factors during pregnancy → Genetic predisposition → Diabetes → stroke; Exposure to certain toxins → Genetic predisposition → Diabetes → stroke; Random chance and natural selection → Genetic predisposition → Diabetes → stroke; Family history of diabetes → Diabetes → stroke; Poor diet → Diabetes → stroke; Lack of physical activity → Diabetes → stroke; Insulin resistance → Diabetes → stroke; Atherosclerosis → stroke; Blood clots → stroke; Traumatic brain injury → stroke,15,Yes,"Based on the provided evidence-grounded medical knowledge rewriting system, I will reorganize the causal relationships related to stroke:
+
+Direct Causal Evidence:
+1. Atherosclerosis → Stroke
+2. Blood clots → Stroke
+3. Diabetes → Stroke
+4. High blood pressure → Stroke
+5. Traumatic brain injury → Stroke
+
+Multi-hop Causal Evidence (with direct causes extracted):
+1. High blood pressure → Stroke
+2. Diabetes → Stroke
+3. Atherosclerosis → Stroke
+4. Blood clots → Stroke
+
+Strict Rules:
+No additional information can be added or inferred beyond the provided evidence.
+
+Output:
+""Stroke is caused by High blood pressure, Diabetes, Atherosclerosis, and Blood clots.""","Stroke is caused by High blood pressure, Diabetes, Atherosclerosis, and Blood clots.",No,40.9876,40987.6,0.0244,SUCCESS,1.0000001,0.5559441,0.624103,12,3.0,1,0,40.9876,40987.6,0.0244,5,1,No
+What factors contribute to stroke?,No Refinement,What factors contribute to stroke?,stroke,stroke,Atherosclerosis; Blood clots; Diabetes; High blood pressure; Traumatic brain injury,5,High blood pressure → stroke; Diabetes → stroke; Genetic predisposition → Diabetes → stroke; Family history of disease → Genetic predisposition → Diabetes → stroke; Inherited traits from parents → Genetic predisposition → Diabetes → stroke; Environmental factors during pregnancy → Genetic predisposition → Diabetes → stroke; Exposure to certain toxins → Genetic predisposition → Diabetes → stroke; Random chance and natural selection → Genetic predisposition → Diabetes → stroke; Family history of diabetes → Diabetes → stroke; Poor diet → Diabetes → stroke; Lack of physical activity → Diabetes → stroke; Insulin resistance → Diabetes → stroke; Atherosclerosis → stroke; Blood clots → stroke; Traumatic brain injury → stroke,15,Yes,"Based on the provided evidence-grounded medical knowledge rewriting system, I will organize the causal relationships related to stroke:
+
+Direct Causal Evidence:
+1. Atherosclerosis → stroke
+2. Blood clots → stroke
+3. Diabetes → stroke
+4. High blood pressure → stroke
+5. Traumatic brain injury → stroke
+
+Multi-Hop Causal Evidence:
+1. Genetic predisposition → Diabetes → stroke
+2. Family history of disease → Genetic predisposition → Diabetes → stroke
+3. Inherited traits from parents → Genetic predisposition → Diabetes → stroke
+4. Environmental factors during pregnancy → Genetic predisposition → Diabetes → stroke
+5. Exposure to certain toxins → Genetic predisposition → Diabetes → stroke
+6. Random chance and natural selection → Genetic predisposition → Diabetes → stroke
+7. Family history of diabetes → Diabetes → stroke
+8. Poor diet → Diabetes → stroke
+9. Lack of physical activity → Diabetes → stroke
+10. Insulin resistance → Diabetes → stroke
+
+Strict Rules:
+No additional information can be added or inferred beyond what is explicitly present in the evidence.
+
+Output:
+""Stroke is caused by Atherosclerosis, Blood clots, Diabetes, High blood pressure, and Traumatic brain injury.""","Stroke is caused by Atherosclerosis, Blood clots, Diabetes, High blood pressure, and Traumatic brain injury.",No,53.3392,53339.16,0.0187,SUCCESS,1.0,0.6586597,0.75475967,15,3.0,1,0,53.3392,53339.16,0.0187,5,1,Yes

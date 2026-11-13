@@ -40,7 +40,11 @@ class ExperimentConfig(BaseModel):
     )
 
     graph_version: str = Field(min_length=1)
-    random_seed: int | None = None
+    random_seed: int | None = Field(
+        default=None,
+        ge=0,
+        le=4294967295,
+    )
 
     limit: int | None = Field(
         default=None,

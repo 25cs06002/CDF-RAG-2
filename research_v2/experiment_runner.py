@@ -22,6 +22,7 @@ from pathlib import Path
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 from .base_pipeline import BaseRAGPipeline, PipelineRequest
+from .seeding import seed_libraries
 from .schema import PipelineRecord, StageTimings
 
 
@@ -142,6 +143,10 @@ def run_experiment(
     if not questions:
         raise ValueError("No questions supplied")
 
+    # Verify seeding support before creating outputs.
+    if random_seed is not None:
+        seed_libraries(random_seed)
+
     output_dir = output_root / run_id
 
     # Never overwrite a previous experiment.
@@ -155,6 +160,11 @@ def run_experiment(
         "pipeline_id": pipeline.pipeline_id,
         "graph_version_label": graph_version,
         "random_seed_label": random_seed,
+        "local_rng_seed_policy": (
+            "seed_before_each_query"
+            if random_seed is not None
+            else "unseeded"
+        ),
         "git_commit": git_commit(),
         "input_file": str(source_file.resolve()),
         "input_sha256": file_sha256(source_file),
@@ -181,6 +191,11 @@ def run_experiment(
     abort_reason = None
 
     records_path = output_dir / "records.jsonl"
+
+    if random_seed is not None:
+        (output_dir / "seed_events.jsonl").touch(
+            exist_ok=False
+        )
 
     started = time.perf_counter()
 
@@ -256,6 +271,25 @@ def run_experiment(
                 executed += 1
 
                 try:
+                    if random_seed is not None:
+                        seed_report = seed_libraries(
+                            random_seed
+                        )
+
+                        with (
+                            output_dir / "seed_events.jsonl"
+                        ).open(
+                            "a",
+                            encoding="utf-8",
+                        ) as seed_log:
+                            seed_log.write(
+                                json.dumps({
+                                    "query_id": question.query_id,
+                                    "query_index": index,
+                                    **seed_report,
+                                }) + "\n"
+                            )
+
                     record = pipeline.run(request)
 
                 except Exception as exc:
@@ -436,6 +470,9 @@ def main():
         + "_"
         + uuid.uuid4().hex[:8]
     )
+
+    if args.seed is not None:
+        seed_libraries(args.seed)
 
     pipeline = create_pipeline(args.pipeline)
 

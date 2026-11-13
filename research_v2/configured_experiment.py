@@ -15,6 +15,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from .experiment_config import prepare_experiment
+from .seeding import seed_libraries
 from .preflight import run_preflight
 from .graph_drift import GraphDriftMonitor
 
@@ -99,6 +100,10 @@ def run_configured_experiment(
         # Isolated unit tests need no live Neo4j.
         active_graph_checker = None
 
+    # Seed before constructing the model/pipeline.
+    if config.random_seed is not None:
+        seed_libraries(config.random_seed)
+
     pipeline = selected_factory(config.pipeline)
 
     if run_id is None:
@@ -159,7 +164,31 @@ def run_configured_experiment(
                 if preflight_report is not None
                 else None
             ),
-            "random_seed_is_label_only": True,
+            "random_seed_is_label_only": (
+                config.random_seed is None
+            ),
+            "local_random_seed_applied": (
+                config.random_seed is not None
+            ),
+            "local_seed_scope": [
+                "python_random",
+                "numpy_legacy_global_rng",
+                "torch_global_rng",
+            ],
+            "seed_applied_before_pipeline_init": (
+                config.random_seed is not None
+            ),
+            "seed_reapplied_before_each_query": (
+                config.random_seed is not None
+            ),
+            "ollama_seed_enforced": False,
+            "python_hash_seed_enforced": False,
+            "torch_deterministic_algorithms_enforced": False,
+            "seed_journal_file": (
+                "seed_events.jsonl"
+                if config.random_seed is not None
+                else None
+            ),
             "provenance_written_before_queries": True,
             "purpose": config.purpose,
         }

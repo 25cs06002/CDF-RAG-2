@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "graph_version": "G0",
+  "graph_structural_sha256": "e33446ccfe6e11513bf9613cecd00bbb6a7fb5ce0c0a77fe6f7ff92eaf42d33a",
+  "nodes_csv_sha256": "254890905388fb1e9df51da88b39b1686aa90247fd7da661f9d5aefc7c950675",
+  "edges_csv_sha256": "38fb6bddadc1f9b2777f2811e7ba15c6ab0b944143f41d8426590ea632f3e168",
+  "python_version": "3.12.3",
+  "ollama_version": "0.31.1",
+  "models": {
+    "generation": {
+      "name": "llama3.2:latest",
+      "digest": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72"
+    },
+    "refinement": {
+      "name": "llama3.2:latest",
+      "digest": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72"
+    },
+    "embedding": {
+      "name": "nomic-embed-text:latest",
+      "digest": "0a109f422b47e3a30ba2b10eca18548e944e8a23073ee3f3e947efcf3c45e59f"
+    }
+  },
+  "ppo_checkpoint_sha256": "d65ecdde6f03b8d70c2f8027c5c02dc88b9bb5a0455ea4afd7b470ebb5f58465",
+  "package_versions": {
+    "torch": "2.14.0",
+    "stable-baselines3": "2.9.0",
+    "gymnasium": "1.3.0",
+    "langgraph": "0.4.5",
+    "neo4j": "6.3.1",
+    "pydantic": "2.11.4",
+    "sentence-transformers": "4.1.0",
+    "transformers": "4.52.2",
+    "numpy": "1.26.4",
+    "python-dotenv": "1.1.0",
+    "requests": "2.32.3"
+  }
+}

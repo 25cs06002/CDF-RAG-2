@@ -15,6 +15,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from .experiment_config import prepare_experiment
+from .preflight import run_preflight
 
 from .experiment_runner import (
     PROJECT_ROOT,
@@ -31,6 +32,7 @@ def run_configured_experiment(
     run_id: str | None = None,
     project_root: Path = PROJECT_ROOT,
     pipeline_factory=None,
+    preflight_checker=None,
 ):
     """
     Execute one versioned experiment.
@@ -53,6 +55,30 @@ def run_configured_experiment(
         else create_pipeline
     )
 
+
+    # Real pipelines require fingerprint verification.
+    # Mock pipelines used by unit tests remain isolated.
+    if preflight_checker is not None:
+        preflight_report = preflight_checker(
+            config.pipeline,
+            config.graph_version,
+        )
+    elif pipeline_factory is None:
+        preflight_report = run_preflight(
+            config.pipeline,
+            config.graph_version,
+        )
+    else:
+        preflight_report = None
+
+    if (
+        preflight_report is not None
+        and preflight_report.get("status") != "pass"
+    ):
+        raise RuntimeError(
+            "Experiment blocked by runtime preflight"
+        )
+
     pipeline = selected_factory(config.pipeline)
 
     if run_id is None:
@@ -74,6 +100,18 @@ def run_configured_experiment(
         random_seed=config.random_seed,
     )
 
+    # Preserve successful preflight evidence.
+    if preflight_report is not None:
+        (
+            output_dir / "runtime_preflight.json"
+        ).write_text(
+            json.dumps(
+                preflight_report,
+                indent=2,
+            ) + "\n",
+            encoding="utf-8",
+        )
+
     # Preserve the exact bytes of the selected config.
     saved_config = (
         output_dir / "experiment_config.json"
@@ -90,7 +128,10 @@ def run_configured_experiment(
         "config_sha256": file_sha256(config_path),
         "dataset_sha256": config.dataset_sha256,
         "config_file": saved_config.name,
-        "graph_version_is_label_only": True,
+        "graph_version_is_label_only": preflight_report is None,
+        "graph_identity_checked_before_run": preflight_report is not None,
+        "graph_locked_during_run": False,
+        "runtime_preflight_file": "runtime_preflight.json" if preflight_report is not None else None,
         "random_seed_is_label_only": True,
         "purpose": config.purpose,
     }

@@ -314,14 +314,17 @@ def audit_remaining_review_workspace(
             continue
         if decision not in QUESTION_DECISIONS:
             raise ValueError(f"Unknown answerability decision: {qid}")
+        # Apply the categorical prediction guard before source-reference checks.
+        # PILOT_093 deliberately has no registered source, so the unsupported
+        # exact-person prediction rule is the more informative primary error.
+        if decision == "answerable" and row["query_type"] == "unsupported":
+            raise ValueError(f"Unsupported exact-person prediction cannot be labeled answerable: {qid}")
         _review_identity(row, qid)
         source_ids = _parse_ids(row["supporting_source_ids"])
         allowed = sources_by_qid.get(qid, {})
         if not set(source_ids).issubset(allowed):
             raise ValueError(f"Question cites unregistered source: {qid}")
         if decision == "answerable":
-            if row["query_type"] == "unsupported":
-                raise ValueError(f"Unsupported exact-person prediction cannot be labeled answerable: {qid}")
             if not row["draft_reference_answer"].strip() or not source_ids:
                 raise ValueError(f"Answerable question needs a source-backed draft: {qid}")
             if not all(allowed[s]["review_decision"] == "supports" for s in source_ids):

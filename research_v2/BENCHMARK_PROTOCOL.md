@@ -189,3 +189,57 @@ No automated validation can certify human clinical review.
 a first *human-reviewed*, source-attributed annotation subset. Preserve the
 drafts and candidate registry as separate immutable versions. The G0 graph
 snapshot and existing legacy RL/No-RL code are unchanged.
+
+
+## Phase 2C: first source-checked evidence proposals (not gold)
+
+`data/benchmark/evidence_proposals3_v1.jsonl` contains **three topic-level
+proposals covering six draft questions** and **six candidate relations**.
+The three source pages were inspected on 2026-11-13:
+
+1. `SRC001`: NHLBI, *Coronary Heart Disease Causes and Prevention*,
+   https://www.nhlbi.nih.gov/health/coronary-heart-disease/causes
+2. `SRC004`: NIDDK, *Risk Factors for Type 2 Diabetes*,
+   https://www.niddk.nih.gov/health-information/diabetes/overview/risk-factors-type-2-diabetes
+3. `SRC007`: NHLBI, *COPD Causes and Risk Factors*,
+   https://www.nhlbi.nih.gov/health/copd/causes
+
+These are **source-triaged candidate relations only**, not independently
+reviewed reference labels. Every proposal has an explicit relationship
+type, source heading, paraphrased support summary, question for human review,
+and any unresolved scope issue. No evidence excerpt is reproduced.
+
+Candidate counts: `CAUSES=2`, `RISK_FACTOR_FOR=4`.
+No candidate was added to the G0 graph, promoted to medical gold,
+assigned to a train/test partition, or used to calculate accuracy.
+
+**Critical annotation distinctions**:
+
+- `EVP001`: NHLBI discusses *coronary heart disease* and plaque buildup.
+  The pilot uses *coronary artery disease*. A reviewer must resolve their
+  exact scope and ontology mapping **before** treating the relationship
+  as a gold edge for the target concept.
+- `EVP002`: NIDDK presents overweight/obesity, inactivity, and family
+  history as type 2 diabetes **risk factors**, not as deterministic,
+  individually predictive causes.
+- `EVP003`: NHLBI describes smoking as a cause of COPD and discusses
+  pollutant exposures as risks. Review exposure duration, population,
+  inherited susceptibility, and the evidence for each proposed edge.
+
+### Generate the evidence-review pack
+
+```bash
+python3 -m research_v2.evidence_proposal_review
+
+OUT="../CDF-RAG-2-experiment-artifacts/phase2/evidence_review_$(date -u +%Y%m%dT%H%M%SZ)"
+python3 -m research_v2.evidence_proposal_review --output-dir "$OUT"
+```
+
+Generated files: `evidence_review_worklist.jsonl` and
+`evidence_review_profile.json`. Neither contains verified medical gold.
+
+**Next milestone**: inspect the source text independently, resolve the
+ontology mismatches, review medical claims, and create a separate reviewed
+annotation version. The remaining 24 source-linked direct/paraphrase
+questions have not been source-triaged at this level, and the remaining
+70 pilot questions still lack a candidate-source worklist.

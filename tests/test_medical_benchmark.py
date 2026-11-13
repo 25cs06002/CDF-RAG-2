@@ -140,6 +140,43 @@ class TestMedicalBenchmark(unittest.TestCase):
         result = audit_benchmark([a, b], strict=True)
         self.assertEqual(result["total_questions"], 2)
 
+    def test_unsupported_without_source_family_is_allowed(self):
+        record = MedicalBenchmarkRecord.model_validate(reviewed(
+            answerable=False,
+            abstention_reason="Insufficient evidence in the defined corpus.",
+            gold_answer=None,
+            gold_entities=[],
+            evidence_sources=[],
+            source_family=None,
+        ))
+        self.assertFalse(record.answerable)
+        self.assertIsNone(record.source_family)
+
+    def test_answerable_requires_source_family(self):
+        with self.assertRaisesRegex(ValidationError, "source_family"):
+            MedicalBenchmarkRecord.model_validate(reviewed(
+                source_family=None
+            ))
+
+    def test_cross_split_same_evidence_url_rejected(self):
+        a = MedicalBenchmarkRecord.model_validate(reviewed())
+        b = MedicalBenchmarkRecord.model_validate(reviewed(
+            query_id="D002",
+            query="Different topic with same reference source?",
+            split="test",
+            question_family="qfam_b",
+            concept_family="cfam_b",
+            source_family="sfam_b",
+            evidence_sources=[{
+                "source_id": "DIFFERENT_SOURCE_ID",
+                "title": "Same underlying page",
+                "url": "https://example.org/synthetic",
+                "source_type": "other",
+            }],
+        ))
+        with self.assertRaisesRegex(ValueError, "evidence URL leakage"):
+            audit_benchmark([a, b], strict=True)
+
     def test_jsonl_reports_line_number(self):
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / "bench.jsonl"

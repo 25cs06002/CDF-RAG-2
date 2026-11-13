@@ -138,3 +138,54 @@ exist. Mark `source_reviewed` only after an actual review. Obtain expert
 review of a sample when possible. Assign families and final splits only after
 review. Then create **separate** gold and inference-only exports, and validate
 that no held-out answers enter refinement or PPO training.
+
+
+## Phase 2B: candidate evidence-source reading queue
+
+`data/benchmark/source_candidates15_v1.jsonl` contains 15 **candidate**
+public-health references, one for each initial direct/paraphrased
+question topic. These URLs were located on NIH, CDC, NCI, or MedlinePlus
+websites; they are **not reviewed citations for individual gold claims**.
+Candidate metadata says `awaiting_source_review`, `gold_annotation_status:
+none`, and `verified_medical_gold: false`.
+
+Run from the project root:
+
+```bash
+python3 -m research_v2.source_review_queue
+
+OUT="../CDF-RAG-2-experiment-artifacts/phase2/source_review_$(date -u +%Y%m%dT%H%M%SZ)"
+python3 -m research_v2.source_review_queue --output-dir "$OUT"
+```
+
+This creates a **30-question worklist** using 15 direct questions and
+their 15 paraphrases. Each worklist row includes a matching source
+candidate, its scope warnings, and tasks for a human reviewer.
+
+**Critical scope distinctions**:
+- Asthma pages about *attack triggers* do not establish *asthma onset causes*.
+- Migraine *attack triggers* are not equivalent to migraine etiology.
+- Epilepsy causes must be distinguished from individual seizure triggers.
+- For stroke, separate ischemic versus hemorrhagic mechanisms.
+- Risk-factor association alone must not automatically be encoded as
+  a verified `CAUSES` relationship.
+- Pneumonia and tuberculosis have different exposure, cause, and disease-
+  progression questions; avoid conflating them.
+
+The worklist includes candidate URLs, **not** claims that those URLs support
+each question. Before annotation, open each source, verify its medical scope,
+check the specific proposition and direction, and record the actual reviewer's
+identity. Seek stronger primary research or guidelines for contested causal
+steps, long multi-hop chains, or complex questions. At this phase the queue
+only covers 30 questions; the other 70 have not received candidates.
+
+The source-aware partition checker rejects reuse of the **same source URL**
+in different splits, even under different source IDs or source-family labels.
+Reviewed unanswerable questions without any source may leave
+`source_family=null` but still require a documented abstention reason.
+No automated validation can certify human clinical review.
+
+**Next substantive milestone**: independently inspect the sources and create
+a first *human-reviewed*, source-attributed annotation subset. Preserve the
+drafts and candidate registry as separate immutable versions. The G0 graph
+snapshot and existing legacy RL/No-RL code are unchanged.

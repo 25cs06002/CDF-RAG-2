@@ -112,11 +112,18 @@ class MedicalBenchmarkRecord(BaseModel):
             raise ValueError("Reviewed annotation requires answerable")
         if not all(
             value is not None and value.strip()
-            for value in (
-                self.question_family, self.concept_family, self.source_family,
-            )
+            for value in (self.question_family, self.concept_family)
         ):
-            raise ValueError("Reviewed annotation requires all split families")
+            raise ValueError(
+                "Reviewed annotation requires question and concept families"
+            )
+        if (
+            (self.answerable or self.evidence_sources)
+            and not self.source_family
+        ):
+            raise ValueError(
+                "Reviewed annotation with sources requires source_family"
+            )
 
         if self.answerable:
             if not self.gold_answer or not self.gold_answer.strip():
@@ -169,6 +176,10 @@ def audit_benchmark(records: list[MedicalBenchmarkRecord], *, strict=False) -> d
             "question_family", "concept_family", "source_family"
         )
     }
+    # Match actual source URLs, not merely manually assigned family labels.
+    # Otherwise the same publication could be reused across held-out splits
+    # under different source IDs or family strings.
+    source_url_splits = {}
 
     for record in records:
         if record.query_id in seen_ids:
@@ -197,6 +208,16 @@ def audit_benchmark(records: list[MedicalBenchmarkRecord], *, strict=False) -> d
                     f"{groups[value]} versus {record.split}"
                 )
             groups[value] = record.split
+
+        for source in record.evidence_sources:
+            url = str(source.url).rstrip("/").casefold()
+            prior = source_url_splits.get(url)
+            if prior is not None and prior != record.split:
+                raise ValueError(
+                    f"Cross-split evidence URL leakage for {url}: "
+                    f"{prior} versus {record.split}"
+                )
+            source_url_splits[url] = record.split
 
     return {
         "schema_version": 1,

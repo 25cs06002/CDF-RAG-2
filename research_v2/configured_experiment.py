@@ -90,6 +90,62 @@ def run_configured_experiment(
             f"{timestamp}_{uuid.uuid4().hex[:8]}"
         )
 
+    def save_metadata_before_run(output_dir: Path):
+        # This callback is called before the first query.
+
+        if preflight_report is not None:
+            (
+                output_dir / "runtime_preflight.json"
+            ).write_text(
+                json.dumps(
+                    preflight_report,
+                    indent=2,
+                ) + "\n",
+                encoding="utf-8",
+            )
+
+        saved_config = (
+            output_dir / "experiment_config.json"
+        )
+
+        shutil.copyfile(
+            config_path,
+            saved_config,
+        )
+
+        provenance = {
+            "experiment_name": config.experiment_name,
+            "config_schema_version": config.schema_version,
+            "config_sha256": file_sha256(config_path),
+            "dataset_sha256": config.dataset_sha256,
+            "config_file": saved_config.name,
+            "graph_version_is_label_only": (
+                preflight_report is None
+            ),
+            "graph_identity_checked_before_run": (
+                preflight_report is not None
+            ),
+            "graph_locked_during_run": False,
+            "runtime_preflight_file": (
+                "runtime_preflight.json"
+                if preflight_report is not None
+                else None
+            ),
+            "random_seed_is_label_only": True,
+            "provenance_written_before_queries": True,
+            "purpose": config.purpose,
+        }
+
+        (
+            output_dir / "config_provenance.json"
+        ).write_text(
+            json.dumps(
+                provenance,
+                indent=2,
+            ) + "\n",
+            encoding="utf-8",
+        )
+
     summary, output_dir = run_experiment(
         pipeline=pipeline,
         questions=questions,
@@ -98,52 +154,7 @@ def run_configured_experiment(
         output_root=Path(output_root),
         graph_version=config.graph_version,
         random_seed=config.random_seed,
-    )
-
-    # Preserve successful preflight evidence.
-    if preflight_report is not None:
-        (
-            output_dir / "runtime_preflight.json"
-        ).write_text(
-            json.dumps(
-                preflight_report,
-                indent=2,
-            ) + "\n",
-            encoding="utf-8",
-        )
-
-    # Preserve the exact bytes of the selected config.
-    saved_config = (
-        output_dir / "experiment_config.json"
-    )
-
-    shutil.copyfile(
-        config_path,
-        saved_config,
-    )
-
-    provenance = {
-        "experiment_name": config.experiment_name,
-        "config_schema_version": config.schema_version,
-        "config_sha256": file_sha256(config_path),
-        "dataset_sha256": config.dataset_sha256,
-        "config_file": saved_config.name,
-        "graph_version_is_label_only": preflight_report is None,
-        "graph_identity_checked_before_run": preflight_report is not None,
-        "graph_locked_during_run": False,
-        "runtime_preflight_file": "runtime_preflight.json" if preflight_report is not None else None,
-        "random_seed_is_label_only": True,
-        "purpose": config.purpose,
-    }
-
-    (
-        output_dir / "config_provenance.json"
-    ).write_text(
-        json.dumps(
-            provenance,
-            indent=2,
-        ),
-        encoding="utf-8",
+        on_run_ready=save_metadata_before_run,
     )
 
     return summary, output_dir

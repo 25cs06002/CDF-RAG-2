@@ -7,6 +7,7 @@ One pipeline and one question are executed at a time.
 """
 
 import argparse
+from collections.abc import Callable
 import hashlib
 import json
 import re
@@ -122,6 +123,7 @@ def run_experiment(
     output_root: Path,
     graph_version: str = "G0",
     random_seed: int | None = None,
+    on_run_ready: Callable[[Path], None] | None = None,
 ):
     """
     Run one selected pipeline sequentially.
@@ -164,6 +166,10 @@ def run_experiment(
         json.dumps(manifest, indent=2),
         encoding="utf-8",
     )
+
+    # Save provenance before processing any question.
+    if on_run_ready is not None:
+        on_run_ready(output_dir)
 
     success = 0
     abstained = 0

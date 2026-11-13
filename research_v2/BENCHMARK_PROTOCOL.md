@@ -378,3 +378,78 @@ resolve the asthma source gap, then prepare a separately adjudicated
 gold-label version after any domain-expert review required by the
 study protocol. In parallel, locate evidence for the remaining 70
 questions. Maintain the G0 graph and the original proposal datasets.
+
+
+## Phase 2F: source-discovery queue for the remaining 70 questions
+
+The first 30 direct/paraphrased questions have candidate source triage and
+a separate human-review workspace. The remaining 70 questions require a
+different set of review tasks; many are multi-hop, comparisons, symptom-only
+questions or deliberately unsupported individual predictions.
+
+**New, unreviewed inputs**:
+
+- `data/benchmark/additional_source_candidates8_v1.jsonl`:
+  eight additional official topic pages from NHLBI, CDC and MedlinePlus,
+  identified through public web searches on 2026-11-13.
+- `data/benchmark/remaining70_source_map_v1.jsonl`:
+  70 explicit question-to-source-candidate mappings. Every mapping states
+  the review route, source IDs, scope warnings and missing-evidence status.
+- `research_v2/remaining_source_queue.py`:
+  validates mapping/registry integrity against the exact versioned
+  100-question draft and exports a 70-question reading queue.
+
+The source bundle is **background reading**. It is not proof that the
+given question's answer, two-way comparison, causal arrow or multi-hop
+path is supported. Do not treat the fact that a reference has a
+`.nih.gov`, `.cdc.gov`, or `medlineplus.gov` domain as a substitute for
+reading the actual relevant passage.
+
+### Expected source-discovery audit
+
+- 70 remaining draft questions, in six types: indirect (15), multi-hop
+  (15), comparative (12), risk-factor (12), ambiguous (8), unsupported (8).
+- 69 have one or more **candidate reading links**; PILOT_093 deliberately
+  has no source because it requests an exact personal future prediction
+  without personal inputs.
+- 89 candidate link assignments draw from 23 distinct source pages
+  (15 prior topic pages and 8 newly located pages).
+- 18 questions explicitly flag missing sources / verification:
+  all 15 multi-hop questions, two comparisons whose candidate sources
+  are inadequate for both sides, and PILOT_093.
+- **Zero** independently reviewed medical annotations, verified causal
+  paths or final gold labels are produced by this step.
+
+```bash
+# Read-only inspection; no model or Neo4j execution.
+python3 -m research_v2.remaining_source_queue
+
+OUT="../CDF-RAG-2-experiment-artifacts/phase2/remaining70_$(date -u +%Y%m%dT%H%M%SZ)"
+python3 -m research_v2.remaining_source_queue --output-dir "$OUT"
+```
+
+Outputs: `remaining70_source_queue.jsonl` and
+`remaining70_source_profile.json`. The output directory cannot be
+overwritten accidentally.
+
+### How to review by question category
+
+- **Indirect concept**: check term equivalence, disease subtype and
+  whether a single candidate source is enough to resolve the concept.
+- **Multi-hop**: locate and annotate support for **every** intermediate
+  link; no answer or causal path is assumed merely from topic pages.
+- **Comparative**: separately review both conditions and the metric or
+  mechanism being compared; two sources are not themselves evidence of
+  a valid comparison.
+- **Risk-factor**: distinguish association, modifier and proven mechanism
+  and note relevant population groups.
+- **Ambiguous**: assess missing clinical context and defensible
+  uncertainty; do not diagnose an individual from a vague symptom.
+- **Unsupported**: record why an exact prediction or diagnosis is not
+  justified; background pages cannot fill in missing patient data.
+
+Where a source link is insufficient, record and resolve the gap before
+human annotation. Prior versions, G0, PPO checkpoints and test-set
+ground truth remain untouched. **Next milestone** is substantive human
+review and a separate approved annotation version; do not auto-fill
+the 55 existing review decisions or the 70 new questions.

@@ -243,3 +243,72 @@ ontology mismatches, review medical claims, and create a separate reviewed
 annotation version. The remaining 24 source-linked direct/paraphrase
 questions have not been source-triaged at this level, and the remaining
 70 pilot questions still lack a candidate-source worklist.
+
+
+## Phase 2D: complete initial source triage for 30 direct/paraphrase questions
+
+The first candidate source triage set is now **15 topic-level work items,
+covering all 30 direct/paraphrase questions**. Versioned inputs:
+
+- `data/benchmark/source_candidates15_v2.jsonl`
+- `data/benchmark/evidence_proposals15_v2.jsonl`
+
+The version 1 files remain unchanged for reproducibility. The version 2
+candidate-source registry replaces exactly two URLs that were inaccessible
+during triage (NINDS epilepsy page and NIMH depression page) with available
+National Library of Medicine MedlinePlus summaries. Both source variants
+remain candidate references pending independent review.
+
+### Outcome reporting (do not inflate evidence coverage)
+
+The 15 source-checked topic proposals yielded:
+
+- **14** topic proposals with one or more *candidate* relationships,
+  covering **28** draft questions;
+- **1** topic proposal with **no applicable onset evidence**, covering
+  **2** draft questions (asthma);
+- **24** candidate relation descriptions: 12 `CAUSES`,
+  11 `RISK_FACTOR_FOR`, and 1 `ASSOCIATED_WITH`;
+- **0** medically verified gold labels, **0** human-reviewed annotations,
+  and **0** final train/validation/test assignments.
+
+The asthma source is explicitly about triggers of an asthma *attack*,
+which are not evidence that the trigger caused the underlying asthma disease
+to develop. An `insufficient_for_question` proposal **must** have zero
+candidate relationships and a specific reason explaining the evidence gap.
+This is an annotation-data distinction, not a model abstention result.
+
+Other qualifications requiring review:
+- The stroke source distinguishes ischemic from hemorrhagic stroke; the
+  candidate cause applies only to ischemic stroke.
+- Heart failure subtypes HFrEF and HFpEF have different mechanisms.
+- Weight gain, obesity, and factors associated with weight change are not
+  interchangeable target labels.
+- Migraine attack triggers must not be mislabeled as causes of migraine onset.
+- TB exposure must be distinguished from progression to active disease
+  after infection.
+- Epilepsy and depression commonly have multifactorial or uncertain causes.
+- Population-level risk factors are not proof of an individual's diagnosis.
+
+### Generate the full preliminary review worklist
+
+```bash
+python3 -m research_v2.source_review_queue
+python3 -m research_v2.evidence_proposal_review
+
+OUT="../CDF-RAG-2-experiment-artifacts/phase2/evidence_review_15topics_$(date -u +%Y%m%dT%H%M%SZ)"
+python3 -m research_v2.evidence_proposal_review --output-dir "$OUT"
+```
+
+The generated review pack **does not** become ground truth by passing
+automated tests. A human reviewer must inspect the specific source passage,
+population, causal relation and terminology, and assign genuine review
+metadata. For unsupported source coverage, seek another source or record
+the question as unresolved; never generate a causal edge merely to increase
+the benchmark score.
+
+Next substantive task: independent annotation of this 30-question subset
+and evidence retrieval for the other 70 draft questions, especially indirect
+and multi-hop questions. Once a *real* reviewed subset exists, build
+source- and concept-grouped partitions, followed by evidence-backed G1 graph
+snapshots. Do not change the old G0 graph or existing PPO model.

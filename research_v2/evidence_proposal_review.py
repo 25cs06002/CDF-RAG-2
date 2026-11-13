@@ -27,7 +27,10 @@ class EvidenceProposal(BaseModel):
     candidate_source_id: str = Field(min_length=1)
     source_section: str = Field(min_length=1)
     source_checked_date: str = Field(pattern=r"^\d{4}-\d{2}-\d{2}$")
-    proposed_relationships: list["ProposedRelationship"] = Field(min_length=1)
+    proposed_relationships: list["ProposedRelationship"] = Field(default_factory=list)
+    proposal_outcome: Literal[
+        "candidate_relations", "insufficient_for_question"
+    ] = "candidate_relations"
     unresolved_scope_issue: str | None = None
     provenance_status: Literal["ai_source_triage_needs_independent_review"]
     human_review_completed: Literal[False]
@@ -37,6 +40,14 @@ class EvidenceProposal(BaseModel):
     def no_duplicate_query_ids(self):
         if len(set(self.query_ids)) != len(self.query_ids):
             raise ValueError("Duplicate query ID within proposal")
+        if self.proposal_outcome == "candidate_relations":
+            if not self.proposed_relationships:
+                raise ValueError("Candidate relations outcome requires relationships")
+        else:
+            if self.proposed_relationships:
+                raise ValueError("Insufficient evidence cannot include relationships")
+            if not self.unresolved_scope_issue or not self.unresolved_scope_issue.strip():
+                raise ValueError("Insufficient evidence requires unresolved_scope_issue")
         return self
 
 
@@ -115,6 +126,7 @@ def build_evidence_review_pack(pilot_file: Path, sources_file: Path, proposals_f
             "candidate_source": source.model_dump(mode="json"),
             "checked_date": proposal.source_checked_date,
             "source_section": proposal.source_section,
+            "proposal_outcome": proposal.proposal_outcome,
             "proposed_relationships": [
                 item.model_dump() for item in proposal.proposed_relationships
             ],
@@ -135,6 +147,17 @@ def build_evidence_review_pack(pilot_file: Path, sources_file: Path, proposals_f
         "proposal_count": len(reviewed_rows),
         "question_count": len(seen_questions),
         "unique_candidate_sources": len({p.candidate_source_id for p in proposals}),
+        "proposal_outcome_counts": dict(sorted(Counter(
+            p.proposal_outcome for p in proposals
+        ).items())),
+        "questions_with_candidate_relations": sum(
+            len(p.query_ids) for p in proposals
+            if p.proposal_outcome == "candidate_relations"
+        ),
+        "questions_needing_additional_sources": sum(
+            len(p.query_ids) for p in proposals
+            if p.proposal_outcome == "insufficient_for_question"
+        ),
         "relationship_type_counts": dict(sorted(Counter(
             rel.relation for p in proposals for rel in p.proposed_relationships
         ).items())),
@@ -168,11 +191,11 @@ def main():
     )
     parser.add_argument(
         "--sources", type=Path,
-        default=Path("data/benchmark/source_candidates15_v1.jsonl"),
+        default=Path("data/benchmark/source_candidates15_v2.jsonl"),
     )
     parser.add_argument(
         "--proposals", type=Path,
-        default=Path("data/benchmark/evidence_proposals3_v1.jsonl"),
+        default=Path("data/benchmark/evidence_proposals15_v2.jsonl"),
     )
     parser.add_argument("--output-dir", type=Path)
     args = parser.parse_args()

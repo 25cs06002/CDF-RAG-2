@@ -170,7 +170,7 @@ def main():
     )
     parser.add_argument(
         "--candidates", type=Path,
-        default=Path("data/benchmark/source_candidates15_v1.jsonl"),
+        default=Path("data/benchmark/source_candidates15_v2.jsonl"),
     )
     parser.add_argument("--output-dir", type=Path)
     args = parser.parse_args()

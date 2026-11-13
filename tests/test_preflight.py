@@ -12,7 +12,9 @@ from research_v2.configured_experiment import (
 from research_v2.experiment_runner import file_sha256
 from research_v2.preflight import (
     DEFAULT_LOCK,
+    PreflightError,
     compare_runtime,
+    run_preflight,
 )
 from research_v2.schema import PipelineRecord
 
@@ -85,6 +87,9 @@ class TestRuntimePreflight(unittest.TestCase):
             },
             "package_versions": copy.deepcopy(
                 self.lock["package_versions"]
+            ),
+            "sentence_transformer": copy.deepcopy(
+                self.lock["sentence_transformer"]
             ),
             "ppo_checkpoint_sha256": (
                 self.lock["ppo_checkpoint_sha256"]
@@ -173,6 +178,75 @@ class TestRuntimePreflight(unittest.TestCase):
             self.check("rl")["status"],
             "fail",
         )
+
+    def test_sentence_snapshot_verified(self):
+        report = self.check()
+
+        self.assertEqual(report["status"], "pass")
+        self.assertTrue(
+            report[
+                "sentence_encoder_cached_snapshot_verified"
+            ]
+        )
+        self.assertFalse(
+            report[
+                "sentence_encoder_runtime_revision_enforced"
+            ]
+        )
+
+    def test_sentence_weights_changed_rejected(self):
+        self.actual["sentence_transformer"][
+            "snapshot_sha256"
+        ] = "f" * 64
+
+        report = self.check()
+
+        self.assertEqual(report["status"], "fail")
+        self.assertIn(
+            "sentence_model_snapshot_sha256",
+            report["failed_checks"],
+        )
+
+    def test_sentence_revision_changed_rejected(self):
+        self.actual["sentence_transformer"][
+            "revision"
+        ] = "0" * 40
+
+        report = self.check()
+
+        self.assertEqual(report["status"], "fail")
+        self.assertIn(
+            "sentence_model_revision",
+            report["failed_checks"],
+        )
+
+    def test_missing_sentence_weights_rejected(self):
+        self.actual["sentence_transformer"][
+            "weight_files"
+        ] = []
+
+        report = self.check()
+
+        self.assertEqual(report["status"], "fail")
+        self.assertIn(
+            "sentence_model_weight_files",
+            report["failed_checks"],
+        )
+
+    def test_legacy_lock_cannot_skip_asset_check(self):
+        legacy_lock = DEFAULT_LOCK.with_name(
+            "g0_runtime_lock_v1.json"
+        )
+
+        with self.assertRaisesRegex(
+            PreflightError,
+            "SentenceTransformer fingerprint",
+        ):
+            run_preflight(
+                "no_rl",
+                "G0",
+                lock_path=legacy_lock,
+            )
 
     def test_launcher_saves_preflight_report(self):
         with tempfile.TemporaryDirectory() as tmp:

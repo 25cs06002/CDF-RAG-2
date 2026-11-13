@@ -19,6 +19,11 @@ import requests
 from dotenv import load_dotenv
 
 from .experiment_config import prepare_experiment
+from .sentence_model_assets import (
+    MODEL_ID,
+    fingerprint_snapshot,
+    resolve_cached_snapshot,
+)
 from .experiment_runner import PROJECT_ROOT, file_sha256
 from .graph_identity import (
     compare_graphs,
@@ -29,7 +34,7 @@ from .graph_identity import (
 
 DEFAULT_LOCK = (
     PROJECT_ROOT
-    / "research_v2/configs/g0_runtime_lock_v1.json"
+    / "research_v2/configs/g0_runtime_lock_v2.json"
 )
 
 
@@ -108,7 +113,26 @@ def collect_runtime(project_root=PROJECT_ROOT):
         root / "ppo_query_refiner_2.zip"
     )
 
+    # Local-only resolution: never downloads model files.
+    snapshot_path = resolve_cached_snapshot()
+    snapshot_info = fingerprint_snapshot(
+        snapshot_path
+    )
+
     return {
+        "sentence_transformer": {
+            "model_id": MODEL_ID,
+            "revision": snapshot_path.name,
+            "snapshot_sha256": (
+                snapshot_info["snapshot_sha256"]
+            ),
+            "asset_file_count": (
+                snapshot_info["asset_file_count"]
+            ),
+            "weight_files": (
+                snapshot_info["weight_files"]
+            ),
+        },
         "python_version": (
             sys.version.split()[0]
         ),
@@ -256,6 +280,24 @@ def compare_runtime(
             ),
         )
 
+    expected_sentence = lock["sentence_transformer"]
+    actual_sentence = actual["sentence_transformer"]
+
+    sentence_keys = [
+        "model_id",
+        "revision",
+        "snapshot_sha256",
+        "asset_file_count",
+        "weight_files",
+    ]
+
+    for field in sentence_keys:
+        check(
+            f"sentence_model_{field}",
+            expected_sentence[field],
+            actual_sentence.get(field),
+        )
+
     if pipeline == "rl":
         check(
             "ppo_checkpoint_sha256",
@@ -287,6 +329,12 @@ def compare_runtime(
         "graph_locked_during_run": False,
         "random_seed_enforced": False,
         "sentence_encoder_weights_verified": False,
+        "sentence_encoder_cached_snapshot_verified": all(
+            checks[f"sentence_model_{field}"]["passed"]
+            for field in sentence_keys
+        ),
+        "sentence_encoder_runtime_revision_enforced": False,
+        "sentence_encoder_model_loaded_for_test": False,
     }
 
 
@@ -302,6 +350,13 @@ def run_preflight(
             encoding="utf-8"
         )
     )
+
+    if "sentence_transformer" not in lock:
+        raise PreflightError(
+            "Runtime lock does not contain the "
+            "SentenceTransformer fingerprint. "
+            "Use the G0 v2 runtime lock."
+        )
 
     actual = collect_runtime()
 

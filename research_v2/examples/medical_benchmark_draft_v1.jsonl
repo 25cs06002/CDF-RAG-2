@@ -1,0 +1,2 @@
+{"query_id":"DRAFT_001","query":"What factors contribute to the risk of heart disease?","query_type":"risk_factor","difficulty":"easy","target_concept":"heart disease","answerable":null,"review_status":"draft"}
+{"query_id":"DRAFT_002","query":"What intermediate mechanisms might link obesity and cardiovascular disease?","query_type":"multi_hop","difficulty":"hard","target_concept":"cardiovascular disease","answerable":null,"review_status":"draft"}

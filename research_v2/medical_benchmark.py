@@ -62,6 +62,12 @@ class MedicalBenchmarkRecord(BaseModel):
     query_id: str = Field(min_length=1)
     query: str = Field(min_length=1)
     query_type: QueryType
+    medical_domain: Literal[
+        "cardiovascular", "respiratory", "metabolic", "renal",
+        "neurological", "infectious_disease", "mental_health",
+        "oncology", "endocrine", "gastroenterology",
+        "environmental_health", "general_medicine",
+    ] | None = None
     difficulty: Literal["easy", "medium", "hard"]
     target_concept: str | None = None
     answerable: bool | None = None
@@ -197,6 +203,9 @@ def audit_benchmark(records: list[MedicalBenchmarkRecord], *, strict=False) -> d
         "total_questions": len(records),
         "query_type_counts": dict(sorted(Counter(
             r.query_type for r in records
+        ).items())),
+        "medical_domain_counts": dict(sorted(Counter(
+            r.medical_domain or "unspecified" for r in records
         ).items())),
         "review_status_counts": dict(sorted(Counter(
             r.review_status for r in records

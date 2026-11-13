@@ -82,3 +82,59 @@ create automatic partitions, or evaluate medical accuracy.
 PubMedQA, MedQA or MedMCQA may be incorporated as **separate external QA
 tracks** after inspecting license and task formats. Their existing answer
 labels must not be treated as ready-made causal-edge/path gold.
+
+
+## Phase 2A: 100-question unreviewed pilot
+
+The repository now includes `data/benchmark/medical_causal_pilot100_draft_v1.jsonl`.
+These questions are **AI-authored drafts for later human checking**, not a
+validated medical benchmark and not gold labels. Do not report their contents
+as established medical mechanisms. Every row has an explicit medical domain,
+a target topic, question/concept family IDs, `review_status="draft"`,
+`answerable=null`, and **no final split or evidence**.
+
+The pilot distribution is deliberately stratified:
+
+| Type | Draft questions |
+| --- | ---: |
+| Direct | 15 |
+| Paraphrased | 15 |
+| Indirect | 15 |
+| Multi-hop | 15 |
+| Comparative | 12 |
+| Risk-factor | 12 |
+| Ambiguous | 8 |
+| Unsupported | 8 |
+| **Total** | **100** |
+
+The 15 direct prompts have corresponding paraphrased prompts in the same
+`question_family`. Never put members of the same family in different
+train/validation/test partitions. A second script validates the exact
+distribution and exports only `query_id` and `query` for inference.
+
+```bash
+python3 -m research_v2.pilot_preparation \
+  --input data/benchmark/medical_causal_pilot100_draft_v1.jsonl
+
+# Optional: write query-only export and a provenance profile.
+python3 -m research_v2.pilot_preparation \
+  --input data/benchmark/medical_causal_pilot100_draft_v1.jsonl \
+  --output-dir ../CDF-RAG-2-experiment-artifacts/phase2/pilot100_inputs_v1
+```
+
+The exporter never creates ground truth or verified medical judgments.
+The pilot has not been split or source-reviewed. Its queries should be revised
+against medical sources before any official evaluation. An export is useful
+for schema testing, but **do not** treat the results from running these queries
+against G0 as an accuracy or quality benchmark: most draft concepts are not
+represented in the tiny G0 graph.
+
+### Upcoming annotation milestone
+
+Review each question for clarity, answerability, source support, and whether
+its proposed intermediate causal links are valid. Record the source IDs and
+medical relationship types; do not assume indirect or multi-hop causal paths
+exist. Mark `source_reviewed` only after an actual review. Obtain expert
+review of a sample when possible. Assign families and final splits only after
+review. Then create **separate** gold and inference-only exports, and validate
+that no held-out answers enter refinement or PPO training.

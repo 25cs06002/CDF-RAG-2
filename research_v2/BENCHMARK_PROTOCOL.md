@@ -312,3 +312,69 @@ and evidence retrieval for the other 70 draft questions, especially indirect
 and multi-hop questions. Once a *real* reviewed subset exists, build
 source- and concept-grouped partitions, followed by evidence-backed G1 graph
 snapshots. Do not change the old G0 graph or existing PPO model.
+
+
+## Phase 2E: human annotation worksheets for the first 30 questions
+
+To move from AI-authored candidate relationships toward **independently
+reviewed medical gold**, create immutable-source, editable-decision files:
+
+```bash
+OUT="$HOME/Folder/CDF-RAG-2-experiment-artifacts/phase2/human_review_$(date -u +%Y%m%dT%H%M%SZ)"
+python3 -m research_v2.reviewer_workspace --output-dir "$OUT"
+
+# Before changing any decision fields, this should report 55 pending tasks:
+python3 -m research_v2.reviewer_workspace --audit-dir "$OUT"
+```
+
+**Outputs**:
+- `claim_review.csv`: 24 proposed relationships plus one
+  **insufficient-source gap** (25 tasks). The draft claim, type,
+  source, section, medical scope warning, and proposal ID are immutable.
+- `question_review.csv`: one row for each of 30 direct/paraphrased
+  questions, for human answerability and reference-answer review.
+- `review_manifest.json`: SHA-256 hashes of the pilot,
+  candidate-source registry, and proposal file.
+
+Edit **only reviewer decision columns**. Keep all original-source fields
+unchanged. If the candidate claim is wrong, use `revise` and fill in
+corrected cause/effect/relation; never silently rewrite the AI-authored
+candidate fields. A reviewed `accept` or `revise` decision must include
+a source passage locator and reviewer rationale. A `reject` or
+`needs_more_evidence` decision requires rationale but does not imply
+there is a supported gold relationship.
+
+For question rows, set answerability as `answerable`,
+`unanswerable`, or `needs_more_evidence`. If `answerable`,
+provide a reference answer and supporting registered source ID(s).
+This first worksheet version restricts support IDs to the matching
+candidate source; introducing additional sources requires a new,
+versioned registry and review workbook. For medical questions,
+`unanswerable` means not answerable from the defined evidence and
+case details, not a universal claim that the condition has no explanation.
+
+For all decided rows, fill in an **actual** `reviewer_id`,
+`reviewed_date` as YYYY-MM-DD, and `review_note`. Do not put fabricated
+reviewers into test or official annotations. If the source is
+inadequate, record `needs_more_evidence` instead of inventing support.
+
+```bash
+# Reports pending / decided tasks and rejects edited source columns.
+python3 -m research_v2.reviewer_workspace --audit-dir "$OUT"
+
+# Fails until all rows have genuine, complete decisions.
+python3 -m research_v2.reviewer_workspace --audit-dir "$OUT" --strict
+```
+
+This tool checks format, task coverage, immutable candidate metadata,
+referenced source IDs and reviewer decision completeness. It does
+**not** independently authenticate reviewers, judge medical evidence
+quality, check live webpages, or create benchmark gold labels.
+Even a completed `--strict` check does not authorize automatically
+adding relationships to Neo4j or making clinical accuracy claims.
+
+**Research next step:** review the 30 questions and candidate claims,
+resolve the asthma source gap, then prepare a separately adjudicated
+gold-label version after any domain-expert review required by the
+study protocol. In parallel, locate evidence for the remaining 70
+questions. Maintain the G0 graph and the original proposal datasets.

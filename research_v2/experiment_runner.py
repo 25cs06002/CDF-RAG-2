@@ -124,6 +124,7 @@ def run_experiment(
     graph_version: str = "G0",
     random_seed: int | None = None,
     on_run_ready: Callable[[Path], None] | None = None,
+    graph_checker: Callable[[str, int, Path], bool] | None = None,
 ):
     """
     Run one selected pipeline sequentially.
@@ -174,6 +175,10 @@ def run_experiment(
     success = 0
     abstained = 0
     errors = 0
+    processed = 0
+    executed = 0
+    aborted = False
+    abort_reason = None
 
     records_path = output_dir / "records.jsonl"
 
@@ -203,13 +208,33 @@ def run_experiment(
             )
 
             query_start = time.perf_counter()
+            drift_reason = None
 
-            try:
-                record = pipeline.run(request)
+            def graph_ok(phase: str) -> bool:
+                if graph_checker is None:
+                    return True
 
-            except Exception as exc:
-                # Store the exception class without
-                # exposing credentials in a raw trace.
+                try:
+                    return (
+                        graph_checker(
+                            phase,
+                            index,
+                            output_dir,
+                        ) is True
+                    )
+                except Exception as exc:
+                    print(
+                        f"Graph-check error ({phase}): "
+                        f"{type(exc).__name__}",
+                        flush=True,
+                    )
+                    return False
+
+            if not graph_ok("before"):
+                drift_reason = (
+                    "GraphIntegrityFailedBeforeQuery"
+                )
+
                 record = PipelineRecord(
                     run_id=run_id,
                     query_id=question.query_id,
@@ -218,7 +243,7 @@ def run_experiment(
                     original_query=question.query,
                     random_seed=random_seed,
                     status="error",
-                    error_message=type(exc).__name__,
+                    error_message=drift_reason,
                     timings=StageTimings(
                         total_ms=(
                             time.perf_counter()
@@ -227,10 +252,54 @@ def run_experiment(
                     ),
                 )
 
+            else:
+                executed += 1
+
+                try:
+                    record = pipeline.run(request)
+
+                except Exception as exc:
+                    record = PipelineRecord(
+                        run_id=run_id,
+                        query_id=question.query_id,
+                        pipeline_id=pipeline.pipeline_id,
+                        graph_version=graph_version,
+                        original_query=question.query,
+                        random_seed=random_seed,
+                        status="error",
+                        error_message=type(exc).__name__,
+                        timings=StageTimings(
+                            total_ms=(
+                                time.perf_counter()
+                                - query_start
+                            ) * 1000
+                        ),
+                    )
+
+                if not graph_ok("after"):
+                    drift_reason = (
+                        "GraphIntegrityFailedAfterQuery"
+                    )
+
+                    # Preserve the returned evidence for
+                    # investigation, but invalidate the
+                    # query's experimental status.
+                    record = record.model_copy(
+                        update={
+                            "status": "error",
+                            "error_message": drift_reason,
+                        }
+                    )
+
+            if drift_reason is not None:
+                aborted = True
+                abort_reason = drift_reason
+
             output.write(
                 record.model_dump_json() + "\n"
             )
             output.flush()
+            processed += 1
 
             if record.status == "ok":
                 success += 1
@@ -246,10 +315,22 @@ def run_experiment(
                 flush=True,
             )
 
+            if aborted:
+                print(
+                    "EXPERIMENT ABORTED:",
+                    abort_reason,
+                    flush=True,
+                )
+                break
+
     summary = {
         "run_id": run_id,
         "pipeline_id": pipeline.pipeline_id,
-        "total_queries": len(questions),
+        "total_queries": processed,
+        "planned_queries": len(questions),
+        "executed_queries": executed,
+        "aborted": aborted,
+        "abort_reason": abort_reason,
         "successful": success,
         "abstained": abstained,
         "errors": errors,

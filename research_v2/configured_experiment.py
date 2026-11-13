@@ -16,6 +16,7 @@ from pathlib import Path
 
 from .experiment_config import prepare_experiment
 from .preflight import run_preflight
+from .graph_drift import GraphDriftMonitor
 
 from .experiment_runner import (
     PROJECT_ROOT,
@@ -33,6 +34,7 @@ def run_configured_experiment(
     project_root: Path = PROJECT_ROOT,
     pipeline_factory=None,
     preflight_checker=None,
+    graph_checker=None,
 ):
     """
     Execute one versioned experiment.
@@ -78,6 +80,24 @@ def run_configured_experiment(
         raise RuntimeError(
             "Experiment blocked by runtime preflight"
         )
+
+    if graph_checker is not None:
+        active_graph_checker = graph_checker
+
+    elif pipeline_factory is None:
+        # The live preflight has already verified
+        # this fingerprint against the runtime lock.
+        expected_hash = preflight_report[
+            "checks"
+        ]["live_graph_fingerprint"]["expected"]
+
+        active_graph_checker = GraphDriftMonitor(
+            expected_hash
+        )
+
+    else:
+        # Isolated unit tests need no live Neo4j.
+        active_graph_checker = None
 
     pipeline = selected_factory(config.pipeline)
 
@@ -126,6 +146,14 @@ def run_configured_experiment(
                 preflight_report is not None
             ),
             "graph_locked_during_run": False,
+            "graph_checked_per_query": (
+                active_graph_checker is not None
+            ),
+            "graph_checks_file": (
+                "graph_checks.jsonl"
+                if active_graph_checker is not None
+                else None
+            ),
             "runtime_preflight_file": (
                 "runtime_preflight.json"
                 if preflight_report is not None
@@ -155,6 +183,7 @@ def run_configured_experiment(
         graph_version=config.graph_version,
         random_seed=config.random_seed,
         on_run_ready=save_metadata_before_run,
+        graph_checker=active_graph_checker,
     )
 
     return summary, output_dir
@@ -223,6 +252,12 @@ def main():
     print("\nEXPERIMENT COMPLETED")
     print(json.dumps(summary, indent=2))
     print("Results:", output_dir)
+
+    if summary.get("aborted"):
+        print(
+            "EXPERIMENT INVALID: graph integrity check failed."
+        )
+        raise SystemExit(2)
 
 
 if __name__ == "__main__":

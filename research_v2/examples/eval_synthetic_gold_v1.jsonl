@@ -1,0 +1,2 @@
+{"query_id":"S001","reference_basis":"synthetic","document_ids":["D1","D2"],"causal_edges":[{"cause":"A","effect":"X"},{"cause":"C","effect":"X"}],"causal_paths":[{"nodes":["A","X"]},{"nodes":["C","X"]}]}
+{"query_id":"S002","reference_basis":"synthetic","document_ids":[],"causal_edges":[],"causal_paths":[]}

@@ -453,3 +453,19 @@ human annotation. Prior versions, G0, PPO checkpoints and test-set
 ground truth remain untouched. **Next milestone** is substantive human
 review and a separate approved annotation version; do not auto-fill
 the 55 existing review decisions or the 70 new questions.
+
+
+## Phase 2G: source-backed audit of the first six questions
+
+See [first six source-audit notes](reviews/PHASE2_FIRST6_SOURCE_AUDIT.md)
+and `data/benchmark/first6_source_audit_notes_v1.jsonl`.
+
+The inspection covers three original government-source topic pages (coronary
+heart disease, type 2 diabetes and COPD) and the corresponding **six pilot
+questions / six candidate claim tasks**. It records source-supported
+observations, scope qualifications, and proposed wording corrections.
+It **does not** fill in actual reviewer decisions or create gold labels.
+
+Use the existing `research_v2.reviewer_workspace` CSV files for
+independent review. Do not infer that the inspection notes establish
+medical accuracy; genuine reviewer evidence checks are still required.

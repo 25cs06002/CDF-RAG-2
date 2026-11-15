@@ -22,16 +22,10 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_WORKSPACE = ROOT / "presentation_20261118"
 PILOT = ROOT / "data/benchmark/medical_causal_pilot100_draft_v1.jsonl"
 G0 = ROOT / "research_artifacts/graph-G0"
-PIPELINES = {
-    "B1": "naive_rag",
-    "B2": "bm25_rag",
-    "B3": "dense_rag",
-    "B4": "hybrid_rag",
-    "B5": "graph_rag",
-    "B6": "causal_kg_rag",
-    "B7": "no_rl",
-    "B8": "rl",
-}
+# Use the canonical B1-B8 registry; keep the public PIPELINES mapping stable.
+from .pipelines import MODEL_REGISTRY
+PIPELINES = {model_id: spec.implementation for model_id, spec in MODEL_REGISTRY.items()}
+
 LEGACY_RESULT_NAMES = (
     "evaluation_summary_no_rl_deterministic.csv",
     "evaluation_summary_rl_deterministic.csv",

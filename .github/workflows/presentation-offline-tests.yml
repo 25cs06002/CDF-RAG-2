@@ -31,7 +31,7 @@ jobs:
           python -m pip install 'pydantic==2.11.4' 'python-dotenv==1.1.0' 'requests==2.32.3' 'scikit-learn==1.6.1'
       - name: Compile all presentation source and tests
         run: |
-          python -m compileall -q research_v2/presentation_sprint.py research_v2/presentation_baselines.py research_v2/presentation_matrix.py research_v2/presentation_g0_reference.py research_v2/presentation_corpus.py tests/test_presentation_sprint.py tests/test_presentation_baselines.py tests/test_presentation_matrix.py tests/test_presentation_corpus.py tests/test_model_registry.py
+          python -m compileall -q research_v2/presentation_sprint.py research_v2/presentation_baselines.py research_v2/presentation_matrix.py research_v2/presentation_g0_reference.py research_v2/presentation_corpus.py research_v2/presentation_export.py tests/test_presentation_sprint.py tests/test_presentation_baselines.py tests/test_presentation_matrix.py tests/test_presentation_corpus.py tests/test_model_registry.py
       - name: Execute isolated tests (no Ollama, Neo4j or PPO)
         run: |
           python -m unittest tests.test_presentation_sprint tests.test_presentation_baselines tests.test_presentation_matrix tests.test_presentation_corpus tests.test_model_registry -v
@@ -84,6 +84,21 @@ jobs:
               writer.writerows(rows)
           (output / "summary.json").write_text(json.dumps(rows, indent=2), encoding="utf-8")
           print(json.dumps(rows, indent=2))
+          PY
+      - name: Export every question across B1-B8
+        run: |
+          python -m research_v2.presentation_export
+          python - <<'PY'
+          import csv
+          from pathlib import Path
+          files = list(Path("presentation_20261118/metrics").glob("supervisor_matrix_*/all_800_slots_long.csv"))
+          assert len(files) == 1
+          with files[0].open(encoding="utf-8") as f:
+              rows = list(csv.DictReader(f))
+          assert len(rows) == 800
+          assert sum(r["status"] == "NOT_RUN" for r in rows) == 200
+          assert sum(r["status"] == "error" for r in rows) == 0
+          print("VERIFIED 800 matrix slots, 600 measured, B7/B8 200 clearly pending")
           PY
       - name: Upload pilot measurements
         uses: actions/upload-artifact@v4

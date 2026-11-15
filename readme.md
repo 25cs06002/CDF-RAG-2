@@ -62,7 +62,7 @@ These runs are **not** equivalent to end-to-end answer generation; the local `se
 | B7 | CDF-RAG No-RL | Existing Neo4j / Ollama | **100-query local run pending** |
 | B8 | CDF-RAG PPO RL | Existing Neo4j / Ollama / PPO | **100-query local run pending** |
 
-Six-model results: [research_artifacts/presentation_20261118/retrieval_only_100_v1.csv](research_artifacts/presentation_20261118/retrieval_only_100_v1.csv), from [this GitHub Actions run](https://github.com/25cs06002/CDF-RAG-2/actions/runs/43716390027).
+Six-model results: [research_artifacts/presentation_20261118/retrieval_only_100_v2_multihop.csv](research_artifacts/presentation_20261118/retrieval_only_100_v2_multihop.csv), from [this GitHub Actions run](https://github.com/25cs06002/CDF-RAG-2/actions/runs/43717632591).
 
 **The preliminary evidence is not clinical ground truth.** In particular, the 100-question set is unreviewed, B1–B4 use AI-assisted source-summary candidates, and B5–B8 use the limited G0 knowledge graph. As a result, comparing evidence-return rates measures baseline behavior and corpus coverage, **not medical answer accuracy**. Scores for the original 22-question RL/No-RL experiments remain a distinct earlier experiment.
 

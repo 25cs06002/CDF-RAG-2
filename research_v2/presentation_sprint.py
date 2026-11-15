@@ -86,6 +86,32 @@ def prepare(workspace=DEFAULT_WORKSPACE):
     if len(load_questions(questions)) != 100:
         raise AssertionError("Expected exactly 100 exported questions")
 
+    config_dir = workspace / "configs"
+    config_dir.mkdir(parents=True, exist_ok=True)
+    generated_configs = {}
+    for pipeline in ("no_rl", "rl"):
+        config_path = config_dir / f"g0_{pipeline}_pilot100_v1.json"
+        if config_path.exists():
+            raise FileExistsError(f"Frozen config already exists: {config_path}")
+        config = {
+            "schema_version": 1,
+            "experiment_name": f"presentation_g0_{pipeline}_pilot100_v1",
+            "pipeline": pipeline,
+            "dataset_path": questions.relative_to(ROOT).as_posix(),
+            "dataset_sha256": sha256(questions),
+            "graph_version": "G0",
+            "random_seed": 2026,
+            "limit": 100,
+            "purpose": (
+                "100-query unreviewed pilot operational evaluation, not a "
+                "medical accuracy benchmark."
+            ),
+        }
+        config_path.write_text(
+            json.dumps(config, indent=2) + "\\n", encoding="utf-8"
+        )
+        generated_configs[pipeline] = config_path.relative_to(ROOT).as_posix()
+
     copied = {}
     for name in LEGACY_RESULT_NAMES:
         original = ROOT / name
@@ -116,6 +142,7 @@ def prepare(workspace=DEFAULT_WORKSPACE):
         "graph_edges_sha256": sha256(edge_path),
         "legacy_result_sha256": copied,
         "planned_pipelines": PIPELINES,
+        "generated_legacy_configs": generated_configs,
         "evaluation_warning": (
             "The full pilot has no independently adjudicated medical gold labels. "
             "G0 structural scores are not medical accuracy scores. "
@@ -129,6 +156,7 @@ def prepare(workspace=DEFAULT_WORKSPACE):
         "status": "PREPARED", "workspace": str(workspace),
         "questions": 100, "graph": counts,
         "legacy_results_copied": sorted(copied),
+        "generated_legacy_configs": generated_configs,
         "manifest": str(benchmark / "manifest.json"),
     }, indent=2))
 

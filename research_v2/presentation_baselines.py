@@ -251,14 +251,28 @@ class BaselinePipeline(BaseRAGPipeline):
             # Undirected one-hop neighborhood: general graph proximity.
             return sorted(c.neighbors[concept])[:self.top_k], concept
 
-        # Directed causal evidence: incoming direct causes, then two-hop ancestors.
+        # Directed causal evidence. Reserve an edge budget for *complete*
+        # two-hop paths; simply truncating all direct edges first can
+        # permanently exclude every intermediate ancestor at top_k=5.
         direct = [index for _, index in c.reverse[concept]]
-        two_hop = [
-            index for parent, _ in c.reverse[concept]
-            for _, index in c.reverse[parent]
+        complete_paths = [
+            (direct_index, ancestor_index)
+            for parent, direct_index in c.reverse[concept]
+            for _, ancestor_index in c.reverse[parent]
         ]
-        ordered = list(dict.fromkeys(direct + two_hop))
-        return ordered[:self.top_k], concept
+        chosen = []
+        if self.top_k >= 2 and complete_paths:
+            # First complete causal path has two connected directed edges.
+            chosen.extend(complete_paths[0])
+        for index in direct:
+            if index not in chosen and len(chosen) < self.top_k:
+                chosen.append(index)
+        for first, second in complete_paths:
+            if len(chosen) >= self.top_k:
+                break
+            if first in chosen and second not in chosen:
+                chosen.append(second)
+        return chosen[:self.top_k], concept
 
     def _run(self, request):
         start = time.perf_counter()

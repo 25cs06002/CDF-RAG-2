@@ -61,6 +61,7 @@ def main():
     report.add_argument("--allow-partial", action="store_true")
     commands.add_parser("score-g0")
     commands.add_parser("export")
+    commands.add_parser("diagnose")
     args = parser.parse_args()
 
     if Path.cwd().resolve() != PROJECT_ROOT:
@@ -90,6 +91,9 @@ def main():
         presentation_matrix.report(allow_partial=args.allow_partial)
     elif args.command == "export":
         presentation_export.export()
+    elif args.command == "diagnose":
+        from research_v2.query_diagnostics import diagnose
+        diagnose()
     else:
         presentation_g0_reference.score()
 

@@ -74,7 +74,27 @@ All run outputs are stored as separate directories under `presentation_20261118/
 
 ## Baseline smoke tests (only existing pipelines)
 
-The version-locked experiment runner can be used with a **custom 100-query config** only after its JSON hash and `limit` are updated. Do not run `configured_experiment` against the old `limit: 1` configs and count that as a 100-query evaluation. Do not bypass preflight or disable TLS validation.
+The `prepare` command now creates SHA256-locked configs for **100 pilot queries**, under `presentation_20261118/configs/`. The two commands below run the existing legacy adapters only after the original G0/Ollama/PPO preflight passes. Each run takes substantial local time. **Run them sequentially** to avoid contending for Ollama resources:
+
+```bash
+cd ~/Folder/CDF-RAG-2
+# Validate (no model execution):
+python3 -m research_v2.configured_experiment \
+  --config presentation_20261118/configs/g0_no_rl_pilot100_v1.json --validate-only
+python3 -m research_v2.configured_experiment \
+  --config presentation_20261118/configs/g0_rl_pilot100_v1.json --validate-only
+
+# Execute actual 100 queries; the runner includes live runtime preflight:
+python3 -m research_v2.configured_experiment \
+  --config presentation_20261118/configs/g0_no_rl_pilot100_v1.json \
+  --output-root presentation_20261118/runs
+
+python3 -m research_v2.configured_experiment \
+  --config presentation_20261118/configs/g0_rl_pilot100_v1.json \
+  --output-root presentation_20261118/runs
+```
+
+Both use the same frozen input. They are exploratory pilot runs, not independent medical correctness evaluation. Never silently bypass failed preflight or call the old `limit: 1` configs a 100-query experiment.
 
 ## Recording and pushing output
 

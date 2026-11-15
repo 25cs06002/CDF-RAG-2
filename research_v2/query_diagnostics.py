@@ -112,7 +112,7 @@ def _run_settings(workspace: Path, selected: dict) -> dict:
                 journal[item["run_id"]] = item
     settings = {}
     for model, bundle in selected.items():
-        _, summary_path, records, summary = bundle
+        _, _, summary_path, records, summary = bundle
         run_dir = summary_path.parent
         manifest = json.loads((run_dir / "manifest.json").read_text(encoding="utf-8"))
         run_id = records[0].run_id
@@ -250,7 +250,7 @@ def diagnose(workspace: Path = WORKSPACE, output_dir: Path | None = None):
     ids = [question.query_id for question in questions]
     selected = _select_runs(workspace / "runs", ids, file_sha256(input_file))
     records_by_model = {
-        model: {r.query_id: r for r in bundle[2]}
+        model: {r.query_id: r for r in bundle[3]}
         for model, bundle in selected.items()
     }
     rows = build_query_diagnostics(questions, metadata, records_by_model)

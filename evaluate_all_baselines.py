@@ -55,6 +55,7 @@ def main():
     run.add_argument("--limit", type=int)
     run.add_argument("--encoder", choices=["sentence", "lsa"], default="sentence")
     run.add_argument("--retrieval-only", action="store_true")
+    run.add_argument("--skip-complete", action="store_true", help="Skip complete runs only when provenance matches")
     run.add_argument("--top-k", type=int, default=5)
     report = commands.add_parser("report")
     report.add_argument("--allow-partial", action="store_true")
@@ -83,6 +84,7 @@ def main():
             retrieval_only=args.retrieval_only,
             top_k=args.top_k,
             encoder=args.encoder,
+            skip_complete=args.skip_complete,
         )
     elif args.command == "report":
         presentation_matrix.report(allow_partial=args.allow_partial)

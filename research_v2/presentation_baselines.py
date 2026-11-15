@@ -150,6 +150,47 @@ class CandidateCorpus(G0Corpus):
         self.df = Counter(word for tokens in self.tokens for word in set(tokens))
 
 
+class LSAEncoder:
+    """Small, explicitly labeled TF-IDF + LSA dense baseline for offline pilots.
+
+    This is not a pretrained sentence-transformer model. Use the identical
+    LSA encoder for dense and hybrid retrieval when comparing those methods.
+    """
+
+    def __init__(self, dimensions=64):
+        self.dimensions = dimensions
+        self.vectorizer = None
+        self.reducer = None
+
+    def encode(self, texts, normalize_embeddings=True):
+        import numpy as np
+        from sklearn.feature_extraction.text import TfidfVectorizer
+        from sklearn.decomposition import TruncatedSVD
+        from sklearn.preprocessing import normalize
+
+        if self.vectorizer is None:
+            self.vectorizer = TfidfVectorizer(
+                lowercase=True, token_pattern=r"(?u)\\b\\w+\\b"
+            )
+            vectors = self.vectorizer.fit_transform(texts)
+            upper = min(vectors.shape) - 1
+            if upper >= 2:
+                self.reducer = TruncatedSVD(
+                    n_components=min(self.dimensions, upper),
+                    random_state=2026,
+                )
+                values = self.reducer.fit_transform(vectors)
+            else:
+                values = vectors.toarray()
+        else:
+            vectors = self.vectorizer.transform(texts)
+            values = (
+                self.reducer.transform(vectors)
+                if self.reducer is not None else vectors.toarray()
+            )
+        return normalize(values).astype(float) if normalize_embeddings else np.asarray(values, dtype=float)
+
+
 class BaselinePipeline(BaseRAGPipeline):
     """One of six distinct retrieval strategies; optional shared Ollama generation."""
 
@@ -304,6 +345,7 @@ def main():
     parser.add_argument("--top-k", type=int, default=5)
     parser.add_argument("--generate", action="store_true")
     parser.add_argument("--document-corpus", type=Path, help="Source-attributed JSONL for B1-B4")
+    parser.add_argument("--encoder", choices=["sentence", "lsa"], default="sentence", help="Dense retrieval encoder; lsa requires scikit-learn")
     parser.add_argument("--output-root", type=Path, default=PRESENTATION_ROOT / "runs")
     args = parser.parse_args()
     if Path.cwd().resolve() != PROJECT_ROOT:
@@ -319,7 +361,11 @@ def main():
     document_corpus = CandidateCorpus(args.document_corpus) if args.document_corpus else graph_corpus
     for name in BASELINE_NAMES if args.pipeline == "all" else [args.pipeline]:
         corpus = graph_corpus if name in {"graph_rag", "causal_kg_rag"} else document_corpus
-        pipeline = BaselinePipeline(name, corpus, top_k=args.top_k, generate=args.generate)
+        dense_encoder = LSAEncoder() if args.encoder == "lsa" and name in {"dense_rag", "hybrid_rag"} else None
+        pipeline = BaselinePipeline(
+            name, corpus, top_k=args.top_k, generate=args.generate,
+            dense_encoder=dense_encoder,
+        )
         stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
         summary, output_dir = run_experiment(
             pipeline=pipeline, questions=questions,

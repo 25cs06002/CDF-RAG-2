@@ -20,6 +20,7 @@ from research_v2 import (
     presentation_g0_reference,
     presentation_matrix,
     presentation_sprint,
+    presentation_export,
 )
 
 
@@ -58,6 +59,7 @@ def main():
     report = commands.add_parser("report")
     report.add_argument("--allow-partial", action="store_true")
     commands.add_parser("score-g0")
+    commands.add_parser("export")
     args = parser.parse_args()
 
     if Path.cwd().resolve() != PROJECT_ROOT:
@@ -84,6 +86,8 @@ def main():
         )
     elif args.command == "report":
         presentation_matrix.report(allow_partial=args.allow_partial)
+    elif args.command == "export":
+        presentation_export.export()
     else:
         presentation_g0_reference.score()
 

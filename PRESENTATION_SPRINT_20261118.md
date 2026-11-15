@@ -5,7 +5,7 @@ All experiment inputs, logs, run outputs, metrics and figures for this sprint be
 ## Status and scope
 
 - Available now: legacy `no_rl` and `rl` pipelines, the 100-question AI-drafted pilot, G0 structural snapshot, evaluation runner and existing 22-query legacy comparisons.
-- Not yet implemented on the presentation branch: naive RAG, BM25 RAG, dense RAG, hybrid RAG, GraphRAG, causal KG-RAG.
+- Implemented as exploratory **G0-derived** retrieval configurations: naive lexical retrieval, BM25, local dense retrieval, BM25+dense RRF, graph-neighborhood retrieval, and directed causal KG retrieval. They still require local test execution and a separately sourced medical document corpus for a full medical RAG comparison.
 - Target: run eight **functionally distinct, independently executable** configurations on 100 common queries, record complete results, and assess structural retrieval on a separately justified G0-covered subset.
 - **Do not claim** that the pilot contains independently reviewed medical gold. The 100-question draft queries are valuable for operational and category-wise behavioral testing, not externally verified medical answer accuracy.
 - Source-review status is separate from any automatic code validation.
@@ -45,6 +45,32 @@ python3 -m research_v2.preflight \
 ```
 
 **Caution:** `git merge --ff-only` refuses to merge if local edits would be overwritten or if branches diverge. Stop and inspect rather than stashing, resetting or deleting anything automatically.
+
+## Exploratory six-baseline smoke tests and 100-query runs
+
+The following six configurations use G0 relationship verbalizations as their shared **graph-derived** evidence corpus. They do **not** establish medical document retrieval performance or clinical accuracy. By default, they are **retrieval-only** experiments; add `--generate` to evaluate grounded Ollama generation too. Local SentenceTransformer weights must already be cached for dense and hybrid retrieval (no model download is intentionally triggered).
+
+```bash
+cd ~/Folder/CDF-RAG-2
+python3 -m unittest tests.test_presentation_baselines -v
+# Initial offline retrieval smoke test: six configurations x three queries
+python3 -m research_v2.presentation_baselines \
+  --pipeline all \
+  --input presentation_20261118/benchmark/questions_only.jsonl \
+  --limit 3
+# Then the full retrieval-only pilot: six configurations x 100 queries
+python3 -m research_v2.presentation_baselines \
+  --pipeline all \
+  --input presentation_20261118/benchmark/questions_only.jsonl \
+  --limit 100
+# Optional shared LLM generation: run after verifying Ollama availability
+python3 -m research_v2.presentation_baselines \
+  --pipeline bm25_rag \
+  --input presentation_20261118/benchmark/questions_only.jsonl \
+  --limit 3 --generate
+```
+
+All run outputs are stored as separate directories under `presentation_20261118/runs/`, including failed/abstained records. The existing RL/No-RL adapters still need their own 100-query configs and live preflight; the six new presentation baselines are not yet integrated into the version-locked `configured_experiment` command.
 
 ## Baseline smoke tests (only existing pipelines)
 

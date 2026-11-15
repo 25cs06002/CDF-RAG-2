@@ -1,162 +1,73 @@
-# CDF-RAG: Causal Dynamic Feedback for Adaptive Retrieval-Augmented Generation
+# CDF-RAG-2 — Medical Causal QA Research
 
-**Elahe Khatibi\***, **Ziyu Wang\***, Amir M. Rahmani  
-*University of California, Irvine*  
-📄 [arXiv:2504.12560](https://arxiv.org/abs/2504.12560)  
-\* Equal contribution
+**M.Tech project:** Adaptive Multi-Round RAG Architecture for Reliable Domain-Specific Question Answering.
 
----
+> **Active branch:** `research-v2`. The presentation sprint targets November 18, 2026. This repository extends the upstream [CDF-RAG study](https://arxiv.org/abs/2504.12560) by Khatibi, Wang and Rahmani; their original repository description and credit are preserved in [docs/ORIGINAL_CDF_RAG_README.md](docs/ORIGINAL_CDF_RAG_README.md).
 
-## 🧠 Abstract
+## Start here
 
-Retrieval-Augmented Generation (RAG) has significantly enhanced large language models (LLMs) in knowledge-intensive tasks by incorporating external knowledge retrieval. However, existing RAG frameworks primarily rely on semantic similarity and correlation-driven retrieval, limiting their ability to distinguish true causal relationships from spurious associations. This results in responses that may be factually grounded but fail to establish cause-and-effect mechanisms, leading to incomplete or misleading insights. To address this issue, we introduce Causal Dynamic Feedback for Adaptive Retrieval-Augmented Generation (CDF-RAG), a framework designed to improve causal consistency, factual accuracy, and explainability in generative reasoning. CDF-RAG iteratively refines queries, retrieves structured causal graphs, and enables multi-hop causal reasoning across interconnected knowledge sources. Additionally, it validates responses against causal pathways, ensuring logically coherent and factually grounded outputs. We evaluate CDF-RAG on four diverse datasets, demonstrating its ability to improve response accuracy and causal correctness over existing RAG-based methods.
-
----
-
-## 🏗️ Repository Structure
-
-```
-CDF-RAG/
-├── agents/               # Core modules (retrieval, rewriting, RL, hallucination detection)
-├── data/                 # Dataset processing scripts and Jupyter notebooks
-├── eval/                 # Evaluation metrics and scoring scripts
-├── finetune/             # Scripts for fine-tuning LLaMA, Mistral, FLAN-T5
-├── main/                 # Pipeline runner and ablation experiments
-├── figs/                 # Key figures from paper (use .png for rendering)
-├── config.py             # Centralized configuration & env variables
-├── requirements.txt      # Python dependencies
-└── README.md             # You're here
-```
-
----
-
-## 🚀 Getting Started
-
-### Installation
+The one supported entry point for presentation experiments is:
 
 ```bash
-git clone https://github.com/elakhatibi/CDF-RAG.git
-cd CDF-RAG
-pip install -r requirements.txt
+cd ~/Folder/CDF-RAG-2
+# Use your already-configured virtual environment before running Python commands.
+python3 evaluate_all_baselines.py prepare
+python3 evaluate_all_baselines.py validate
+python3 evaluate_all_baselines.py smoke --encoder lsa
+# Full local B1-B8 run: local Ollama, Neo4j and PPO checkpoint are required.
+python3 evaluate_all_baselines.py run --models all
+python3 evaluate_all_baselines.py report
 ```
 
-### Environment Setup
+`prepare` freezes a 100-question inference-only set, source-candidate document summaries, and G0 structural reference labels under `presentation_20261118/`. It does not produce medical gold labels. The `run` command executes the six new baseline configurations and the two original legacy adapters, sequentially. It saves **new** run directories (no overwriting historical results). Do not run the local LLM batches concurrently on the same machine.
 
-Create a `.env` file or export these:
-
-```
-OPENAI_API_KEY=your-openai-key
-PINECONE_API_KEY=your-pinecone-key
-NEO4J_URI=bolt://localhost:7687
-NEO4J_USER=neo4j
-NEO4J_PASSWORD=your-password
-```
-
----
-
-## 💡 CDF-RAG System Architecture
-
-The CDF-RAG framework is composed of:
-- **RL-based query refinement** (PPO)
-- **Dual-path document retrieval** using:
-  - Semantic similarity from Pinecone
-  - Causal graphs from Neo4j
-- **Knowledge rewriting** via GPT
-- **Hallucination detection & correction** using LLM verification
-
-![CDF-RAG Pipeline Overview](figs/CDF_RAG_overview.png)
-
----
-
-## 📈 Key Results
-
-### 🔍 Table: Ablation Study
-
-We report the main ablation results of CDF-RAG below. For full quantitative results across 4 datasets and 4 LLMs, refer to the [paper](https://arxiv.org/abs/2504.12560).
-
-| Ablation Stage                          | CRC   | CCD  | SRS  | Groundedness | HR   | F1   |
-|----------------------------------------|-------|------|------|---------------|------|------|
-| Baseline RAG                           | 0.74  | 1.50 | 0.55 | 0.52          | 0.18 | 0.68 |
-| + RL-based Query Refinement            | 0.80  | 1.70 | 0.62 | 0.59          | 0.14 | 0.74 |
-| + Causal Graph                         | 0.84  | 1.92 | 0.65 | 0.63          | 0.12 | 0.78 |
-| + Rewriter                             | 0.88  | 2.00 | 0.70 | 0.68          | 0.08 | 0.82 |
-| + **Hallucination Correction (Ours)**  | 0.89  | 2.02 | 0.74 | 0.71          | 0.07 | 0.86 |
-
----
-
-## 🧪 Evaluation Metrics
-
-- `CRC`: Causal Retrieval Coverage
-- `CCD`: Causal Chain Depth
-- `SRS`: Semantic Refinement Score
-- `Groundedness`: Final answer ↔ retrieved docs
-- `HR`: Hallucination Rate
-- `F1`, `Precision`, `Recall`: (if hallucination labels available)
-
----
-
-## 🔄 Run the Pipeline
-
-### Run a Query
+For a reproducible **retrieval-only** smoke/scale check that does not use local Ollama:
 
 ```bash
-python main/cdf_rag_pipeline.py "Why do patients miss appointments?"
+python3 evaluate_all_baselines.py run --models B1,B2,B3,B4,B5,B6 --retrieval-only --encoder lsa --limit 100
+python3 evaluate_all_baselines.py report --allow-partial
 ```
 
-### Evaluate Batch of Queries
+These runs are **not** equivalent to end-to-end answer generation; the local `sentence` backend uses the existing cached sentence transformer, whereas `lsa` is a separate offline TF-IDF + LSA vector-space baseline.
 
-```bash
-python main/evaluate_batch_queries.py
-python eval/evaluate_metrics.py
-```
+## Where the code lives
 
-### Run Ablation Study
+| Need | Location |
+| --- | --- |
+| **One-command orchestration** | [evaluate_all_baselines.py](evaluate_all_baselines.py) |
+| **Model registry** | [research_v2/pipelines/](research_v2/pipelines/) |
+| Naive, BM25, Dense, Hybrid, Graph, Causal KG retrievers | [research_v2/presentation_baselines.py](research_v2/presentation_baselines.py) |
+| Legacy No-RL and PPO RL adapters | [research_v2/legacy_no_rl.py](research_v2/legacy_no_rl.py), [research_v2/legacy_rl.py](research_v2/legacy_rl.py) |
+| **Batch execution and metrics** | [research_v2/presentation_matrix.py](research_v2/presentation_matrix.py) |
+| **100-question pilot** | [data/benchmark/medical_causal_pilot100_draft_v1.jsonl](data/benchmark/medical_causal_pilot100_draft_v1.jsonl) |
+| Corpus preparation (Phase 2 candidate summaries) | [research_v2/presentation_corpus.py](research_v2/presentation_corpus.py) |
+| G0 structural scoring | [research_v2/presentation_g0_reference.py](research_v2/presentation_g0_reference.py) |
+| Immutable G0 | [research_artifacts/graph-G0/](research_artifacts/graph-G0/) |
+| Phase 2 reviewer handoff and checks | [research_artifacts/experiment-artifacts/phase2/](research_artifacts/experiment-artifacts/phase2/) |
+| Legacy 22-query CSVs and earlier scripts | Retained at repository root for traceability |
+| CI regression + 600 retrieval-only queries | [GitHub Actions workflow](.github/workflows/presentation-offline-tests.yml) |
+| **Supervisor review and presentation** | [docs/PRESENTATION_SUPERVISOR_20261118.md](docs/PRESENTATION_SUPERVISOR_20261118.md) |
+| Full repository organization and cleanup policy | [docs/REPOSITORY_MAP.md](docs/REPOSITORY_MAP.md) |
 
-```bash
-python main/Ablation_study.py
-```
+## B1–B8 comparison inventory
 
----
+| ID | Method | Data/evidence | Status |
+| --- | --- | --- | --- |
+| B1 | Naive lexical overlap RAG | Phase 2 candidate-source summaries | 100-query retrieval-only run verified |
+| B2 | BM25 RAG | Same candidate summaries | 100-query retrieval-only run verified |
+| B3 | Dense vector RAG | Candidate summaries; offline LSA encoder | 100-query retrieval-only run verified |
+| B4 | Hybrid BM25 + Dense RRF | Same candidate summaries | 100-query retrieval-only run verified |
+| B5 | Undirected graph-neighborhood RAG | Archived G0 graph | 100-query retrieval-only run verified |
+| B6 | Directed causal KG RAG | Archived G0 graph | 100-query retrieval-only run verified |
+| B7 | CDF-RAG No-RL | Existing Neo4j / Ollama | **100-query local run pending** |
+| B8 | CDF-RAG PPO RL | Existing Neo4j / Ollama / PPO | **100-query local run pending** |
 
-## 🏋️‍♂️ Fine-Tuning Instructions
+Six-model results: [research_artifacts/presentation_20261118/retrieval_only_100_v1.csv](research_artifacts/presentation_20261118/retrieval_only_100_v1.csv), from [this GitHub Actions run](https://github.com/25cs06002/CDF-RAG-2/actions/runs/43716390027).
 
-To fine-tune LLaMA, Mistral, or FLAN-T5:
+**The preliminary evidence is not clinical ground truth.** In particular, the 100-question set is unreviewed, B1–B4 use AI-assisted source-summary candidates, and B5–B8 use the limited G0 knowledge graph. As a result, comparing evidence-return rates measures baseline behavior and corpus coverage, **not medical answer accuracy**. Scores for the original 22-question RL/No-RL experiments remain a distinct earlier experiment.
 
-```bash
-cd finetune/
-python finetune_mistral_qlora.py      # or flan/llama variant
-```
+## Publication and reproducibility
 
-All models are instruction-tuned using the same format (instruction/input/output) on causal QA refinement data.
+Before pushing local run outputs, review credentials, private patient data and full third-party copyrighted text. Preserve historical files and signed-off review decisions. Do not label graph-agreement F1 or embedding similarity as externally verified clinical accuracy.
 
----
-
-## 📎 Citation
-
-```bibtex
-@misc{khatibi2025cdfrag,
-    title={CDF-RAG: Causal Dynamic Feedback for Adaptive Retrieval-Augmented Generation},
-    author={Elahe Khatibi and Ziyu Wang and Amir M. Rahmani},
-    year={2025},
-    eprint={2504.12560},
-    archivePrefix={arXiv},
-    primaryClass={cs.CL}
-}
-```
-
----
-
-## 📬 Contact
-
-For questions or collaborations, feel free to reach out:
-
-- 💬 Elahe Khatibi — ekhatibi@uci.edu  
-- 💬 Ziyu Wang — ziyuw31@uci.edu  
-
----
-
-## ❤️ Acknowledgments
-
-This work was supported by the HealthSciTech group at UC Irvine. We thank the LangGraph and open-source LLM communities for inspiration and tooling.
-
----
+See [PRESENTATION_SPRINT_20261118.md](PRESENTATION_SPRINT_20261118.md) for full deployment and [docs/REPOSITORY_MAP.md](docs/REPOSITORY_MAP.md) for code locations.

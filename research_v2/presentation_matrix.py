@@ -140,21 +140,19 @@ def run_models(selected="all", limit=None, retrieval_only=False, top_k=5, encode
                 config_path=config_path, output_root=runs_dir, run_id=run_id
             )
         else:
-            from .presentation_baselines import BaselinePipeline, G0Corpus, CandidateCorpus, LSAEncoder
-            if model_id in {"B1", "B2", "B3", "B4"}:
-                documents = WORKSPACE / "corpus/provisional_source_summaries_v1/documents.jsonl"
-                if not documents.is_file():
-                    raise FileNotFoundError(
-                        "Build the candidate document corpus first: "
-                        "python3 -m research_v2.presentation_corpus prepare"
-                    )
-                corpus = CandidateCorpus(documents)
-            else:
-                corpus = G0Corpus()
-            pipeline = BaselinePipeline(
-                name, corpus=corpus, top_k=top_k,
+            from .pipelines import create_pipeline
+            documents = WORKSPACE / "corpus/provisional_source_summaries_v1/documents.jsonl"
+            if model_id in {"B1", "B2", "B3", "B4"} and not documents.is_file():
+                raise FileNotFoundError(
+                    "Build the candidate document corpus first: "
+                    "python3 -m research_v2.presentation_corpus prepare"
+                )
+            pipeline = create_pipeline(
+                model_id,
+                document_corpus=(documents if model_id in {"B1","B2","B3","B4"} else None),
+                top_k=top_k,
                 generate=not retrieval_only,
-                dense_encoder=(LSAEncoder() if encoder == "lsa" and model_id in {"B3","B4"} else None),
+                encoder=encoder,
             )
             summary, output_dir = run_experiment(
                 pipeline=pipeline,

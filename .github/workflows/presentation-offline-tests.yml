@@ -8,6 +8,8 @@ on:
       - 'research_v2/presentation_*.py'
       - 'research_v2/preflight.py'
       - 'tests/test_presentation_*.py'
+      - 'tests/test_model_registry.py'
+      - 'research_v2/pipelines/**'
       - '.github/workflows/presentation-offline-tests.yml'
   workflow_dispatch:
 
@@ -29,10 +31,10 @@ jobs:
           python -m pip install 'pydantic==2.11.4' 'python-dotenv==1.1.0' 'requests==2.32.3' 'scikit-learn==1.6.1'
       - name: Compile all presentation source and tests
         run: |
-          python -m compileall -q research_v2/presentation_sprint.py research_v2/presentation_baselines.py research_v2/presentation_matrix.py research_v2/presentation_g0_reference.py research_v2/presentation_corpus.py tests/test_presentation_sprint.py tests/test_presentation_baselines.py tests/test_presentation_matrix.py tests/test_presentation_corpus.py
+          python -m compileall -q research_v2/presentation_sprint.py research_v2/presentation_baselines.py research_v2/presentation_matrix.py research_v2/presentation_g0_reference.py research_v2/presentation_corpus.py tests/test_presentation_sprint.py tests/test_presentation_baselines.py tests/test_presentation_matrix.py tests/test_presentation_corpus.py tests/test_model_registry.py
       - name: Execute isolated tests (no Ollama, Neo4j or PPO)
         run: |
-          python -m unittest tests.test_presentation_sprint tests.test_presentation_baselines tests.test_presentation_matrix tests.test_presentation_corpus -v
+          python -m unittest tests.test_presentation_sprint tests.test_presentation_baselines tests.test_presentation_matrix tests.test_presentation_corpus tests.test_model_registry -v
 
       - name: Prepare frozen pilot and candidate source summaries
         run: |

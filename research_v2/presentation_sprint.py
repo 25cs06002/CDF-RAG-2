@@ -108,7 +108,7 @@ def prepare(workspace=DEFAULT_WORKSPACE):
             ),
         }
         config_path.write_text(
-            json.dumps(config, indent=2) + "\\n", encoding="utf-8"
+            json.dumps(config, indent=2) + "\n", encoding="utf-8"
         )
         generated_configs[pipeline] = config_path.relative_to(ROOT).as_posix()
 

@@ -10,6 +10,10 @@ on:
       - 'tests/test_presentation_*.py'
       - 'tests/test_model_registry.py'
       - 'research_v2/pipelines/**'
+      - 'research_v2/query_diagnostics.py'
+      - 'research_v2/presentation_sprint.py'
+      - 'evaluate_all_baselines.py'
+      - 'tests/test_query_diagnostics.py'
       - '.github/workflows/presentation-offline-tests.yml'
   workflow_dispatch:
 
@@ -31,10 +35,10 @@ jobs:
           python -m pip install 'pydantic==2.11.4' 'python-dotenv==1.1.0' 'requests==2.32.3' 'scikit-learn==1.6.1'
       - name: Compile all presentation source and tests
         run: |
-          python -m compileall -q research_v2/presentation_sprint.py research_v2/presentation_baselines.py research_v2/presentation_matrix.py research_v2/presentation_g0_reference.py research_v2/presentation_corpus.py research_v2/presentation_export.py tests/test_presentation_sprint.py tests/test_presentation_baselines.py tests/test_presentation_matrix.py tests/test_presentation_corpus.py tests/test_model_registry.py
+          python -m compileall -q research_v2/presentation_sprint.py research_v2/presentation_baselines.py research_v2/presentation_matrix.py research_v2/presentation_g0_reference.py research_v2/presentation_corpus.py research_v2/presentation_export.py research_v2/query_diagnostics.py tests/test_query_diagnostics.py tests/test_presentation_sprint.py tests/test_presentation_baselines.py tests/test_presentation_matrix.py tests/test_presentation_corpus.py tests/test_model_registry.py
       - name: Execute isolated tests (no Ollama, Neo4j or PPO)
         run: |
-          python -m unittest tests.test_presentation_sprint tests.test_presentation_baselines tests.test_presentation_matrix tests.test_presentation_corpus tests.test_model_registry -v
+          python -m unittest tests.test_presentation_sprint tests.test_presentation_baselines tests.test_presentation_matrix tests.test_presentation_corpus tests.test_model_registry tests.test_query_diagnostics -v
 
       - name: Prepare frozen pilot and candidate source summaries
         run: |
@@ -125,6 +129,29 @@ jobs:
           }
           print("Verified 600 measured slots and 200 clearly NOT_RUN slots")
           PY
+      - name: Diagnose query-level evidence gaps and matched model comparisons
+        run: |
+          python evaluate_all_baselines.py diagnose
+          python - <<'PY'
+          import csv
+          from pathlib import Path
+          output = list(Path("presentation_20261118/metrics").glob("query_diagnostics_*"))
+          assert len(output) == 1, output
+          root = output[0]
+          with (root / "query_coverage_B1_B8.csv").open(newline="", encoding="utf-8") as f:
+              queries = list(csv.DictReader(f))
+          with (root / "matched_pairwise_summary.csv").open(newline="", encoding="utf-8") as f:
+              pairs = list(csv.DictReader(f))
+          with (root / "model_by_query_type.csv").open(newline="", encoding="utf-8") as f:
+              types = list(csv.DictReader(f))
+          assert len(queries) == 100
+          assert len({x["query_id"] for x in queries}) == 100
+          assert all(x["B7_status"] == "NOT_RUN" and x["B8_status"] == "NOT_RUN" for x in queries)
+          assert any(p["left_model"] == "B5" and p["right_model"] == "B6"
+                     and p["comparable"] == "True" for p in pairs), pairs
+          assert {row["model_id"] for row in types} == {f"B{i}" for i in range(1, 9)}
+          print("All-query diagnostics are schema-consistent and non-gold")
+          PY
       - name: Score G0 structural snapshot recovery (not clinical accuracy)
         run: |
           python -m research_v2.presentation_g0_reference score
@@ -148,5 +175,6 @@ jobs:
             presentation_20261118/metrics/offline_pilot/
             presentation_20261118/metrics/g0_structural_pilot_v1/
             presentation_20261118/metrics/supervisor_matrix_*/
+            presentation_20261118/metrics/query_diagnostics_*/
             presentation_20261118/runs/
           retention-days: 7

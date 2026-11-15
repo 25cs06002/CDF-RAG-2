@@ -103,7 +103,7 @@ class PresentationMatrixTests(unittest.TestCase):
                 "question_count": 3,
             }), encoding="utf-8")
             (run_dir / "records.jsonl").write_text(
-                "{\"test\":1}\\n" * 3,
+                "{\"test\":1}\n" * 3,
                 encoding="utf-8",
             )
             journal = Path(directory) / "journal.jsonl"
@@ -124,7 +124,7 @@ class PresentationMatrixTests(unittest.TestCase):
                 },
                 "corpus_sha256": "docsha",
             }
-            journal.write_text(json.dumps(row) + "\\n", encoding="utf-8")
+            journal.write_text(json.dumps(row) + "\n", encoding="utf-8")
             params = dict(
                 dataset_sha256="dataset1",
                 execution_mode="retrieval_only",
@@ -143,7 +143,7 @@ class PresentationMatrixTests(unittest.TestCase):
             self.assertIsNone(find_completed_run(
                 journal, "B2", 3, **{**params, "execution_mode": "end_to_end"}
             ))
-            (run_dir / "records.jsonl").write_text("{\"test\":1}\\n", encoding="utf-8")
+            (run_dir / "records.jsonl").write_text("{\"test\":1}\n", encoding="utf-8")
             self.assertIsNone(find_completed_run(journal, "B2", 3, **params))
 
     def test_g0_reference_subset_is_structural_not_medical(self):

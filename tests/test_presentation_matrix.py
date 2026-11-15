@@ -13,7 +13,7 @@ from unittest.mock import patch
 from research_v2.experiment_runner import BenchmarkQuestion
 from research_v2.presentation_matrix import (
     EXPECTED_PIPELINE_IDS, MODEL_IDS, PILOT,
-    choose_models, percentile, summarize, validate_inputs,
+    choose_models, percentile, summarize, validate_inputs, find_completed_run,
 )
 from research_v2.schema import (
     CausalEdge, EvidenceDocument, PipelineRecord, StageTimings
@@ -90,6 +90,61 @@ class PresentationMatrixTests(unittest.TestCase):
             )
             with self.assertRaisesRegex(ValueError, "Question text mismatch"):
                 validate_inputs(file)
+
+    def test_resume_requires_matching_code_data_mode_and_completed_records(self):
+        from research_v2.experiment_runner import PROJECT_ROOT
+        with tempfile.TemporaryDirectory(prefix="resume_ci_", dir=PROJECT_ROOT) as directory:
+            run_dir = Path(directory) / "run"
+            run_dir.mkdir()
+            relative = run_dir.relative_to(PROJECT_ROOT).as_posix()
+            (run_dir / "manifest.json").write_text(json.dumps({
+                "git_commit": "validated_commit",
+                "input_sha256": "dataset1",
+                "question_count": 3,
+            }), encoding="utf-8")
+            (run_dir / "records.jsonl").write_text(
+                "{\"test\":1}\\n" * 3,
+                encoding="utf-8",
+            )
+            journal = Path(directory) / "journal.jsonl"
+            row = {
+                "model_id": "B2",
+                "query_count": 3,
+                "dataset_sha256": "dataset1",
+                "execution_mode": "retrieval_only",
+                "top_k": 5,
+                "run_dir": relative,
+                "run_id": "verified",
+                "summary": {
+                    "total_queries": 3,
+                    "successful": 2,
+                    "abstained": 1,
+                    "errors": 0,
+                    "aborted": False,
+                },
+                "corpus_sha256": "docsha",
+            }
+            journal.write_text(json.dumps(row) + "\\n", encoding="utf-8")
+            params = dict(
+                dataset_sha256="dataset1",
+                execution_mode="retrieval_only",
+                top_k=5,
+                encoder="lsa",
+                current_git_commit="validated_commit",
+                corpus_sha256="docsha",
+            )
+            self.assertIsNotNone(find_completed_run(journal, "B2", 3, **params))
+            self.assertIsNone(find_completed_run(
+                journal, "B2", 3, **{**params, "current_git_commit": "different"}
+            ))
+            self.assertIsNone(find_completed_run(
+                journal, "B2", 3, **{**params, "corpus_sha256": "changed"}
+            ))
+            self.assertIsNone(find_completed_run(
+                journal, "B2", 3, **{**params, "execution_mode": "end_to_end"}
+            ))
+            (run_dir / "records.jsonl").write_text("{\"test\":1}\\n", encoding="utf-8")
+            self.assertIsNone(find_completed_run(journal, "B2", 3, **params))
 
     def test_g0_reference_subset_is_structural_not_medical(self):
         metadata = {

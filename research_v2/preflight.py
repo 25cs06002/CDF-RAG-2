@@ -50,7 +50,7 @@ def collect_runtime(project_root=PROJECT_ROOT):
         override=False,
     )
 
-    graph_dir = root.parent / "CDF-RAG-2-graph-G0"
+    # Use the immutable, versioned G0 copy committed inside this repository.\n    # The live Neo4j graph must still match its structural fingerprint.\n    graph_dir = root / "research_artifacts" / "graph-G0"
 
     archived = read_export(graph_dir)
     live = read_live_graph()

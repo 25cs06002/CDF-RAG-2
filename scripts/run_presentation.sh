@@ -41,14 +41,26 @@ case "$MODE" in
     run_logged prepare "$PYTHON_CMD" evaluate_all_baselines.py prepare
     run_logged smoke "$PYTHON_CMD" evaluate_all_baselines.py smoke --encoder "$ENCODER"
     ;;
-  full)
+  legacy|full)
     run_logged prepare "$PYTHON_CMD" evaluate_all_baselines.py prepare
     run_logged verify "$PYTHON_CMD" evaluate_all_baselines.py validate
-    # B1-B6 use the identical local generator; B7-B8 use original legacy graphs.
-    # The latter are validated against the G0 runtime lock and PPO checkpoint.
-    run_logged end_to_end_100 "$PYTHON_CMD" evaluate_all_baselines.py run --models all --encoder "$ENCODER"
-    run_logged report "$PYTHON_CMD" evaluate_all_baselines.py report
-    run_logged score_g0 "$PYTHON_CMD" evaluate_all_baselines.py score-g0
+    # Stop immediately on stale G0 graph/model digests or invalid PPO assets;
+    # do NOT waste hours of answer generation before checking live runtime.
+    run_logged preflight_no_rl "$PYTHON_CMD" -m research_v2.preflight \
+      --config "$WORKSPACE/configs/g0_no_rl_pilot100_v1.json"
+    run_logged preflight_rl "$PYTHON_CMD" -m research_v2.preflight \
+      --config "$WORKSPACE/configs/g0_rl_pilot100_v1.json"
+    # Run the two hardest original pipelines first; the new six can be
+    # executed later even if Ubuntu has a temporary model issue.
+    run_logged original_B7_B8 "$PYTHON_CMD" evaluate_all_baselines.py run \
+      --models B7,B8 --skip-complete
+    if [[ "$MODE" == "full" ]]; then
+      run_logged end_to_end_B1_B6 "$PYTHON_CMD" evaluate_all_baselines.py run \
+        --models B1,B2,B3,B4,B5,B6 --encoder "$ENCODER" --skip-complete
+      run_logged report "$PYTHON_CMD" evaluate_all_baselines.py report
+      run_logged score_g0 "$PYTHON_CMD" evaluate_all_baselines.py score-g0
+      run_logged export "$PYTHON_CMD" evaluate_all_baselines.py export
+    fi
     ;;
   report)
     run_logged report "$PYTHON_CMD" evaluate_all_baselines.py report --allow-partial
@@ -59,13 +71,15 @@ Run from the existing repository on Ubuntu:
   bash scripts/run_presentation.sh prepare
   bash scripts/run_presentation.sh test
   bash scripts/run_presentation.sh smoke lsa
+  bash scripts/run_presentation.sh legacy sentence
   bash scripts/run_presentation.sh full sentence
   bash scripts/run_presentation.sh report
 
-FULL MODE requires running Ollama, Neo4j, the stored PPO checkpoint, and the
+LEGACY/FULL MODE requires running Ollama, Neo4j, the stored PPO checkpoint, and the
 cached sentence-transformer; tests and smoke mode do not require them.
 All files remain inside ~/Folder/CDF-RAG-2/presentation_20261118/.
 No auto-push: inspect outputs for confidential patient details before committing.
+Completed runs are skipped only if code/data/settings and 100 records match.
 HELP
     ;;
 esac

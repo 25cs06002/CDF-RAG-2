@@ -18,4 +18,4 @@ Thank you.
 
 ---
 
-**Supporting materials:** [presentation slides source](PRESENTATION_SUPERVISOR_20261118.md); [repository](https://github.com/25cs06002/CDF-RAG-2/tree/research-v2); [measured six-baseline comparison](../research_artifacts/presentation_20261118/retrieval_only_100_v1.csv).
+**Supporting materials:** [presentation slides source](PRESENTATION_SUPERVISOR_20261118.md); [repository](https://github.com/25cs06002/CDF-RAG-2/tree/research-v2); [measured six-baseline comparison](../research_artifacts/presentation_20261118/retrieval_only_100_v2_multihop.csv).

@@ -39,13 +39,13 @@ def create_pipeline(model_id: str, *, document_corpus: Path | None = None,
         raise ValueError("Unknown pipeline ID; choose B1-B8")
     item = MODEL_REGISTRY[model_id]
     if item.model_id == "B7":
-        from ..legacy_no_rl import LegacyNoRLPipeline
+        from .legacy_no_rl import LegacyNoRLPipeline
         return LegacyNoRLPipeline()
     if item.model_id == "B8":
-        from ..legacy_rl import LegacyRLPipeline
+        from .legacy_rl import LegacyRLPipeline
         return LegacyRLPipeline()
 
-    from ..presentation_baselines import (
+    from .baselines import (
         BaselinePipeline, G0Corpus, CandidateCorpus, LSAEncoder
     )
     if item.evidence == "phase2_candidate_summaries":

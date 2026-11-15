@@ -96,7 +96,7 @@ def choose_models(selected):
     return names
 
 
-def run_models(selected="all", limit=None, retrieval_only=False, top_k=5):
+def run_models(selected="all", limit=None, retrieval_only=False, top_k=5, encoder="sentence"):
     questions, metadata = validate_inputs()
     names = choose_models(selected)
     if retrieval_only and any(name in LEGACY for name in names):
@@ -107,6 +107,8 @@ def run_models(selected="all", limit=None, retrieval_only=False, top_k=5):
         questions = questions[:limit]
     if top_k < 1:
         raise ValueError("top-k must be >= 1")
+    if encoder not in {"sentence", "lsa"}:
+        raise ValueError("encoder must be sentence or lsa")
     runs_dir = inside_repo(WORKSPACE / "runs")
     runs_dir.mkdir(parents=True, exist_ok=True)
     configs_dir = inside_repo(WORKSPACE / "configs")
@@ -138,7 +140,7 @@ def run_models(selected="all", limit=None, retrieval_only=False, top_k=5):
                 config_path=config_path, output_root=runs_dir, run_id=run_id
             )
         else:
-            from .presentation_baselines import BaselinePipeline, G0Corpus, CandidateCorpus
+            from .presentation_baselines import BaselinePipeline, G0Corpus, CandidateCorpus, LSAEncoder
             if model_id in {"B1", "B2", "B3", "B4"}:
                 documents = WORKSPACE / "corpus/provisional_source_summaries_v1/documents.jsonl"
                 if not documents.is_file():
@@ -152,6 +154,7 @@ def run_models(selected="all", limit=None, retrieval_only=False, top_k=5):
             pipeline = BaselinePipeline(
                 name, corpus=corpus, top_k=top_k,
                 generate=not retrieval_only,
+                dense_encoder=(LSAEncoder() if encoder == "lsa" and model_id in {"B3","B4"} else None),
             )
             summary, output_dir = run_experiment(
                 pipeline=pipeline,
@@ -181,6 +184,7 @@ def run_models(selected="all", limit=None, retrieval_only=False, top_k=5):
             "dataset_sha256": file_sha256(INPUT),
             "execution_mode": "retrieval_only" if retrieval_only else "end_to_end",
             "top_k": top_k if model_id not in LEGACY else None,
+            "embedding_backend": (encoder if model_id in {"B3","B4"} else None),
             "elapsed_including_initialization_seconds": time.perf_counter() - wall_start,
             "summary": summary,
             "logged_utc": datetime.now(timezone.utc).isoformat(),
@@ -306,6 +310,7 @@ def report(allow_partial=False, workspace=WORKSPACE):
             "execution_mode": run["execution_mode"],
             "evidence_basis": run.get("evidence_basis", "unrecorded"),
             "corpus_sha256": run.get("corpus_sha256"),
+            "embedding_backend": run.get("embedding_backend"),
             **{key: value for key, value in metrics.items() if key != "by_category"},
         })
         for category, result in metrics["by_category"].items():
@@ -362,6 +367,7 @@ def main():
     run.add_argument("--models", default="all", help="all or comma-separated B1..B8")
     run.add_argument("--limit", type=int)
     run.add_argument("--top-k", type=int, default=5)
+    run.add_argument("--encoder", choices=["sentence", "lsa"], default="sentence")
     run.add_argument("--retrieval-only", action="store_true")
     rep = commands.add_parser("report")
     rep.add_argument("--allow-partial", action="store_true")
@@ -378,7 +384,7 @@ def main():
             "reference_basis": "unreviewed_pilot",
         }, indent=2))
     elif args.command == "run":
-        run_models(args.models, args.limit, args.retrieval_only, args.top_k)
+        run_models(args.models, args.limit, args.retrieval_only, args.top_k, args.encoder)
     else:
         report(args.allow_partial)
 

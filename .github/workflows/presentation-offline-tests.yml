@@ -55,16 +55,10 @@ jobs:
           assert "research_artifacts" in ast.unparse(matches[0].value)
           print("ARCHIVED G0 PATH CONFIGURATION VERIFIED")
           PY
-      - name: Execute 100 queries on six offline retrieval baselines
+      - name: Execute 100 queries through unified B1-B6 experiment matrix
         run: |
-          DATA=presentation_20261118/benchmark/questions_only.jsonl
-          DOCS=presentation_20261118/corpus/provisional_source_summaries_v1/documents.jsonl
-          python -m research_v2.presentation_baselines --pipeline naive_rag --input "$DATA" --limit 100 --document-corpus "$DOCS"
-          python -m research_v2.presentation_baselines --pipeline bm25_rag --input "$DATA" --limit 100 --document-corpus "$DOCS"
-          python -m research_v2.presentation_baselines --pipeline dense_rag --input "$DATA" --limit 100 --document-corpus "$DOCS" --encoder lsa
-          python -m research_v2.presentation_baselines --pipeline hybrid_rag --input "$DATA" --limit 100 --document-corpus "$DOCS" --encoder lsa
-          python -m research_v2.presentation_baselines --pipeline graph_rag --input "$DATA" --limit 100
-          python -m research_v2.presentation_baselines --pipeline causal_kg_rag --input "$DATA" --limit 100
+          python -m research_v2.presentation_matrix run \
+            --models B1,B2,B3,B4,B5,B6 --encoder lsa --retrieval-only
       - name: Produce actual retrieval-only pilot summary
         run: |
           python - <<'PY'
@@ -119,6 +113,19 @@ jobs:
           }
           print("Verified 600 measured slots and 200 clearly NOT_RUN slots")
           PY
+      - name: Score G0 structural snapshot recovery (not clinical accuracy)
+        run: |
+          python -m research_v2.presentation_g0_reference score
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          output = Path("presentation_20261118/metrics/g0_structural_pilot_v1/structural_scores.json")
+          data = json.loads(output.read_text(encoding="utf-8"))
+          assert data["models_scored"] == 6
+          assert not any(row["medical_gold"] for row in data["results"])
+          assert sum(r["structural_edge_score_applicable"] for r in data["results"]) == 2
+          print("Structural-only scoring completed for B5 and B6; B1-B4 marked N/A")
+          PY
       - name: Upload pilot measurements
         uses: actions/upload-artifact@v4
         with:
@@ -127,6 +134,7 @@ jobs:
             presentation_20261118/benchmark/manifest.json
             presentation_20261118/corpus/provisional_source_summaries_v1/manifest.json
             presentation_20261118/metrics/offline_pilot/
+            presentation_20261118/metrics/g0_structural_pilot_v1/
             presentation_20261118/metrics/supervisor_matrix_*/
             presentation_20261118/runs/
           retention-days: 7

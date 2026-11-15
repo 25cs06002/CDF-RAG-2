@@ -20,3 +20,6 @@ __pycache__/
 
 # OS files
 .DS_Store
+# Presentation experiments: keep large/raw model outputs local until reviewed
+presentation_20261118/runs/
+presentation_20261118/logs/

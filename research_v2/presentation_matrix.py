@@ -161,7 +161,10 @@ def run_models(selected="all", limit=None, retrieval_only=False, top_k=5, encode
                 source_file=INPUT,
                 output_root=runs_dir,
                 graph_version="G0",
-                random_seed=2026,
+                # B1-B6 are deterministic retrieval-only methods with a fixed
+                # LSA SVD random_state=2026; do not require global PyTorch RNG
+                # initialization when testing on a lightweight CI machine.
+                random_seed=None,
             )
 
         evidence_basis = (

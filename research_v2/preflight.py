@@ -50,7 +50,9 @@ def collect_runtime(project_root=PROJECT_ROOT):
         override=False,
     )
 
-    # Use the immutable, versioned G0 copy committed inside this repository.\n    # The live Neo4j graph must still match its structural fingerprint.\n    graph_dir = root / "research_artifacts" / "graph-G0"
+    # Use the immutable versioned G0 copy in this repository.
+    # Compare it with live Neo4j before starting a model run.
+    graph_dir = root / "research_artifacts" / "graph-G0"
 
     archived = read_export(graph_dir)
     live = read_live_graph()

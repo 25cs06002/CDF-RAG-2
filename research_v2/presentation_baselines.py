@@ -170,7 +170,7 @@ class LSAEncoder:
 
         if self.vectorizer is None:
             self.vectorizer = TfidfVectorizer(
-                lowercase=True, token_pattern=r"(?u)\\b\\w+\\b"
+                lowercase=True, token_pattern=r"(?u)\b\w+\b"
             )
             vectors = self.vectorizer.fit_transform(texts)
             upper = min(vectors.shape) - 1

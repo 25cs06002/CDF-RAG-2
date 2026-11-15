@@ -72,6 +72,7 @@ class G0Corpus:
             )
             for index, (cause, effect) in enumerate(self.edges, 1)
         ]
+        self.graph_documents = list(self.documents)
         self.tokens = [tokenize(item.text) for item in self.documents]
         self.lengths = [len(tokens) for tokens in self.tokens]
         self.avg_length = sum(self.lengths) / len(self.lengths)
@@ -114,6 +115,39 @@ class G0Corpus:
     def lexical_scores(self, query):
         terms = set(tokenize(query))
         return [len(terms & set(tokens)) for tokens in self.tokens]
+
+
+class CandidateCorpus(G0Corpus):
+    """Source-attributed candidate summaries for B1-B4; graph stays fixed at G0."""
+
+    def __init__(self, documents_path: Path):
+        super().__init__()
+        path = Path(documents_path).expanduser().resolve()
+        if not path.is_relative_to(PROJECT_ROOT):
+            raise ValueError("Document corpus must be inside CDF-RAG-2")
+        documents = []
+        seen = set()
+        with path.open(encoding="utf-8") as handle:
+            for line in handle:
+                if not line.strip():
+                    continue
+                row = json.loads(line)
+                document = EvidenceDocument.model_validate(row)
+                if document.document_id in seen:
+                    raise ValueError(f"Duplicate document ID: {document.document_id}")
+                if not document.text.strip() or not document.source_id:
+                    raise ValueError("Source-attributed text required")
+                seen.add(document.document_id)
+                documents.append(document)
+        if not documents:
+            raise ValueError("Document corpus is empty")
+        self.documents = documents
+        self.tokens = [tokenize(doc.text) for doc in documents]
+        self.lengths = [len(tokens) for tokens in self.tokens]
+        self.avg_length = sum(self.lengths) / len(self.lengths)
+        if self.avg_length <= 0:
+            raise ValueError("Document corpus has no usable tokens")
+        self.df = Counter(word for tokens in self.tokens for word in set(tokens))
 
 
 class BaselinePipeline(BaseRAGPipeline):
@@ -189,11 +223,17 @@ class BaselinePipeline(BaseRAGPipeline):
         start = time.perf_counter()
         indices, concept = self.select(request.query)
         retrieval_ms = (time.perf_counter() - start) * 1000.0
-        documents = [self.corpus.documents[index] for index in indices]
-        edges = [
-            CausalEdge(cause=self.corpus.edges[index][0], effect=self.corpus.edges[index][1])
-            for index in indices
+        graph_mode = self.pipeline_id in {"graph_rag", "causal_kg_rag"}
+        document_mode = isinstance(self.corpus, CandidateCorpus)
+        documents = [
+            (self.corpus.graph_documents if graph_mode else self.corpus.documents)[i]
+            for i in indices
         ]
+        # Text documents are not silently converted to causal graph edges.
+        edges = [
+            CausalEdge(cause=self.corpus.edges[i][0], effect=self.corpus.edges[i][1])
+            for i in indices
+        ] if graph_mode or not document_mode else []
         paths = []
         if self.pipeline_id == "causal_kg_rag" and concept:
             present = set(indices)
@@ -237,8 +277,8 @@ class BaselinePipeline(BaseRAGPipeline):
         context = "\n".join(f"[{d.document_id}] {d.text}" for d in documents)
         prompt = (
             "Answer using only the evidence below. If insufficient, state that. "
-            "Evidence consists of unverified G0 graph relationships, NOT clinical guidance. "
-            "Do not claim independent medical certainty. Cite graph evidence IDs.\n\n"
+            "Evidence is unverified G0 graph data or AI-assisted source-candidate summaries, NOT clinical guidance. "
+            "Do not claim independent medical certainty. Cite evidence IDs.\n\n"
             f"Evidence:\n{context}\n\nQuestion: {query}\nAnswer:"
         )
         base = os.getenv("OLLAMA_BASE_URL", "http://127.0.0.1:11434").rstrip("/")
@@ -263,6 +303,7 @@ def main():
     parser.add_argument("--limit", type=int, default=None)
     parser.add_argument("--top-k", type=int, default=5)
     parser.add_argument("--generate", action="store_true")
+    parser.add_argument("--document-corpus", type=Path, help="Source-attributed JSONL for B1-B4")
     parser.add_argument("--output-root", type=Path, default=PRESENTATION_ROOT / "runs")
     args = parser.parse_args()
     if Path.cwd().resolve() != PROJECT_ROOT:
@@ -274,8 +315,10 @@ def main():
         questions = questions[:args.limit]
     if not args.output_root.expanduser().resolve().is_relative_to(PROJECT_ROOT):
         parser.error("Outputs must remain inside the repository")
-    corpus = G0Corpus()
+    graph_corpus = G0Corpus()
+    document_corpus = CandidateCorpus(args.document_corpus) if args.document_corpus else graph_corpus
     for name in BASELINE_NAMES if args.pipeline == "all" else [args.pipeline]:
+        corpus = graph_corpus if name in {"graph_rag", "causal_kg_rag"} else document_corpus
         pipeline = BaselinePipeline(name, corpus, top_k=args.top_k, generate=args.generate)
         stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
         summary, output_dir = run_experiment(

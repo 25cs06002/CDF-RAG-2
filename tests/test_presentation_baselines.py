@@ -78,6 +78,16 @@ class TestPresentationBaselines(unittest.TestCase):
             self.assertEqual(r.matched_concept.lower(), "heart disease")
             self.assertTrue(any(e.effect.lower() == "heart disease" for e in r.causal_edges))
 
+    def test_causal_retriever_preserves_complete_two_hop_path_at_top_five(self):
+        pipeline = BaselinePipeline("causal_kg_rag", corpus=self.corpus, top_k=5)
+        record = pipeline.run(self.req("What causes heart disease?"))
+        self.assertGreaterEqual(len(record.causal_paths), 1)
+        edges = {(e.cause, e.effect) for e in record.causal_edges}
+        for path in record.causal_paths:
+            self.assertEqual(len(path.nodes), 3)
+            self.assertIn((path.nodes[0], path.nodes[1]), edges)
+            self.assertIn((path.nodes[1], path.nodes[2]), edges)
+
     def test_top_k_validation(self):
         with self.assertRaisesRegex(ValueError, "positive"):
             BaselinePipeline("bm25_rag", corpus=self.corpus, top_k=0)

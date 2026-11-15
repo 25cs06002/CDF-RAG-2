@@ -1,0 +1,55 @@
+{
+  "run_id": "synthetic_step13",
+  "pipeline_id": "synthetic_fixture",
+  "total_records": 2,
+  "status_counts": {
+    "ok": 2
+  },
+  "reference_basis_counts": {
+    "synthetic": 2
+  },
+  "metrics": {
+    "documents": {
+      "evaluated_queries": 2,
+      "macro_precision": 0.75,
+      "macro_recall": 0.75,
+      "macro_f1": 0.75,
+      "micro_precision": 0.5,
+      "micro_recall": 0.5,
+      "micro_f1": 0.5,
+      "tp": 1,
+      "fp": 1,
+      "fn": 1
+    },
+    "edges": {
+      "evaluated_queries": 2,
+      "macro_precision": 0.75,
+      "macro_recall": 0.75,
+      "macro_f1": 0.75,
+      "micro_precision": 0.5,
+      "micro_recall": 0.5,
+      "micro_f1": 0.5,
+      "tp": 1,
+      "fp": 1,
+      "fn": 1
+    },
+    "paths": {
+      "evaluated_queries": 2,
+      "macro_precision": 1.0,
+      "macro_recall": 0.75,
+      "macro_f1": 0.8333333333333333,
+      "micro_precision": 1.0,
+      "micro_recall": 0.5,
+      "micro_f1": 0.6666666666666666,
+      "tp": 1,
+      "fp": 0,
+      "fn": 1
+    }
+  },
+  "successful_latency_seconds": {
+    "count": 2,
+    "mean": 0.9,
+    "p50": 0.9,
+    "p95": 0.99
+  }
+}

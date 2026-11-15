@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "purpose": "unreviewed_remaining70_evidence_workflow_not_medical_gold",
+  "pilot_sha256": "b5da7370c25974ff892f2f082b4c93e0e0dcea83adad665857424326726cdd64",
+  "base_sources_sha256": "a800962644e3c0da10accadb354adbe7fb86334c712b7be388b997a44f5eafad",
+  "extra_sources_sha256": "74e5b8f6cfeefe1fd09d26b0a729fbdad4aa9c7fbc20ce62adf46f971dacfd21",
+  "source_map_sha256": "5d4efd547ca19d73573fe27efbc63d2faa4cc635378b932869fb5d86341f56e2",
+  "question_tasks": 70,
+  "question_source_review_tasks": 89,
+  "two_link_review_slots": 30,
+  "link_slots_are_proposals": false,
+  "human_review_completed": false,
+  "medical_gold_created": false,
+  "previous_30_question_worklist_not_modified": true
+}

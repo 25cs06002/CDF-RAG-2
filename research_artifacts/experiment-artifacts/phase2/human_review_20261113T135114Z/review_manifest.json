@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "purpose": "human_review_not_medical_gold",
+  "pilot_sha256": "b5da7370c25974ff892f2f082b4c93e0e0dcea83adad665857424326726cdd64",
+  "sources_sha256": "a800962644e3c0da10accadb354adbe7fb86334c712b7be388b997a44f5eafad",
+  "proposals_sha256": "77b7c184dd1257ee0cf499159c0604108001d4d53f2a3350854b7ea558986f3a",
+  "claim_tasks": 25,
+  "question_tasks": 30,
+  "initial_review_decisions": 0,
+  "gold_labels_created": false
+}

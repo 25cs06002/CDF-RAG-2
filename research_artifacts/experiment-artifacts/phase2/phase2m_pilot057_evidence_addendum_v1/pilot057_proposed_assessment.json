@@ -1,0 +1,31 @@
+{
+  "phase": "2M",
+  "question_id": "PILOT_057",
+  "link_task_id": "PILOT_057:LINK2",
+  "original_frozen_decision": "needs_more_evidence",
+  "original_relation": "CAUSES",
+  "additional_source_reviews": {
+    "K057S04": {
+      "decision": "partial",
+      "relation": "CAUSES",
+      "reviewer_id": "STU_001",
+      "review_date": "2026-11-14"
+    },
+    "K057S05": {
+      "decision": "supports",
+      "relation": "CAUSES",
+      "reviewer_id": "STU_001",
+      "review_date": "2026-11-14"
+    }
+  },
+  "proposed_updated_link_decision": "supports",
+  "proposed_supporting_source_ids": [
+    "K057S05"
+  ],
+  "proposed_relation": "CAUSES",
+  "limitation": "The textbook describes alveolar inflammation and fluid accumulation resulting in cough and breathing difficulty, but does not independently isolate alveolar fluid as the direct cough trigger.",
+  "assessment_type": "AI_assisted_candidate",
+  "independent_confirmation": "pending",
+  "original_frozen_files_modified": false,
+  "medical_gold_created": false
+}

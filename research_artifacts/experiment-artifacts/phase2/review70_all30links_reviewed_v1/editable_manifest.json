@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "purpose": "editable_94_source_review_not_medical_gold",
+  "combined_input_hashes": {
+    "question_review.csv": "bdb7f82ba6b985f60c5bd4c43af3f767170e9e072d5fd5cb013cf37291100330",
+    "source_review.csv": "8b4ee4e24b5ea2cf3921c7728d918d0b49b20c52cd20cc702519719160bdc7da",
+    "link_review.csv": "39273189c4a89477ab28942b70a5f744ed3b62851805ac9a2104fd1333298757",
+    "migration_manifest.json": "a22f58de79636beb2abb11ab8b3a001cd78e962248391cefe598a5ecaba6024f"
+  },
+  "question_tasks": 70,
+  "source_tasks": 94,
+  "link_slots": 30,
+  "review_decisions_auto_promoted": false,
+  "clinical_gold_created": false,
+  "baseline_workspace_modified": false
+}

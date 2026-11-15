@@ -1,0 +1,74 @@
+{
+  "counts": {
+    "accepted_claim_tasks": 20,
+    "answerable_question_drafts": 28,
+    "input_claim_tasks": 25,
+    "input_question_tasks": 30,
+    "retained_reviewed_candidate_relationships": 22,
+    "revised_claim_tasks": 2,
+    "unresolved_or_rejected_claim_tasks": 3,
+    "unresolved_or_unanswerable_questions": 2
+  },
+  "data_role": "strictly_audited_reviewed_candidates_not_medical_gold",
+  "export_sha256": {
+    "reviewed_questions_v1.jsonl": "9c1fff886a563a8c9e4f2192a0ac2d84df57409466c9011a70fc31445c95dcf1",
+    "reviewed_relationships_v1.jsonl": "9d019e8633afefa3791e46c513bbea6155e775c362734398eeeb69ed1eeed324",
+    "unresolved_questions_v1.jsonl": "b77e501870db42f0c5145c1ef1a7bbb25e6f46498a9aab4bee8c7357e2205d5c",
+    "unresolved_relationships_v1.jsonl": "d7774941c3cfb6b2db7126790451491937132b668e7fd41032191c7872cf8eb8"
+  },
+  "input_sha256": {
+    "claim_review.csv": "668180af5b882eccb7df8079dd38eb5b27a43e7910ba334938bc01c98fe1d75e",
+    "question_review.csv": "f022de5c7a9abdd39ea2329b93dd8af5dcacc0ac9a20313903f9ebff8aa78c1a",
+    "review_manifest.json": "ebc1822550c2dce9aae7dc1efc9257183cc605fa5e20609628840b4a019ee10c"
+  },
+  "provenance_limitations": {
+    "annotation_adjudication_required": true,
+    "final_splits_assigned": false,
+    "medical_correctness_verified_by_code": false,
+    "medical_gold_created": false,
+    "ready_for_automatic_graph_import": false,
+    "reviewer_identity_verified_by_code": false
+  },
+  "schema_version": 1,
+  "source_review_manifest": {
+    "claim_tasks": 25,
+    "gold_labels_created": false,
+    "initial_review_decisions": 0,
+    "pilot_sha256": "b5da7370c25974ff892f2f082b4c93e0e0dcea83adad665857424326726cdd64",
+    "proposals_sha256": "77b7c184dd1257ee0cf499159c0604108001d4d53f2a3350854b7ea558986f3a",
+    "purpose": "human_review_not_medical_gold",
+    "question_tasks": 30,
+    "schema_version": 1,
+    "sources_sha256": "a800962644e3c0da10accadb354adbe7fb86334c712b7be388b997a44f5eafad"
+  },
+  "strict_audit": {
+    "claim_decision_counts": {
+      "accept": 20,
+      "needs_more_evidence": 3,
+      "revise": 2
+    },
+    "claim_tasks": 25,
+    "data_role": "human_decision_workflow_audit_not_gold",
+    "gold_labels_created": false,
+    "medical_correctness_verified_by_code": false,
+    "pending_decisions": 0,
+    "question_decision_counts": {
+      "answerable": 28,
+      "needs_more_evidence": 2
+    },
+    "question_tasks": 30,
+    "reviewer_identity_verified_by_code": false,
+    "schema_version": 1,
+    "strict_decisions_required": true
+  },
+  "warnings": [
+    {
+      "code": "answerable_questions_without_retained_causal_claim",
+      "explanation": "An answerable question has no retained causal relationship within its corresponding proposal. This can be valid for explanatory QA, but requires separate adjudication before graph-edge or path evaluation.",
+      "query_ids": [
+        "PILOT_005",
+        "PILOT_020"
+      ]
+    }
+  ]
+}

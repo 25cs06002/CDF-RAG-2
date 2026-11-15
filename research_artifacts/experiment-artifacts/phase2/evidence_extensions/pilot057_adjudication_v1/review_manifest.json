@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "purpose": "phase2k_multihop_candidate_review_not_medical_gold",
+  "question_id": "PILOT_057",
+  "snapshot_hashes": {
+    "question_review.csv": "99c9372dc0ee158cca668e74de03e86bc2c0f403c377e6b26dfcb5d4ffd49163",
+    "source_review.csv": "96f2806a4ed9254f4ef7afd8d5199089ed2603b6a7de886a99db2a6028fdfe15",
+    "link_review.csv": "17db51d440eed183f2fef3b71a2da3cfb4ec46bb95c57ec4dc7edae38908b916",
+    "editable_manifest.json": "d7fd20f1e524d79d4650bbd881012106e462804f072b2e8259fe86a9a5abae06"
+  },
+  "registry_sha256": "8b30c1da2b5db1007fe84f5c0b12c7ce9e54e277ebe806fd5f41c04a6f5b4f28",
+  "auto_promoted_decisions": false,
+  "medical_gold_created": false
+}

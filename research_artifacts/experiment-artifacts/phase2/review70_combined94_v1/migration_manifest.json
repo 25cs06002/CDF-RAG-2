@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "purpose": "combined_70_question_94_source_handoff_not_medical_gold",
+  "inputs": {
+    "baseline": {
+      "question_review.csv": "fc3d34d536d22908412ee4355d0a90bb2743b9511a8df0ea94045a84e626ad2c",
+      "source_review.csv": "9ee3f6e23119cdf570d50639ffbae35c41269c2f05ac75f4840cd33d4e3db612",
+      "link_review.csv": "39273189c4a89477ab28942b70a5f744ed3b62851805ac9a2104fd1333298757",
+      "review_manifest.json": "d5dd5d2649f9b09a2bd71597fcce496fe5b5a214d36ed2486463aa3c7e36097f"
+    },
+    "supplement": {
+      "supplemental_source_review.csv": "bf5321af3164a0eb1ecbefa0988edd0645b46b6244df58a8ec2b69fbf932a512",
+      "supplement_manifest.json": "cb3d52747f02b3b661993ae183e9034f506b20595d7220b2e57f62c4567288eb"
+    },
+    "registry_sha256": "0904292f1b3ddd43a7c90ff13ead354cd1d9ebff5f52626ffaa01d7d2a0907ff"
+  },
+  "question_tasks": 70,
+  "source_tasks": 94,
+  "link_slots": 30,
+  "source_review_decisions_copied_not_promoted": true,
+  "question_decisions_copied_not_promoted": true,
+  "existing_review_sources_rewritten": false,
+  "medical_gold_created": false,
+  "editable_combined_review_validator_implemented": false
+}

@@ -1,0 +1,11 @@
+source_url,review_tasks,question_ids,source_ids
+https://pmc.ncbi.nlm.nih.gov/articles/PMC11417604/,2,PILOT_052,PILOT_052:K052S01;PILOT_052:K052S02
+https://pmc.ncbi.nlm.nih.gov/articles/PMC12257072/,2,PILOT_055,PILOT_055:K055S02;PILOT_055:K055S03
+https://pmc.ncbi.nlm.nih.gov/articles/PMC6019552/,2,PILOT_056,PILOT_056:K056S01;PILOT_056:K056S02
+https://www.cancer.gov/types/lung/hp/lung-prevention-pdq,2,PILOT_059,PILOT_059:K059S02;PILOT_059:K059S04
+https://www.heart.org/en/health-topics/atrial-fibrillation/why-atrial-fibrillation-af-or-afib-matters,2,PILOT_054,PILOT_054:K054S01;PILOT_054:K054S02
+https://www.nhlbi.nih.gov/health/asthma/causes,2,PILOT_051,PILOT_051:EXT001;PILOT_051:K051S01
+https://www.niddk.nih.gov/health-information/diabetes/overview/preventing-problems/diabetic-kidney-disease,2,PILOT_050,PILOT_050:K050S01;PILOT_050:K050S02
+https://www.niddk.nih.gov/health-information/endocrine-diseases/hashimotos-disease,2,PILOT_060,PILOT_060:K060S01;PILOT_060:K060S02
+https://www.niddk.nih.gov/health-information/kidney-disease/chronic-kidney-disease-ckd/causes,2,PILOT_050;PILOT_053,PILOT_050:SRC008;PILOT_053:SRC008
+https://www.niddk.nih.gov/health-information/kidney-disease/high-blood-pressure,2,PILOT_053,PILOT_053:K053S01;PILOT_053:K053S02

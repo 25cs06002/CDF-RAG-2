@@ -1,0 +1,14 @@
+{
+  "run_id": "repro_a_20261113T115929Z_5821",
+  "pipeline_id": "cdf_rag_no_rl_legacy",
+  "total_queries": 1,
+  "planned_queries": 1,
+  "executed_queries": 1,
+  "aborted": false,
+  "abort_reason": null,
+  "successful": 1,
+  "abstained": 0,
+  "errors": 0,
+  "wall_time_seconds": 48.943,
+  "finished_utc": "2026-11-13T12:00:20.699652+00:00"
+}

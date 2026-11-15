@@ -1,0 +1,1 @@
+{"query_id": "Q001", "status": "ok", "reference_basis": "graph_snapshot", "metrics": {"edges": {"precision": 1.0, "recall": 1.0, "f1": 1.0, "tp": 5, "fp": 0, "fn": 0, "predicted_count": 5, "gold_count": 5}}}

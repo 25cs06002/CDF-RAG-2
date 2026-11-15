@@ -1,0 +1,30 @@
+{
+  "phase": "2M",
+  "package": "full_independent_adjudication_handoff",
+  "questions": 15,
+  "link_tasks": 30,
+  "original_source_review_tasks": 50,
+  "supplementary_source_review_tasks": 2,
+  "total_source_review_tasks": 52,
+  "priority_counts": {
+    "P0": 1,
+    "P1": 3,
+    "P2": 26
+  },
+  "original_supported_links": 29,
+  "supplementary_candidate_upgrades": 1,
+  "independently_adjudicated_links": 0,
+  "independently_adjudicated_sources": 0,
+  "original_artifacts_modified": false,
+  "medical_gold_created": false,
+  "input_sha256": {
+    "phase2k_question_summary": "3604f58185e79765b545b2d63b0386574b166bf5670018fece712a5ba7271446",
+    "phase2k_link_evidence": "2438a9c419f06a6afd5c9518b0ac1a685b1f7518a171dc174d001d144af4fe28",
+    "phase2k_source_evidence": "1c60c5be817fe1f71fcd21d27bd3d8c08a0519e4921c661d7c87897cd9e37d15",
+    "phase2l_review_queue": "fc9e1521ad26c953afbb3f789ff1f45d582620b26be184d085d28a9a9a35775c",
+    "phase2m_p1_links": "7f7593fc337960113fe033a60746b4611eb492028605ab4fc1c66fb1f3efaf9f",
+    "phase2m_p1_sources": "7f11b0f8fed673558e0cea236b0d825b981e0b751e489d9bddd54373b5f91bbf",
+    "phase2m_pilot057_sources": "88be906c8ee367b5d61335c1b31403f58bb5f529bdbf739ca7cce30e908784e4",
+    "phase2m_pilot057_assessment": "da4d5a743cbf4bc5249fd054103fa01bc4688e78a253033bf95978402afdd405"
+  }
+}

@@ -1,0 +1,78 @@
+============================================================
+VERSIONED EXPERIMENT CONFIGURATION
+============================================================
+Experiment: g0_no_rl_seeded_smoke_v1
+Schema version: 1
+Pipeline: no_rl
+Dataset: /home/avneelsingh/Folder/CDF-RAG-2/research_v2/examples/step11_smoke.jsonl
+Questions selected: 1
+Dataset SHA256: 4ce5c863bcaee59dcc5c43ff6b01f8ac8da742799a4768ec7f27cc6503a9afa8
+Graph label: G0
+Seed label: 2026
+
+[1/1] cdf_rag_no_rl_legacy | Q001
+Initializing LangGraph workflow...
+LangGraph graph compiled successfully.
+⚙️ Initializing LangGraph pipeline...
+🚫 RL disabled: deterministic concept matching only.
+[Hallucination Detector] Embedding-based detector initialized.
+✅ LangGraph pipeline compiled.
+
+🔁 Original Query (No-RL): What causes heart disease?
+🔎 Deterministic concept match: heart disease
+🔁 Retrieval Query (No-RL): heart disease
+
+🔎 Retrieving knowledge for: heart disease
+✅ Direct causes: 5
+✅ Multi-hop paths: 20
+
+[Hallucination Detector]
+Checking semantic consistency...
+
+Answer claim:
+  Heart disease is caused by diabetes.
+Evidence match:
+  OUTPUT: "Heart disease is caused by diabetes, high blood pressure, and smoking
+✅ Exact evidence match.
+
+Answer claim:
+  Heart disease is caused by high blood pressure.
+Best explanation match:
+  High blood pressure → heart disease 3
+Semantic similarity: 0.801
+✅ Claim semantically supported.
+
+Answer claim:
+  Heart disease is caused by smoking.
+Best explanation match:
+  Smoking → heart disease 4
+Semantic similarity: 0.792
+✅ Claim semantically supported.
+
+[Hallucination Detector] Result: SUPPORTED
+🧠 Embedding Hallucination: False
+
+🔐 Deterministic Neo4j Causal Validation
+   Claims detected: 3
+   Supported claims: 3
+   Unsupported claims: 0
+   Neo4j validator: PASS
+   Final hallucination: NO
+Status: ok | Latency: 48.83s
+
+EXPERIMENT COMPLETED
+{
+  "run_id": "repro_a_20261113T115929Z_5821",
+  "pipeline_id": "cdf_rag_no_rl_legacy",
+  "total_queries": 1,
+  "planned_queries": 1,
+  "executed_queries": 1,
+  "aborted": false,
+  "abort_reason": null,
+  "successful": 1,
+  "abstained": 0,
+  "errors": 0,
+  "wall_time_seconds": 48.943,
+  "finished_utc": "2026-11-13T12:00:20.699652+00:00"
+}
+Results: /home/avneelsingh/Folder/CDF-RAG-2-experiment-artifacts/step16d/repro_a_20261113T115929Z_5821

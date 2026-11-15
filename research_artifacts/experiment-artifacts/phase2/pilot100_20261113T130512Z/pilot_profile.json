@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "total_questions": 100,
+  "query_type_counts": {
+    "ambiguous": 8,
+    "comparative": 12,
+    "direct": 15,
+    "indirect": 15,
+    "multi_hop": 15,
+    "paraphrased": 15,
+    "risk_factor": 12,
+    "unsupported": 8
+  },
+  "medical_domain_counts": {
+    "cardiovascular": 19,
+    "endocrine": 4,
+    "general_medicine": 2,
+    "infectious_disease": 12,
+    "mental_health": 8,
+    "metabolic": 14,
+    "neurological": 13,
+    "oncology": 7,
+    "renal": 8,
+    "respiratory": 13
+  },
+  "review_status_counts": {
+    "draft": 100
+  },
+  "split_counts": {
+    "unassigned": 100
+  },
+  "source_evidence_count": 0,
+  "strict_review_and_split_validation": false,
+  "clinical_correctness_independently_verified_by_code": false,
+  "target_final_questions": 650,
+  "target_split_counts": {
+    "train": 400,
+    "validation": 100,
+    "test": 150
+  },
+  "data_role": "unreviewed_question_drafts",
+  "question_family_pair_count": 15,
+  "dataset_sha256": "b5da7370c25974ff892f2f082b4c93e0e0dcea83adad665857424326726cdd64",
+  "gold_labels_created": false,
+  "medical_accuracy_verified": false,
+  "final_splits_assigned": false
+}

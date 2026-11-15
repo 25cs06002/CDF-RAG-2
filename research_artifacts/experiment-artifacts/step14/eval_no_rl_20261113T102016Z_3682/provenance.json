@@ -1,0 +1,6 @@
+{
+  "records_sha256": "2317e3a6c9486b2da781bab70889f785f23c76f54e009d5c3a44c5755ee62a0d",
+  "gold_sha256": "d7031fb7660f9649e6df4d164ef483a5c7753134e2df1a5886d5957bd9b402af",
+  "evaluator_git_commit": "e219f5219fb88f86158bc5369ced2817ffdfc6da",
+  "annotation_warning": "Synthetic and graph_snapshot labels do not establish medical correctness."
+}

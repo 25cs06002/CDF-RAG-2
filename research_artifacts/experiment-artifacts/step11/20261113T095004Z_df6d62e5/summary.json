@@ -1,0 +1,10 @@
+{
+  "run_id": "20261113T095004Z_df6d62e5",
+  "pipeline_id": "cdf_rag_no_rl_legacy",
+  "total_queries": 1,
+  "successful": 1,
+  "abstained": 0,
+  "errors": 0,
+  "wall_time_seconds": 58.152,
+  "finished_utc": "2026-11-13T09:51:02.289861+00:00"
+}

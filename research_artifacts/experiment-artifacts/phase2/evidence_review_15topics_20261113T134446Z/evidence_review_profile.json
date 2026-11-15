@@ -1,0 +1,20 @@
+{
+  "data_role": "source_checked_ai_proposals_for_independent_review",
+  "proposal_count": 15,
+  "question_count": 30,
+  "unique_candidate_sources": 15,
+  "proposal_outcome_counts": {
+    "candidate_relations": 14,
+    "insufficient_for_question": 1
+  },
+  "questions_with_candidate_relations": 28,
+  "questions_needing_additional_sources": 2,
+  "relationship_type_counts": {
+    "ASSOCIATED_WITH": 1,
+    "CAUSES": 12,
+    "RISK_FACTOR_FOR": 11
+  },
+  "human_review_completed": false,
+  "gold_annotation_created": false,
+  "clinical_accuracy_established": false
+}

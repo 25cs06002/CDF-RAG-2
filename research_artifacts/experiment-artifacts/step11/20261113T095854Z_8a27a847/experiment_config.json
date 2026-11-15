@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "experiment_name": "g0_no_rl_smoke_v1",
+  "pipeline": "no_rl",
+  "dataset_path": "research_v2/examples/step11_smoke.jsonl",
+  "dataset_sha256": "4ce5c863bcaee59dcc5c43ff6b01f8ac8da742799a4768ec7f27cc6503a9afa8",
+  "graph_version": "G0",
+  "random_seed": null,
+  "limit": 1,
+  "purpose": "Legacy G0 integration smoke test; not a medical accuracy benchmark."
+}

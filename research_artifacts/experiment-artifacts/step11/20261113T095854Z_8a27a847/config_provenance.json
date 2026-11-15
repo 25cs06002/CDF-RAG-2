@@ -1,0 +1,10 @@
+{
+  "experiment_name": "g0_no_rl_smoke_v1",
+  "config_schema_version": 1,
+  "config_sha256": "04a571820b00d6c06b076dc9b8dfef13d4b7b8bb7da5e5b87139b74190b526d8",
+  "dataset_sha256": "4ce5c863bcaee59dcc5c43ff6b01f8ac8da742799a4768ec7f27cc6503a9afa8",
+  "config_file": "experiment_config.json",
+  "graph_version_is_label_only": true,
+  "random_seed_is_label_only": true,
+  "purpose": "Legacy G0 integration smoke test; not a medical accuracy benchmark."
+}

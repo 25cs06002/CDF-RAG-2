@@ -1,0 +1,37 @@
+{
+  "run_id": "20261113T095854Z_8a27a847",
+  "pipeline_id": "cdf_rag_no_rl_legacy",
+  "total_records": 1,
+  "status_counts": {
+    "ok": 1
+  },
+  "reference_basis_counts": {
+    "graph_snapshot": 1
+  },
+  "metrics": {
+    "documents": {
+      "evaluated_queries": 0
+    },
+    "edges": {
+      "evaluated_queries": 1,
+      "macro_precision": 1.0,
+      "macro_recall": 1.0,
+      "macro_f1": 1.0,
+      "micro_precision": 1.0,
+      "micro_recall": 1.0,
+      "micro_f1": 1.0,
+      "tp": 5,
+      "fp": 0,
+      "fn": 0
+    },
+    "paths": {
+      "evaluated_queries": 0
+    }
+  },
+  "successful_latency_seconds": {
+    "count": 1,
+    "mean": 55.25872341700597,
+    "p50": 55.25872341700597,
+    "p95": 55.25872341700597
+  }
+}

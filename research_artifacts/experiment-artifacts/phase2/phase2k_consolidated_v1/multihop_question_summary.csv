@@ -1,0 +1,16 @@
+query_id,source_tasks,link_tasks,supported_links,chain_connected,audit_status,strict_audit_passed,frozen_checksum_verified,medical_gold_created,frozen_directory
+PILOT_046,3,2,2,True,legacy_review_verified,False,True,False,/home/avneelsingh/Folder/CDF-RAG-2-experiment-artifacts/phase2/evidence_extensions/pilot046_adjudication_frozen_v1
+PILOT_047,3,2,2,True,strict_audit_passed,True,True,False,/home/avneelsingh/Folder/CDF-RAG-2-experiment-artifacts/phase2/evidence_extensions/pilot047_adjudication_frozen_v2
+PILOT_048,3,2,2,True,strict_audit_passed,True,True,False,/home/avneelsingh/Folder/CDF-RAG-2-experiment-artifacts/phase2/evidence_extensions/pilot048_adjudication_frozen_v1
+PILOT_049,4,2,2,True,strict_audit_passed,True,True,False,/home/avneelsingh/Folder/CDF-RAG-2-experiment-artifacts/phase2/evidence_extensions/pilot049_adjudication_frozen_v1
+PILOT_050,3,2,2,True,strict_audit_passed,True,True,False,/home/avneelsingh/Folder/CDF-RAG-2-experiment-artifacts/phase2/evidence_extensions/pilot050_adjudication_frozen_v1
+PILOT_051,3,2,2,True,strict_audit_passed,True,True,False,/home/avneelsingh/Folder/CDF-RAG-2-experiment-artifacts/phase2/evidence_extensions/pilot051_adjudication_frozen_v1
+PILOT_052,3,2,2,True,strict_audit_passed,True,True,False,/home/avneelsingh/Folder/CDF-RAG-2-experiment-artifacts/phase2/evidence_extensions/pilot052_adjudication_frozen_v1
+PILOT_053,3,2,2,True,strict_audit_passed,True,True,False,/home/avneelsingh/Folder/CDF-RAG-2-experiment-artifacts/phase2/evidence_extensions/pilot053_adjudication_frozen_v1
+PILOT_054,4,2,2,True,strict_audit_passed,True,True,False,/home/avneelsingh/Folder/CDF-RAG-2-experiment-artifacts/phase2/evidence_extensions/pilot054_adjudication_frozen_v1
+PILOT_055,4,2,2,True,strict_audit_passed,True,True,False,/home/avneelsingh/Folder/CDF-RAG-2-experiment-artifacts/phase2/evidence_extensions/pilot055_adjudication_frozen_v1
+PILOT_056,3,2,2,True,strict_audit_passed,True,True,False,/home/avneelsingh/Folder/CDF-RAG-2-experiment-artifacts/phase2/evidence_extensions/pilot056_adjudication_frozen_v1
+PILOT_057,4,2,1,False,strict_audit_passed,True,True,False,/home/avneelsingh/Folder/CDF-RAG-2-experiment-artifacts/phase2/evidence_extensions/pilot057_adjudication_frozen_v1
+PILOT_058,3,2,2,True,strict_audit_passed,True,True,False,/home/avneelsingh/Folder/CDF-RAG-2-experiment-artifacts/phase2/evidence_extensions/pilot058_adjudication_frozen_v1
+PILOT_059,4,2,2,True,strict_audit_passed,True,True,False,/home/avneelsingh/Folder/CDF-RAG-2-experiment-artifacts/phase2/evidence_extensions/pilot059_adjudication_frozen_v1
+PILOT_060,3,2,2,True,strict_audit_passed,True,True,False,/home/avneelsingh/Folder/CDF-RAG-2-experiment-artifacts/phase2/evidence_extensions/pilot060_adjudication_frozen_v1

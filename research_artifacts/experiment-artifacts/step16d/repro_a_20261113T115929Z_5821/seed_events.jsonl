@@ -1,0 +1,1 @@
+{"query_id": "Q001", "query_index": 1, "seed": 2026, "python_random": true, "numpy_legacy_global_rng": true, "torch_global_rng": true, "ollama_seed_enforced": false, "python_hash_seed_enforced": false, "torch_deterministic_algorithms_enforced": false, "independent_rng_objects_controlled": false}

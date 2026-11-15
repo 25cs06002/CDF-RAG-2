@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "data_role": "unreviewed_source_candidate_queue",
+  "review_questions": 30,
+  "distinct_source_candidates": 15,
+  "query_type_counts": {
+    "direct": 15,
+    "paraphrased": 15
+  },
+  "pilot_sha256": "b5da7370c25974ff892f2f082b4c93e0e0dcea83adad665857424326726cdd64",
+  "source_candidates_sha256": "ba51f49fecd79fffef1d229d72070b52dacd08133a9375129b5fc6d1b96d294c",
+  "source_review_completed": false,
+  "medical_gold_created": false,
+  "final_splits_assigned": false,
+  "note": "Official website links are candidate reading material, not clinical verification or accepted causal gold labels."
+}

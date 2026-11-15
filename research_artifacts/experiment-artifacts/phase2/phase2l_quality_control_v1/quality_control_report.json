@@ -1,0 +1,17 @@
+{
+  "phase": "2L",
+  "purpose": "independent_adjudication_preparation",
+  "questions": 15,
+  "source_review_tasks": 50,
+  "link_review_tasks": 30,
+  "distinct_source_urls": 40,
+  "reused_source_urls": 10,
+  "priority_counts": {
+    "P1": 3,
+    "P2": 26,
+    "P0": 1
+  },
+  "traceability_findings": 0,
+  "independently_adjudicated": false,
+  "medical_gold_created": false
+}

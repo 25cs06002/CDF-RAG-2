@@ -1,0 +1,13 @@
+{
+  "run_id": "repro_b_20261113T115929Z_1598",
+  "pipeline_id": "cdf_rag_no_rl_legacy",
+  "graph_version_label": "G0",
+  "random_seed_label": 2026,
+  "local_rng_seed_policy": "seed_before_each_query",
+  "git_commit": "e2003746963e76314641faf02c00eca079b97b84",
+  "input_file": "/home/avneelsingh/Folder/CDF-RAG-2/research_v2/examples/step11_smoke.jsonl",
+  "input_sha256": "4ce5c863bcaee59dcc5c43ff6b01f8ac8da742799a4768ec7f27cc6503a9afa8",
+  "question_count": 1,
+  "python_version": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "started_utc": "2026-11-13T12:00:31.128240+00:00"
+}

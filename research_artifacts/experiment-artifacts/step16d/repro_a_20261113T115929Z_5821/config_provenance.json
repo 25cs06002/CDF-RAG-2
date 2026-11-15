@@ -1,0 +1,28 @@
+{
+  "experiment_name": "g0_no_rl_seeded_smoke_v1",
+  "config_schema_version": 1,
+  "config_sha256": "5f08db37a755816fdb3dd499472084719edbfbc3d52a16ae7bd21647e8a2e03f",
+  "dataset_sha256": "4ce5c863bcaee59dcc5c43ff6b01f8ac8da742799a4768ec7f27cc6503a9afa8",
+  "config_file": "experiment_config.json",
+  "graph_version_is_label_only": false,
+  "graph_identity_checked_before_run": true,
+  "graph_locked_during_run": false,
+  "graph_checked_per_query": true,
+  "graph_checks_file": "graph_checks.jsonl",
+  "runtime_preflight_file": "runtime_preflight.json",
+  "random_seed_is_label_only": false,
+  "local_random_seed_applied": true,
+  "local_seed_scope": [
+    "python_random",
+    "numpy_legacy_global_rng",
+    "torch_global_rng"
+  ],
+  "seed_applied_before_pipeline_init": true,
+  "seed_reapplied_before_each_query": true,
+  "ollama_seed_enforced": false,
+  "python_hash_seed_enforced": false,
+  "torch_deterministic_algorithms_enforced": false,
+  "seed_journal_file": "seed_events.jsonl",
+  "provenance_written_before_queries": true,
+  "purpose": "Validate controlled local RNG seeding. Not a medical accuracy experiment."
+}

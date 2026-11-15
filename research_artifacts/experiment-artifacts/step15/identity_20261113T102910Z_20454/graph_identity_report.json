@@ -1,0 +1,19 @@
+{
+  "match": true,
+  "export_structural_sha256": "e33446ccfe6e11513bf9613cecd00bbb6a7fb5ce0c0a77fe6f7ff92eaf42d33a",
+  "live_structural_sha256": "e33446ccfe6e11513bf9613cecd00bbb6a7fb5ce0c0a77fe6f7ff92eaf42d33a",
+  "export_node_count": 35,
+  "live_node_count": 35,
+  "export_edge_count": 37,
+  "live_edge_count": 37,
+  "missing_nodes": [],
+  "extra_nodes": [],
+  "missing_edges": [],
+  "extra_edges": [],
+  "checked_utc": "2026-11-13T10:29:12.264886+00:00",
+  "reference": "G0",
+  "scope": "Structural graph identity",
+  "full_database_backup_verified": false,
+  "nodes_csv_sha256": "254890905388fb1e9df51da88b39b1686aa90247fd7da661f9d5aefc7c950675",
+  "edges_csv_sha256": "38fb6bddadc1f9b2777f2811e7ba15c6ab0b944143f41d8426590ea632f3e168"
+}

@@ -1,0 +1,26 @@
+{
+  "run_a": "repro_a_20261113T115929Z_5821",
+  "run_b": "repro_b_20261113T115929Z_1598",
+  "environment_metadata_matches": true,
+  "matched_concept_identical": true,
+  "retrieved_edges_identical": true,
+  "retrieved_paths_identical": true,
+  "refinement_action_identical": true,
+  "validator_result_identical": true,
+  "hallucination_flag_identical": true,
+  "rewritten_knowledge_identical": true,
+  "final_answer_identical": true,
+  "answer_a_sha256": "ec8d45d961c4a558862d11a7c4155242103dd916afcca3e71e6c583403f771d4",
+  "answer_b_sha256": "ec8d45d961c4a558862d11a7c4155242103dd916afcca3e71e6c583403f771d4",
+  "latency_a_seconds": 48.83197483900585,
+  "latency_b_seconds": 43.28582834100234,
+  "latency_difference_seconds": -5.546146498003509,
+  "graph_read_ms_a": 95.87270300835371,
+  "graph_read_ms_b": 78.23127901065163,
+  "notes": [
+    "Answer equality does not establish medical accuracy.",
+    "The legacy Ollama requests do not enforce an explicit seed.",
+    "Graph-read timing excludes journal-write overhead.",
+    "Two runs constitute an exploratory reproducibility pilot."
+  ]
+}

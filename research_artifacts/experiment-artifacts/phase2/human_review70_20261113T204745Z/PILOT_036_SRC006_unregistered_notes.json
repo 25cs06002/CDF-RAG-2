@@ -1,0 +1,19 @@
+{
+  "source_task_id": "PILOT_036:SRC006",
+  "query_id": "PILOT_036",
+  "query_type": "indirect",
+  "review_route": "concept_resolution",
+  "candidate_source_id": "SRC006",
+  "candidate_source_url": "https://www.cdc.gov/asthma/control/index.html",
+  "candidate_source_title": "Controlling Asthma - CDC",
+  "candidate_origin": "user_requested_missing_row",
+  "needs_additional_sources": "true",
+  "scope_note": "New row added for a requested source_task_id that was absent from the upload. CDC page documents attack triggers, not causes of developing asthma; do not assign onset claims from this source.",
+  "review_decision": "partial",
+  "source_passage_locator": "CDC > Controlling Asthma > Key points; Common asthma triggers",
+  "supported_claim_summary": "CDC identifies secondhand smoke, dust mites, air pollution, mold, and other exposures as potential triggers of asthma attacks in people who already have asthma.",
+  "limitation_note": "The CDC control page does not establish the causes of developing asthma, diagnostic criteria, or synonym equivalence. An asthma trigger should not be labeled a cause of asthma onset.",
+  "reviewer_id": "STU_001",
+  "reviewed_date": "2026-11-14",
+  "review_note": "Read CDC Controlling Asthma. The registered page is partially relevant for identifying the asthma topic and exacerbation triggers only. It is insufficient for disease-onset or definition-level concept resolution; add a separate asthma causes/definition source for those purposes. This requested source_task_id was not present in the uploaded file and is appended as a new review row. AI-assisted source check; human sign-off pending."
+}

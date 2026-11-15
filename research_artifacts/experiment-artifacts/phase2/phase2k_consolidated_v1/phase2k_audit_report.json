@@ -1,0 +1,235 @@
+{
+  "phase": "2K",
+  "status": "evidence_review_consolidated_not_medical_gold",
+  "question_count": 15,
+  "source_review_tasks": 50,
+  "link_review_tasks": 30,
+  "strict_audits_passed": 14,
+  "connected_candidate_chains": 14,
+  "frozen_snapshots_verified": 15,
+  "medical_gold_created": false,
+  "medical_correctness_verified_by_code": false,
+  "reviews": [
+    {
+      "query_id": "PILOT_046",
+      "status": "legacy_review_verified",
+      "strict_audit_passed": false,
+      "frozen_checksum_verified": true,
+      "connected_chain": true,
+      "note": "Frozen checksums verified; legacy manifest and review format. Current strict auditor not applicable without a separate compatibility procedure.",
+      "source_decisions": {
+        "supports": 3
+      },
+      "link_decisions": {
+        "supports": 2
+      }
+    },
+    {
+      "query_id": "PILOT_047",
+      "status": "strict_audit_passed",
+      "strict_audit_passed": true,
+      "frozen_checksum_verified": true,
+      "connected_chain": true,
+      "note": "",
+      "source_decisions": {
+        "supports": 2,
+        "needs_more_evidence": 1
+      },
+      "link_decisions": {
+        "supports": 2
+      }
+    },
+    {
+      "query_id": "PILOT_048",
+      "status": "strict_audit_passed",
+      "strict_audit_passed": true,
+      "frozen_checksum_verified": true,
+      "connected_chain": true,
+      "note": "",
+      "source_decisions": {
+        "supports": 3
+      },
+      "link_decisions": {
+        "supports": 2
+      }
+    },
+    {
+      "query_id": "PILOT_049",
+      "status": "strict_audit_passed",
+      "strict_audit_passed": true,
+      "frozen_checksum_verified": true,
+      "connected_chain": true,
+      "note": "",
+      "source_decisions": {
+        "supports": 4
+      },
+      "link_decisions": {
+        "supports": 2
+      }
+    },
+    {
+      "query_id": "PILOT_050",
+      "status": "strict_audit_passed",
+      "strict_audit_passed": true,
+      "frozen_checksum_verified": true,
+      "connected_chain": true,
+      "note": "",
+      "source_decisions": {
+        "supports": 2,
+        "partial": 1
+      },
+      "link_decisions": {
+        "supports": 2
+      }
+    },
+    {
+      "query_id": "PILOT_051",
+      "status": "strict_audit_passed",
+      "strict_audit_passed": true,
+      "frozen_checksum_verified": true,
+      "connected_chain": true,
+      "note": "",
+      "source_decisions": {
+        "supports": 2,
+        "partial": 1
+      },
+      "link_decisions": {
+        "supports": 2
+      }
+    },
+    {
+      "query_id": "PILOT_052",
+      "status": "strict_audit_passed",
+      "strict_audit_passed": true,
+      "frozen_checksum_verified": true,
+      "connected_chain": true,
+      "note": "",
+      "source_decisions": {
+        "partial": 1,
+        "supports": 2
+      },
+      "link_decisions": {
+        "supports": 2
+      }
+    },
+    {
+      "query_id": "PILOT_053",
+      "status": "strict_audit_passed",
+      "strict_audit_passed": true,
+      "frozen_checksum_verified": true,
+      "connected_chain": true,
+      "note": "",
+      "source_decisions": {
+        "supports": 2,
+        "partial": 1
+      },
+      "link_decisions": {
+        "supports": 2
+      }
+    },
+    {
+      "query_id": "PILOT_054",
+      "status": "strict_audit_passed",
+      "strict_audit_passed": true,
+      "frozen_checksum_verified": true,
+      "connected_chain": true,
+      "note": "",
+      "source_decisions": {
+        "supports": 3,
+        "partial": 1
+      },
+      "link_decisions": {
+        "supports": 2
+      }
+    },
+    {
+      "query_id": "PILOT_055",
+      "status": "strict_audit_passed",
+      "strict_audit_passed": true,
+      "frozen_checksum_verified": true,
+      "connected_chain": true,
+      "note": "",
+      "source_decisions": {
+        "partial": 2,
+        "supports": 2
+      },
+      "link_decisions": {
+        "supports": 2
+      }
+    },
+    {
+      "query_id": "PILOT_056",
+      "status": "strict_audit_passed",
+      "strict_audit_passed": true,
+      "frozen_checksum_verified": true,
+      "connected_chain": true,
+      "note": "",
+      "source_decisions": {
+        "supports": 3
+      },
+      "link_decisions": {
+        "supports": 2
+      }
+    },
+    {
+      "query_id": "PILOT_057",
+      "status": "strict_audit_passed",
+      "strict_audit_passed": true,
+      "frozen_checksum_verified": true,
+      "connected_chain": false,
+      "note": "",
+      "source_decisions": {
+        "supports": 2,
+        "partial": 2
+      },
+      "link_decisions": {
+        "supports": 1,
+        "needs_more_evidence": 1
+      }
+    },
+    {
+      "query_id": "PILOT_058",
+      "status": "strict_audit_passed",
+      "strict_audit_passed": true,
+      "frozen_checksum_verified": true,
+      "connected_chain": true,
+      "note": "",
+      "source_decisions": {
+        "supports": 3
+      },
+      "link_decisions": {
+        "supports": 2
+      }
+    },
+    {
+      "query_id": "PILOT_059",
+      "status": "strict_audit_passed",
+      "strict_audit_passed": true,
+      "frozen_checksum_verified": true,
+      "connected_chain": true,
+      "note": "",
+      "source_decisions": {
+        "partial": 2,
+        "supports": 2
+      },
+      "link_decisions": {
+        "supports": 2
+      }
+    },
+    {
+      "query_id": "PILOT_060",
+      "status": "strict_audit_passed",
+      "strict_audit_passed": true,
+      "frozen_checksum_verified": true,
+      "connected_chain": true,
+      "note": "",
+      "source_decisions": {
+        "supports": 2,
+        "partial": 1
+      },
+      "link_decisions": {
+        "supports": 2
+      }
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+edge_id,cause,effect
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:13,Family history of diabetes,Diabetes
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:12,Genetic predisposition,Diabetes
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:16,Insulin resistance,Diabetes
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:15,Lack of physical activity,Diabetes
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:14,Poor diet,Diabetes
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:19,Environmental factors during pregnancy,Genetic predisposition
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:20,Exposure to certain toxins,Genetic predisposition
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:17,Family history of disease,Genetic predisposition
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:18,Inherited traits from parents,Genetic predisposition
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:21,Random chance and natural selection,Genetic predisposition
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:22,Air pollution,asthma
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:23,Allergies,asthma
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:26,Environmental toxins,asthma
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:25,Genetic predisposition,asthma
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:24,Respiratory infections,asthma
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:34,Chronic stress,depression
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:36,Genetic predisposition,depression
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:32,Lack of social support,depression
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:35,Poor sleep habits,depression
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:33,Traumatic event,depression
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:2,Diabetes,heart disease
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:4,Genetic predisposition,heart disease
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:1,High blood pressure,heart disease
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:3,Poor diet,heart disease
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:0,Smoking,heart disease
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:6,Radon exposure,lung cancer
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:5,Smoking,lung cancer
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:11,Environmental toxins,migraine
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:10,Food sensitivities,migraine
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:9,Hormonal changes,migraine
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:8,Sleep deprivation,migraine
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:7,Stress,migraine
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:29,Atherosclerosis,stroke
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:30,Blood clots,stroke
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:28,Diabetes,stroke
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:27,High blood pressure,stroke
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:31,Traumatic brain injury,stroke

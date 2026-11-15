@@ -1,0 +1,9 @@
+{
+  "phase": "2M",
+  "package": "p2_independent_adjudication_preparation",
+  "link_tasks": 26,
+  "source_review_tasks": 43,
+  "original_decisions_preserved": true,
+  "independent_review_completed": false,
+  "medical_gold_created": false
+}

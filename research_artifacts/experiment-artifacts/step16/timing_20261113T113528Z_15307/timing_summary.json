@@ -1,0 +1,25 @@
+{
+  "run_id": "20261113T095854Z_8a27a847",
+  "pipeline_id": "cdf_rag_no_rl_legacy",
+  "processed_queries": 1,
+  "graph_monitoring_present": false,
+  "graph_check_status_counts": {},
+  "graph_check_read_ms": null,
+  "successful_pipeline_ms": {
+    "count": 1,
+    "total_ms": 55258.72341700597,
+    "mean_ms": 55258.72341700597,
+    "p50_ms": 55258.72341700597,
+    "p95_ms": 55258.72341700597,
+    "max_ms": 55258.72341700597
+  },
+  "run_wall_time_seconds": 55.269,
+  "graph_read_fraction_of_run_wall_lower_bound": null,
+  "notes": [
+    "Pipeline latency is taken from PipelineRecord.",
+    "Graph-check read timing excludes journal writing.",
+    "Run wall time includes other runner overhead.",
+    "Preflight and pipeline initialization are excluded from the runner's wall-time measurement.",
+    "Do not subtract these values to infer exact LLM generation or retrieval latency."
+  ]
+}

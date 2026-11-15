@@ -46,7 +46,7 @@ Explain the proposed workflow:
 
 ### Newly measured: six 100-query retrieval-only baseline runs
 
-**Date/source:** November 15, 2026 GitHub-hosted CPU, six baselines × 100 = **600 actual retrieval operations**. Original log and generated artifacts: [successful experiment run](https://github.com/25cs06002/CDF-RAG-2/actions/runs/43716390027). Versioned summary CSV: [retrieval_only_100_v1.csv](../research_artifacts/presentation_20261118/retrieval_only_100_v1.csv).
+**Date/source:** November 15, 2026 GitHub-hosted CPU, six baselines × 100 = **600 actual retrieval operations**. Original log and generated artifacts: [successful experiment run](https://github.com/25cs06002/CDF-RAG-2/actions/runs/43717632591). Versioned summary CSV: [retrieval_only_100_v2_multihop.csv](../research_artifacts/presentation_20261118/retrieval_only_100_v2_multihop.csv).
 
 | Baseline | Questions | Returned evidence | Abstained | Errors | Mean retrieval execution (ms) |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -57,7 +57,7 @@ Explain the proposed workflow:
 | B5 — Graph neighborhood | 100 | 41 | 59 | 0 | 0.111 |
 | B6 — Directed causal KG | 100 | 36 | 64 | 0 | 0.101 |
 
-These are **evidence-return counts**, not correctness, citation faithfulness, hallucination rates, answer quality or end-to-end generation latency. The tiny G0 graph has 35 nodes and 37 edges, limiting coverage.
+The directed causal KG baseline now preserves complete two-hop paths, averaging **0.26 path records per query** across all 100 pilot questions (when retrieval is possible). These are **evidence-return counts**, not correctness, citation faithfulness, hallucination rates, answer quality or end-to-end generation latency. The tiny G0 graph has 35 nodes and 37 edges, limiting coverage.
 
 ### Earlier 22-query PPO versus No-RL (not directly comparable with the new rows)
 
@@ -111,5 +111,5 @@ Earlier PPO took approximately **26.6% longer** without increasing this retrieva
 - [Executable experiment driver](../evaluate_all_baselines.py)
 - [Central B1–B8 model registry](../research_v2/pipelines/)
 - [100-query dataset](../data/benchmark/medical_causal_pilot100_draft_v1.jsonl)
-- [Confirmed six-run numerical CSV](../research_artifacts/presentation_20261118/retrieval_only_100_v1.csv)
-- [CI proof](https://github.com/25cs06002/CDF-RAG-2/actions/runs/43716390027)
+- [Confirmed six-run numerical CSV](../research_artifacts/presentation_20261118/retrieval_only_100_v2_multihop.csv)
+- [CI proof](https://github.com/25cs06002/CDF-RAG-2/actions/runs/43717632591)

@@ -35,7 +35,8 @@ case "$MODE" in
       tests.test_presentation_baselines \
       tests.test_presentation_corpus \
       tests.test_presentation_matrix \
-      tests.test_model_registry -v
+      tests.test_model_registry \
+      tests.test_query_diagnostics -v
     ;;
   smoke)
     run_logged prepare "$PYTHON_CMD" evaluate_all_baselines.py prepare
@@ -59,11 +60,14 @@ case "$MODE" in
         --models B1,B2,B3,B4,B5,B6 --encoder "$ENCODER" --skip-complete
       run_logged report "$PYTHON_CMD" evaluate_all_baselines.py report
       run_logged score_g0 "$PYTHON_CMD" evaluate_all_baselines.py score-g0
-      run_logged export "$PYTHON_CMD" evaluate_all_baselines.py export
     fi
+    run_logged export "$PYTHON_CMD" evaluate_all_baselines.py export
+    run_logged diagnose "$PYTHON_CMD" evaluate_all_baselines.py diagnose
     ;;
   report)
     run_logged report "$PYTHON_CMD" evaluate_all_baselines.py report --allow-partial
+    run_logged export "$PYTHON_CMD" evaluate_all_baselines.py export
+    run_logged diagnose "$PYTHON_CMD" evaluate_all_baselines.py diagnose
     ;;
   *)
     cat <<'HELP'

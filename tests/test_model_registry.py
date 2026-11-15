@@ -29,6 +29,18 @@ class ModelRegistryTests(unittest.TestCase):
                 model = create_pipeline(model_id)
                 self.assertIsInstance(model, BaseRAGPipeline)
 
+    def test_canonical_modules_and_legacy_imports_share_class_identity(self):
+        from research_v2.pipelines.baselines import BaselinePipeline as CanonicalBaseline
+        from research_v2.presentation_baselines import BaselinePipeline as OldBaseline
+        from research_v2.pipelines.legacy_no_rl import LegacyNoRLPipeline as CanonicalNoRL
+        from research_v2.legacy_no_rl import LegacyNoRLPipeline as OldNoRL
+        from research_v2.pipelines.legacy_rl import LegacyRLPipeline as CanonicalRL
+        from research_v2.legacy_rl import LegacyRLPipeline as OldRL
+        self.assertIs(CanonicalBaseline, OldBaseline)
+        self.assertIs(CanonicalNoRL, OldNoRL)
+        self.assertIs(CanonicalRL, OldRL)
+        self.assertTrue(issubclass(CanonicalRL, CanonicalNoRL))
+
     def test_unknown_model_rejected(self):
         with self.assertRaisesRegex(ValueError, "Unknown pipeline ID"):
             create_pipeline("B9")

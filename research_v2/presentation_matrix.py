@@ -96,7 +96,62 @@ def choose_models(selected):
     return names
 
 
-def run_models(selected="all", limit=None, retrieval_only=False, top_k=5, encoder="sentence"):
+def find_completed_run(journal, model_id, query_count, *, dataset_sha256,
+                       execution_mode, top_k, encoder, current_git_commit,
+                       corpus_sha256=None):
+    """Return a verified prior completed run at the *same code revision*.
+
+    This prevents a long Ubuntu run from unintentionally repeating completed
+    100-query models, but never reuses results after code/data/model-setting
+    changes. Use only when --skip-complete is explicitly requested.
+    """
+    if not journal.is_file():
+        return None
+    for raw in reversed(journal.read_text(encoding="utf-8").splitlines()):
+        if not raw.strip():
+            continue
+        row = json.loads(raw)
+        if row.get("model_id") != model_id:
+            continue
+        if row.get("query_count") != query_count:
+            continue
+        if row.get("dataset_sha256") != dataset_sha256:
+            continue
+        if row.get("execution_mode") != execution_mode:
+            continue
+        if model_id not in LEGACY and row.get("top_k") != top_k:
+            continue
+        if model_id in {"B3", "B4"} and row.get("embedding_backend") != encoder:
+            continue
+        if model_id in {"B1", "B2", "B3", "B4"} and row.get("corpus_sha256") != corpus_sha256:
+            continue
+        summary = row.get("summary", {})
+        if summary.get("aborted") or summary.get("errors") != 0:
+            continue
+        if summary.get("total_queries") != query_count:
+            continue
+        if summary.get("successful", 0) + summary.get("abstained", 0) != query_count:
+            continue
+        base = (PROJECT_ROOT / row.get("run_dir", "")).resolve()
+        if not base.is_relative_to(PROJECT_ROOT):
+            continue
+        manifest_path, records_path = base / "manifest.json", base / "records.jsonl"
+        if not manifest_path.is_file() or not records_path.is_file():
+            continue
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        if manifest.get("git_commit") != current_git_commit:
+            continue
+        if manifest.get("input_sha256") != dataset_sha256:
+            continue
+        if manifest.get("question_count") != query_count:
+            continue
+        if len(records_path.read_text(encoding="utf-8").splitlines()) != query_count:
+            continue
+        return row
+    return None
+
+
+def run_models(selected="all", limit=None, retrieval_only=False, top_k=5, encoder="sentence", skip_complete=False):
     questions, metadata = validate_inputs()
     names = choose_models(selected)
     if retrieval_only and any(name in LEGACY for name in names):
@@ -114,8 +169,32 @@ def run_models(selected="all", limit=None, retrieval_only=False, top_k=5, encode
     configs_dir = inside_repo(WORKSPACE / "configs")
     configs_dir.mkdir(parents=True, exist_ok=True)
     journal = WORKSPACE / "matrix_runs.jsonl"
+    source_hash = file_sha256(INPUT)
+    # Older experiments may have a different code revision or evidence
+    # corpus. Never silently reuse them as new results.
+    from .experiment_runner import git_commit
+    current_commit = git_commit()
+    current_corpus = WORKSPACE / "corpus/provisional_source_summaries_v1/documents.jsonl"
+    current_corpus_hash = file_sha256(current_corpus) if current_corpus.is_file() else None
 
     for model_id in names:
+        if skip_complete:
+            existing = find_completed_run(
+                journal, model_id, len(questions),
+                dataset_sha256=source_hash,
+                execution_mode="retrieval_only" if retrieval_only else "end_to_end",
+                top_k=top_k,
+                encoder=encoder,
+                current_git_commit=current_commit,
+                corpus_sha256=current_corpus_hash,
+            )
+            if existing is not None:
+                print(json.dumps({
+                    "skipped_completed_model": model_id,
+                    "verified_previous_run": existing["run_id"],
+                    "reason": "Same input, code, corpus, encoder, mode and complete successful record count",
+                }, indent=2))
+                continue
         name = PIPELINES[model_id]
         run_id = f"{model_id}_{utc_timestamp()}_{uuid.uuid4().hex[:6]}"
         wall_start = time.perf_counter()
@@ -370,6 +449,7 @@ def main():
     run.add_argument("--top-k", type=int, default=5)
     run.add_argument("--encoder", choices=["sentence", "lsa"], default="sentence")
     run.add_argument("--retrieval-only", action="store_true")
+    run.add_argument("--skip-complete", action="store_true", help="Reuse only fully verified runs from identical code, data and settings")
     rep = commands.add_parser("report")
     rep.add_argument("--allow-partial", action="store_true")
     args = parser.parse_args()
@@ -385,7 +465,7 @@ def main():
             "reference_basis": "unreviewed_pilot",
         }, indent=2))
     elif args.command == "run":
-        run_models(args.models, args.limit, args.retrieval_only, args.top_k, args.encoder)
+        run_models(args.models, args.limit, args.retrieval_only, args.top_k, args.encoder, args.skip_complete)
     else:
         report(args.allow_partial)
 

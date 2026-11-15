@@ -87,7 +87,7 @@ def export(workspace=WORKSPACE, output_dir=None):
         model: {r.query_id: r for r in bundle[3]}
         for model, bundle in selected.items()
     }
-    long_rows, wide_rows = [], []
+    long_rows, wide_rows, detailed_rows = [], [], []
     for question in questions:
         meta = metadata[question.query_id]
         wide = {
@@ -123,6 +123,31 @@ def export(workspace=WORKSPACE, output_dir=None):
                 "run_id": record.run_id if record else None,
             }
             long_rows.append(result)
+            detailed_rows.append({
+                **result,
+                # Full evidence and generated answers are kept in a separate
+                # JSONL for local research inspection, never silently
+                # promoted into medical-gold evaluation.
+                "matched_concept": record.matched_concept if record else None,
+                "refined_query": record.refined_query if record else None,
+                "refinement_action": record.refinement_action if record else None,
+                "document_ids": [d.document_id for d in record.retrieved_documents] if record else None,
+                "source_ids": [d.source_id for d in record.retrieved_documents] if record else None,
+                "causal_edge_tuples": [
+                    [edge.cause, edge.effect, edge.relation]
+                    for edge in record.causal_edges
+                ] if record else None,
+                "causal_path_nodes": [
+                    path.nodes for path in record.causal_paths
+                ] if record else None,
+                "final_answer": record.final_answer if record else None,
+                "feedback_iterations": record.feedback_iterations if record else None,
+                "action_history": record.action_history if record else None,
+                "hallucination_detected_proxy": record.hallucination_detected if record else None,
+                "validator_passed_proxy": record.validator_passed if record else None,
+                "error_message": record.error_message if record else None,
+                "timings": record.timings.model_dump() if record else None,
+            })
             wide.update({
                 f"{model}_status": result["status"],
                 f"{model}_evidence": result["returned_evidence"],
@@ -137,6 +162,12 @@ def export(workspace=WORKSPACE, output_dir=None):
     wide_cols = list(wide_rows[0])
     _write_csv(output_dir / "all_800_slots_long.csv", long_cols, long_rows)
     _write_csv(output_dir / "all_100_questions_wide.csv", wide_cols, wide_rows)
+    # Full per-question payloads are intended for local analysis. Public
+    # repository publication requires manual privacy/copyright review.
+    (output_dir / "query_model_details.jsonl").write_text(
+        "".join(json.dumps(row, ensure_ascii=False) + "\n" for row in detailed_rows),
+        encoding="utf-8",
+    )
 
     summary = []
     for model in MODEL_IDS:
@@ -173,6 +204,14 @@ def export(workspace=WORKSPACE, output_dir=None):
         "missing_models": [m for m in MODEL_IDS if m not in selected],
         "dataset_sha256": file_sha256(workspace / "benchmark/questions_only.jsonl"),
         "medical_gold_verified": False,
+        "detailed_jsonl_contains_unreviewed_answers": True,
+        "publish_detailed_jsonl_only_after_manual_review": True,
+        "output_files": [
+            "all_800_slots_long.csv",
+            "all_100_questions_wide.csv",
+            "model_summary_B1_B8.csv",
+            "query_model_details.jsonl",
+        ],
         "validity_warning": (
             "A retrieved document is not proof of relevance or correctness. "
             "Graph and text baselines use different evidence. Retrieval-only "

@@ -1,3 +1,0 @@
-link_task_id,query_id,link_slot,expected_source_ids,review_decision,cause_node,effect_node,relation,supporting_source_ids,source_passage_locator,reviewer_id,reviewed_date,review_note
-PILOT_047:LINK1,PILOT_047,1,K047S01,,,,,,,,,
-PILOT_047:LINK2,PILOT_047,2,K047S02;K047S03,,,,,,,,,

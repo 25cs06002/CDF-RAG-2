@@ -138,11 +138,19 @@ def run_models(selected="all", limit=None, retrieval_only=False, top_k=5):
                 config_path=config_path, output_root=runs_dir, run_id=run_id
             )
         else:
-            from .presentation_baselines import BaselinePipeline, G0Corpus
-            # These are graph-derived corpus experiments, not validated
-            # document corpus or medical accuracy comparisons.
+            from .presentation_baselines import BaselinePipeline, G0Corpus, CandidateCorpus
+            if model_id in {"B1", "B2", "B3", "B4"}:
+                documents = WORKSPACE / "corpus/provisional_source_summaries_v1/documents.jsonl"
+                if not documents.is_file():
+                    raise FileNotFoundError(
+                        "Build the candidate document corpus first: "
+                        "python3 -m research_v2.presentation_corpus prepare"
+                    )
+                corpus = CandidateCorpus(documents)
+            else:
+                corpus = G0Corpus()
             pipeline = BaselinePipeline(
-                name, corpus=G0Corpus(), top_k=top_k,
+                name, corpus=corpus, top_k=top_k,
                 generate=not retrieval_only,
             )
             summary, output_dir = run_experiment(
@@ -155,7 +163,16 @@ def run_models(selected="all", limit=None, retrieval_only=False, top_k=5):
                 random_seed=2026,
             )
 
+        evidence_basis = (
+            "AI-assisted candidate-source summaries" if model_id in {"B1","B2","B3","B4"}
+            else "G0 graph snapshot"
+        )
         row = {
+            "evidence_basis": evidence_basis,
+            "corpus_sha256": (
+                file_sha256(WORKSPACE / "corpus/provisional_source_summaries_v1/documents.jsonl")
+                if model_id in {"B1","B2","B3","B4"} else None
+            ),
             "model_id": model_id,
             "pipeline": name,
             "run_id": run_id,
@@ -287,6 +304,8 @@ def report(allow_partial=False, workspace=WORKSPACE):
             "pipeline": PIPELINES[model_id],
             "run_id": run["run_id"],
             "execution_mode": run["execution_mode"],
+            "evidence_basis": run.get("evidence_basis", "unrecorded"),
+            "corpus_sha256": run.get("corpus_sha256"),
             **{key: value for key, value in metrics.items() if key != "by_category"},
         })
         for category, result in metrics["by_category"].items():
@@ -313,7 +332,14 @@ def report(allow_partial=False, workspace=WORKSPACE):
         "100_query_complete": not missing and all(s["queries"] == 100 for s in summaries),
         "medical_accuracy_measured": False,
         "medical_gold_labels_available": False,
-        "graph_derived_retrieval_corpus_only": True,
+        "evidence_bases": sorted(set(run.get("evidence_basis", "unrecorded") for run in selected.values())),
+        "document_graph_corpus_equivalence_established": False,
+        "warning": (
+            "B1-B4 use provisional AI-assisted source-summary texts; "
+            "B5-B8 use G0 graph relationships. The evidence bases are not "
+            "identical and cannot support a controlled architecture-only "
+            "medical accuracy claim."
+        ),
         "latency_notes": [
             "Total latency includes query execution; model initialization/preflight tracked by separate elapsed field.",
             "Different evidence types and model-generation modes should not be compared as equivalent quality metrics.",

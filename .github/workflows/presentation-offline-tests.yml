@@ -26,7 +26,7 @@ jobs:
       - name: Install lightweight offline test dependencies
         run: |
           python -m pip install --upgrade pip
-          python -m pip install 'pydantic==2.11.4' 'python-dotenv==1.1.0' 'requests==2.32.3'
+          python -m pip install 'pydantic==2.11.4' 'python-dotenv==1.1.0' 'requests==2.32.3' 'scikit-learn==1.6.1'
       - name: Compile all presentation source and tests
         run: |
           python -m compileall -q research_v2/presentation_sprint.py research_v2/presentation_baselines.py research_v2/presentation_matrix.py research_v2/presentation_g0_reference.py research_v2/presentation_corpus.py tests/test_presentation_sprint.py tests/test_presentation_baselines.py tests/test_presentation_matrix.py tests/test_presentation_corpus.py
@@ -40,12 +40,14 @@ jobs:
           python -m research_v2.presentation_corpus prepare
           python -m research_v2.presentation_matrix validate
           python -m research_v2.presentation_g0_reference prepare
-      - name: Execute 100 queries on four deterministic retrieval baselines
+      - name: Execute 100 queries on six offline retrieval baselines
         run: |
           DATA=presentation_20261118/benchmark/questions_only.jsonl
           DOCS=presentation_20261118/corpus/provisional_source_summaries_v1/documents.jsonl
           python -m research_v2.presentation_baselines --pipeline naive_rag --input "$DATA" --limit 100 --document-corpus "$DOCS"
           python -m research_v2.presentation_baselines --pipeline bm25_rag --input "$DATA" --limit 100 --document-corpus "$DOCS"
+          python -m research_v2.presentation_baselines --pipeline dense_rag --input "$DATA" --limit 100 --document-corpus "$DOCS" --encoder lsa
+          python -m research_v2.presentation_baselines --pipeline hybrid_rag --input "$DATA" --limit 100 --document-corpus "$DOCS" --encoder lsa
           python -m research_v2.presentation_baselines --pipeline graph_rag --input "$DATA" --limit 100
           python -m research_v2.presentation_baselines --pipeline causal_kg_rag --input "$DATA" --limit 100
       - name: Produce actual retrieval-only pilot summary
@@ -69,11 +71,11 @@ jobs:
               result = summarize(records, metadata, info["wall_time_seconds"])
               row = {"pipeline": info["pipeline_id"], "run_id": info["run_id"],
                      "execution_mode": "retrieval_only",
-                     "source_role": "candidate_summaries" if info["pipeline_id"] in ("naive_rag","bm25_rag") else "G0_snapshot",
+                     "source_role": "candidate_summaries" if info["pipeline_id"] in ("naive_rag","bm25_rag","dense_rag","hybrid_rag") else "G0_snapshot",
                      **{key: value for key, value in result.items() if key != "by_category"}}
               rows.append(row)
-          if len(rows) != 4:
-              raise ValueError(f"Expected 4 baseline runs, got {len(rows)}")
+          if len(rows) != 6:
+              raise ValueError(f"Expected 6 baseline runs, got {len(rows)}")
           with (output / "summary.csv").open("w", newline="", encoding="utf-8") as handle:
               writer = csv.DictWriter(handle, fieldnames=list(rows[0]))
               writer.writeheader()
@@ -84,7 +86,7 @@ jobs:
       - name: Upload pilot measurements
         uses: actions/upload-artifact@v4
         with:
-          name: g0-pilot100-retrieval-only
+          name: pilot100-six-retrieval-only-with-lsa
           path: |
             presentation_20261118/benchmark/manifest.json
             presentation_20261118/corpus/provisional_source_summaries_v1/manifest.json

@@ -107,6 +107,18 @@ jobs:
           with (root / "model_summary_B1_B8.csv").open(newline="", encoding="utf-8") as f:
               rows = list(csv.DictReader(f))
           assert len(long) == 800 and len(rows) == 8
+          detailed = [
+              json.loads(line)
+              for line in (root / "query_model_details.jsonl").read_text(encoding="utf-8").splitlines()
+              if line.strip()
+          ]
+          assert len(detailed) == 800
+          assert sum(item["status"] == "NOT_RUN" for item in detailed) == 200
+          assert all(len(item["document_ids"] or []) > 0 for item in detailed
+                     if item["model_id"] in {"B1","B2","B3","B4"})
+          assert all(item["final_answer"] is None for item in detailed)
+          assert all(item["run_id"] is None for item in detailed
+                     if item["model_id"] in {"B7","B8"})
           assert sum(r["status"] == "NOT_RUN" for r in long) == 200
           assert {r["model_id"] for r in rows if r["execution_status"] == "COMPLETE_100"} == {
               "B1", "B2", "B3", "B4", "B5", "B6"

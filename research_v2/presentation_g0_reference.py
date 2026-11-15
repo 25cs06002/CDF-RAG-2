@@ -99,6 +99,24 @@ def score():
         ]
         if len(records) != 100 or {r.pipeline_id for r in records} != {EXPECTED_PIPELINE_IDS[model_id]}:
             raise ValueError(f"Wrong records for {model_id}")
+        if run.get("evidence_basis") == "AI-assisted candidate-source summaries":
+            # Document retrieval does not produce structured G0 edge IDs.
+            # Reporting zero would incorrectly imply failed causal retrieval.
+            results.append({
+                "model": model_id,
+                "pipeline_id": records[0].pipeline_id,
+                "run_id": run["run_id"],
+                "mapped_queries": len(by_id),
+                "structural_edge_score_applicable": False,
+                "edge_macro_f1": None,
+                "edge_micro_f1": None,
+                "edge_micro_precision": None,
+                "edge_micro_recall": None,
+                "reference_basis": "graph_snapshot",
+                "medical_gold": False,
+                "reason": "Document-only evidence has no G0 edge annotations; requires document relevance or answer gold.",
+            })
+            continue
         subset = [r for r in records if r.query_id in by_id]
         if {r.query_id for r in subset} != set(by_id):
             raise ValueError(f"Missing mapped query IDs for {model_id}")
@@ -109,6 +127,7 @@ def score():
             "pipeline_id": summary["pipeline_id"],
             "run_id": run["run_id"],
             "mapped_queries": len(subset),
+            "structural_edge_score_applicable": True,
             "edge_macro_f1": edge_metrics["macro_f1"],
             "edge_micro_f1": edge_metrics["micro_f1"],
             "edge_micro_precision": edge_metrics["micro_precision"],

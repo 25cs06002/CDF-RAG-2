@@ -41,7 +41,8 @@ case "$MODE" in
       tests.test_controlled_g0 \
       tests.test_g1_review \
       tests.test_legacy_pair_comparison \
-      tests.test_graph_gap_triage -v
+      tests.test_graph_gap_triage \
+      tests.test_g0_target_ceiling -v
     ;;
   smoke)
     run_logged prepare "$PYTHON_CMD" evaluate_all_baselines.py prepare

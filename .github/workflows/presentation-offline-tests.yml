@@ -26,9 +26,12 @@ on:
       - 'scripts/run_graph_gap_triage.sh'
       - 'tests/test_legacy_pair_comparison.py'
       - 'scripts/compare_legacy_saved.sh'
-      - 'research_v2/g0_gap_audit.py'
+      - 'research_v2/g0_gap_audit.py research_v2/g0_target_ceiling.py tests/test_g0_target_ceiling.py'
       - 'tests/test_g0_gap_audit.py'
       - 'scripts/run_g0_gap_audit.sh'
+      - 'research_v2/g0_target_ceiling.py'
+      - 'tests/test_g0_target_ceiling.py'
+      - 'scripts/run_g0_target_ceiling.sh'
       - 'scripts/run_b1_b6_stable.sh'
       - 'research_v2/presentation_sprint.py'
       - 'evaluate_all_baselines.py'
@@ -54,13 +57,13 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install 'pydantic==2.11.4' 'python-dotenv==1.1.0' 'requests==2.32.3' 'scikit-learn==1.6.1'
       - name: Verify experiment shell runner syntax
-        run: bash -n scripts/run_presentation.sh scripts/run_b1_b6_stable.sh scripts/run_controlled_g0.sh scripts/run_g1_review.sh scripts/compare_legacy_saved.sh scripts/run_graph_gap_triage.sh scripts/run_g0_gap_audit.sh
+        run: bash -n scripts/run_presentation.sh scripts/run_b1_b6_stable.sh scripts/run_controlled_g0.sh scripts/run_g1_review.sh scripts/compare_legacy_saved.sh scripts/run_graph_gap_triage.sh scripts/run_g0_gap_audit.sh scripts/run_g0_target_ceiling.sh
       - name: Compile all presentation source and tests
         run: |
           python -m compileall -q research_v2/presentation_sprint.py research_v2/presentation_baselines.py research_v2/presentation_matrix.py research_v2/presentation_g0_reference.py research_v2/presentation_corpus.py research_v2/presentation_export.py research_v2/query_diagnostics.py research_v2/ollama_generation.py research_v2/controlled_g0.py research_v2/g1_review.py research_v2/legacy_pair_comparison.py research_v2/graph_gap_triage.py tests/test_graph_gap_triage.py tests/test_legacy_pair_comparison.py tests/test_g1_review.py tests/test_controlled_g0.py tests/test_ollama_generation.py tests/test_query_diagnostics.py tests/test_presentation_sprint.py tests/test_presentation_baselines.py tests/test_presentation_matrix.py tests/test_presentation_corpus.py tests/test_model_registry.py
       - name: Execute isolated tests (no Ollama, Neo4j or PPO)
         run: |
-          python -m unittest tests.test_presentation_sprint tests.test_presentation_baselines tests.test_presentation_matrix tests.test_presentation_corpus tests.test_model_registry tests.test_query_diagnostics tests.test_ollama_generation tests.test_controlled_g0 tests.test_g1_review tests.test_legacy_pair_comparison tests.test_graph_gap_triage -v
+          python -m unittest tests.test_presentation_sprint tests.test_presentation_baselines tests.test_presentation_matrix tests.test_presentation_corpus tests.test_model_registry tests.test_query_diagnostics tests.test_ollama_generation tests.test_controlled_g0 tests.test_g1_review tests.test_legacy_pair_comparison tests.test_graph_gap_triage tests.test_g0_target_ceiling -v
 
       - name: Reset only the disposable CI workspace (preserve committed user data)
         run: |
@@ -251,6 +254,19 @@ jobs:
           assert data["bucket_counts"] == {"DIRECTED_RETRIEVAL_GAP": 5, "G0_SNAPSHOT_COVERAGE_GAP": 59} or data["bucket_counts"] == {"G0_SNAPSHOT_COVERAGE_GAP": 59, "DIRECTED_RETRIEVAL_GAP": 5}
           assert data["requires_review"] and not data["medical_gold"]
           print("G0 concept audit passed: 64 review items, no fabricated evidence")
+          PY
+      - name: Quantify G0 draft-target leakage ceiling (NOT model accuracy)
+        run: |
+          python -m research_v2.g0_target_ceiling
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          paths = list(Path("presentation_20261118/g1_review").glob("target_ceiling_*/summary.json"))
+          assert len(paths) == 1
+          data = json.loads(paths[0].read_text())
+          assert data["queries"] == 64 and data["draft_target_leakage"]
+          assert not data["is_model_result"] and not data["medical_accuracy"]
+          print("64 gap target ceiling checks passed, explicitly not an ML result")
           PY
       - name: Score G0 structural snapshot recovery (not clinical accuracy)
         run: |

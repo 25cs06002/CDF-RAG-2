@@ -25,7 +25,10 @@ on:
       - 'tests/test_graph_gap_triage.py'
       - 'scripts/run_graph_gap_triage.sh'
       - 'tests/test_legacy_pair_comparison.py'
-      - 'scripts/compare_legacy_saved.sh'
+      - 'scripts/compare_legacy_saved.sh scripts/run_g0_gap_audit.sh'
+      - 'research_v2/g0_gap_audit.py'
+      - 'tests/test_g0_gap_audit.py'
+      - 'scripts/run_g0_gap_audit.sh'
       - 'scripts/run_b1_b6_stable.sh'
       - 'research_v2/presentation_sprint.py'
       - 'evaluate_all_baselines.py'
@@ -234,6 +237,20 @@ jobs:
           _, approved, audit = review_file(roots[0])
           assert approved == [] and audit["approved_evidence_rows"] == 0
           print("G1 evidence review queue: 64 gaps; 0 fabricated medical facts")
+          PY
+      - name: Audit G0 concept matching gaps without changing graph
+        run: |
+          python -m research_v2.g0_gap_audit
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          reports = list(Path("presentation_20261118/g1_review").glob("gap_audit_*/audit_summary.json"))
+          assert len(reports) == 1
+          data = json.loads(reports[0].read_text())
+          assert data["review_rows"] == 64
+          assert data["bucket_counts"] == {"DIRECTED_RETRIEVAL_GAP": 5, "G0_SNAPSHOT_COVERAGE_GAP": 59} or data["bucket_counts"] == {"G0_SNAPSHOT_COVERAGE_GAP": 59, "DIRECTED_RETRIEVAL_GAP": 5}
+          assert data["requires_review"] and not data["medical_gold"]
+          print("G0 concept audit passed: 64 review items, no fabricated evidence")
           PY
       - name: Score G0 structural snapshot recovery (not clinical accuracy)
         run: |

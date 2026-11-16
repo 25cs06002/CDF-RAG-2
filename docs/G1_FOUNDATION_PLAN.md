@@ -126,3 +126,10 @@ A query needing a risk factor or association may legitimately produce an
 evidence snippet instead of a causal path. A query needing a causal chain
 may legitimately abstain until each causal arrow is supported. This is a
 deliberate quality guard, not an execution error.
+
+## Focused typed-retrieval test (not offline sprint)
+```bash
+python -m unittest tests.test_g1_foundation_local tests.test_g1_typed_local -v
+```
+The synthetic tests confirm that risk-factor edges are returned as typed
+source evidence rather than silently relabeled as causal graph edges.

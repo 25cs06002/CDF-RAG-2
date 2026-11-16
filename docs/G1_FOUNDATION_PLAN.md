@@ -80,3 +80,29 @@ abstain on missing/ambiguous targets; report both recovered and lost yield.
   runtime lock and PPO-related preflight must be migrated/versioned first.
 - Later: independently reviewed quality labels, family-safe splits,
   matched-evidence-budget comparisons and cache/early-stop ablation.
+
+## Authoritative source access verification (optional, local only)
+The generated `source_review.csv` includes 25 *candidate* sources
+(15 primary, 8 additional, 2 separately verified official landing pages).
+The existing Phase 2M handoff includes 52 source review tasks, **zero
+independently adjudicated source records**; use those worksheets instead of
+replacing past work with a generic source list.
+
+To check URL availability without downloading or publishing complete pages:
+
+```bash
+python -m research_v2.g1_source_access --folder "$REVIEW" --limit 25 --timeout 12
+```
+
+The `source_access_*/source_access.csv` records HTTP status, response
+location and a fetched-byte checksum, with `source_claims_verified=false`.
+Some sites block scripted access. Failed requests are not proof that a source
+is invalid. Open the links manually and record the precise passage/scope.
+
+## Focused local validation (does not run the offline sprint)
+```bash
+python -m unittest tests.test_g1_foundation_local -v
+```
+This checks dataset separation, inventory creation, approval gating,
+unsafe synonym handling and a few query-intent cases. It does not
+execute Ollama, Neo4j, PPO, or the large CI suite.

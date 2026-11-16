@@ -16,6 +16,10 @@ on:
       - 'research_v2/controlled_g0.py'
       - 'tests/test_controlled_g0.py'
       - 'scripts/run_controlled_g0.sh'
+      - 'research_v2/g1_review.py'
+      - 'tests/test_g1_review.py'
+      - 'scripts/run_g1_review.sh'
+      - 'G1_REVIEW_GUIDE.md'
       - 'scripts/run_b1_b6_stable.sh'
       - 'research_v2/presentation_sprint.py'
       - 'evaluate_all_baselines.py'
@@ -41,13 +45,13 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install 'pydantic==2.11.4' 'python-dotenv==1.1.0' 'requests==2.32.3' 'scikit-learn==1.6.1'
       - name: Verify experiment shell runner syntax
-        run: bash -n scripts/run_presentation.sh scripts/run_b1_b6_stable.sh scripts/run_controlled_g0.sh
+        run: bash -n scripts/run_presentation.sh scripts/run_b1_b6_stable.sh scripts/run_controlled_g0.sh scripts/run_g1_review.sh
       - name: Compile all presentation source and tests
         run: |
-          python -m compileall -q research_v2/presentation_sprint.py research_v2/presentation_baselines.py research_v2/presentation_matrix.py research_v2/presentation_g0_reference.py research_v2/presentation_corpus.py research_v2/presentation_export.py research_v2/query_diagnostics.py research_v2/ollama_generation.py research_v2/controlled_g0.py tests/test_controlled_g0.py tests/test_ollama_generation.py tests/test_query_diagnostics.py tests/test_presentation_sprint.py tests/test_presentation_baselines.py tests/test_presentation_matrix.py tests/test_presentation_corpus.py tests/test_model_registry.py
+          python -m compileall -q research_v2/presentation_sprint.py research_v2/presentation_baselines.py research_v2/presentation_matrix.py research_v2/presentation_g0_reference.py research_v2/presentation_corpus.py research_v2/presentation_export.py research_v2/query_diagnostics.py research_v2/ollama_generation.py research_v2/controlled_g0.py research_v2/g1_review.py tests/test_g1_review.py tests/test_controlled_g0.py tests/test_ollama_generation.py tests/test_query_diagnostics.py tests/test_presentation_sprint.py tests/test_presentation_baselines.py tests/test_presentation_matrix.py tests/test_presentation_corpus.py tests/test_model_registry.py
       - name: Execute isolated tests (no Ollama, Neo4j or PPO)
         run: |
-          python -m unittest tests.test_presentation_sprint tests.test_presentation_baselines tests.test_presentation_matrix tests.test_presentation_corpus tests.test_model_registry tests.test_query_diagnostics tests.test_ollama_generation tests.test_controlled_g0 -v
+          python -m unittest tests.test_presentation_sprint tests.test_presentation_baselines tests.test_presentation_matrix tests.test_presentation_corpus tests.test_model_registry tests.test_query_diagnostics tests.test_ollama_generation tests.test_controlled_g0 tests.test_g1_review -v
 
       - name: Prepare frozen pilot and candidate source summaries
         run: |
@@ -174,6 +178,24 @@ jobs:
                      and p["comparable"] == "True" for p in pairs), pairs
           assert {row["model_id"] for row in types} == {f"B{i}" for i in range(1, 9)}
           print("All-query diagnostics are schema-consistent and non-gold")
+          PY
+      - name: Create review-gated G1 evidence backlog without fabricating edges
+        run: |
+          python -m research_v2.g1_review queue
+          python - <<'PY'
+          import csv
+          from pathlib import Path
+          from research_v2.g1_review import review_file
+          roots = list(Path("presentation_20261118/g1_review").glob("queue_*"))
+          assert len(roots) == 1, roots
+          with (roots[0] / "review_queue.csv").open() as handle:
+              rows = list(csv.DictReader(handle))
+          assert len(rows) == 64, len(rows)
+          assert sum(r["review_bucket"] == "G0_SNAPSHOT_COVERAGE_GAP" for r in rows) == 59
+          assert sum(r["review_bucket"] == "DIRECTED_RETRIEVAL_GAP" for r in rows) == 5
+          _, approved, audit = review_file(roots[0])
+          assert approved == [] and audit["approved_evidence_rows"] == 0
+          print("G1 evidence review queue: 64 gaps; 0 fabricated medical facts")
           PY
       - name: Score G0 structural snapshot recovery (not clinical accuracy)
         run: |

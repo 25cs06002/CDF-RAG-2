@@ -1,0 +1,47 @@
+{
+  "created_utc": "2026-11-15T12:33:43.637739+00:00",
+  "project_commit": "713a4c662ce9406f2680f353505fcf6cb08d9080",
+  "dataset_role": "unreviewed_pilot_for_behavioral_and_runtime_experiments",
+  "medical_gold_verified": false,
+  "questions": 100,
+  "query_distribution": {
+    "ambiguous": 8,
+    "comparative": 12,
+    "direct": 15,
+    "indirect": 15,
+    "multi_hop": 15,
+    "paraphrased": 15,
+    "risk_factor": 12,
+    "unsupported": 8
+  },
+  "question_family_pair_count": 15,
+  "dataset_sha256": "b5da7370c25974ff892f2f082b4c93e0e0dcea83adad665857424326726cdd64",
+  "inference_input_sha256": "cae1281e3a0457a78f58da8486dc67f70d33fb842d6ed3e8d997086dc8f91701",
+  "graph_version": "G0",
+  "graph_counts": {
+    "nodes": 35,
+    "edges": 37
+  },
+  "graph_nodes_sha256": "254890905388fb1e9df51da88b39b1686aa90247fd7da661f9d5aefc7c950675",
+  "graph_edges_sha256": "38fb6bddadc1f9b2777f2811e7ba15c6ab0b944143f41d8426590ea632f3e168",
+  "legacy_result_sha256": {
+    "evaluation_summary_no_rl_deterministic.csv": "fd05300ad7e4a96fa5787c84e171906c75661c6dd7c4a027a67705e03f991d5b",
+    "evaluation_summary_rl_deterministic.csv": "749b14c20a27e7784e6ab6b818e71eae363fa7abbada08f16ce5ad08be0dfcc4",
+    "rl_vs_no_rl_comparison.csv": "3c9cf2d1e4e4c3a4694da95141c2a07c9e76d87082f109452dd0297ba55ec375"
+  },
+  "planned_pipelines": {
+    "B1": "naive_rag",
+    "B2": "bm25_rag",
+    "B3": "dense_rag",
+    "B4": "hybrid_rag",
+    "B5": "graph_rag",
+    "B6": "causal_kg_rag",
+    "B7": "no_rl",
+    "B8": "rl"
+  },
+  "generated_legacy_configs": {
+    "no_rl": "presentation_20261118/configs/g0_no_rl_pilot100_v1.json",
+    "rl": "presentation_20261118/configs/g0_rl_pilot100_v1.json"
+  },
+  "evaluation_warning": "The full pilot has no independently adjudicated medical gold labels. G0 structural scores are not medical accuracy scores. G0 has limited domain coverage."
+}

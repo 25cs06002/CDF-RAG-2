@@ -1,0 +1,14 @@
+{
+  "run_id": "B7_20261115T135107455712Z_c9d5df",
+  "pipeline_id": "cdf_rag_no_rl_legacy",
+  "total_queries": 100,
+  "planned_queries": 100,
+  "executed_queries": 100,
+  "aborted": false,
+  "abort_reason": null,
+  "successful": 100,
+  "abstained": 0,
+  "errors": 0,
+  "wall_time_seconds": 2897.72,
+  "finished_utc": "2026-11-15T14:39:27.261111+00:00"
+}

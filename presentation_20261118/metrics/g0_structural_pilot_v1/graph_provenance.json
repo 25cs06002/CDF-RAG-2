@@ -1,0 +1,15 @@
+{
+  "reference_basis": "graph_snapshot",
+  "medical_correctness_verified": false,
+  "graph_version_label": "G0",
+  "node_count": 35,
+  "edge_count": 37,
+  "nodes_sha256": "254890905388fb1e9df51da88b39b1686aa90247fd7da661f9d5aefc7c950675",
+  "edges_sha256": "38fb6bddadc1f9b2777f2811e7ba15c6ab0b944143f41d8426590ea632f3e168",
+  "target_mapping_sha256": "085e7c8e139b282f2ab3cd5b93cbf8e70bc86d40c7c0e81256dc8f58eebcd93f",
+  "gold_sha256": "b2620d61b1633741456894a7d45fd705751eb5e26e1d4ba5c6bbfed302a749ca",
+  "annotated_queries": 20,
+  "evaluated_evidence_types": [
+    "direct_causal_edges"
+  ]
+}

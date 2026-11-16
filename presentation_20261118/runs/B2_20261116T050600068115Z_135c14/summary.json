@@ -1,0 +1,14 @@
+{
+  "run_id": "B2_20261116T050600068115Z_135c14",
+  "pipeline_id": "bm25_rag",
+  "total_queries": 100,
+  "planned_queries": 100,
+  "executed_queries": 100,
+  "aborted": false,
+  "abort_reason": null,
+  "successful": 6,
+  "abstained": 0,
+  "errors": 94,
+  "wall_time_seconds": 107.396,
+  "finished_utc": "2026-11-16T05:07:47.522029+00:00"
+}

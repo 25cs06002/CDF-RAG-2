@@ -1,0 +1,16 @@
+{
+  "stage": "review_queue_not_evidence",
+  "diagnostics_file": "presentation_20261118/metrics/query_diagnostics_20261116T111225110005Z/graph_gap_review_queue.csv",
+  "diagnostics_sha256": "a577c20f0185ff53e07f8f6851d66f4ffc3d36a06d60aa1ff92c0ed3c4339b71",
+  "query_count": 64,
+  "bucket_counts": {
+    "G0_SNAPSHOT_COVERAGE_GAP": 59,
+    "DIRECTED_RETRIEVAL_GAP": 5
+  },
+  "input_sha256": "cae1281e3a0457a78f58da8486dc67f70d33fb842d6ed3e8d997086dc8f91701",
+  "g0_nodes_sha256": "254890905388fb1e9df51da88b39b1686aa90247fd7da661f9d5aefc7c950675",
+  "g0_edges_sha256": "38fb6bddadc1f9b2777f2811e7ba15c6ab0b944143f41d8426590ea632f3e168",
+  "approval_count": 0,
+  "medical_gold": false,
+  "notes": "Draft concepts are search hints, not facts. Enter only independently reviewed, source-supported directional CAUSES edges. Never auto-convert risk factors or correlations into causation."
+}

@@ -1,0 +1,14 @@
+{
+  "run_id": "presentation_bm25_rag_20261115T123349450720Z",
+  "pipeline_id": "bm25_rag",
+  "total_queries": 3,
+  "planned_queries": 3,
+  "executed_queries": 3,
+  "aborted": false,
+  "abort_reason": null,
+  "successful": 2,
+  "abstained": 1,
+  "errors": 0,
+  "wall_time_seconds": 0.001,
+  "finished_utc": "2026-11-15T12:33:49.453339+00:00"
+}

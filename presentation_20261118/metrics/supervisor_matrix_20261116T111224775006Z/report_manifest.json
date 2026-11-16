@@ -1,0 +1,52 @@
+{
+  "questions": 100,
+  "model_slots": 8,
+  "expected_rows": 800,
+  "actual_completed_model_runs": 8,
+  "missing_models": [],
+  "dataset_sha256": "cae1281e3a0457a78f58da8486dc67f70d33fb842d6ed3e8d997086dc8f91701",
+  "medical_gold_verified": false,
+  "detailed_jsonl_contains_unreviewed_answers": true,
+  "publish_detailed_jsonl_only_after_manual_review": true,
+  "output_files": [
+    "all_800_slots_long.csv",
+    "all_100_questions_wide.csv",
+    "model_summary_B1_B8.csv",
+    "query_model_details.jsonl"
+  ],
+  "validity_warning": "A retrieved document is not proof of relevance or correctness. Graph and text baselines use different evidence. Retrieval-only timings are incomparable to full LLM generation timings. No medical accuracy, hallucination or groundedness claim is made.",
+  "selected": {
+    "B1": {
+      "run_dir": "presentation_20261118/runs/B1_20261116T084532122618Z_623a9c",
+      "mode": "end_to_end"
+    },
+    "B2": {
+      "run_dir": "presentation_20261118/runs/B2_20261116T091631815451Z_4c7d76",
+      "mode": "end_to_end"
+    },
+    "B3": {
+      "run_dir": "presentation_20261118/runs/B3_20261116T094933334684Z_2d61d8",
+      "mode": "end_to_end"
+    },
+    "B4": {
+      "run_dir": "presentation_20261118/runs/B4_20261116T102439492294Z_4a206c",
+      "mode": "end_to_end"
+    },
+    "B5": {
+      "run_dir": "presentation_20261118/runs/B5_20261116T105701289367Z_2f2f1f",
+      "mode": "end_to_end"
+    },
+    "B6": {
+      "run_dir": "presentation_20261118/runs/B6_20261116T110453498736Z_012e43",
+      "mode": "end_to_end"
+    },
+    "B7": {
+      "run_dir": "presentation_20261118/runs/B7_20261115T135107455712Z_c9d5df",
+      "mode": "end_to_end"
+    },
+    "B8": {
+      "run_dir": "presentation_20261118/runs/B8_20261115T143927296177Z_ca73b1",
+      "mode": "end_to_end"
+    }
+  }
+}

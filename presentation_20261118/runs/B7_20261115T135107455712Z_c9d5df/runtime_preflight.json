@@ -1,0 +1,182 @@
+{
+  "status": "pass",
+  "pipeline": "no_rl",
+  "graph_version": "G0",
+  "checked_utc": "2026-11-15T13:51:08.175971+00:00",
+  "checks": {
+    "lock_schema_version": {
+      "expected": 1,
+      "actual": 1,
+      "passed": true
+    },
+    "graph_version": {
+      "expected": "G0",
+      "actual": "G0",
+      "passed": true
+    },
+    "export_matches_live": {
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    "live_graph_fingerprint": {
+      "expected": "e33446ccfe6e11513bf9613cecd00bbb6a7fb5ce0c0a77fe6f7ff92eaf42d33a",
+      "actual": "e33446ccfe6e11513bf9613cecd00bbb6a7fb5ce0c0a77fe6f7ff92eaf42d33a",
+      "passed": true
+    },
+    "archived_graph_fingerprint": {
+      "expected": "e33446ccfe6e11513bf9613cecd00bbb6a7fb5ce0c0a77fe6f7ff92eaf42d33a",
+      "actual": "e33446ccfe6e11513bf9613cecd00bbb6a7fb5ce0c0a77fe6f7ff92eaf42d33a",
+      "passed": true
+    },
+    "nodes_csv_sha256": {
+      "expected": "254890905388fb1e9df51da88b39b1686aa90247fd7da661f9d5aefc7c950675",
+      "actual": "254890905388fb1e9df51da88b39b1686aa90247fd7da661f9d5aefc7c950675",
+      "passed": true
+    },
+    "edges_csv_sha256": {
+      "expected": "38fb6bddadc1f9b2777f2811e7ba15c6ab0b944143f41d8426590ea632f3e168",
+      "actual": "38fb6bddadc1f9b2777f2811e7ba15c6ab0b944143f41d8426590ea632f3e168",
+      "passed": true
+    },
+    "python_version": {
+      "expected": "3.12.3",
+      "actual": "3.12.3",
+      "passed": true
+    },
+    "ollama_version": {
+      "expected": "0.31.1",
+      "actual": "0.31.1",
+      "passed": true
+    },
+    "generation_model_name": {
+      "expected": "llama3.2:latest",
+      "actual": "llama3.2:latest",
+      "passed": true
+    },
+    "generation_model_digest": {
+      "expected": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+      "actual": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+      "passed": true
+    },
+    "refinement_model_name": {
+      "expected": "llama3.2:latest",
+      "actual": "llama3.2:latest",
+      "passed": true
+    },
+    "refinement_model_digest": {
+      "expected": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+      "actual": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+      "passed": true
+    },
+    "embedding_model_name": {
+      "expected": "nomic-embed-text:latest",
+      "actual": "nomic-embed-text:latest",
+      "passed": true
+    },
+    "embedding_model_digest": {
+      "expected": "0a109f422b47e3a30ba2b10eca18548e944e8a23073ee3f3e947efcf3c45e59f",
+      "actual": "0a109f422b47e3a30ba2b10eca18548e944e8a23073ee3f3e947efcf3c45e59f",
+      "passed": true
+    },
+    "embedding_environment_consistency": {
+      "expected": "nomic-embed-text:latest",
+      "actual": "nomic-embed-text:latest",
+      "passed": true
+    },
+    "package_torch": {
+      "expected": "2.14.0",
+      "actual": "2.14.0",
+      "passed": true
+    },
+    "package_stable-baselines3": {
+      "expected": "2.9.0",
+      "actual": "2.9.0",
+      "passed": true
+    },
+    "package_gymnasium": {
+      "expected": "1.3.0",
+      "actual": "1.3.0",
+      "passed": true
+    },
+    "package_langgraph": {
+      "expected": "0.4.5",
+      "actual": "0.4.5",
+      "passed": true
+    },
+    "package_neo4j": {
+      "expected": "6.3.1",
+      "actual": "6.3.1",
+      "passed": true
+    },
+    "package_pydantic": {
+      "expected": "2.11.4",
+      "actual": "2.11.4",
+      "passed": true
+    },
+    "package_sentence-transformers": {
+      "expected": "4.1.0",
+      "actual": "4.1.0",
+      "passed": true
+    },
+    "package_transformers": {
+      "expected": "4.52.2",
+      "actual": "4.52.2",
+      "passed": true
+    },
+    "package_numpy": {
+      "expected": "1.26.4",
+      "actual": "1.26.4",
+      "passed": true
+    },
+    "package_python-dotenv": {
+      "expected": "1.1.0",
+      "actual": "1.1.0",
+      "passed": true
+    },
+    "package_requests": {
+      "expected": "2.32.3",
+      "actual": "2.32.3",
+      "passed": true
+    },
+    "sentence_model_model_id": {
+      "expected": "sentence-transformers/all-MiniLM-L6-v2",
+      "actual": "sentence-transformers/all-MiniLM-L6-v2",
+      "passed": true
+    },
+    "sentence_model_revision": {
+      "expected": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+      "actual": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+      "passed": true
+    },
+    "sentence_model_snapshot_sha256": {
+      "expected": "42d8d798e4f01e68d9bb10634b9c712de00f7f8495271636fd6311b2db58e506",
+      "actual": "42d8d798e4f01e68d9bb10634b9c712de00f7f8495271636fd6311b2db58e506",
+      "passed": true
+    },
+    "sentence_model_asset_file_count": {
+      "expected": 11,
+      "actual": 11,
+      "passed": true
+    },
+    "sentence_model_weight_files": {
+      "expected": [
+        "model.safetensors"
+      ],
+      "actual": [
+        "model.safetensors"
+      ],
+      "passed": true
+    }
+  },
+  "failed_checks": [],
+  "ppo_checkpoint_checked": false,
+  "graph_checked_before_run": true,
+  "graph_locked_during_run": false,
+  "random_seed_enforced": false,
+  "sentence_encoder_weights_verified": false,
+  "sentence_encoder_cached_snapshot_verified": true,
+  "sentence_encoder_runtime_revision_enforced": false,
+  "sentence_encoder_model_loaded_for_test": false,
+  "runtime_lock_sha256": "54fb6691b10c98c9f86f2b44da0f7fa6baa14722c707ad055acf68c637c27378"
+}

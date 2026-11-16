@@ -102,7 +102,14 @@ def _validate_immutable(expected, actual, key_field, editable):
         seen.add(key)
         for field, original in reference[key].items():
             if field not in editable and row[field] != original:
-                raise ValueError(f"Original candidate field modified: {key}.{field}")
+                print(
+                    f"Mismatch: {key}.{field}\n"
+                    f"Expected: {original!r}\n"
+                    f"Actual:   {row[field]!r}"
+                )
+                raise ValueError(
+                    f"Original candidate field modified: {key}.{field}"
+                )
 
 
 def _valid_date(raw):

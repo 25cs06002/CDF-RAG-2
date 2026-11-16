@@ -1,0 +1,14 @@
+{
+  "run_id": "B3_20261116T074035586059Z_222fd0",
+  "pipeline_id": "dense_rag",
+  "total_queries": 100,
+  "planned_queries": 100,
+  "executed_queries": 100,
+  "aborted": false,
+  "abort_reason": null,
+  "successful": 100,
+  "abstained": 0,
+  "errors": 0,
+  "wall_time_seconds": 1.223,
+  "finished_utc": "2026-11-16T07:40:45.314132+00:00"
+}

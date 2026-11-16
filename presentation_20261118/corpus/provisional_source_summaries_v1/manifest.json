@@ -1,0 +1,12 @@
+{
+  "corpus_role": "provisional_phase2_source_candidate_summaries",
+  "document_count": 76,
+  "unique_source_urls": 49,
+  "documents_sha256": "6d136603606ec8f5cfccfe064a8c9e8ff85d3720bb52b707dad47f7e155e9e8d",
+  "proposal_source_sha256": "77b7c184dd1257ee0cf499159c0604108001d4d53f2a3350854b7ea558986f3a",
+  "review_task_source_sha256": "fcda09346d783794ab5dcc88c74e08803e9d1a69734e74b8b548229dee82a2ce",
+  "human_verified": false,
+  "medical_gold_created": false,
+  "direct_source_page_text_ingested": false,
+  "warning": "AI-assisted paraphrases are candidate evidence, not independently verified medical claims. Check source scope, medical correctness, licensing and provenance before a clinical accuracy study."
+}

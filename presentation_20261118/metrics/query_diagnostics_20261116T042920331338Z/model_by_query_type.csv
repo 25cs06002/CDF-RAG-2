@@ -1,0 +1,65 @@
+model_id,pipeline,query_type,total_queries,measured,not_run,ok,abstained,errors,evidence_returned
+B1,Naive lexical RAG,ambiguous,8,8,0,0,0,8,0
+B1,Naive lexical RAG,comparative,12,12,0,0,0,12,0
+B1,Naive lexical RAG,direct,15,15,0,15,0,0,15
+B1,Naive lexical RAG,indirect,15,15,0,15,0,0,15
+B1,Naive lexical RAG,multi_hop,15,15,0,13,0,2,13
+B1,Naive lexical RAG,paraphrased,15,15,0,15,0,0,15
+B1,Naive lexical RAG,risk_factor,12,12,0,0,0,12,0
+B1,Naive lexical RAG,unsupported,8,8,0,0,0,8,0
+B2,BM25 RAG,ambiguous,8,8,0,0,0,8,0
+B2,BM25 RAG,comparative,12,12,0,0,0,12,0
+B2,BM25 RAG,direct,15,15,0,0,0,15,0
+B2,BM25 RAG,indirect,15,15,0,0,0,15,0
+B2,BM25 RAG,multi_hop,15,15,0,0,0,15,0
+B2,BM25 RAG,paraphrased,15,15,0,0,0,15,0
+B2,BM25 RAG,risk_factor,12,12,0,0,0,12,0
+B2,BM25 RAG,unsupported,8,8,0,0,0,8,0
+B3,Dense Vector RAG,ambiguous,8,8,0,0,0,8,0
+B3,Dense Vector RAG,comparative,12,12,0,0,0,12,0
+B3,Dense Vector RAG,direct,15,15,0,15,0,0,15
+B3,Dense Vector RAG,indirect,15,15,0,15,0,0,15
+B3,Dense Vector RAG,multi_hop,15,15,0,1,0,14,1
+B3,Dense Vector RAG,paraphrased,15,15,0,15,0,0,15
+B3,Dense Vector RAG,risk_factor,12,12,0,0,0,12,0
+B3,Dense Vector RAG,unsupported,8,8,0,0,0,8,0
+B4,Hybrid BM25 + Dense RAG,ambiguous,8,8,0,0,0,8,0
+B4,Hybrid BM25 + Dense RAG,comparative,12,12,0,0,0,12,0
+B4,Hybrid BM25 + Dense RAG,direct,15,15,0,0,0,15,0
+B4,Hybrid BM25 + Dense RAG,indirect,15,15,0,0,0,15,0
+B4,Hybrid BM25 + Dense RAG,multi_hop,15,15,0,0,0,15,0
+B4,Hybrid BM25 + Dense RAG,paraphrased,15,15,0,0,0,15,0
+B4,Hybrid BM25 + Dense RAG,risk_factor,12,12,0,0,0,12,0
+B4,Hybrid BM25 + Dense RAG,unsupported,8,8,0,0,0,8,0
+B5,Graph-neighborhood RAG,ambiguous,8,8,0,0,4,4,0
+B5,Graph-neighborhood RAG,comparative,12,12,0,0,4,8,0
+B5,Graph-neighborhood RAG,direct,15,15,0,0,9,6,0
+B5,Graph-neighborhood RAG,indirect,15,15,0,0,15,0,0
+B5,Graph-neighborhood RAG,multi_hop,15,15,0,0,7,8,0
+B5,Graph-neighborhood RAG,paraphrased,15,15,0,0,9,6,0
+B5,Graph-neighborhood RAG,risk_factor,12,12,0,0,5,7,0
+B5,Graph-neighborhood RAG,unsupported,8,8,0,0,6,2,0
+B6,Directed Causal KG-RAG,ambiguous,8,8,0,0,4,4,0
+B6,Directed Causal KG-RAG,comparative,12,12,0,0,4,8,0
+B6,Directed Causal KG-RAG,direct,15,15,0,0,9,6,0
+B6,Directed Causal KG-RAG,indirect,15,15,0,0,15,0,0
+B6,Directed Causal KG-RAG,multi_hop,15,15,0,0,12,3,0
+B6,Directed Causal KG-RAG,paraphrased,15,15,0,0,9,6,0
+B6,Directed Causal KG-RAG,risk_factor,12,12,0,0,5,7,0
+B6,Directed Causal KG-RAG,unsupported,8,8,0,0,6,2,0
+B7,CDF-RAG No-RL (legacy),ambiguous,8,8,0,8,0,0,5
+B7,CDF-RAG No-RL (legacy),comparative,12,12,0,12,0,0,9
+B7,CDF-RAG No-RL (legacy),direct,15,15,0,15,0,0,8
+B7,CDF-RAG No-RL (legacy),indirect,15,15,0,15,0,0,2
+B7,CDF-RAG No-RL (legacy),multi_hop,15,15,0,15,0,0,5
+B7,CDF-RAG No-RL (legacy),paraphrased,15,15,0,15,0,0,8
+B7,CDF-RAG No-RL (legacy),risk_factor,12,12,0,12,0,0,9
+B7,CDF-RAG No-RL (legacy),unsupported,8,8,0,8,0,0,3
+B8,CDF-RAG PPO RL (legacy),ambiguous,8,8,0,8,0,0,6
+B8,CDF-RAG PPO RL (legacy),comparative,12,12,0,12,0,0,11
+B8,CDF-RAG PPO RL (legacy),direct,15,15,0,15,0,0,13
+B8,CDF-RAG PPO RL (legacy),indirect,15,15,0,15,0,0,11
+B8,CDF-RAG PPO RL (legacy),multi_hop,15,15,0,15,0,0,4
+B8,CDF-RAG PPO RL (legacy),paraphrased,15,15,0,15,0,0,8
+B8,CDF-RAG PPO RL (legacy),risk_factor,12,12,0,12,0,0,7
+B8,CDF-RAG PPO RL (legacy),unsupported,8,8,0,8,0,0,5

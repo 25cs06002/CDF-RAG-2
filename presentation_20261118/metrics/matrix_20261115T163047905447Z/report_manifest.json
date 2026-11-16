@@ -1,0 +1,32 @@
+{
+  "model_count": 8,
+  "missing_models": [],
+  "modes": [
+    "end_to_end"
+  ],
+  "100_query_complete": true,
+  "medical_accuracy_measured": false,
+  "medical_gold_labels_available": false,
+  "evidence_bases": [
+    "AI-assisted candidate-source summaries",
+    "G0 graph snapshot"
+  ],
+  "document_graph_corpus_equivalence_established": false,
+  "warning": "B1-B4 use provisional AI-assisted source-summary texts; B5-B8 use G0 graph relationships. The evidence bases are not identical and cannot support a controlled architecture-only medical accuracy claim.",
+  "latency_notes": [
+    "Total latency includes query execution; model initialization/preflight tracked by separate elapsed field.",
+    "Different evidence types and model-generation modes should not be compared as equivalent quality metrics.",
+    "Missing stage timings are null, not zero.",
+    "These operational metrics are not medical answer correctness, faithfulness or hallucination rates."
+  ],
+  "run_ids": {
+    "B7": "B7_20261115T135107455712Z_c9d5df",
+    "B8": "B8_20261115T143927296177Z_ca73b1",
+    "B1": "B1_20261115T160050712107Z_26f5cc",
+    "B2": "B2_20261115T161637561096Z_681e14",
+    "B3": "B3_20261115T161637736655Z_82d848",
+    "B4": "B4_20261115T163043644780Z_e1f3eb",
+    "B5": "B5_20261115T163045625128Z_7e28b3",
+    "B6": "B6_20261115T163045671192Z_bbc750"
+  }
+}

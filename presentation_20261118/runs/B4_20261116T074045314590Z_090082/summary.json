@@ -1,0 +1,14 @@
+{
+  "run_id": "B4_20261116T074045314590Z_090082",
+  "pipeline_id": "hybrid_rag",
+  "total_queries": 100,
+  "planned_queries": 100,
+  "executed_queries": 100,
+  "aborted": false,
+  "abort_reason": null,
+  "successful": 100,
+  "abstained": 0,
+  "errors": 0,
+  "wall_time_seconds": 1.354,
+  "finished_utc": "2026-11-16T07:40:47.086793+00:00"
+}

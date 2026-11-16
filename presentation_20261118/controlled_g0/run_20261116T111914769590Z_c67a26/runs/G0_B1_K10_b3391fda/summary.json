@@ -1,0 +1,14 @@
+{
+  "run_id": "G0_B1_K10_b3391fda",
+  "pipeline_id": "naive_rag",
+  "total_queries": 100,
+  "planned_queries": 100,
+  "executed_queries": 100,
+  "aborted": false,
+  "abort_reason": null,
+  "successful": 71,
+  "abstained": 29,
+  "errors": 0,
+  "wall_time_seconds": 0.02,
+  "finished_utc": "2026-11-16T11:19:17.063796+00:00"
+}

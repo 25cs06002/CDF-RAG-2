@@ -1,0 +1,9 @@
+left_model,right_model,basis,comparable,reason,paired_queries,both_evidence,left_only,right_only,neither,mean_right_minus_left_ms
+B1,B2,document_candidate,True,matched_pilot_and_runtime_settings,100,100,0,0,0,1218.7262775865383
+B1,B3,document_candidate,True,matched_pilot_and_runtime_settings,100,100,0,0,0,2372.764272519271
+B1,B4,document_candidate,True,matched_pilot_and_runtime_settings,100,100,0,0,0,810.561757144751
+B2,B3,document_candidate,True,matched_pilot_and_runtime_settings,100,100,0,0,0,1154.0379949327325
+B2,B4,document_candidate,True,matched_pilot_and_runtime_settings,100,100,0,0,0,-408.1645204417873
+B3,B4,document_candidate,True,matched_pilot_and_runtime_settings,100,100,0,0,0,-1562.2025153745199
+B5,B6,graph_snapshot,True,matched_pilot_and_runtime_settings,100,36,5,0,59,-295.53964468534105
+B7,B8,legacy_neo4j,False,legacy_runtime_fingerprint_not_checked,0,,,,,

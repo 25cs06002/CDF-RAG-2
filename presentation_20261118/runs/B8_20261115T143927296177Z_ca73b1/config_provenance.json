@@ -1,0 +1,28 @@
+{
+  "experiment_name": "presentation_B8_100",
+  "config_schema_version": 1,
+  "config_sha256": "730b07e6582674830075ca323a56cfb42c8514eb729bf49a708da3fa7f5b962b",
+  "dataset_sha256": "cae1281e3a0457a78f58da8486dc67f70d33fb842d6ed3e8d997086dc8f91701",
+  "config_file": "experiment_config.json",
+  "graph_version_is_label_only": false,
+  "graph_identity_checked_before_run": true,
+  "graph_locked_during_run": false,
+  "graph_checked_per_query": true,
+  "graph_checks_file": "graph_checks.jsonl",
+  "runtime_preflight_file": "runtime_preflight.json",
+  "random_seed_is_label_only": false,
+  "local_random_seed_applied": true,
+  "local_seed_scope": [
+    "python_random",
+    "numpy_legacy_global_rng",
+    "torch_global_rng"
+  ],
+  "seed_applied_before_pipeline_init": true,
+  "seed_reapplied_before_each_query": true,
+  "ollama_seed_enforced": false,
+  "python_hash_seed_enforced": false,
+  "torch_deterministic_algorithms_enforced": false,
+  "seed_journal_file": "seed_events.jsonl",
+  "provenance_written_before_queries": true,
+  "purpose": "Exploratory, non-gold 100-question presentation pilot."
+}

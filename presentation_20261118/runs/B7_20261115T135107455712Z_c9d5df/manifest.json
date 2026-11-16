@@ -1,0 +1,13 @@
+{
+  "run_id": "B7_20261115T135107455712Z_c9d5df",
+  "pipeline_id": "cdf_rag_no_rl_legacy",
+  "graph_version_label": "G0",
+  "random_seed_label": 2026,
+  "local_rng_seed_policy": "seed_before_each_query",
+  "git_commit": "0ccffbc7074c047e7926812e2e5c596e3f116ca8",
+  "input_file": "/home/avneelsingh/Folder/CDF-RAG-2/presentation_20261118/benchmark/questions_only.jsonl",
+  "input_sha256": "cae1281e3a0457a78f58da8486dc67f70d33fb842d6ed3e8d997086dc8f91701",
+  "question_count": 100,
+  "python_version": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "started_utc": "2026-11-15T13:51:09.540107+00:00"
+}

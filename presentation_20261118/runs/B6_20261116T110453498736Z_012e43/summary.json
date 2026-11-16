@@ -1,0 +1,14 @@
+{
+  "run_id": "B6_20261116T110453498736Z_012e43",
+  "pipeline_id": "causal_kg_rag",
+  "total_queries": 100,
+  "planned_queries": 100,
+  "executed_queries": 100,
+  "aborted": false,
+  "abort_reason": null,
+  "successful": 36,
+  "abstained": 64,
+  "errors": 0,
+  "wall_time_seconds": 442.507,
+  "finished_utc": "2026-11-16T11:12:16.008567+00:00"
+}

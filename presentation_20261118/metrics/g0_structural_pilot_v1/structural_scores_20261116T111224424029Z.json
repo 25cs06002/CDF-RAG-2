@@ -1,0 +1,139 @@
+{
+  "mapped_questions": 20,
+  "models_scored": 8,
+  "warning": "Measures G0 structural recovery only; unreviewed pilot metadata and graph relations are not medical gold.",
+  "results": [
+    {
+      "model": "B1",
+      "pipeline_id": "naive_rag",
+      "run_id": "B1_20261116T084532122618Z_623a9c",
+      "mapped_queries": 20,
+      "structural_edge_score_applicable": false,
+      "edge_macro_f1": null,
+      "edge_micro_f1": null,
+      "edge_micro_precision": null,
+      "edge_micro_recall": null,
+      "reference_basis": "graph_snapshot",
+      "medical_gold": false,
+      "reason": "Document-only evidence has no G0 edge annotations; requires document relevance or answer gold."
+    },
+    {
+      "model": "B2",
+      "pipeline_id": "bm25_rag",
+      "run_id": "B2_20261116T091631815451Z_4c7d76",
+      "mapped_queries": 20,
+      "structural_edge_score_applicable": false,
+      "edge_macro_f1": null,
+      "edge_micro_f1": null,
+      "edge_micro_precision": null,
+      "edge_micro_recall": null,
+      "reference_basis": "graph_snapshot",
+      "medical_gold": false,
+      "reason": "Document-only evidence has no G0 edge annotations; requires document relevance or answer gold."
+    },
+    {
+      "model": "B3",
+      "pipeline_id": "dense_rag",
+      "run_id": "B3_20261116T094933334684Z_2d61d8",
+      "mapped_queries": 20,
+      "structural_edge_score_applicable": false,
+      "edge_macro_f1": null,
+      "edge_micro_f1": null,
+      "edge_micro_precision": null,
+      "edge_micro_recall": null,
+      "reference_basis": "graph_snapshot",
+      "medical_gold": false,
+      "reason": "Document-only evidence has no G0 edge annotations; requires document relevance or answer gold."
+    },
+    {
+      "model": "B4",
+      "pipeline_id": "hybrid_rag",
+      "run_id": "B4_20261116T102439492294Z_4a206c",
+      "mapped_queries": 20,
+      "structural_edge_score_applicable": false,
+      "edge_macro_f1": null,
+      "edge_micro_f1": null,
+      "edge_micro_precision": null,
+      "edge_micro_recall": null,
+      "reference_basis": "graph_snapshot",
+      "medical_gold": false,
+      "reason": "Document-only evidence has no G0 edge annotations; requires document relevance or answer gold."
+    },
+    {
+      "model": "B5",
+      "pipeline_id": "graph_rag",
+      "run_id": "B5_20261116T105701289367Z_2f2f1f",
+      "mapped_queries": 20,
+      "structural_edge_score_applicable": true,
+      "edge_macro_f1": 0.75,
+      "edge_micro_f1": 0.8571428571428571,
+      "edge_micro_precision": 1.0,
+      "edge_micro_recall": 0.75,
+      "successful_latency_seconds": {
+        "count": 15,
+        "mean": 12.474299316337177,
+        "p50": 11.090950626996346,
+        "p95": 17.21023303529364
+      },
+      "reference_basis": "graph_snapshot",
+      "medical_gold": false
+    },
+    {
+      "model": "B6",
+      "pipeline_id": "causal_kg_rag",
+      "run_id": "B6_20261116T110453498736Z_012e43",
+      "mapped_queries": 20,
+      "structural_edge_score_applicable": true,
+      "edge_macro_f1": 0.66,
+      "edge_micro_f1": 0.7402597402597403,
+      "edge_micro_precision": 0.8636363636363636,
+      "edge_micro_recall": 0.6477272727272727,
+      "successful_latency_seconds": {
+        "count": 15,
+        "mean": 12.32040152453895,
+        "p50": 11.210074850998353,
+        "p95": 17.060005172493398
+      },
+      "reference_basis": "graph_snapshot",
+      "medical_gold": false
+    },
+    {
+      "model": "B7",
+      "pipeline_id": "cdf_rag_no_rl_legacy",
+      "run_id": "B7_20261115T135107455712Z_c9d5df",
+      "mapped_queries": 20,
+      "structural_edge_score_applicable": true,
+      "edge_macro_f1": 0.8,
+      "edge_micro_f1": 0.8717948717948718,
+      "edge_micro_precision": 1.0,
+      "edge_micro_recall": 0.7727272727272727,
+      "successful_latency_seconds": {
+        "count": 20,
+        "mean": 41.96725393715023,
+        "p50": 42.36469980847323,
+        "p95": 74.0175155833422
+      },
+      "reference_basis": "graph_snapshot",
+      "medical_gold": false
+    },
+    {
+      "model": "B8",
+      "pipeline_id": "cdf_rag_rl_legacy",
+      "run_id": "B8_20261115T143927296177Z_ca73b1",
+      "mapped_queries": 20,
+      "structural_edge_score_applicable": true,
+      "edge_macro_f1": 0.95,
+      "edge_micro_f1": 0.9707602339181286,
+      "edge_micro_precision": 1.0,
+      "edge_micro_recall": 0.9431818181818182,
+      "successful_latency_seconds": {
+        "count": 20,
+        "mean": 61.984978094356485,
+        "p50": 61.16815628902987,
+        "p95": 89.72882197198926
+      },
+      "reference_basis": "graph_snapshot",
+      "medical_gold": false
+    }
+  ]
+}

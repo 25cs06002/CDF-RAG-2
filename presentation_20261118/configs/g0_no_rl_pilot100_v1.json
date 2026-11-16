@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "experiment_name": "presentation_g0_no_rl_pilot100_v1",
+  "pipeline": "no_rl",
+  "dataset_path": "presentation_20261118/benchmark/questions_only.jsonl",
+  "dataset_sha256": "cae1281e3a0457a78f58da8486dc67f70d33fb842d6ed3e8d997086dc8f91701",
+  "graph_version": "G0",
+  "random_seed": 2026,
+  "limit": 100,
+  "purpose": "100-query unreviewed pilot operational evaluation, not a medical accuracy benchmark."
+}

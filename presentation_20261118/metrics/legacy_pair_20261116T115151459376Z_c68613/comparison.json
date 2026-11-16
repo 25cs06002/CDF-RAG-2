@@ -1,0 +1,122 @@
+{
+  "purpose": "Existing B7 vs B8 100-query observation, no model rerun",
+  "provenance_verified": true,
+  "comparison_reasons_if_invalid": [],
+  "run_audit": {
+    "B7": {
+      "run_id": "B7_20261115T135107455712Z_c9d5df",
+      "failures": [],
+      "graph_check_count": 200,
+      "graph_fingerprint": "e33446ccfe6e11513bf9613cecd00bbb6a7fb5ce0c0a77fe6f7ff92eaf42d33a",
+      "runtime_lock_sha256": "54fb6691b10c98c9f86f2b44da0f7fa6baa14722c707ad055acf68c637c27378"
+    },
+    "B8": {
+      "run_id": "B8_20261115T143927296177Z_ca73b1",
+      "failures": [],
+      "graph_check_count": 200,
+      "graph_fingerprint": "e33446ccfe6e11513bf9613cecd00bbb6a7fb5ce0c0a77fe6f7ff92eaf42d33a",
+      "runtime_lock_sha256": "54fb6691b10c98c9f86f2b44da0f7fa6baa14722c707ad055acf68c637c27378"
+    }
+  },
+  "query_count": 100,
+  "dataset_sha256": "cae1281e3a0457a78f58da8486dc67f70d33fb842d6ed3e8d997086dc8f91701",
+  "medical_gold_verified": false,
+  "clinical_accuracy_measured": false,
+  "B7_B8_retrieval_method_and_RL_differ": true,
+  "warnings": [
+    "Only observational same-query operational comparison; not a controlled causal estimate of PPO benefit.",
+    "Original legacy generator/Neo4j/PPO architecture differs from the B1-B6 retrieval-only top-k sweep.",
+    "G0 structural edge recovery on mapped queries is not clinical correctness.",
+    "Do not disclose raw generated answers or patient-specific details without manual review."
+  ],
+  "paired_operational_metrics": {
+    "paired_queries": 100,
+    "evidence_outcomes": {
+      "both": 43,
+      "B8_only": 22,
+      "neither": 29,
+      "B7_only": 6
+    },
+    "B7_evidence_yield": 49,
+    "B8_evidence_yield": 65,
+    "B7_causal_paths_total": 556,
+    "B8_causal_paths_total": 726,
+    "B7_answers_present": 100,
+    "B8_answers_present": 100,
+    "B7_mean_total_latency_ms": 28946.40385363775,
+    "B8_mean_total_latency_ms": 48528.44140401343,
+    "B8_minus_B7_mean_paired_latency_ms": 19582.03755037568,
+    "B8_minus_B7_p50_paired_latency_ms": 13026.607656531269,
+    "B8_minus_B7_p95_paired_latency_ms": 65653.67904948651,
+    "query_types": {
+      "ambiguous": {
+        "total": 8,
+        "B7_evidence": 5,
+        "B8_evidence": 6
+      },
+      "comparative": {
+        "total": 12,
+        "B7_evidence": 9,
+        "B8_evidence": 11
+      },
+      "direct": {
+        "total": 15,
+        "B7_evidence": 8,
+        "B8_evidence": 13
+      },
+      "indirect": {
+        "total": 15,
+        "B7_evidence": 2,
+        "B8_evidence": 11
+      },
+      "multi_hop": {
+        "total": 15,
+        "B7_evidence": 5,
+        "B8_evidence": 4
+      },
+      "paraphrased": {
+        "total": 15,
+        "B7_evidence": 8,
+        "B8_evidence": 8
+      },
+      "risk_factor": {
+        "total": 12,
+        "B7_evidence": 9,
+        "B8_evidence": 7
+      },
+      "unsupported": {
+        "total": 8,
+        "B7_evidence": 3,
+        "B8_evidence": 5
+      }
+    }
+  },
+  "g0_mapped_structural_metrics": {
+    "status": "G0_snapshot_only_not_clinical_gold",
+    "mapped_questions": 20,
+    "B7": {
+      "evaluated_queries": 20,
+      "macro_precision": 0.8,
+      "macro_recall": 0.8,
+      "macro_f1": 0.8,
+      "micro_precision": 1.0,
+      "micro_recall": 0.7727272727272727,
+      "micro_f1": 0.8717948717948718,
+      "tp": 68,
+      "fp": 0,
+      "fn": 20
+    },
+    "B8": {
+      "evaluated_queries": 20,
+      "macro_precision": 0.95,
+      "macro_recall": 0.95,
+      "macro_f1": 0.95,
+      "micro_precision": 1.0,
+      "micro_recall": 0.9431818181818182,
+      "micro_f1": 0.9707602339181286,
+      "tp": 83,
+      "fp": 0,
+      "fn": 5
+    }
+  }
+}

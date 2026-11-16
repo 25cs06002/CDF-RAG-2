@@ -1,0 +1,14 @@
+{
+  "run_id": "G0_B5_K3_28ea5e97",
+  "pipeline_id": "graph_rag",
+  "total_queries": 100,
+  "planned_queries": 100,
+  "executed_queries": 100,
+  "aborted": false,
+  "abort_reason": null,
+  "successful": 41,
+  "abstained": 59,
+  "errors": 0,
+  "wall_time_seconds": 0.015,
+  "finished_utc": "2026-11-16T11:19:16.659704+00:00"
+}

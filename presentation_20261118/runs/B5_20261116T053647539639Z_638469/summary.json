@@ -1,0 +1,14 @@
+{
+  "run_id": "B5_20261116T053647539639Z_638469",
+  "pipeline_id": "graph_rag",
+  "total_queries": 100,
+  "planned_queries": 100,
+  "executed_queries": 100,
+  "aborted": false,
+  "abort_reason": null,
+  "successful": 0,
+  "abstained": 59,
+  "errors": 41,
+  "wall_time_seconds": 0.047,
+  "finished_utc": "2026-11-16T05:36:47.601092+00:00"
+}

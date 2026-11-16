@@ -1,0 +1,30 @@
+{
+  "purpose": "Controlled, retrieval-only B1-B6 structural G0 experiment",
+  "reference_basis": "graph_snapshot",
+  "medical_gold_verified": false,
+  "clinical_accuracy_measured": false,
+  "document_representation": "G0_EDGE verbalizations of the same G0 relationship IDs",
+  "graph_nodes": 35,
+  "graph_edges": 37,
+  "nodes_sha256": "254890905388fb1e9df51da88b39b1686aa90247fd7da661f9d5aefc7c950675",
+  "edges_sha256": "38fb6bddadc1f9b2777f2811e7ba15c6ab0b944143f41d8426590ea632f3e168",
+  "questions_sha256": "cae1281e3a0457a78f58da8486dc67f70d33fb842d6ed3e8d997086dc8f91701",
+  "g0_gold_sha256": "b2620d61b1633741456894a7d45fd705751eb5e26e1d4ba5c6bbfed302a749ca",
+  "encoder": "lsa",
+  "top_k": [
+    1,
+    3,
+    5,
+    10
+  ],
+  "models": [
+    "B1",
+    "B2",
+    "B3",
+    "B4",
+    "B5",
+    "B6"
+  ],
+  "limit": 100,
+  "warning": "This reuses G0 graph-derived texts and G0 structural reference edges; results measure within-snapshot retrieval mechanics, NOT clinical accuracy. B7/B8 and provisional external document summaries are not part of this controlled condition."
+}

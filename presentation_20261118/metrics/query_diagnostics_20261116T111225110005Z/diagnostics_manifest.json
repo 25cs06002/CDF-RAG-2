@@ -1,0 +1,164 @@
+{
+  "question_count": 100,
+  "model_count": 8,
+  "measured_models": [
+    "B1",
+    "B2",
+    "B3",
+    "B4",
+    "B5",
+    "B6",
+    "B7",
+    "B8"
+  ],
+  "missing_models": [],
+  "input_sha256": "cae1281e3a0457a78f58da8486dc67f70d33fb842d6ed3e8d997086dc8f91701",
+  "clinical_gold_verified": false,
+  "clinical_accuracy_computed": false,
+  "group_rules": {
+    "document_candidate": [
+      "B1",
+      "B2",
+      "B3",
+      "B4"
+    ],
+    "graph_snapshot": [
+      "B5",
+      "B6"
+    ],
+    "legacy_neo4j": [
+      "B7",
+      "B8"
+    ]
+  },
+  "review_bucket_counts": {
+    "G0_SNAPSHOT_COVERAGE_GAP": 59,
+    "BOTH_GRAPH_METHODS_RETURN_EVIDENCE": 36,
+    "DIRECTED_RETRIEVAL_GAP": 5
+  },
+  "paired_comparisons_accepted": 7,
+  "paired_comparisons_excluded": [
+    {
+      "models": [
+        "B7",
+        "B8"
+      ],
+      "reason": "legacy_runtime_fingerprint_not_checked"
+    }
+  ],
+  "provenance": {
+    "B1": {
+      "run_id": "B1_20261116T084532122618Z_623a9c",
+      "pipeline_id": "naive_rag",
+      "code_sha": "61e51633cec2d69a2409def8818958eecb5792a8",
+      "dataset_sha256": "cae1281e3a0457a78f58da8486dc67f70d33fb842d6ed3e8d997086dc8f91701",
+      "query_count": 100,
+      "execution_mode": "end_to_end",
+      "corpus_sha256": "6d136603606ec8f5cfccfe064a8c9e8ff85d3720bb52b707dad47f7e155e9e8d",
+      "embedding_backend": null,
+      "top_k": 5,
+      "graph_version": "G0",
+      "has_matrix_journal": true,
+      "aborted": false
+    },
+    "B2": {
+      "run_id": "B2_20261116T091631815451Z_4c7d76",
+      "pipeline_id": "bm25_rag",
+      "code_sha": "61e51633cec2d69a2409def8818958eecb5792a8",
+      "dataset_sha256": "cae1281e3a0457a78f58da8486dc67f70d33fb842d6ed3e8d997086dc8f91701",
+      "query_count": 100,
+      "execution_mode": "end_to_end",
+      "corpus_sha256": "6d136603606ec8f5cfccfe064a8c9e8ff85d3720bb52b707dad47f7e155e9e8d",
+      "embedding_backend": null,
+      "top_k": 5,
+      "graph_version": "G0",
+      "has_matrix_journal": true,
+      "aborted": false
+    },
+    "B3": {
+      "run_id": "B3_20261116T094933334684Z_2d61d8",
+      "pipeline_id": "dense_rag",
+      "code_sha": "61e51633cec2d69a2409def8818958eecb5792a8",
+      "dataset_sha256": "cae1281e3a0457a78f58da8486dc67f70d33fb842d6ed3e8d997086dc8f91701",
+      "query_count": 100,
+      "execution_mode": "end_to_end",
+      "corpus_sha256": "6d136603606ec8f5cfccfe064a8c9e8ff85d3720bb52b707dad47f7e155e9e8d",
+      "embedding_backend": "sentence",
+      "top_k": 5,
+      "graph_version": "G0",
+      "has_matrix_journal": true,
+      "aborted": false
+    },
+    "B4": {
+      "run_id": "B4_20261116T102439492294Z_4a206c",
+      "pipeline_id": "hybrid_rag",
+      "code_sha": "61e51633cec2d69a2409def8818958eecb5792a8",
+      "dataset_sha256": "cae1281e3a0457a78f58da8486dc67f70d33fb842d6ed3e8d997086dc8f91701",
+      "query_count": 100,
+      "execution_mode": "end_to_end",
+      "corpus_sha256": "6d136603606ec8f5cfccfe064a8c9e8ff85d3720bb52b707dad47f7e155e9e8d",
+      "embedding_backend": "sentence",
+      "top_k": 5,
+      "graph_version": "G0",
+      "has_matrix_journal": true,
+      "aborted": false
+    },
+    "B5": {
+      "run_id": "B5_20261116T105701289367Z_2f2f1f",
+      "pipeline_id": "graph_rag",
+      "code_sha": "61e51633cec2d69a2409def8818958eecb5792a8",
+      "dataset_sha256": "cae1281e3a0457a78f58da8486dc67f70d33fb842d6ed3e8d997086dc8f91701",
+      "query_count": 100,
+      "execution_mode": "end_to_end",
+      "corpus_sha256": null,
+      "embedding_backend": null,
+      "top_k": 5,
+      "graph_version": "G0",
+      "has_matrix_journal": true,
+      "aborted": false
+    },
+    "B6": {
+      "run_id": "B6_20261116T110453498736Z_012e43",
+      "pipeline_id": "causal_kg_rag",
+      "code_sha": "61e51633cec2d69a2409def8818958eecb5792a8",
+      "dataset_sha256": "cae1281e3a0457a78f58da8486dc67f70d33fb842d6ed3e8d997086dc8f91701",
+      "query_count": 100,
+      "execution_mode": "end_to_end",
+      "corpus_sha256": null,
+      "embedding_backend": null,
+      "top_k": 5,
+      "graph_version": "G0",
+      "has_matrix_journal": true,
+      "aborted": false
+    },
+    "B7": {
+      "run_id": "B7_20261115T135107455712Z_c9d5df",
+      "pipeline_id": "cdf_rag_no_rl_legacy",
+      "code_sha": "0ccffbc7074c047e7926812e2e5c596e3f116ca8",
+      "dataset_sha256": "cae1281e3a0457a78f58da8486dc67f70d33fb842d6ed3e8d997086dc8f91701",
+      "query_count": 100,
+      "execution_mode": "end_to_end",
+      "corpus_sha256": null,
+      "embedding_backend": null,
+      "top_k": null,
+      "graph_version": "G0",
+      "has_matrix_journal": true,
+      "aborted": false
+    },
+    "B8": {
+      "run_id": "B8_20261115T143927296177Z_ca73b1",
+      "pipeline_id": "cdf_rag_rl_legacy",
+      "code_sha": "0ccffbc7074c047e7926812e2e5c596e3f116ca8",
+      "dataset_sha256": "cae1281e3a0457a78f58da8486dc67f70d33fb842d6ed3e8d997086dc8f91701",
+      "query_count": 100,
+      "execution_mode": "end_to_end",
+      "corpus_sha256": null,
+      "embedding_backend": null,
+      "top_k": null,
+      "graph_version": "G0",
+      "has_matrix_journal": true,
+      "aborted": false
+    }
+  },
+  "caveat": "Evidence presence, graph coverage and latency are not medical correctness. Matched pairs compare operational retrieval only; the pilot and its target concepts are unreviewed. Missing B7/B8 runs remain NOT_RUN rather than being scored as errors."
+}

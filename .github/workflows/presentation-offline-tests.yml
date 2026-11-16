@@ -18,8 +18,11 @@ on:
       - 'scripts/run_controlled_g0.sh'
       - 'research_v2/g1_review.py'
       - 'tests/test_g1_review.py'
-      - 'scripts/run_g1_review.sh'
+      - 'scripts/run_g1_review.sh scripts/compare_legacy_saved.sh'
       - 'G1_REVIEW_GUIDE.md'
+      - 'research_v2/legacy_pair_comparison.py'
+      - 'tests/test_legacy_pair_comparison.py'
+      - 'scripts/compare_legacy_saved.sh'
       - 'scripts/run_b1_b6_stable.sh'
       - 'research_v2/presentation_sprint.py'
       - 'evaluate_all_baselines.py'
@@ -48,10 +51,10 @@ jobs:
         run: bash -n scripts/run_presentation.sh scripts/run_b1_b6_stable.sh scripts/run_controlled_g0.sh scripts/run_g1_review.sh
       - name: Compile all presentation source and tests
         run: |
-          python -m compileall -q research_v2/presentation_sprint.py research_v2/presentation_baselines.py research_v2/presentation_matrix.py research_v2/presentation_g0_reference.py research_v2/presentation_corpus.py research_v2/presentation_export.py research_v2/query_diagnostics.py research_v2/ollama_generation.py research_v2/controlled_g0.py research_v2/g1_review.py tests/test_g1_review.py tests/test_controlled_g0.py tests/test_ollama_generation.py tests/test_query_diagnostics.py tests/test_presentation_sprint.py tests/test_presentation_baselines.py tests/test_presentation_matrix.py tests/test_presentation_corpus.py tests/test_model_registry.py
+          python -m compileall -q research_v2/presentation_sprint.py research_v2/presentation_baselines.py research_v2/presentation_matrix.py research_v2/presentation_g0_reference.py research_v2/presentation_corpus.py research_v2/presentation_export.py research_v2/query_diagnostics.py research_v2/ollama_generation.py research_v2/controlled_g0.py research_v2/g1_review.py research_v2/legacy_pair_comparison.py tests/test_legacy_pair_comparison.py tests/test_g1_review.py tests/test_controlled_g0.py tests/test_ollama_generation.py tests/test_query_diagnostics.py tests/test_presentation_sprint.py tests/test_presentation_baselines.py tests/test_presentation_matrix.py tests/test_presentation_corpus.py tests/test_model_registry.py
       - name: Execute isolated tests (no Ollama, Neo4j or PPO)
         run: |
-          python -m unittest tests.test_presentation_sprint tests.test_presentation_baselines tests.test_presentation_matrix tests.test_presentation_corpus tests.test_model_registry tests.test_query_diagnostics tests.test_ollama_generation tests.test_controlled_g0 tests.test_g1_review -v
+          python -m unittest tests.test_presentation_sprint tests.test_presentation_baselines tests.test_presentation_matrix tests.test_presentation_corpus tests.test_model_registry tests.test_query_diagnostics tests.test_ollama_generation tests.test_controlled_g0 tests.test_g1_review tests.test_legacy_pair_comparison -v
 
       - name: Prepare frozen pilot and candidate source summaries
         run: |

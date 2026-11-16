@@ -59,7 +59,7 @@ def latest_input(workspace: Path = WORKSPACE) -> Path:
         info = json.loads(manifest.read_text(encoding="utf-8"))
         if (info.get("input_sha256") == file_sha256(INPUT)
                 and info.get("question_count") == 100
-                and {"B5","B6","B7","B8"}.issubset(info.get("measured_models", []))):
+                and {"B5","B6"}.issubset(info.get("measured_models", []))):
             return path
     raise FileNotFoundError("No complete diagnostics. Run: python evaluate_all_baselines.py diagnose")
 

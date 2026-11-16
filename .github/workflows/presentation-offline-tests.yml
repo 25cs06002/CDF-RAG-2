@@ -25,7 +25,7 @@ on:
       - 'tests/test_graph_gap_triage.py'
       - 'scripts/run_graph_gap_triage.sh'
       - 'tests/test_legacy_pair_comparison.py'
-      - 'scripts/compare_legacy_saved.sh scripts/run_g0_gap_audit.sh'
+      - 'scripts/compare_legacy_saved.sh'
       - 'research_v2/g0_gap_audit.py'
       - 'tests/test_g0_gap_audit.py'
       - 'scripts/run_g0_gap_audit.sh'
@@ -54,7 +54,7 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install 'pydantic==2.11.4' 'python-dotenv==1.1.0' 'requests==2.32.3' 'scikit-learn==1.6.1'
       - name: Verify experiment shell runner syntax
-        run: bash -n scripts/run_presentation.sh scripts/run_b1_b6_stable.sh scripts/run_controlled_g0.sh scripts/run_g1_review.sh scripts/compare_legacy_saved.sh scripts/run_graph_gap_triage.sh
+        run: bash -n scripts/run_presentation.sh scripts/run_b1_b6_stable.sh scripts/run_controlled_g0.sh scripts/run_g1_review.sh scripts/compare_legacy_saved.sh scripts/run_graph_gap_triage.sh scripts/run_g0_gap_audit.sh
       - name: Compile all presentation source and tests
         run: |
           python -m compileall -q research_v2/presentation_sprint.py research_v2/presentation_baselines.py research_v2/presentation_matrix.py research_v2/presentation_g0_reference.py research_v2/presentation_corpus.py research_v2/presentation_export.py research_v2/query_diagnostics.py research_v2/ollama_generation.py research_v2/controlled_g0.py research_v2/g1_review.py research_v2/legacy_pair_comparison.py research_v2/graph_gap_triage.py tests/test_graph_gap_triage.py tests/test_legacy_pair_comparison.py tests/test_g1_review.py tests/test_controlled_g0.py tests/test_ollama_generation.py tests/test_query_diagnostics.py tests/test_presentation_sprint.py tests/test_presentation_baselines.py tests/test_presentation_matrix.py tests/test_presentation_corpus.py tests/test_model_registry.py

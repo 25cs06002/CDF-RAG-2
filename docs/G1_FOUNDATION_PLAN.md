@@ -1,0 +1,82 @@
+# G1 foundation — preservation, review and fast presentation experiments
+
+**Development branch:** `g1-query-evidence-foundation`. The workflow is
+manually executable and does not change the `research-v2` offline sprint CI.
+
+## What already exists (do not redo)
+- 100 unreviewed pilot questions in `data/benchmark/medical_causal_pilot100_draft_v1.jsonl`.
+- A separate original 22-query-era experimental history (original CSVs);
+  do not treat historical queries as a reviewed test split.
+- G0, 35 nodes / 37 unreviewed CAUSES edges; B1–B8 archived runs.
+- Original 15-source + eight-source registries.
+- Phase2K/2M multi-hop review and 52 source tasks, zero independently
+  adjudicated links according to `phase2m_full_adjudication_handoff_v1/handoff_manifest.json`.
+- Existing `graph_gap_triage.py` experimental shadow target resolver.
+
+## New outputs
+- `data/benchmark/medical_causal_expansion32_draft_v1.jsonl`
+  — **separate** 32-question pilot expansion (four per query type), NOT
+  appended to frozen 100, NOT gold or split/test. The eventual 650 target
+  remains a plan, not completed data.
+- `python -m research_v2.g1_foundation prepare` creates a new
+  `research_artifacts/experiment-artifacts/g1_review_workspaces/G1_REVIEW_*/`
+  directory containing:
+  - `concept_inventory.csv`: every distinct draft target from 132 questions,
+    flags exact G0 presence and candidate source IDs.
+  - `source_review.csv`: the pre-existing 15+8 source candidates plus two
+    newly checked official pages, all **unreviewed**; passage locators required.
+  - `typed_relationship_review.csv`: intentionally EMPTY for reviewer-approved
+    source-supported relationships.
+  - `alias_review.csv`: intentionally EMPTY; no unsafe automatic equivalences.
+  - `manifest.json`: frozen SHA256 inputs and approval warnings.
+
+## Human review tasks (REQUIRED before G1 build)
+1. **Concept inventory**: Review absent concepts, de-duplicate true synonyms
+   only with a cited source. Never map "type 2 diabetes" to G0's broader
+   "Diabetes", or CAD to broad "heart disease", as a synonym.
+2. **Sources**: Open the actual source pages (check section, exact locator,
+   date and scientific scope). Fill `source_review.csv`; approve only real
+   checks with name/date. Medical expert validation is separate.
+3. **Relationships**: Fill `typed_relationship_review.csv` with independently
+   supported `subject, relation, object, source_id, passage_locator,
+   support_summary, reviewer, review_date`. Use one of `CAUSES`,
+   `RISK_FACTOR_FOR`, `ASSOCIATED_WITH`, `TRIGGERS_EXACERBATION`,
+   `PROTECTS_AGAINST`, `IS_A`, `UNCERTAIN`. Never promote risk factors,
+   correlations, or symptom triggers to CAUSES.
+4. **Aliases**: Fill `alias_review.csv` only for reviewed synonym equivalence,
+   with source/reviewer. Aliases are used by a **separate experimental
+   query-only retriever**, never by historical B1–B8.
+5. **Question review**: Independently review new draft questions for ambiguity,
+   evidence and family leakage; keep their output and gold labels separate.
+
+Run `python -m research_v2.g1_foundation audit --folder '<actual directory>'`
+to check typed source/review provenance structure. It does **not** verify
+medical correctness or visit URLs.
+
+Only after approvals:
+`python -m research_v2.g1_foundation build --folder '<actual directory>'`
+
+That produces `graphs/G1_CANDIDATE_*/nodes.csv`, `edges.csv` (only
+approved *new* CAUSES edges, plus inherited G0), `typed_relationships.csv`,
+`approved_aliases.csv`, and `manifest.json`. Inherited 37 G0 edges remain
+unverified. No direct Neo4j mutation.
+
+## Controlled retrieval-only shadow experiment
+Run `python -m research_v2.g1_query_interpreter --top-k 5`
+against frozen G0, and optionally:
+```bash
+python -m research_v2.g1_query_interpreter --queries data/benchmark/medical_causal_expansion32_draft_v1.jsonl
+python -m research_v2.g1_query_interpreter --graph-dir research_artifacts/experiment-artifacts/g1_review_workspaces/G1_REVIEW_.../graphs/G1_CANDIDATE_... --alias-file .../approved_aliases.csv
+```
+These are **new shadow conditions**, NOT reruns or replacements of B5/B6.
+They never see draft target labels or gold answers at inference. They can
+abstain on missing/ambiguous targets; report both recovered and lost yield.
+
+## Expensive reruns: NOT YET
+- Do NOT rerun archived 100-query B7/B8, or B1–B6 full generation.
+- After source review and G1 snapshot lock, run B5/B6 retrieval-only on
+  new G1; then optional small end-to-end smoke with matching Ollama settings.
+- B7/B8 cannot use new G1 simply by changing a CSV; their Neo4j graph,
+  runtime lock and PPO-related preflight must be migrated/versioned first.
+- Later: independently reviewed quality labels, family-safe splits,
+  matched-evidence-budget comparisons and cache/early-stop ablation.

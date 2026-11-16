@@ -59,6 +59,19 @@ jobs:
         run: |
           python -m unittest tests.test_presentation_sprint tests.test_presentation_baselines tests.test_presentation_matrix tests.test_presentation_corpus tests.test_model_registry tests.test_query_diagnostics tests.test_ollama_generation tests.test_controlled_g0 tests.test_g1_review tests.test_legacy_pair_comparison tests.test_graph_gap_triage -v
 
+      - name: Reset only the disposable CI workspace (preserve committed user data)
+        run: |
+          # The real repo tracks historical result artifacts. This clean test
+          # sandbox is an ephemeral GitHub Actions checkout, never the user's
+          # local machine or Git history.
+          python - <<'PY'
+          import shutil
+          from pathlib import Path
+          scratch = Path("presentation_20261118")
+          if scratch.exists():
+              shutil.rmtree(scratch)
+          print("CI-only clean presentation workspace ready")
+          PY
       - name: Prepare frozen pilot and candidate source summaries
         run: |
           python -m research_v2.presentation_sprint prepare

@@ -27,6 +27,7 @@ from pathlib import Path
 from .experiment_runner import PROJECT_ROOT, file_sha256, load_questions, run_experiment
 from .presentation_sprint import PIPELINES
 from .schema import PipelineRecord
+from .ollama_generation import generation_settings, check_ollama
 
 WORKSPACE = PROJECT_ROOT / "presentation_20261118"
 INPUT = WORKSPACE / "benchmark/questions_only.jsonl"
@@ -98,7 +99,7 @@ def choose_models(selected):
 
 def find_completed_run(journal, model_id, query_count, *, dataset_sha256,
                        execution_mode, top_k, encoder, current_git_commit,
-                       corpus_sha256=None):
+                       corpus_sha256=None, generator_config=None):
     """Return a verified prior completed run at the *same code revision*.
 
     This prevents a long Ubuntu run from unintentionally repeating completed
@@ -124,6 +125,9 @@ def find_completed_run(journal, model_id, query_count, *, dataset_sha256,
         if model_id in {"B3", "B4"} and row.get("embedding_backend") != encoder:
             continue
         if model_id in {"B1", "B2", "B3", "B4"} and row.get("corpus_sha256") != corpus_sha256:
+            continue
+        if (model_id not in LEGACY and execution_mode == "end_to_end"
+                and row.get("generator_config") != generator_config):
             continue
         summary = row.get("summary", {})
         if summary.get("aborted") or summary.get("errors") != 0:
@@ -151,7 +155,7 @@ def find_completed_run(journal, model_id, query_count, *, dataset_sha256,
     return None
 
 
-def run_models(selected="all", limit=None, retrieval_only=False, top_k=5, encoder="sentence", skip_complete=False):
+def run_models(selected="all", limit=None, retrieval_only=False, top_k=5, encoder="sentence", skip_complete=False, fail_fast_errors=False):
     questions, metadata = validate_inputs()
     names = choose_models(selected)
     if retrieval_only and any(name in LEGACY for name in names):
@@ -176,6 +180,11 @@ def run_models(selected="all", limit=None, retrieval_only=False, top_k=5, encode
     current_commit = git_commit()
     current_corpus = WORKSPACE / "corpus/provisional_source_summaries_v1/documents.jsonl"
     current_corpus_hash = file_sha256(current_corpus) if current_corpus.is_file() else None
+    generator_config = generation_settings() if not retrieval_only and any(
+        model not in LEGACY for model in names
+    ) else None
+    if generator_config is not None:
+        print(json.dumps({"ollama_preflight": check_ollama(generator_config)}, indent=2))
 
     for model_id in names:
         if skip_complete:
@@ -187,6 +196,7 @@ def run_models(selected="all", limit=None, retrieval_only=False, top_k=5, encode
                 encoder=encoder,
                 current_git_commit=current_commit,
                 corpus_sha256=current_corpus_hash,
+                generator_config=generator_config,
             )
             if existing is not None:
                 print(json.dumps({
@@ -265,6 +275,7 @@ def run_models(selected="all", limit=None, retrieval_only=False, top_k=5, encode
             "execution_mode": "retrieval_only" if retrieval_only else "end_to_end",
             "top_k": top_k if model_id not in LEGACY else None,
             "embedding_backend": (encoder if model_id in {"B3","B4"} else None),
+            "generator_config": generator_config if model_id not in LEGACY and not retrieval_only else None,
             "elapsed_including_initialization_seconds": time.perf_counter() - wall_start,
             "summary": summary,
             "logged_utc": datetime.now(timezone.utc).isoformat(),
@@ -281,6 +292,11 @@ def run_models(selected="all", limit=None, retrieval_only=False, top_k=5, encode
         }, indent=2))
         if summary["aborted"]:
             raise RuntimeError(f"Graph-integrity abort in {model_id}; stop matrix")
+        if fail_fast_errors and summary["errors"]:
+            raise RuntimeError(
+                f"{model_id} has {summary['errors']} errors. Preserve its run and "
+                "investigate before executing the next model."
+            )
 
 
 def percentile(values, fraction):
@@ -415,6 +431,7 @@ def report(allow_partial=False, workspace=WORKSPACE):
         "missing_models": missing,
         "modes": sorted(modes),
         "100_query_complete": not missing and all(s["queries"] == 100 for s in summaries),
+        "100_query_error_free": not missing and all(s["queries"] == 100 and s["errors"] == 0 for s in summaries),
         "medical_accuracy_measured": False,
         "medical_gold_labels_available": False,
         "evidence_bases": sorted(set(run.get("evidence_basis", "unrecorded") for run in selected.values())),
@@ -450,6 +467,7 @@ def main():
     run.add_argument("--encoder", choices=["sentence", "lsa"], default="sentence")
     run.add_argument("--retrieval-only", action="store_true")
     run.add_argument("--skip-complete", action="store_true", help="Reuse only fully verified runs from identical code, data and settings")
+    run.add_argument("--fail-fast-errors", action="store_true", help="Stop before the next model if this model has any errors")
     rep = commands.add_parser("report")
     rep.add_argument("--allow-partial", action="store_true")
     args = parser.parse_args()
@@ -465,7 +483,7 @@ def main():
             "reference_basis": "unreviewed_pilot",
         }, indent=2))
     elif args.command == "run":
-        run_models(args.models, args.limit, args.retrieval_only, args.top_k, args.encoder, args.skip_complete)
+        run_models(args.models, args.limit, args.retrieval_only, args.top_k, args.encoder, args.skip_complete, args.fail_fast_errors)
     else:
         report(args.allow_partial)
 

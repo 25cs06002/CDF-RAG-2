@@ -11,6 +11,7 @@ Use:
 import argparse
 import csv
 import json
+from datetime import datetime, timezone
 from pathlib import Path
 
 from .evaluation import GoldAnnotation, evaluate, load_jsonl
@@ -140,7 +141,10 @@ def score():
         raise ValueError("No completed 100-query runs available to score")
     output = REFERENCE_DIR / "structural_scores.json"
     if output.exists():
-        raise FileExistsError(f"Already scored: {output}")
+        # Preserve the original frozen structural score and version each
+        # subsequent result after the pipelines have been rerun.
+        stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
+        output = REFERENCE_DIR / f"structural_scores_{stamp}.json"
     output.write_text(
         json.dumps({
             "mapped_questions": len(by_id),

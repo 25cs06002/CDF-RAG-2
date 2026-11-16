@@ -27,6 +27,7 @@ from pathlib import Path
 from ..base_pipeline import BaseRAGPipeline, PipelineRequest
 from ..experiment_runner import PROJECT_ROOT, load_questions, run_experiment
 from ..schema import CausalEdge, CausalPath, EvidenceDocument, PipelineRecord, StageTimings
+from ..ollama_generation import OllamaGenerationError, generate as ollama_generate, generation_settings
 
 G0 = PROJECT_ROOT / "research_artifacts/graph-G0"
 PRESENTATION_ROOT = PROJECT_ROOT / "presentation_20261118"
@@ -203,6 +204,7 @@ class BaselinePipeline(BaseRAGPipeline):
         if top_k < 1:
             raise ValueError("top_k must be positive")
         self.generate = generate
+        self._generation_requests = 0
         self._encoder = dense_encoder
         self._dense_vectors = None
         if name in {"dense_rag", "hybrid_rag"}:
@@ -299,11 +301,24 @@ class BaselinePipeline(BaseRAGPipeline):
 
         answer = None
         generation_ms = None
+        generation_error = None
         status = "ok" if documents else "abstained"
         if self.generate and documents:
+            self._generation_requests += 1
+            cfg = generation_settings()
+            unload_after = (self._generation_requests % cfg["unload_every_n"] == 0)
             generation_start = time.perf_counter()
-            answer = self._generate_answer(request.query, documents)
-            generation_ms = (time.perf_counter() - generation_start) * 1000.0
+            try:
+                answer = self._generate_answer(
+                    request.query, documents, unload_after=unload_after
+                )
+            except OllamaGenerationError as exc:
+                # Unlike the generic runner catch, retain retrieved evidence
+                # so an OOM/restart cannot masquerade as a retrieval gap.
+                status = "error"
+                generation_error = str(exc)
+            finally:
+                generation_ms = (time.perf_counter() - generation_start) * 1000.0
         total_ms = (time.perf_counter() - start) * 1000.0
         return PipelineRecord(
             run_id=request.run_id,
@@ -317,6 +332,7 @@ class BaselinePipeline(BaseRAGPipeline):
             causal_paths=paths,
             final_answer=answer,
             status=status,
+            error_message=generation_error,
             generator_model=(os.getenv("OLLAMA_MODEL", "llama3.2:latest") if self.generate else None),
             random_seed=request.random_seed,
             timings=StageTimings(
@@ -327,8 +343,7 @@ class BaselinePipeline(BaseRAGPipeline):
         )
 
     @staticmethod
-    def _generate_answer(query, documents):
-        import requests
+    def _generate_answer(query, documents, *, unload_after=False):
         context = "\n".join(f"[{d.document_id}] {d.text}" for d in documents)
         prompt = (
             "Answer using only the evidence below. If insufficient, state that. "
@@ -336,19 +351,7 @@ class BaselinePipeline(BaseRAGPipeline):
             "Do not claim independent medical certainty. Cite evidence IDs.\n\n"
             f"Evidence:\n{context}\n\nQuestion: {query}\nAnswer:"
         )
-        base = os.getenv("OLLAMA_BASE_URL", "http://127.0.0.1:11434").rstrip("/")
-        response = requests.post(
-            base + "/api/generate",
-            json={
-                "model": os.getenv("OLLAMA_MODEL", "llama3.2:latest"),
-                "prompt": prompt,
-                "stream": False,
-                "options": {"temperature": 0, "num_predict": 256},
-            },
-            timeout=180,
-        )
-        response.raise_for_status()
-        return response.json()["response"]
+        return ollama_generate(prompt, unload_after=unload_after)
 
 
 def main():

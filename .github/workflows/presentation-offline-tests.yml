@@ -11,6 +11,9 @@ on:
       - 'tests/test_model_registry.py'
       - 'research_v2/pipelines/**'
       - 'research_v2/query_diagnostics.py'
+      - 'research_v2/ollama_generation.py'
+      - 'tests/test_ollama_generation.py'
+      - 'scripts/run_b1_b6_stable.sh'
       - 'research_v2/presentation_sprint.py'
       - 'evaluate_all_baselines.py'
       - 'scripts/run_presentation.sh'
@@ -35,13 +38,13 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install 'pydantic==2.11.4' 'python-dotenv==1.1.0' 'requests==2.32.3' 'scikit-learn==1.6.1'
       - name: Verify experiment shell runner syntax
-        run: bash -n scripts/run_presentation.sh
+        run: bash -n scripts/run_presentation.sh scripts/run_b1_b6_stable.sh
       - name: Compile all presentation source and tests
         run: |
-          python -m compileall -q research_v2/presentation_sprint.py research_v2/presentation_baselines.py research_v2/presentation_matrix.py research_v2/presentation_g0_reference.py research_v2/presentation_corpus.py research_v2/presentation_export.py research_v2/query_diagnostics.py tests/test_query_diagnostics.py tests/test_presentation_sprint.py tests/test_presentation_baselines.py tests/test_presentation_matrix.py tests/test_presentation_corpus.py tests/test_model_registry.py
+          python -m compileall -q research_v2/presentation_sprint.py research_v2/presentation_baselines.py research_v2/presentation_matrix.py research_v2/presentation_g0_reference.py research_v2/presentation_corpus.py research_v2/presentation_export.py research_v2/query_diagnostics.py research_v2/ollama_generation.py tests/test_ollama_generation.py tests/test_query_diagnostics.py tests/test_presentation_sprint.py tests/test_presentation_baselines.py tests/test_presentation_matrix.py tests/test_presentation_corpus.py tests/test_model_registry.py
       - name: Execute isolated tests (no Ollama, Neo4j or PPO)
         run: |
-          python -m unittest tests.test_presentation_sprint tests.test_presentation_baselines tests.test_presentation_matrix tests.test_presentation_corpus tests.test_model_registry tests.test_query_diagnostics -v
+          python -m unittest tests.test_presentation_sprint tests.test_presentation_baselines tests.test_presentation_matrix tests.test_presentation_corpus tests.test_model_registry tests.test_query_diagnostics tests.test_ollama_generation -v
 
       - name: Prepare frozen pilot and candidate source summaries
         run: |

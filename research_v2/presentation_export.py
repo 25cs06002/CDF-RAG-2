@@ -35,6 +35,13 @@ def _write_csv(path, headers, rows):
 def _select_runs(runs_dir, expected_ids, input_hash):
     """Newest complete 100-record run for each model; prefer end-to-end."""
     eligible = defaultdict(list)
+    journal_modes = {}
+    journal = runs_dir.parent / "matrix_runs.jsonl"
+    if journal.is_file():
+        for line in journal.read_text(encoding="utf-8").splitlines():
+            if line.strip():
+                item = json.loads(line)
+                journal_modes[item["run_id"]] = item.get("execution_mode")
     for path in sorted(runs_dir.glob("*/summary.json")):
         try:
             info = json.loads(path.read_text(encoding="utf-8"))
@@ -56,13 +63,24 @@ def _select_runs(runs_dir, expected_ids, input_hash):
                 continue
             for model in MODEL_IDS:
                 if {r.pipeline_id for r in records} == {EXPECTED_PIPELINE_IDS[model]}:
-                    e2e = any(r.generator_model or r.final_answer for r in records)
+                    # A generation crash can leave every answer empty. Use the
+                    # declared run mode rather than inferring it from answers.
+                    declared = journal_modes.get(info.get("run_id"))
+                    e2e = (declared == "end_to_end") if declared else any(
+                        r.generator_model or r.final_answer for r in records
+                    )
                     eligible[model].append((bool(e2e), path.stat().st_mtime_ns, path, records, info))
                     break
         except (OSError, ValueError, KeyError):
             continue
-    return {model: max(items, key=lambda item: (item[0], item[1]))
-            for model, items in eligible.items()}
+    # Successful 100-query runs take precedence over all-error end-to-end
+    # attempts. Within the same error count, prefer end-to-end and freshness.
+    return {
+        model: max(items, key=lambda item: (
+            -item[4].get("errors", 100), item[0], item[1]
+        ))
+        for model, items in eligible.items()
+    }
 
 
 def export(workspace=WORKSPACE, output_dir=None):
@@ -181,7 +199,10 @@ def export(workspace=WORKSPACE, output_dir=None):
         summary.append({
             "model_id": model,
             "pipeline": PIPELINES[model],
-            "execution_status": "COMPLETE_100" if bundle else "NOT_RUN",
+            "execution_status": (
+                "COMPLETE_100" if bundle and errors == 0 else
+                "COMPLETE_100_WITH_ERRORS" if bundle else "NOT_RUN"
+            ),
             "experiment_mode": (
                 "end_to_end" if bundle and bundle[0] else "retrieval_only"
                 if bundle else "not_run"

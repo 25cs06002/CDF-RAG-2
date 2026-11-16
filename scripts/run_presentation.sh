@@ -40,7 +40,8 @@ case "$MODE" in
       tests.test_ollama_generation \
       tests.test_controlled_g0 \
       tests.test_g1_review \
-      tests.test_legacy_pair_comparison -v
+      tests.test_legacy_pair_comparison \
+      tests.test_graph_gap_triage -v
     ;;
   smoke)
     run_logged prepare "$PYTHON_CMD" evaluate_all_baselines.py prepare

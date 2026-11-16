@@ -106,3 +106,23 @@ python -m unittest tests.test_g1_foundation_local -v
 This checks dataset separation, inventory creation, approval gating,
 unsafe synonym handling and a few query-intent cases. It does not
 execute Ollama, Neo4j, PPO, or the large CI suite.
+
+## Typed G1 retrieval experiment (after at least one approved relationship)
+Run only after building a candidate G1 snapshot:
+```bash
+python -m research_v2.g1_typed_retrieval --graph-dir "$GRAPH" --top-k 5
+python -m research_v2.g1_typed_retrieval --graph-dir "$GRAPH" \
+  --queries data/benchmark/medical_causal_expansion32_draft_v1.jsonl --top-k 5
+```
+This adds **experimental** `B5_G1_TYPED` (one-hop typed evidence) and
+`B6_G1_TYPED` (typed one-hop evidence and fully causal two-hop paths).
+Only a reviewed `CAUSES` relation appears in `causal_edges`; risk factors,
+associations and triggers stay labeled in `retrieved_documents`. The
+37 inherited unreviewed G0 edges do not count as independently verified
+typed evidence in this run. Do not replace archived B5/B6 scores with
+these new, different-evidence evaluations.
+
+A query needing a risk factor or association may legitimately produce an
+evidence snippet instead of a causal path. A query needing a causal chain
+may legitimately abstain until each causal arrow is supported. This is a
+deliberate quality guard, not an execution error.

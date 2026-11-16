@@ -37,7 +37,8 @@ case "$MODE" in
       tests.test_presentation_matrix \
       tests.test_model_registry \
       tests.test_query_diagnostics \
-      tests.test_ollama_generation -v
+      tests.test_ollama_generation \
+      tests.test_controlled_g0 -v
     ;;
   smoke)
     run_logged prepare "$PYTHON_CMD" evaluate_all_baselines.py prepare

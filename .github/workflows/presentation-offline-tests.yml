@@ -13,6 +13,9 @@ on:
       - 'research_v2/query_diagnostics.py'
       - 'research_v2/ollama_generation.py'
       - 'tests/test_ollama_generation.py'
+      - 'research_v2/controlled_g0.py'
+      - 'tests/test_controlled_g0.py'
+      - 'scripts/run_controlled_g0.sh'
       - 'scripts/run_b1_b6_stable.sh'
       - 'research_v2/presentation_sprint.py'
       - 'evaluate_all_baselines.py'
@@ -38,13 +41,13 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install 'pydantic==2.11.4' 'python-dotenv==1.1.0' 'requests==2.32.3' 'scikit-learn==1.6.1'
       - name: Verify experiment shell runner syntax
-        run: bash -n scripts/run_presentation.sh scripts/run_b1_b6_stable.sh
+        run: bash -n scripts/run_presentation.sh scripts/run_b1_b6_stable.sh scripts/run_controlled_g0.sh
       - name: Compile all presentation source and tests
         run: |
-          python -m compileall -q research_v2/presentation_sprint.py research_v2/presentation_baselines.py research_v2/presentation_matrix.py research_v2/presentation_g0_reference.py research_v2/presentation_corpus.py research_v2/presentation_export.py research_v2/query_diagnostics.py research_v2/ollama_generation.py tests/test_ollama_generation.py tests/test_query_diagnostics.py tests/test_presentation_sprint.py tests/test_presentation_baselines.py tests/test_presentation_matrix.py tests/test_presentation_corpus.py tests/test_model_registry.py
+          python -m compileall -q research_v2/presentation_sprint.py research_v2/presentation_baselines.py research_v2/presentation_matrix.py research_v2/presentation_g0_reference.py research_v2/presentation_corpus.py research_v2/presentation_export.py research_v2/query_diagnostics.py research_v2/ollama_generation.py research_v2/controlled_g0.py tests/test_controlled_g0.py tests/test_ollama_generation.py tests/test_query_diagnostics.py tests/test_presentation_sprint.py tests/test_presentation_baselines.py tests/test_presentation_matrix.py tests/test_presentation_corpus.py tests/test_model_registry.py
       - name: Execute isolated tests (no Ollama, Neo4j or PPO)
         run: |
-          python -m unittest tests.test_presentation_sprint tests.test_presentation_baselines tests.test_presentation_matrix tests.test_presentation_corpus tests.test_model_registry tests.test_query_diagnostics tests.test_ollama_generation -v
+          python -m unittest tests.test_presentation_sprint tests.test_presentation_baselines tests.test_presentation_matrix tests.test_presentation_corpus tests.test_model_registry tests.test_query_diagnostics tests.test_ollama_generation tests.test_controlled_g0 -v
 
       - name: Prepare frozen pilot and candidate source summaries
         run: |
@@ -69,6 +72,20 @@ jobs:
         run: |
           python -m research_v2.presentation_matrix run \
             --models B1,B2,B3,B4,B5,B6 --encoder lsa --retrieval-only
+      - name: Controlled G0 retrieval-only structural benchmark (same 37 edges)
+        run: |
+          python -m research_v2.controlled_g0 --encoder lsa --top-k 5
+          python - <<'PY'
+          import csv
+          from pathlib import Path
+          outputs = list(Path("presentation_20261118/controlled_g0").glob("run_*/controlled_summary.csv"))
+          assert len(outputs) == 1
+          with outputs[0].open() as handle:
+              rows = list(csv.DictReader(handle))
+          assert len(rows) == 6 and all(row["evaluated"] == "100" and row["errors"] == "0" for row in rows)
+          assert all(int(row["mapped_questions"]) == 20 for row in rows)
+          print("Controlled same-G0 retrieval baseline passed")
+          PY
       - name: Produce actual retrieval-only pilot summary
         run: |
           python - <<'PY'
@@ -179,6 +196,7 @@ jobs:
             presentation_20261118/benchmark/manifest.json
             presentation_20261118/corpus/provisional_source_summaries_v1/manifest.json
             presentation_20261118/metrics/offline_pilot/
+            presentation_20261118/controlled_g0/
             presentation_20261118/metrics/g0_structural_pilot_v1/
             presentation_20261118/metrics/supervisor_matrix_*/
             presentation_20261118/metrics/query_diagnostics_*/

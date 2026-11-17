@@ -158,3 +158,43 @@ Use a versioned checksum snapshot before pushing reviewed worksheets.
 Review all Git-staged files for private information, personal IDs,
 unlicensed full-text excerpts or secrets because the GitHub repository
 may be public.
+
+## After the 52/30 Phase2M audit passes
+
+Use the **current local audit directory** (not a stale GitHub copy). The
+converter verifies that the audit SHA256 matches the two actually reviewed
+CSV inputs before creating a new versioned G1 review workspace.
+
+```bash
+AUDIT=$(find research_artifacts/experiment-artifacts/g1_review_workspaces \
+  -maxdepth 1 -type d -name 'PHASE2M_AUDIT_*' | sort | tail -1)
+python -m research_v2.phase2m_g1_handoff --audit-dir "$AUDIT"
+```
+
+Output: a new `G1_REVIEW_*/` directory with existing 25 candidate sources,
+**all 52 source task review events** (even partial/unsupported), 24
+typed relationship **proposals** (not automatically approved), newly
+encountered intermediate concepts, a source-ID crosswalk and a link
+provenance file retaining **all** original supporting source IDs. The
+G1 CSV currently uses one primary source ID for each typed relationship;
+`phase2m_edge_provenance.csv` retains every additional source ID for
+subsequent evidence attribution or a later multi-source schema.
+
+Manual review required:
+- `source_review.csv`: check original URL, actual source title, scope,
+  cited passage, review notes. Only approve genuinely supporting sources.
+- `concept_inventory.csv`: for newly needed disease and intermediate nodes,
+  use approved sources to document existence/identity, then approve.
+- `typed_relationship_review.csv`: review each typed arrow, confirm the
+  supporting source(s), and approve where justified.
+- `phase2m_edge_provenance.csv`: cross-reference every extra supporting
+  source to ensure no evidence provenance is omitted.
+- `alias_review.csv`: remains empty until terminology equivalence is reviewed.
+
+Run `python -m research_v2.g1_foundation audit --folder "$REVIEW"`
+after manual approvals; build G1 only after at least one approved edge
+and its source/concepts pass the review gate.
+
+A structural pass is not clinical correctness, and a candidate G1
+is not medical gold. Frozen G0 and the historical 100-query experiment
+remain unchanged.

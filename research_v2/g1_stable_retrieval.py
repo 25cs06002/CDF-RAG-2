@@ -179,6 +179,11 @@ def compare(graph_dir:Path,paired_dirs:list[Path],top_k:int=5,
                     "stable_selection_reason":reason,
                     "g0_evidence":old_yes,
                     "original_g1_evidence":g1_yes,
+                    "original_G1_change":(
+                        "gained" if g1_yes and not old_yes else
+                        "lost" if old_yes and not g1_yes else
+                        "both" if old_yes else "neither"
+                    ),
                     "stable_evidence":stable_yes,
                     "g0_to_stable_change":(
                         "gained" if stable_yes and not old_yes else
@@ -216,6 +221,13 @@ def compare(graph_dir:Path,paired_dirs:list[Path],top_k:int=5,
     with (out/"per_query.csv").open("w",newline="",encoding="utf-8") as f:
         w=csv.DictWriter(f,fieldnames=list(all_rows[0]))
         w.writeheader();w.writerows(all_rows)
+    original_changes=[r for r in all_rows if r["original_G1_change"] in {"gained","lost"}]
+    with (out/"original_legacy_change_queue.csv").open("w",newline="",encoding="utf-8") as f:
+        w=csv.DictWriter(f,fieldnames=list(all_rows[0]))
+        w.writeheader()
+        w.writerows(sorted(original_changes,key=lambda r:(
+            0 if r["original_G1_change"]=="lost" else 1,
+            r["question_set"],r["query_id"],r["model"])))
     review=[r for r in all_rows if r["g0_to_stable_change"] in {"gained","lost"}]
     with (out/"new_change_review_queue.csv").open("w",newline="",encoding="utf-8") as f:
         w=csv.DictWriter(f,fieldnames=list(all_rows[0]))
@@ -227,6 +239,7 @@ def compare(graph_dir:Path,paired_dirs:list[Path],top_k:int=5,
         "per_set":summaries,
         "query_model_rows":len(all_rows),
         "new_change_review_queue_rows":len(review),
+        "original_legacy_change_queue_rows":len(original_changes),
         "medical_accuracy":False,"gold_labels_used_for_inference":False,
         "inherited_G0_edges_unverified":manifest.get("inherited_G0_edges_unverified"),
         "reviewed_only_typed":False,

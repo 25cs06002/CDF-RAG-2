@@ -21,7 +21,7 @@ def make_graph(path, nodes, edges):
 
 
 class StableTargetTests(unittest.TestCase):
-    def test_preserves_evidence_even_when_new_phrase_is_longer(self):
+    def test_stable_anchor_and_explicit_specialization(self):
         with tempfile.TemporaryDirectory() as temp:
             root=Path(temp)
             g0=root/"g0"
@@ -34,9 +34,30 @@ class StableTargetTests(unittest.TestCase):
             for mode in ("graph_rag","causal_kg_rag"):
                 stable=StableTargetG1(g1,frozen=original,pipeline=mode)
                 self.assertEqual(
-                    stable.concept("What contributes to severe hypertension?"),
+                    stable.concept("What contributes to hypertension?"),
                     "Hypertension")
                 self.assertEqual(stable.last_reason,"preserved_G0_anchor_with_evidence")
+                self.assertEqual(
+                    stable.concept("What contributes to severe hypertension?"),
+                    "Severe hypertension")
+                self.assertEqual(stable.last_reason,"explicit_new_G1_specialization")
+
+    def test_diabetes_subtype_cannot_backoff_to_generic(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root=Path(temp)
+            g0=root/"g0"
+            g1=root/"g1"
+            make_graph(g0,["Diabetes","Poor diet"],
+                       [("Poor diet","Diabetes")])
+            make_graph(g1,["Diabetes","Poor diet","Type 2 diabetes mellitus","Insulin resistance"],
+                       [("Poor diet","Diabetes"),("Insulin resistance","Type 2 diabetes mellitus")])
+            frozen=G0Corpus(g0)
+            stable=StableTargetG1(g1,frozen=frozen,pipeline="causal_kg_rag")
+            self.assertIsNone(stable.concept("What causes type 2 diabetes?"))
+            self.assertEqual(stable.last_reason,"diabetes_subtype_without_unambiguous_exact_G1_target")
+            self.assertEqual(stable.concept("What causes type 2 diabetes mellitus?"),
+                             "Type 2 diabetes mellitus")
+            self.assertEqual(stable.last_reason,"explicit_diabetes_subtype_target")
 
     def test_new_target_requires_explicit_unique_mention(self):
         with tempfile.TemporaryDirectory() as temp:

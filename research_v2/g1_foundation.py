@@ -253,6 +253,10 @@ def audit_and_build(folder,*, build=False):
     _write(out/"edges.csv",("edge_id","cause","effect"),existing+causal_additions)
     _write(out/"typed_relationships.csv",EDGE_COLS,accepted)
     _write(out/"approved_aliases.csv",ALIAS_COLS,aliases)
+    # Snapshot checksums must bind to the files actually loaded by the
+    # G1 typed retriever, not the pre-build editable review worksheets.
+    snapshot_typed_sha = file_sha256(out/"typed_relationships.csv")
+    snapshot_alias_sha = file_sha256(out/"approved_aliases.csv")
     result.update({
         "stage":"G1_CANDIDATE_REQUIRES_INDEPENDENT_VERIFICATION",
         "new_causal_edges":len(causal_additions),
@@ -260,8 +264,10 @@ def audit_and_build(folder,*, build=False):
         "total_nodes":len(nodes),"total_causes_edges":len(existing+causal_additions),
         "review_workspace":folder.relative_to(ROOT).as_posix(),
         "source_ledger_sha256":file_sha256(folder/"source_review.csv"),
-        "edge_ledger_sha256":file_sha256(folder/"typed_relationship_review.csv"),
-        "alias_ledger_sha256":file_sha256(folder/"alias_review.csv"),
+        "edge_ledger_sha256":snapshot_typed_sha,
+        "alias_ledger_sha256":snapshot_alias_sha,
+        "editable_edge_ledger_sha256":file_sha256(folder/"typed_relationship_review.csv"),
+        "editable_alias_ledger_sha256":file_sha256(folder/"alias_review.csv"),
         "clinical_accuracy":False,
     })
     (out/"manifest.json").write_text(json.dumps(result,indent=2)+"\n")

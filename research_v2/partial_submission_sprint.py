@@ -108,6 +108,15 @@ def _cohort():
         raise ValueError("Frozen pilot should contain exactly 100 queries")
     originals=[q.query_id for q in questions]
     selected=_select_runs(WORKSPACE/"runs",originals,file_sha256(Q100))
+    # The run journal records DECLARED execution mode. Do not infer it
+    # from a null generator_model on all-error B2/B4 attempts.
+    journal={}
+    file=WORKSPACE/"matrix_runs.jsonl"
+    if file.exists():
+        for raw in file.read_text(encoding="utf-8").splitlines():
+            if raw.strip():
+                info=json.loads(raw)
+                journal[info["run_id"]]=info
     summary=[]
     for model in MODEL100:
         if model not in selected:continue
@@ -116,7 +125,12 @@ def _cohort():
             raise ValueError("100-query archive order differs for "+model)
         # A completed archive may still contain execution errors.
         # Preserve it, label errors, and perform separate retrieval-only repairs.
-        mode="end_to_end" if end_to_end else "retrieval_only"
+        run_id=records[0].run_id
+        mode=journal.get(run_id,{}).get("execution_mode")
+        if mode not in {"end_to_end","retrieval_only"}:
+            # Incomplete journal: preserve uncertainty rather than asserting
+            # that all-error end-to-end runs were retrieval-only.
+            mode="unverified_execution_mode"
         basis="provisional_AI_assisted_source_summaries" if model in MODEL32[:4] else "G0_unverified_graph"
         item=_measured(records,model,mode,basis)
         item["run_dir"]=str(folder.relative_to(ROOT))
@@ -139,7 +153,7 @@ def verify():
         "archived_models_requiring_retrieval_repair":[r["model"] for r in rows if r["status_error"]>0],
         "archive_error_count":sum(r["status_error"] for r in rows),
         "medical_accuracy":False,
-        "warning":"Existing 100-query run may contain execution errors; completed slots are not successful runs. Historical B1-B6 include connection/generation errors and B1-B4/B5-B8 have different evidence bases. Use fresh retrieval-only 100 for B1-B6.",
+        "warning":"Archived 100-query slots may include errors; modes use the experiment journal (not missing answers). Historical B1-B6 contain transport/generation errors, and evidence bases differ. Use fresh retrieval-only 100 for B1-B6.",
     }
     print(json.dumps(result,indent=2))
     return result
@@ -457,7 +471,7 @@ def assemble(run32_dir=None,retrieval100_dir=None,stable=STABLE,analysis=ANALYSI
         "graph_expansion_is_not_accuracy":True,
         "limitations":[
             "B1-B4 document summaries differ from B5-B8 graph-derived evidence, so evidence yield alone is not a fair model accuracy ranking.",
-            "100-query archive has execution errors for several B1-B6 models and mixed modes; do not treat completed slots as successful baseline runs or pool latency.",
+            "Historical 100-query B1-B6 contain execution errors; declared modes come from run journal, not inferred from null generators. Do not treat completed slots as successful baseline runs or compare end-to-end with retrieval-only latency.",
             "32 additional questions were not executed on B7 or B8.",
             "132 questions are drafts and influenced G1 concept inventory; no independent holdout or medical gold.",
             "Manually reviewed sample consists of cases selected for changed retrieval behavior, not representative test distribution.",
@@ -474,7 +488,7 @@ def assemble(run32_dir=None,retrieval100_dir=None,stable=STABLE,analysis=ANALYSI
         "**Important:** Archived B1-B6 runs contain execution errors; completed slots are not necessarily successful experiments. " +
         "**Interpretation:** This table is descriptive, not medical accuracy. "
         "B1–B4 retrieve provisional AI-assisted source summaries; B5–B8 use G0 graph records. "
-        "Mixed retrieval-only/end-to-end modes mean generation latency is not comparable across all eight.","",
+        "Historical generation failures make naive mean-latency rankings invalid; report mode and errors.","",
         "## B. Repaired retrieval-only comparison on the original 100 queries","",
     ]
     if retrieval100:

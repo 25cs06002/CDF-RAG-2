@@ -249,3 +249,41 @@ clinical accuracy. Before claiming retrieval accuracy, construct
 independently adjudicated question/evidence relevance labels and genuinely
 held-out query families. The published 32 extension questions are draft,
 not independently held out from the G1 concept inventory.
+
+## Compact manual relevance annotation after the 31-case handoff
+
+For the existing relevance handoff, 31 model-query cases refer to only
+20 unique question IDs. The 132 returned evidence entries include repeated
+retrievals. Do NOT mark them all correct, and do NOT claim medical accuracy.
+
+```bash
+QUEUE="presentation_20261118/g1_relevance_review/review_20261117T170646265432Z_958b38"
+python -m research_v2.g1_review_compact prepare --folder "$QUEUE"
+COMPACT=$(find "$QUEUE" -maxdepth 1 -type d -name 'compact_*' | sort | tail -1)
+```
+
+Manually fill **only** the review fields in `$COMPACT/case_tasks.csv` and
+`$COMPACT/evidence_tasks.csv`. Questions are grouped by ID+stable target;
+evidence by ID+typed relationship+source provenance, preserving the
+distinction between inherited G0 and reviewed G1. The number of tasks
+is printed by the preparer: it may be smaller than the 31+132 raw rows.
+
+For case tasks, choose query intent `answerable|ambiguous|unsupported|unknown`
+and stable target `appropriate|wrong|uncertain|none_expected`.
+For evidence tasks, choose relevance `relevant|irrelevant|uncertain`,
+direction `correct|incorrect|uncertain`, and source check status
+`checked|not_checked|not_applicable`. Record the REAL reviewer, actual
+review date, and rationale. A preexisting G0 edge without source backing
+must not be counted as verified clinical evidence.
+
+After manual annotations, and ONLY if they are complete:
+
+```bash
+python -m research_v2.g1_review_compact apply --compact-dir "$COMPACT" --require-complete
+python -m research_v2.g1_relevance_handoff audit --folder "$QUEUE" --require-complete
+```
+
+The apply command validates original worksheet file hashes and the
+task identities, creates backup copies, and propagates explicit reviewer
+judgments to duplicate instances. It never approves source material
+automatically or labels medical gold.

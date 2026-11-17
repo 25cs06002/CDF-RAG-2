@@ -194,12 +194,24 @@ def audit_and_build(folder,*, build=False):
     known={_norm(n):n for n in g0.nodes}
     approved_nodes={}
     for row in concept_rows:
+        concept_key = _norm(row.get("concept", ""))
+        # Existing G0 nodes have a frozen identity. G1 does not need to
+        # re-approve their existence; their ORIGINAL edges remain unverified.
+        # Still check review_status spelling for consistency.
+        if concept_key in known:
+            if row.get("review_status") not in {"unreviewed", "proposed", "approved", "rejected"}:
+                raise ValueError("Invalid concept review_status: " + str(row.get("review_status")))
+            continue
         if not _reviewed(row,("concept","source_id","passage_locator","reviewer","review_date","review_notes")):
             continue
         if row["source_id"] not in approved_sources:
-            raise ValueError("Approved concept requires approved source: "+row["concept"])
-        if _norm(row["concept"]) not in known:
-            approved_nodes[_norm(row["concept"])]=row["concept"].strip()
+            raise ValueError(
+                "Approved NEW concept requires approved source: "
+                + row["concept"] + " (source_id=" + row["source_id"] + ")"
+            )
+        if concept_key in approved_nodes:
+            raise ValueError("Duplicate approved new concept: " + row["concept"])
+        approved_nodes[concept_key] = row["concept"].strip()
     known.update(approved_nodes)
     accepted=[]
     for row in edge_rows:

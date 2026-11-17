@@ -57,6 +57,12 @@ class StableTargetG1(G0Corpus):
         return bool(self.reverse[concept])
 
     def concept(self,query: str):
+        # A request for an unsupported definitive diagnosis should abstain,
+        # even when the legacy G0 matcher happened to return an edge.
+        # Accordingly, zero loss versus unverified G0 is NOT guaranteed.
+        if ABSTAIN_RX.search(query):
+            self.last_reason="under_determined_query_abstain"
+            return None
         old=self.frozen.concept(query)
         # Only try novel G1 nodes on clear, query-only exact mention;
         # never use target_concept labels from benchmark metadata.
@@ -85,12 +91,6 @@ class StableTargetG1(G0Corpus):
             return None
         if old and self.connected(old):
             self.last_reason="preserved_G0_anchor_with_evidence"
-            return old
-        # Unsupported/underdetermined requests cannot gain extra G1 evidence
-        # through an exact node mention alone. Original G0 anchor is retained
-        # only as an unverified legacy comparison.
-        if ABSTAIN_RX.search(query):
-            self.last_reason="under_determined_query_no_new_override"
             return old
         if len(candidates)==1:
             self.last_reason="one_explicit_connected_new_G1_target"
@@ -232,7 +232,7 @@ def compare(graph_dir:Path,paired_dirs:list[Path],top_k:int=5,
         "reviewed_only_typed":False,
         "warnings":[
             "Stable retrieval is a separate shadow algorithm, not legacy B5/B6 and not an independently validated model.",
-            "Preserving baseline evidence does not prove relevance or clinical correctness.",
+            "Preserving baseline evidence does not prove relevance or clinical correctness; subtype and underdetermination guards can intentionally reduce yield.",
             "G1 legacy causal-format edges inherit unverified G0 statements; this does not satisfy a verified-only evidence policy.",
             "Construction-seed and pilot draft questions are not independent held-out evaluation.",
             "New exact mention coverage is deliberately conservative; aliases require source review."

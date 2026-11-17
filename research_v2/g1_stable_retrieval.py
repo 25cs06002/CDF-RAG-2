@@ -15,6 +15,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import re
 import uuid
 from collections import Counter
 from datetime import datetime, timezone
@@ -57,24 +58,46 @@ class StableTargetG1(G0Corpus):
 
     def concept(self,query: str):
         old=self.frozen.concept(query)
+        # Only try novel G1 nodes on clear, query-only exact mention;
+        # never use target_concept labels from benchmark metadata.
+        candidates=[node for node in self.new_nodes
+                    if exact_mention(query,node) and self.connected(node)]
+        # Important safety guard: do not silently interpret an explicit
+        # type-1/type-2 diabetes question as generic G0 'Diabetes'.
+        subtype_request=(old is not None and old.casefold()=="diabetes"
+                         and re.search(r"\\btype\\s*[12]\\s*diabetes\\b",query,re.I))
+        if subtype_request:
+            if len(candidates)==1:
+                self.last_reason="explicit_diabetes_subtype_target"
+                return candidates[0]
+            self.last_reason="diabetes_subtype_without_unambiguous_exact_G1_target"
+            return None
+        # A longer explicit G1 phrase can supersede a broad G0 term.
+        # For example 'severe hypertension' should not silently be
+        # treated as generic 'hypertension'. Ambiguous matches abstain.
+        specific=[node for node in candidates
+                  if old and exact_mention(node,old) and node.casefold()!=old.casefold()]
+        if specific:
+            if len(specific)==1:
+                self.last_reason="explicit_new_G1_specialization"
+                return specific[0]
+            self.last_reason="multiple_explicit_G1_specializations"
+            return None
         if old and self.connected(old):
             self.last_reason="preserved_G0_anchor_with_evidence"
             return old
-        # Only try novel G1 nodes on a clear, query-only exact mention.
-        # No metadata/answer labels and no fuzzy similarity on new nodes.
+        # Unsupported/underdetermined requests cannot gain extra G1 evidence
+        # through an exact node mention alone. Original G0 anchor is retained
+        # only as an unverified legacy comparison.
         if ABSTAIN_RX.search(query):
             self.last_reason="under_determined_query_no_new_override"
             return old
-        candidates=[node for node in self.new_nodes
-                    if exact_mention(query,node) and self.connected(node)]
-        # If 'heart damage' and 'damage' both match, we do not infer which
-        # was intended. Reviewer-curated aliases/ontology can solve later.
         if len(candidates)==1:
             self.last_reason="one_explicit_connected_new_G1_target"
             return candidates[0]
         if len(candidates)>1:
             self.last_reason="ambiguous_multiple_connected_new_G1_targets"
-            return old
+            return None
         self.last_reason="no_explicit_connected_new_G1_target"
         return old
 

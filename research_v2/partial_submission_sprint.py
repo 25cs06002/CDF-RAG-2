@@ -34,6 +34,8 @@ Q100=WORKSPACE/"benchmark/questions_only.jsonl"
 Q32=ROOT/"data/benchmark/medical_causal_expansion32_draft_v1.jsonl"
 CORPUS=WORKSPACE/"corpus/provisional_source_summaries_v1/documents.jsonl"
 G0=ROOT/"research_artifacts/graph-G0"
+LEGACY22=WORKSPACE/"legacy_results/rl_vs_no_rl_comparison.csv"
+STRUCTURAL20=WORKSPACE/"metrics/g0_structural_pilot_v1/structural_scores.json"
 ANALYSIS=WORKSPACE/"g1_review_analysis/analysis_20261117T183906316580Z_5537c4"
 STABLE=WORKSPACE/"g1_stable_retrieval/stable_20261117T165851832115Z_2a02a0"
 MODEL100=tuple(f"B{i}" for i in range(1,9))
@@ -356,6 +358,18 @@ def assemble(run32_dir=None,retrieval100_dir=None,stable=STABLE,analysis=ANALYSI
                           "G1_legacy_yield_132":total_old_g1,
                           "G1_stable_yield_132":total_stable})
     _write_rows(out/"G0_G1_132_shadow.csv",tuple(selection[0]),selection)
+    historical22=_read_rows(LEGACY22) if LEGACY22.exists() else []
+    structurals=_read_json(STRUCTURAL20) if STRUCTURAL20.exists() else {}
+    structural_b7b8=[{
+        "model":r["model"],"mapped_queries":r["mapped_queries"],
+        "edge_micro_f1":r.get("edge_micro_f1"),
+        "edge_micro_precision":r.get("edge_micro_precision"),
+        "edge_micro_recall":r.get("edge_micro_recall"),
+    } for r in structurals.get("results",[]) if r.get("model") in {"B7","B8"}]
+    if historical22:
+        _write_rows(out/"legacy22_RL_vs_NoRL.csv",tuple(historical22[0]),historical22)
+    if structural_b7b8:
+        _write_rows(out/"G0_structural20_B7_B8.csv",tuple(structural_b7b8[0]),structural_b7b8)
     submission={
         "mode":"reused_archived100_optional_retrieval32_and_reviewed_G1",
         "frozen_100_sha256":file_sha256(Q100),
@@ -363,6 +377,8 @@ def assemble(run32_dir=None,retrieval100_dir=None,stable=STABLE,analysis=ANALYSI
         "historical_B1_B8_all_eight":True,
         "historical_800_model_query_records":sum(r["n"] for r in all100),
         "historical_archive_execution_errors":sum(r["status_error"] for r in all100),
+        "legacy22_summary_available":bool(historical22),
+        "G0_structural20_B7_B8_available":len(structural_b7b8)==2,
         "historical_error_free_models":[r["model"] for r in all100 if r["status_error"]==0],
         "new32_B1_B6_complete":thirtytwo is not None,
         "clean100_retrieval_B1_B6_complete":retrieval100 is not None,
@@ -419,8 +435,22 @@ def assemble(run32_dir=None,retrieval100_dir=None,stable=STABLE,analysis=ANALYSI
         f"- Review issue flags: {json.dumps(review_summary['case_flags'],sort_keys=True)}.","",
         "This manual sample was selected because retrieval behavior changed; reviewer judgments do NOT establish general model accuracy.","",
         "## F. Historical 22-query experiments","",
-        "Preserve as a separate early feasibility experiment. Do not merge metrics with the 100/132-query results. "
-        "Cross-check exact figures against archived legacy summary CSVs before presenting them.","",
+        "Preserve historical RL/No-RL values as a separate 22-query feasibility result.","",
+    ])
+    if historical22:
+        md.extend([_table(historical22,("Metric","No-RL","RL","RL - No-RL")),"",
+                   "Historical 22-query metrics are implementation diagnostics, not medical accuracy."])
+    else:
+        md.append("Legacy 22-query CSV unavailable locally; values omitted.")
+    md.extend(["","## F2. G0 structural reconstruction on 20 mapped draft-target queries",""])
+    if structural_b7b8:
+        md.extend([_table(structural_b7b8,("model","mapped_queries",
+                                          "edge_micro_f1","edge_micro_precision",
+                                          "edge_micro_recall")),"",
+                   "These scores measure agreement with the unverified G0 snapshot and draft target mapping, not medical correctness."])
+    else:
+        md.append("20-query structural scores unavailable locally; values omitted.")
+    md.extend([
         "## G. Defensible preliminary contribution","",
         "Built a review-gated typed G1 graph; demonstrated that graph expansion changes query target resolution and may reduce evidence coverage; "
         "introduced a conservative stability-first resolver; used manual judgments to identify and classify retrieval errors. "

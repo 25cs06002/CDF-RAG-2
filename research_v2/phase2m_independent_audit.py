@@ -43,7 +43,20 @@ def read_rows(path, columns):
         reader = csv.DictReader(handle)
         if not set(columns).issubset(set(reader.fieldnames or [])):
             raise ValueError(f"{path.name} missing required columns")
-        return list(reader)
+        parsed = []
+        for line_num, row in enumerate(reader, start=2):
+            if None in row:
+                raise ValueError(
+                    f"{path.name} CSV row {line_num} has extra fields; "
+                    "check unquoted commas, particularly in review notes. "
+                    "Do not discard or auto-rewrite this row."
+                )
+            # DictReader returns None when a row has fewer cells than the
+            # header. Normalize only in memory so the audit can give a
+            # precise missing-field error rather than crashing.
+            parsed.append({key: (value if value is not None else "")
+                           for key, value in row.items()})
+        return parsed
 
 
 def norm(value):
@@ -148,8 +161,22 @@ def analyze(sources, links):
                     errors.append(prefix+": cited source not independently supporting: "+entry["source_id"])
                 if entry["independent_relation"].strip().upper()!=relation:
                     errors.append(prefix+": link/source relation type mismatch: "+entry["source_id"])
-            if support and len(source_entries)==len(support) and relation in RELATIONS:
-                # Proposal only; never auto-import approved edges.
+            source_valid = bool(source_entries) and len(source_entries)==len(support) and all(
+                norm(entry["independent_source_decision"]) in SUPPORTED
+                and entry["independent_relation"].strip().upper()==relation
+                and entry["independent_reviewer_id"].strip()
+                and iso_date(entry["independent_review_date"])
+                and entry["independent_verified_passage"].strip()
+                and entry["independent_review_note"].strip()
+                for entry in source_entries
+            )
+            link_valid = bool(
+                row["independent_reviewer_id"].strip()
+                and iso_date(row["independent_review_date"])
+                and row["independent_evidence_notes"].strip()
+            )
+            if support and source_valid and link_valid and relation in RELATIONS:
+                # Structurally consistent PROPOSAL only. No auto-import.
                 proposals.append({
                     "query_id":qid, "link_task_id":lid,
                     "subject":row["cause_node"].strip(), "relation":relation,

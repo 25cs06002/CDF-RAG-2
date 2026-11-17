@@ -133,3 +133,28 @@ python -m unittest tests.test_g1_foundation_local tests.test_g1_typed_local -v
 ```
 The synthetic tests confirm that risk-factor edges are returned as typed
 source evidence rather than silently relabeled as causal graph edges.
+
+## Completed Phase 2M independent handoff: validate first
+
+Do not overwrite the original handoff or treat a manually edited CSV as
+independently certified medical gold. For your completed 52 source and 30
+link task files, run:
+
+```bash
+python -m research_v2.phase2m_independent_audit \
+ --folder research_artifacts/experiment-artifacts/phase2/phase2m_full_adjudication_handoff_v1 \
+ --require-complete
+```
+
+Creates `PHASE2M_AUDIT_*/review_audit.json` and
+`g1_link_import_candidates.csv`. If there are errors, correct the
+reviewed CSVs and rerun the auditor; source IDs and relationship
+directions must agree. Proposals are **not** automatically imported
+into G1. The new G1 inventory still needs approved source records
+and reviewed concept nodes; unknown source IDs must be crosswalked
+into that ledger without losing provenance.
+
+Use a versioned checksum snapshot before pushing reviewed worksheets.
+Review all Git-staged files for private information, personal IDs,
+unlicensed full-text excerpts or secrets because the GitHub repository
+may be public.

@@ -317,6 +317,70 @@ def _table(rows,columns):
     )
 
 
+def _figures(folder,historical,clean100,graph132):
+    """Optional ready-to-insert PNGs. Never imply retrieval yield is accuracy."""
+    try:
+        import matplotlib
+        matplotlib.use("Agg")
+        import matplotlib.pyplot as plt
+    except ImportError:
+        return {"generated":[],"warning":"matplotlib not installed; numerical CSVs remain available"}
+    folder=folder/"figures"
+    folder.mkdir(exist_ok=True)
+    paths=[]
+    xs=list(range(len(historical)))
+    fig,ax=plt.subplots(figsize=(11,4.5))
+    ok=[r["status_ok"] for r in historical]
+    err=[r["status_error"] for r in historical]
+    abst=[r["status_abstained"] for r in historical]
+    ax.bar(xs,ok,label="Completed successfully")
+    ax.bar(xs,abst,bottom=ok,label="Abstained")
+    ax.bar(xs,err,bottom=[a+b for a,b in zip(ok,abst)],label="Execution error")
+    ax.set_xticks(xs,[r["model"] for r in historical])
+    ax.set_ylim(0,105)
+    ax.set_ylabel("Outcomes / 100 queries")
+    ax.set_title("Historical B1–B8: recorded slots ≠ successful runs")
+    ax.legend(loc="upper center",ncol=3)
+    fig.tight_layout()
+    fn=folder/"historical100_execution_status.png"
+    fig.savefig(fn,dpi=160)
+    plt.close(fig)
+    paths.append(str(fn))
+    if clean100:
+        fig,ax=plt.subplots(figsize=(10,4.2))
+        ax.bar(range(6),[int(r["evidence_returned"]) for r in clean100])
+        ax.set_xticks(range(6),[r["model"] for r in clean100])
+        ax.set_ylim(0,105)
+        ax.set_ylabel("Questions with evidence / 100")
+        ax.set_title("B1–B6 clean retrieval-only, provisional corpus vs G0 graph")
+        fig.text(0.5,0.01,"Evidence availability only; evidence basis differs by model; not medical accuracy.",
+                 ha="center",fontsize=8)
+        fig.tight_layout(rect=(0,0.04,1,1))
+        fn=folder/"clean100_evidence_yield.png"
+        fig.savefig(fn,dpi=160)
+        plt.close(fig)
+        paths.append(str(fn))
+    fig,ax=plt.subplots(figsize=(9.5,4.5))
+    offsets=(-0.25,0,0.25)
+    conditions=(("G0_yield_132","Frozen G0"),
+                ("G1_legacy_yield_132","G1 legacy"),
+                ("G1_stable_yield_132","G1 stabilized"))
+    for dx,(col,label) in zip(offsets,conditions):
+        ax.bar([i+dx for i in range(len(graph132))],
+               [r[col] for r in graph132],width=0.22,label=label)
+    ax.set_xticks(range(len(graph132)),[r["model"] for r in graph132])
+    ax.set_ylim(0,132)
+    ax.set_ylabel("Queries returning evidence / 132")
+    ax.set_title("Paired graph retrieval: evidence yield, not causal accuracy")
+    ax.legend()
+    fig.tight_layout()
+    fn=folder/"G0_G1_stable_132_evidence_yield.png"
+    fig.savefig(fn,dpi=160)
+    plt.close(fig)
+    paths.append(str(fn))
+    return {"generated":paths}
+
+
 def assemble(run32_dir=None,retrieval100_dir=None,stable=STABLE,analysis=ANALYSIS):
     all100,_=_cohort()
     if len(all100)!=8:raise ValueError("Eight complete B1-B8 original runs required")
@@ -493,6 +557,8 @@ def assemble(run32_dir=None,retrieval100_dir=None,stable=STABLE,analysis=ANALYSI
         "9. Concrete next phase and supervisor questions: typed sufficiency, adaptive feedback, independent holdout, latency ablation.",
     ]
     (out/"partial_ppt_outline.md").write_text("\n\n".join(ppt)+"\n",encoding="utf-8")
+    fig_report=_figures(out,all100,retrieval100,selection)
+    _dump(out/"figure_manifest.json",fig_report)
     print(json.dumps({"output":str(out),"files":[p.name for p in out.iterdir()],
                       "historical_models":len(all100),"retrieval100_verified":retrieval100 is not None,
                       "extension_verified":thirtytwo is not None,

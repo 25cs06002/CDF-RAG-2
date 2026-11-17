@@ -65,7 +65,7 @@ class StableTargetG1(G0Corpus):
         # Important safety guard: do not silently interpret an explicit
         # type-1/type-2 diabetes question as generic G0 'Diabetes'.
         subtype_request=(old is not None and old.casefold()=="diabetes"
-                         and re.search(r"\\btype\\s*[12]\\s*diabetes\\b",query,re.I))
+                         and re.search(r"\btype\s*[12]\s*diabetes\b",query,re.I))
         if subtype_request:
             if len(candidates)==1:
                 self.last_reason="explicit_diabetes_subtype_target"

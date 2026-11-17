@@ -198,3 +198,54 @@ and its source/concepts pass the review gate.
 A structural pass is not clinical correctness, and a candidate G1
 is not medical gold. Frozen G0 and the historical 100-query experiment
 remain unchanged.
+
+## After stable-G1 shadow: hand off changed retrieval cases for relevance review
+
+The first 100+32 query shadow found that target locking restores original
+G0 evidence on all originally lost B5/B6 cases, but the stable shadow
+retains some evidence-yield losses because it intentionally abstains for
+ambiguous, underdetermined or unsafe broad-to-specific interpretations.
+
+A stronger research comparison needs **manual relevance and direction
+labels**, rather than treating a retrieved graph edge as medically correct.
+Do not build gold accuracy from an automatically passing structural audit.
+For the existing G1, paired runs, and stable run, execute:
+
+```bash
+python -m research_v2.g1_relevance_handoff prepare \
+  --graph-dir "$GRAPH" \
+  --stable-dir "$STABLE" \
+  --paired-dirs "$P100" "$P32" \
+  --scope stable_changes
+```
+
+This produces `review_cases.csv` (one row per changed model/query),
+`review_evidence.csv` (retrieved edges for each of frozen G0,
+G1 legacy, G1 stable and G1 typed), and `manifest.json`.
+Original `G0_EDGE_####` IDs are interpreted by graph-specific order and
+mapped to the underlying cause/effect, so an inherited G0 statement is
+not silently labeled verified. New G1 CAUSES edges are joined to typed
+edge provenance and the Phase2M source crosswalk.
+
+For a broader queue of changed *legacy or stabilized* results, use
+`--scope any_changes`; for all 132×2 model-query cases use `--scope all`.
+No graph/model execution is required to generate this handoff.
+
+Human tasks: First label query intent and target selection; then examine
+each *returned* edge and any linked authoritative source passage.
+`review_evidence_relevance` is one of `relevant`, `irrelevant`,
+`uncertain`. `review_relation_direction` is `correct`, `incorrect`,
+`uncertain`; `review_source_checked` is `checked`,
+`not_checked`, `not_applicable`. A graph edge inherited from G0
+must **not** be called verified just because it is present in G1.
+Record real reviewer identifiers, actual dates and explicit notes.
+Use `python -m research_v2.g1_relevance_handoff audit --folder "$REVIEW_QUEUE"`
+to assess annotation progress. This audit never labels medical gold and
+never modifies historical runs.
+
+The changed-case queue is selected *because* retrieval behavior differs;
+its metrics are useful for error analysis but cannot estimate unseen-query
+clinical accuracy. Before claiming retrieval accuracy, construct
+independently adjudicated question/evidence relevance labels and genuinely
+held-out query families. The published 32 extension questions are draft,
+not independently held out from the G1 concept inventory.

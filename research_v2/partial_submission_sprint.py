@@ -160,7 +160,12 @@ def verify():
         "archived_abstentions_by_model":{r["model"]:r["status_abstained"] for r in rows},
         "archive_error_count":sum(r["status_error"] for r in rows),
         "medical_accuracy":False,
-        "warning":"Archived 100-query slots may include errors; modes use the experiment journal (not missing answers). Historical B1-B6 contain transport/generation errors, and evidence bases differ. Use fresh retrieval-only 100 for B1-B6.",
+        "warning":(
+            "Archived slots and successful executions are counted separately; "
+            "older failures remain preserved but selected newer runs may be error-free. "
+            "Modes are taken from the experiment journal. Document-summary and "
+            "G0 graph evidence bases differ, so retrieval yield is not medical accuracy."
+        ),
     }
     print(json.dumps(result,indent=2))
     return result

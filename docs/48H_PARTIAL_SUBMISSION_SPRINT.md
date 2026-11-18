@@ -30,7 +30,7 @@ Assume local Python venv active and all original outputs preserved:
 python -m py_compile research_v2/partial_submission_sprint.py
 python -m research_v2.partial_submission_sprint verify
 python -m research_v2.partial_submission_sprint doctor --encoder sentence
-python -m unittest tests.test_partial_submission_runner_regression
+python -m unittest discover -s tests -p 'test_partial_submission_runner_regression.py'
 python -m research_v2.partial_submission_sprint run100 --encoder sentence
 python -m research_v2.partial_submission_sprint run32 --encoder sentence
 ```

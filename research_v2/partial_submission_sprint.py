@@ -120,7 +120,12 @@ def _cohort():
     summary=[]
     for model in MODEL100:
         if model not in selected:continue
-        end_to_end,_,folder,records,info=selected[model]
+        end_to_end,_,summary_path,records,info=selected[model]
+        # presentation_export._select_runs returns a *summary.json file*.
+        # Keep its parent as the archived run directory.
+        folder=summary_path.parent
+        if not (folder/"records.jsonl").is_file():
+            raise FileNotFoundError("Missing archived records: "+str(folder/"records.jsonl"))
         if [r.query_id for r in records]!=originals:
             raise ValueError("100-query archive order differs for "+model)
         # A completed archive may still contain execution errors.
@@ -151,6 +156,7 @@ def verify():
         "all_B1_to_B8_100_slots_present":len(rows)==8,
         "error_free_archived_models":[r["model"] for r in rows if r["status_error"]==0],
         "archived_models_requiring_retrieval_repair":[r["model"] for r in rows if r["status_error"]>0],
+        "archived_abstentions_by_model":{r["model"]:r["status_abstained"] for r in rows},
         "archive_error_count":sum(r["status_error"] for r in rows),
         "medical_accuracy":False,
         "warning":"Archived 100-query slots may include errors; modes use the experiment journal (not missing answers). Historical B1-B6 contain transport/generation errors, and evidence bases differ. Use fresh retrieval-only 100 for B1-B6.",
@@ -187,7 +193,9 @@ def run_retrieval(encoder="sentence",models=MODEL32,scope="32"):
         raise ValueError("Verify archived 100-query B1-B8 results before the expansion")
     for model in models:
         if model not in MODEL32:
-            raise ValueError("B7/B8 cannot be launched by retrieval-only run32")
+            raise ValueError("B7/B8 cannot be launched by retrieval-only run100/run32")
+    if not models:
+        raise ValueError("Select at least one B1-B6 model")
     if not CORPUS.is_file():
         raise FileNotFoundError("Frozen provisional B1-B4 corpus missing")
     corpus_manifest=_read_json(CORPUS.parent/"manifest.json")
@@ -234,11 +242,18 @@ def run_retrieval(encoder="sentence",models=MODEL32,scope="32"):
                 "graph_sha256":file_sha256(G0/"edges.csv") if mid in MODEL32[4:] else None,
                 "top_k":5,
             })
-        summary,run_dir=run_experiment(
-            pipeline=pipeline,questions=questions,run_id=name,
-            source_file=source_file,output_root=root/"runs",
-            graph_version="G0",on_run_ready=provenance,
-        )
+        try:
+            summary,run_dir=run_experiment(
+                pipeline=pipeline,questions=questions,run_id=name,
+                source_file=source_file,output_root=root/"runs",
+                graph_version="G0",on_run_ready=provenance,
+            )
+        except Exception:
+            # The experiment runner preserves individual records. Do not
+            # pretend a failed model completed, and never overwrite runs.
+            index["failed_model"]=model
+            _dump(root/"run_index.json",index)
+            raise
         if summary["aborted"] or summary["errors"] or summary["total_queries"]!=expected_count:
             raise RuntimeError("Incomplete "+scope+"-query retrieval: "+model+
                                "; inspect preserved "+str(run_dir))
@@ -397,7 +412,7 @@ def _figures(folder,historical,clean100,graph132):
 
 def assemble(run32_dir=None,retrieval100_dir=None,stable=STABLE,analysis=ANALYSIS):
     all100,_=_cohort()
-    if len(all100)!=8:raise ValueError("Eight complete B1-B8 original runs required")
+    if len(all100)!=8:raise ValueError("All eight archived B1-B8 100-question records are required")
     thirtytwo=None
     thirtytwo_provenance=None
     if run32_dir:

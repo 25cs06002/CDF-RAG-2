@@ -397,6 +397,94 @@ def _verify_retrieval(folder,scope):
     return rows,ix
 
 
+def _resolve_summary_dir(requested, parent, prefix, kind):
+    """Discover a versioned summary only when the frozen default is absent."""
+    requested=_safe(requested)
+    if (requested/"summary.json").is_file():
+        _safe_summary(requested/"summary.json",kind)
+        return requested
+    if requested != (STABLE if kind=="stable" else ANALYSIS).resolve():
+        raise FileNotFoundError("Explicit "+kind+" result path is absent: "+str(requested))
+    parent=_safe(parent)
+    matches=[]
+    for candidate in parent.glob(prefix+"*/summary.json"):
+        try:
+            item=_safe_summary(candidate,kind)
+            if kind=="stable" and (
+                    item.get("query_model_rows")!=264 or
+                    len(item.get("per_set",{}))<2):
+                continue
+            if kind=="analysis" and (
+                    item.get("reviewed_cases")!=31 or
+                    item.get("reviewed_evidence_occurrences")!=132):
+                continue
+            matches.append(candidate.parent)
+        except (OSError,KeyError,ValueError,TypeError,AttributeError):
+            continue
+    if matches:
+        return sorted(matches,key=lambda folder:folder.name)[-1]
+    raise FileNotFoundError("No valid "+kind+" summary found under "+str(parent))
+
+
+def _combine_retrieval_132(run100_dir,run32_dir):
+    """Combine exact query-model records; do not mix generation modes."""
+    q100,_=validate_inputs(Q100)
+    q32,_=_expansion()
+    expected={q.query_id for q in [*q100,*q32]}
+    if len(expected)!=132:
+        raise ValueError("Frozen 100/32 question IDs must not overlap")
+    rows=_read_rows(_safe(run100_dir)/"100_query_model_records.csv")+_read_rows(
+        _safe(run32_dir)/"32_query_model_records.csv"
+    )
+    if len(rows)!=792:
+        raise ValueError("Expected 792 combined query-model records")
+    seen=set()
+    by_model={name:[] for name in MODEL32}
+    by_type={}
+    for row in rows:
+        key=(row["model_id"],row["query_id"])
+        if key in seen:
+            raise ValueError("Duplicate query/model pair: "+str(key))
+        seen.add(key)
+        if row["model_id"] not in by_model or row["query_id"] not in expected:
+            raise ValueError("Unknown model or query in 132-question run")
+        if row["status"] not in {"ok","abstained"}:
+            raise ValueError("Incomplete query execution: "+str(key))
+        if row["returned_evidence"] not in {"True","False"}:
+            raise ValueError("Unrecognized evidence flag: "+str(key))
+        if ((row["status"]=="abstained") != (row["returned_evidence"]=="False")):
+            raise ValueError("Abstention/evidence mismatch: "+str(key))
+        by_model[row["model_id"]].append(row)
+        by_type.setdefault((row["model_id"],row["query_type"]),[]).append(row)
+    summary=[]
+    for model,group in by_model.items():
+        if len(group)!=132 or {r["query_id"] for r in group}!=expected:
+            raise ValueError("Incomplete cohort for "+model)
+        times=[float(r["retrieval_ms"]) for r in group
+               if r["retrieval_ms"] not in ("",None)]
+        if len(times)!=132:
+            raise ValueError("Missing measured retrieval timings for "+model)
+        summary.append({
+            "model":model,"questions":132,
+            "evidence_returned":sum(r["returned_evidence"]=="True" for r in group),
+            "abstained":sum(r["status"]=="abstained" for r in group),
+            "errors":0,"mean_retrieval_ms":_average(times),
+            "evidence_basis":(
+                "provisional_AI_assisted_source_summaries"
+                if model in MODEL32[:4] else "G0_unverified_graph"),
+            "mode":"retrieval_only",
+        })
+    categories=[]
+    for (model,typ),group in sorted(by_type.items()):
+        categories.append({
+            "model":model,"query_type":typ,
+            "questions":len(group),
+            "evidence_returned":sum(r["returned_evidence"]=="True" for r in group),
+            "abstained":sum(r["status"]=="abstained" for r in group),
+        })
+    return rows,summary,categories
+
+
 def _safe_summary(path,kind):
     if not path.exists():return None
     item=_read_json(path)
@@ -492,8 +580,10 @@ def assemble(run32_dir=None,retrieval100_dir=None,stable=STABLE,analysis=ANALYSI
     retrieval100_provenance=None
     if retrieval100_dir:
         retrieval100,retrieval100_provenance=_verify_retrieval(retrieval100_dir,"100")
-    stable_dir=_safe(stable)
-    analysis_dir=_safe(analysis)
+    stable_dir=_resolve_summary_dir(
+        stable,WORKSPACE/"g1_stable_retrieval","stable_","stable")
+    analysis_dir=_resolve_summary_dir(
+        analysis,WORKSPACE/"g1_review_analysis","analysis_","analysis")
     stable_summary=_safe_summary(stable_dir/"summary.json","stable")
     review_summary=_safe_summary(analysis_dir/"summary.json","analysis")
     if stable_summary is None or review_summary is None:
@@ -510,6 +600,12 @@ def assemble(run32_dir=None,retrieval100_dir=None,stable=STABLE,analysis=ANALYSI
     _write_rows(out/"historical100_B1_B8.csv",tuple(all100[0]),all100)
     if thirtytwo:_write_rows(out/"new32_B1_B6.csv",SCHEMA,thirtytwo)
     if retrieval100:_write_rows(out/"clean100_retrieval_only_B1_B6.csv",SCHEMA,retrieval100)
+    combined132=None
+    if retrieval100 is not None and thirtytwo is not None:
+        detailed,combined132,categories=_combine_retrieval_132(retrieval100_dir,run32_dir)
+        _write_rows(out/"all132_retrieval_only_B1_B6.csv",HEADER32,detailed)
+        _write_rows(out/"combined132_retrieval_only_B1_B6.csv",tuple(combined132[0]),combined132)
+        _write_rows(out/"by_query_type132_B1_B6.csv",tuple(categories[0]),categories)
     selection=[]
     for model in ("B5","B6"):
         total_old=total_old_g1=total_stable=0
@@ -546,6 +642,10 @@ def assemble(run32_dir=None,retrieval100_dir=None,stable=STABLE,analysis=ANALYSI
         "historical_error_free_models":[r["model"] for r in all100 if r["status_error"]==0],
         "new32_B1_B6_complete":thirtytwo is not None,
         "clean100_retrieval_B1_B6_complete":retrieval100 is not None,
+        "clean132_retrieval_B1_B6_complete":combined132 is not None,
+        "clean132_model_query_records":792 if combined132 is not None else None,
+        "stable_summary_dir":str(stable_dir.relative_to(ROOT)),
+        "review_analysis_dir":str(analysis_dir.relative_to(ROOT)),
         "clean100_provenance":retrieval100_provenance,
         "new32_provenance":thirtytwo_provenance,
         "G0_G1_132_yield":selection,
@@ -557,7 +657,7 @@ def assemble(run32_dir=None,retrieval100_dir=None,stable=STABLE,analysis=ANALYSI
         "graph_expansion_is_not_accuracy":True,
         "limitations":[
             "B1-B4 document summaries differ from B5-B8 graph-derived evidence, so evidence yield alone is not a fair model accuracy ranking.",
-            "Historical 100-query B1-B6 contain execution errors; declared modes come from run journal, not inferred from null generators. Do not treat completed slots as successful baseline runs or compare end-to-end with retrieval-only latency.",
+            "Older historical attempts contained errors, but selected archived runs can be error-free; preserve run provenance and do not compare end-to-end with retrieval-only latency.",
             "32 additional questions were not executed on B7 or B8.",
             "132 questions are drafts and influenced G1 concept inventory; no independent holdout or medical gold.",
             "Manually reviewed sample consists of cases selected for changed retrieval behavior, not representative test distribution.",
@@ -571,10 +671,10 @@ def assemble(run32_dir=None,retrieval100_dir=None,stable=STABLE,analysis=ANALYSI
         "# CDF-RAG-2: partial experimental results (non-clinical pilot)","",
         "## A. Archived B1–B8 experiment on frozen 100 queries","",
         _table(history,("model","n","status_error","status_abstained","evidence_returned","answer_present","mode","mean_total_ms")),"",
-        "**Important:** Archived B1-B6 runs contain execution errors; completed slots are not necessarily successful experiments. " +
-        "**Interpretation:** This table is descriptive, not medical accuracy. "
+        "**Interpretation:** These are the newest verified selected archived runs, including actual execution-error counts. "
+        "Older failed attempts remain archived separately. The table is not medical accuracy. "
         "B1–B4 retrieve provisional AI-assisted source summaries; B5–B8 use G0 graph records. "
-        "Historical generation failures make naive mean-latency rankings invalid; report mode and errors.","",
+        "Do not compare generation latency against retrieval-only timings.","",
         "## B. Repaired retrieval-only comparison on the original 100 queries","",
     ]
     if retrieval100:
@@ -582,6 +682,11 @@ def assemble(run32_dir=None,retrieval100_dir=None,stable=STABLE,analysis=ANALYSI
                    "B1–B6 are all retrieval-only, with recorded corpus/encoder checksums. B7/B8 are not retrieval-only."])
     else:
         md.append("**Pending:** Run a clean retrieval-only B1-B6 comparison on the original 100 queries before claiming a complete baseline comparison.")
+    if combined132 is not None:
+        md.extend(["","## B2. Combined 132-question B1–B6 retrieval-only results","",
+            _table(combined132,("model","questions","evidence_returned",
+                                "abstained","errors","mean_retrieval_ms")),"",
+            "Means use each query's measured retrieval time; no generation or clinical accuracy is claimed.",""])
     md.extend(["","## C. Additional 32 draft queries",""])
     if thirtytwo:
         md.extend([_table(thirtytwo,("model","n","evidence_returned","mode","mean_retrieval_ms")),"",
@@ -633,8 +738,8 @@ def assemble(run32_dir=None,retrieval100_dir=None,stable=STABLE,analysis=ANALYSI
         "6. Dataset: 100+32 draft query categories, sample construction, limitations/no gold.",
         "7. Methods: B1–B8 registry, retrieval modes, G1 candidate provenance (78 nodes, 24 typed relations).",
         "8. Experimental protocol and fair-comparison caveats.",
-        "9. Results A: historical 100-query B1–B8 matrix (include execution errors explicitly).",
-        "10. Results A2: clean 100-query B1–B6 retrieval-only comparison (after executed).",
+        "9. Results A: selected archived 100-query B1–B8 matrix (with actual error/abstention counts).",
+        "10. Results A2: clean B1–B6 retrieval-only comparison on 100+32 queries.",
         "11. Results B: 32-query B1–B6 retrieval-only (only after executed).",
         "12. Results C: 132-query G0/G1 regression, stabilized resolver, paired changes.",
         "13. Results D: manually reviewed 31 changed cases and 58 distinct assertions.",
@@ -650,7 +755,7 @@ def assemble(run32_dir=None,retrieval100_dir=None,stable=STABLE,analysis=ANALYSI
         "2. Research gap + objectives: single-pass retrieval/semantic matching/causation-vs-risk.",
         "3. Existing CDF-RAG and eight baselines B1–B8; differentiate legacy PPO and current contributions.",
         "4. Experimental assets: 100 + 32 draft queries; G0 vs G1 graph counts and provenance.",
-        "5. Historical B1–B8 100-query matrix: include actual execution errors; add repaired B1–B6 retrieval-only panel.",
+        "5. Verified B1–B8 end-to-end archived 100-query matrix and clean B1–B6 retrieval-only comparison.",
         "6. Core investigation: graph expansion causes target drift; show paired B5/B6 G0→G1→stable counts.",
         "7. Manual evidence audit: 31 cases, 132 occurrences, 58 unique assertions; reviewed relevance, wrong targets.",
         "8. Contributions & limitations: reviewed G1 graph + matched comparison + stable resolver; no medical gold yet.",

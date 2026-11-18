@@ -182,7 +182,6 @@ def _numeric_rows(rows,key):
 
 
 def _slide_notes(bundle,manifest,historical,combined,graph,review):
-    ordered=lambda group:[group[m] for m in sorted(group)]
     lines=[
         "# CDF-RAG-2 — audited slide factsheet",
         "",
@@ -194,7 +193,7 @@ def _slide_notes(bundle,manifest,historical,combined,graph,review):
         "| Model | OK | Abstained | Errors | Evidence | Mean end-to-end (s) |",
         "|---|---:|---:|---:|---:|---:|",
     ]
-    for m,r in ordered(historical):
+    for m,r in sorted(historical.items()):
         lines.append(
             "| "+m+" | "+r["status_ok"]+" | "+r["status_abstained"]+
             " | "+r["status_error"]+" | "+r["evidence_returned"]+
@@ -210,7 +209,7 @@ def _slide_notes(bundle,manifest,historical,combined,graph,review):
         "| Model | Evidence / 132 | Abstained | Mean retrieval (ms) |",
         "|---|---:|---:|---:|",
     ])
-    for m,r in ordered(combined):
+    for m,r in sorted(combined.items()):
         lines.append("| "+m+" | "+r["evidence_returned"]+
                      " | "+r["abstained"]+" | "+
                      f'{float(r["mean_retrieval_ms"]):.3f}'+" |")
@@ -224,7 +223,7 @@ def _slide_notes(bundle,manifest,historical,combined,graph,review):
         "| Model | Frozen G0 | Legacy G1 | Stabilized G1 |",
         "|---|---:|---:|---:|",
     ])
-    for m,r in ordered(graph):
+    for m,r in sorted(graph.items()):
         lines.append("| "+m+" | "+r["G0_yield_132"]+" | "+
                      r["G1_legacy_yield_132"]+" | "+r["G1_stable_yield_132"]+" |")
     lines.extend([
@@ -240,7 +239,7 @@ def _slide_notes(bundle,manifest,historical,combined,graph,review):
         "Reviewed-relevant & direction-correct cases |",
         "|---|---:|---:|---:|",
     ])
-    for m,r in ordered(review):
+    for m,r in sorted(review.items()):
         lines.append("| "+m+" | "+r["selected_changed_cases"]+
             " | "+r["G1_stable_cases_with_evidence"]+
             " | "+r["cases_with_relevant_direction_correct_evidence"]+" |")

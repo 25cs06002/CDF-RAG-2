@@ -618,6 +618,20 @@ def assemble(run32_dir=None,retrieval100_dir=None,stable=STABLE,analysis=ANALYSI
                           "G1_legacy_yield_132":total_old_g1,
                           "G1_stable_yield_132":total_stable})
     _write_rows(out/"G0_G1_132_shadow.csv",tuple(selection[0]),selection)
+    reviewed_change_case_rows=[]
+    for family in ("B5","B6"):
+        subset=review_summary["by_family"][family]
+        stable=subset["G1_STABLE"]
+        reviewed_change_case_rows.append({
+            "family":family,"selected_changed_cases":subset["cases"],
+            "G1_stable_cases_with_evidence":stable["cases_with_any_evidence"],
+            "cases_with_relevant_direction_correct_evidence":
+                stable["cases_with_relevant_direction_correct_evidence"],
+            "cases_with_relevant_direction_correct_checked_candidate":
+                stable["cases_with_relevant_direction_correct_checked_G1_candidate"],
+        })
+    _write_rows(out/"reviewed_changed_case_B5_B6.csv",
+                tuple(reviewed_change_case_rows[0]),reviewed_change_case_rows)
     historical22=_read_rows(LEGACY22) if LEGACY22.exists() else []
     structurals=_read_json(STRUCTURAL20) if STRUCTURAL20.exists() else {}
     structural_b7b8=[{
@@ -654,6 +668,7 @@ def assemble(run32_dir=None,retrieval100_dir=None,stable=STABLE,analysis=ANALYSI
         "reviewed_distinct_assertions":review_summary["distinct_question_evidence_assertions"],
         "attention_cases":review_summary["attention_case_count"],
         "review_flags":review_summary["case_flags"],
+        "reviewed_changed_case_B5_B6":reviewed_change_case_rows,
         "graph_expansion_is_not_accuracy":True,
         "limitations":[
             "B1-B4 document summaries differ from B5-B8 graph-derived evidence, so evidence yield alone is not a fair model accuracy ranking.",
@@ -702,6 +717,10 @@ def assemble(run32_dir=None,retrieval100_dir=None,stable=STABLE,analysis=ANALYSI
         f"- Evidence occurrences: {review_summary['reviewed_evidence_occurrences']}; distinct question-evidence assertions: {review_summary['distinct_question_evidence_assertions']}.",
         f"- Cases with review flags: {review_summary['attention_case_count']}.",
         f"- Review issue flags: {json.dumps(review_summary['case_flags'],sort_keys=True)}.","",
+        _table(reviewed_change_case_rows,("family","selected_changed_cases",
+             "G1_stable_cases_with_evidence",
+             "cases_with_relevant_direction_correct_evidence",
+             "cases_with_relevant_direction_correct_checked_candidate")),"",
         "This manual sample was selected because retrieval behavior changed; reviewer judgments do NOT establish general model accuracy.","",
         "## F. Historical 22-query experiments","",
         "Preserve historical RL/No-RL values as a separate 22-query feasibility result.","",

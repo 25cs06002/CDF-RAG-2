@@ -29,6 +29,8 @@ Assume local Python venv active and all original outputs preserved:
 ```bash
 python -m py_compile research_v2/partial_submission_sprint.py
 python -m research_v2.partial_submission_sprint verify
+python -m research_v2.partial_submission_sprint doctor --encoder sentence
+python -m unittest tests.test_partial_submission_runner_regression
 python -m research_v2.partial_submission_sprint run100 --encoder sentence
 python -m research_v2.partial_submission_sprint run32 --encoder sentence
 ```
@@ -135,3 +137,34 @@ scores in one averaged number. Do not call graph-snapshot micro-F1
 `clinical F1`. Do not compare legacy end-to-end latencies with
 retrieval-only submillisecond times. Report reviewer source checks
 as attestation, not independent medical expert approval.
+
+## Repair notes (November 18)
+
+- Fixed `NotADirectoryError: .../summary.json/records.jsonl`:
+  `presentation_export._select_runs()` returns the **summary file**
+  in tuple index 2, not its containing directory; the sprint now uses
+  `summary_path.parent`, and confirms `records.jsonl` exists.
+- B1–B6 archival errors were actual failed executions, not 100%
+  completed successful runs. Do not rewrite those experiment results.
+- B1–B6 retrieval-only mode never calls Ollama. In end-to-end mode,
+  Ollama is an external required service; preflight checks it before
+  executing any new query. If unavailable, do not report a completed
+  generated-answer experiment.
+- Frozen graph noncoverage must produce **abstained**, not a fabricated
+  successful answer. B5/B6 can legitimately return no evidence.
+- Run a `doctor` smoke check on one question for all six baselines
+  before starting the cohort, and run the regression test.
+- If `doctor --encoder sentence` fails because the model snapshot
+  is unavailable, use `doctor --encoder lsa`, followed by
+  `run100 --encoder lsa` and `run32 --encoder lsa` **as a clearly
+  labeled alternative embedding baseline**. Never silently replace
+  pretrained sentence embeddings with LSA.
+- If a later model fails during `run100` or `run32`, the run
+  workspace retains prior successes. Re-run with the identical
+  encoder and `--resume-dir <original run100/run32 folder>`.
+  Verified completed models are reused and only missing models execute.
+  Do not run `assemble` until all six are complete with zero errors.
+- Do not use `--generate` or `evaluate_all_baselines.py run --models all`
+  during the fast retrieval-only repair; these would change both the
+  execution mode and runtime/dependency requirements.
+

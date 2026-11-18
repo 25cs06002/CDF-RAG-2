@@ -22,6 +22,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from .experiment_runner import PROJECT_ROOT, file_sha256, load_questions, run_experiment
+from .base_pipeline import PipelineRequest
 from .pipelines import create_pipeline, MODEL_REGISTRY
 from .presentation_export import _select_runs
 from .presentation_matrix import EXPECTED_PIPELINE_IDS, validate_inputs
@@ -163,6 +164,41 @@ def verify():
     }
     print(json.dumps(result,indent=2))
     return result
+
+
+def doctor(encoder="sentence"):
+    """Smoke all six B1-B6 retrievers in isolation without Ollama or writes."""
+    questions,_=validate_inputs(Q100)
+    if not CORPUS.is_file():
+        raise FileNotFoundError("Missing provisional document corpus: "+str(CORPUS))
+    evidence_manifest=_read_json(CORPUS.parent/"manifest.json")
+    if evidence_manifest.get("documents_sha256")!=file_sha256(CORPUS):
+        raise ValueError("Provisional evidence corpus checksum mismatch")
+    if encoder not in {"sentence","lsa"}:
+        raise ValueError("Unsupported embedding backend")
+    outcome=[]
+    for model in MODEL32:
+        try:
+            pipeline=create_pipeline(
+                model,document_corpus=CORPUS if model in MODEL32[:4] else None,
+                top_k=5,generate=False,encoder=encoder)
+            q=questions[0]
+            record=pipeline.run(PipelineRequest(run_id="DOCTOR",query_id=q.query_id,
+                 query=q.query,graph_version="G0"))
+            outcome.append({"model":model,"status":record.status,
+                "evidence":len(record.retrieved_documents),
+                "error":record.error_message})
+        except Exception as exc:
+            outcome.append({"model":model,"status":"error",
+                "evidence":None,"error":type(exc).__name__+": "+str(exc)})
+    report={"mode":"one_query_retrieval_only_preflight",
+            "encoder":encoder,"models":outcome,
+            "all_error_free":all(row["status"]!="error" for row in outcome),
+            "warning":"An abstention is a legitimate outcome on G0; a doctor preflight is not a full experiment."}
+    print(json.dumps(report,indent=2))
+    if not report["all_error_free"]:
+        raise SystemExit("Fix reported pipeline/environment problem before a 100 or 32 run")
+    return report
 
 
 def _expansion():
@@ -629,6 +665,8 @@ def main():
     p=argparse.ArgumentParser(description=__doc__)
     subs=p.add_subparsers(dest="command",required=True)
     subs.add_parser("verify")
+    smoke=subs.add_parser("doctor")
+    smoke.add_argument("--encoder",choices=("sentence","lsa"),default="sentence")
     run=subs.add_parser("run32")
     run100=subs.add_parser("run100")
     for command in (run,run100):
@@ -644,6 +682,7 @@ def main():
     args=p.parse_args()
     if Path.cwd().resolve()!=ROOT:p.error("Run from project root")
     if args.command=="verify":verify()
+    elif args.command=="doctor":doctor(args.encoder)
     elif args.command in {"run32","run100"}:
         models=tuple(x.strip() for x in args.models.split(",") if x.strip())
         if len(models)!=len(set(models)):p.error("Duplicate model IDs")

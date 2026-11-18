@@ -27,7 +27,10 @@ from pathlib import Path
 from ..base_pipeline import BaseRAGPipeline, PipelineRequest
 from ..experiment_runner import PROJECT_ROOT, load_questions, run_experiment
 from ..schema import CausalEdge, CausalPath, EvidenceDocument, PipelineRecord, StageTimings
-from ..ollama_generation import OllamaGenerationError, generate as ollama_generate, generation_settings
+from ..ollama_generation import (
+    OllamaGenerationError, generate as ollama_generate,
+    generation_settings, check_ollama,
+)
 
 G0 = PROJECT_ROOT / "research_artifacts/graph-G0"
 PRESENTATION_ROOT = PROJECT_ROOT / "presentation_20261118"
@@ -203,8 +206,12 @@ class BaselinePipeline(BaseRAGPipeline):
         self.top_k = top_k
         if top_k < 1:
             raise ValueError("top_k must be positive")
-        self.generate = generate
+        self.generate = bool(generate)
         self._generation_requests = 0
+        # A failed Ollama transport must never be misclassified as retrieval
+        # failure. Explicitly validate the external generator before running
+        # a costly end-to-end query matrix; retrieval-only needs no service.
+        self._generation_settings = generation_settings() if self.generate else None
         self._encoder = dense_encoder
         self._dense_vectors = None
         if name in {"dense_rag", "hybrid_rag"}:
@@ -305,14 +312,14 @@ class BaselinePipeline(BaseRAGPipeline):
         status = "ok" if documents else "abstained"
         if self.generate and documents:
             self._generation_requests += 1
-            cfg = generation_settings()
+            cfg = self._generation_settings
             unload_after = (self._generation_requests % cfg["unload_every_n"] == 0)
             generation_start = time.perf_counter()
             try:
                 answer = self._generate_answer(
                     request.query, documents, unload_after=unload_after
                 )
-            except OllamaGenerationError as exc:
+            except (OllamaGenerationError, ConnectionError, TimeoutError) as exc:
                 # Unlike the generic runner catch, retain retrieved evidence
                 # so an OOM/restart cannot masquerade as a retrieval gap.
                 status = "error"
@@ -333,7 +340,7 @@ class BaselinePipeline(BaseRAGPipeline):
             final_answer=answer,
             status=status,
             error_message=generation_error,
-            generator_model=(os.getenv("OLLAMA_MODEL", "llama3.2:latest") if self.generate else None),
+            generator_model=(self._generation_settings["model"] if self.generate else None),
             random_seed=request.random_seed,
             timings=StageTimings(
                 retrieval_ms=retrieval_ms,
@@ -374,6 +381,10 @@ def main():
         questions = questions[:args.limit]
     if not args.output_root.expanduser().resolve().is_relative_to(PROJECT_ROOT):
         parser.error("Outputs must remain inside the repository")
+    if args.generate:
+        # Fail BEFORE executing any query if external generation is down.
+        # This is intentionally not a fallback that would fabricate answers.
+        print(json.dumps({"ollama_preflight": check_ollama(generation_settings())},indent=2))
     graph_corpus = G0Corpus()
     document_corpus = CandidateCorpus(args.document_corpus) if args.document_corpus else graph_corpus
     for name in BASELINE_NAMES if args.pipeline == "all" else [args.pipeline]:

@@ -175,7 +175,7 @@ def _expansion():
     return questions,{r["query_id"]:r["query_type"] for r in data}
 
 
-def run_retrieval(encoder="sentence",models=MODEL32,scope="32"):
+def run_retrieval(encoder="sentence",models=MODEL32,scope="32",resume_dir=None):
     if encoder not in {"sentence","lsa"}:
         raise ValueError("Choose sentence or lsa explicitly")
     if scope=="32":
@@ -203,10 +203,13 @@ def run_retrieval(encoder="sentence",models=MODEL32,scope="32"):
         raise ValueError("Provisional document corpus was modified")
     if not (G0/"edges.csv").is_file():
         raise FileNotFoundError("G0 snapshot missing")
-    root=OUTPUT/_stamp("run32" if scope=="32" else "run100")
-    root.mkdir(parents=True,exist_ok=False)
+    root=_safe(resume_dir) if resume_dir else OUTPUT/_stamp("run32" if scope=="32" else "run100")
+    if resume_dir and not root.is_dir():
+        raise FileNotFoundError("Resume directory does not exist: "+str(root))
+    if not resume_dir:
+        root.mkdir(parents=True,exist_ok=False)
     records_by_model={}
-    index={
+    expected_index={
         "mode":"same_existing_queries_retrieval_only",
         "scope":scope,
         "expected_count":expected_count,
@@ -228,8 +231,35 @@ def run_retrieval(encoder="sentence",models=MODEL32,scope="32"):
             "An evidence-returned flag is not medical correctness.",
         ],
     }
-    _dump(root/"run_index.json",index)
+    if resume_dir:
+        index=_read_json(root/"run_index.json")
+        frozen_fields=("scope","expected_count","input_sha256","corpus_sha256",
+                       "G0_nodes_sha256","G0_edges_sha256","dense_encoder","top_k")
+        for field in frozen_fields:
+            if index.get(field)!=expected_index.get(field):
+                raise ValueError("Resume experiment provenance mismatch: "+field)
+        if set(index.get("models_requested",[]))!=set(models):
+            raise ValueError("Resume requires same original model set")
+    else:
+        index=expected_index
+        _dump(root/"run_index.json",index)
     for model in models:
+        previous=index["model_runs"].get(model)
+        if previous:
+            old_run=root/previous["folder"]
+            if (old_run/"records.jsonl").is_file() and (
+                    file_sha256(old_run/"records.jsonl")==previous["records_sha256"]
+                    and file_sha256(old_run/"summary.json")==previous["summary_sha256"]):
+                old_records=[PipelineRecord.model_validate_json(line)
+                    for line in (old_run/"records.jsonl").read_text(encoding="utf-8").splitlines()
+                    if line.strip()]
+                if (len(old_records)==expected_count
+                        and [r.query_id for r in old_records]==[q.query_id for q in questions]
+                        and not any(r.status=="error" for r in old_records)):
+                    print(json.dumps({"reused_verified_model":model,"run_dir":str(old_run)},indent=2))
+                    records_by_model[model]=old_records
+                    continue
+            raise ValueError("Prior stored model output is invalid; preserve it and investigate: "+model)
         documents=CORPUS if model in MODEL32[:4] else None
         pipeline=create_pipeline(model,document_corpus=documents,
                                  top_k=5,generate=False,encoder=encoder)
@@ -604,6 +634,8 @@ def main():
     for command in (run,run100):
         command.add_argument("--encoder",choices=("sentence","lsa"),default="sentence")
         command.add_argument("--models",default="B1,B2,B3,B4,B5,B6")
+        command.add_argument("--resume-dir",type=Path,
+                             help="Resume failed/incomplete run without repeating successful models")
     build=subs.add_parser("assemble")
     build.add_argument("--run32-dir",type=Path)
     build.add_argument("--retrieval100-dir",type=Path)
@@ -615,7 +647,8 @@ def main():
     elif args.command in {"run32","run100"}:
         models=tuple(x.strip() for x in args.models.split(",") if x.strip())
         if len(models)!=len(set(models)):p.error("Duplicate model IDs")
-        run_retrieval(args.encoder,models,"32" if args.command=="run32" else "100")
+        run_retrieval(args.encoder,models,"32" if args.command=="run32" else "100",
+                      args.resume_dir)
     else:assemble(args.run32_dir,args.retrieval100_dir,args.stable_dir,args.analysis_dir)
 
 

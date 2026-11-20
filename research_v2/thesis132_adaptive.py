@@ -65,6 +65,7 @@ class AdaptiveCandidateController:
         evidence_docs=[]
         typed_edges=[]
         typed_paths=[]
+        typed_document_ids=set()
         actions=[]
         reason="insufficient_candidate_typed_evidence"
         typed_ms=0.0
@@ -95,6 +96,7 @@ class AdaptiveCandidateController:
                 for d in candidate.retrieved_documents:
                     if d.document_id not in seen:
                         evidence_docs.append(d);seen.add(d.document_id)
+                    typed_document_ids.add(d.document_id)
                 # Restrict PATH sufficiency to typed CAUSES→CAUSES
                 # paths returned by the trusted-structure candidate index.
                 seen_paths={tuple(p.nodes) for p in typed_paths}
@@ -115,18 +117,14 @@ class AdaptiveCandidateController:
                 for d in doc.retrieved_documents:
                     if d.document_id not in seen:
                         evidence_docs.append(d);seen.add(d.document_id)
-            enough=bool(typed_paths) if require_path else bool(typed_edges or
-                [d for d in evidence_docs if d.source_id and
-                 d.source_id not in {"G0_GRAPH_DERIVED_UNVALIDATED",None}
-                 and d.document_id.startswith("G1")])
+            enough=bool(typed_paths) if require_path else bool(typed_document_ids)
             # Source-reviewed typed relationships can support a
             # CANDIDATE answer, NOT independent clinical gold.
             # Never let provisional BM25 summaries alone certify sufficiency.
             if policy=="adaptive" and enough:
                 actions.append("early_stop_candidate_evidence")
                 break
-        enough=bool(typed_paths) if require_path else bool(typed_edges or
-            [d for d in evidence_docs if d.document_id.startswith("G1")])
+        enough=bool(typed_paths) if require_path else bool(typed_document_ids)
         decision="candidate_for_review" if enough else "abstain_unverified"
         total_ms=(time.perf_counter()-start)*1000
         return PipelineRecord(
@@ -135,7 +133,8 @@ class AdaptiveCandidateController:
             original_query=request.query,matched_concept=target,
             retrieved_documents=evidence_docs,causal_edges=typed_edges,
             causal_paths=typed_paths,final_answer=None,
-            feedback_iterations=max(0,len(actions)-1),
+            feedback_iterations=max(0,sum(a in {"typed_direct","typed_twohop","document_bm25"}
+                                           for a in actions)-1),
             action_history=actions+[decision],
             status="ok" if enough else "abstained",
             timings=StageTimings(retrieval_ms=typed_ms+document_ms,

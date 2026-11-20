@@ -66,7 +66,7 @@ def _read_jsonl(path):
 
 def _git_blob_sha(path):
     payload=path.read_bytes()
-    return hashlib.sha1(b"blob "+str(len(payload)).encode()+b"\\0"+payload).hexdigest()
+    return hashlib.sha1(b"blob "+str(len(payload)).encode()+b"\0"+payload).hexdigest()
 
 
 def _trusted(url):

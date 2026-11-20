@@ -115,6 +115,6 @@
     "Each pipeline retrieves evidence only, no final answers. 132 correct model runs does not imply clinically correct 132 answers.",
     "The 132 questions were historically exposed to G1 development. These are not a held-out independent question set.",
     "Model initialization excluded from per-query timing. Wall clock measures small CPU-only workloads; QPS should not be generalized to end-to-end LLM inference.",
-    "Full per-query output is in CI session and local reruns; this archived JSON preserves audited aggregates and run IDs only."
+    "Full per-query records were generated in the ephemeral CI runtime but are NOT contained in the downloadable compact summary artifact; rerun locally to preserve raw 132-query evidence records."
   ]
 }

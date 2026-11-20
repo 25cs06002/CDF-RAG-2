@@ -68,10 +68,17 @@ class AdaptiveCandidateTests(unittest.TestCase):
         self.assertEqual(out.feedback_iterations,2)
         self.assertEqual(out.status,"ok")
 
+    def test_negated_causal_question_is_not_overclaimed(self):
+        out=self.ctrl.run(req("Which risk factors should not be called direct causes?"),"adaptive")
+        self.assertEqual(out.status,"abstained")
+        self.assertEqual(out.feedback_iterations,0)
+        out2=self.ctrl.run(req("Explain stress without assuming causality"),"adaptive")
+        self.assertEqual(out2.status,"abstained")
+
     def test_comparative_requires_multi_target_handling(self):
         out=self.ctrl.run(req("Compare heart failure versus coronary artery disease"),"adaptive")
         self.assertEqual(out.status,"abstained")
-        self.assertEqual(out.action_history,["abstain_ambiguous_or_unsupported"])
+        self.assertEqual(out.action_history,["abstain_ambiguous_unsupported_or_negated_causal"])
 
 
 if __name__=="__main__":

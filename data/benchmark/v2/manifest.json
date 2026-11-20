@@ -1,0 +1,48 @@
+{
+  "schema_version": "2.0.0",
+  "created_at": "2026-11-21",
+  "artifact_type": "FULL_132_QUERY_AI_PREANNOTATION_CANDIDATE_NOT_INDEPENDENT_MEDICAL_GOLD",
+  "count": 132,
+  "cohorts": {
+    "pilot100": 100,
+    "extension32": 32
+  },
+  "by_query_type": {
+    "direct": 19,
+    "paraphrased": 19,
+    "indirect": 19,
+    "multi_hop": 19,
+    "comparative": 16,
+    "risk_factor": 16,
+    "ambiguous": 12,
+    "unsupported": 12
+  },
+  "original_input_blob_sha": {
+    "pilot100": "59590b132028c6c662a21913511fc7f72e1009bc",
+    "extension32": "248346bec507504ae1a1a49db6a5984a440552ea"
+  },
+  "source_catalog_blob_sha": "dc1f84d34eab7ba8b23912b7626b53fdc2fbc7b6",
+  "sources_screened": 24,
+  "clinical_gold_question_count": 0,
+  "independent_clinician_reviewed_question_count": 0,
+  "truthfulness_constraints": [
+    "All 132 source_reference_ids refer to screened background pages, not claim-level adjudication.",
+    "All independently unverified gold_* fields remain null, not fabricated.",
+    "The 132 questions informed G1 graph/resolver development; they are development data, not a held-out test.",
+    "The response_rubric_candidate is a research-aided draft, not an expert-approved gold answer.",
+    "Do not change, overwrite or reinterpret original v1 benchmark outputs; v2 is a new version."
+  ],
+  "annotations": [
+    "task_objective",
+    "focus_entities",
+    "target_role",
+    "expected_answerability",
+    "expected_response_type",
+    "required_relation_semantics",
+    "semantic_group",
+    "source_reference_ids",
+    "response_rubric_candidate",
+    "review_issue_tags"
+  ],
+  "expected_validation_status": "PASS_METADATA_INTEGRITY_AND_SOURCE_REFERENCES_NOT_MEDICAL_CERTIFICATION"
+}

@@ -10,9 +10,11 @@ on:
       - "research_v2/thesis132_g1.py"
       - "research_v2/thesis132_evidence.py"
       - "research_v2/thesis132_gold_scoring.py"
+      - "research_v2/thesis132_legacy_metrics.py"
       - "tests/test_g1_target_resolution_local.py"
       - "tests/test_thesis132_evidence_local.py"
       - "tests/test_thesis132_gold_scoring_local.py"
+      - "tests/test_thesis132_legacy_metrics_local.py"
       - ".github/workflows/g1-target-sufficiency.yml"
   pull_request:
     paths:
@@ -21,9 +23,11 @@ on:
       - "research_v2/thesis132_g1.py"
       - "research_v2/thesis132_evidence.py"
       - "research_v2/thesis132_gold_scoring.py"
+      - "research_v2/thesis132_legacy_metrics.py"
       - "tests/test_g1_target_resolution_local.py"
       - "tests/test_thesis132_evidence_local.py"
       - "tests/test_thesis132_gold_scoring_local.py"
+      - "tests/test_thesis132_legacy_metrics_local.py"
       - ".github/workflows/g1-target-sufficiency.yml"
   workflow_dispatch:
 
@@ -60,3 +64,4 @@ jobs:
         run: |
           python -m unittest discover -s tests -p 'test_thesis132_evidence_local.py' -v
           python -m unittest discover -s tests -p 'test_thesis132_gold_scoring_local.py' -v
+          python -m unittest discover -s tests -p 'test_thesis132_legacy_metrics_local.py' -v

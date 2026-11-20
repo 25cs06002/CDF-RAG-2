@@ -42,7 +42,7 @@ class AdaptiveCandidateTests(unittest.TestCase):
         self.ctrl=AdaptiveCandidateController(StubIndex(),StubBm25())
 
     def test_adaptive_direct_early_stop_no_extra_rounds(self):
-        out=self.ctrl.run(req("Which typed factors lead to heart failure?"),"adaptive")
+        out=self.ctrl.run(req("Which typed factors contribute to heart failure?"),"adaptive")
         self.assertEqual(out.status,"ok")
         self.assertEqual(out.feedback_iterations,0)
         self.assertEqual(out.action_history[:2],["typed_direct","early_stop_candidate_evidence"])
@@ -64,7 +64,7 @@ class AdaptiveCandidateTests(unittest.TestCase):
         self.assertNotIn("document_bm25",out.action_history)
 
     def test_fixed3_has_two_extra_retrieval_rounds(self):
-        out=self.ctrl.run(req("What typed factors lead to heart failure?"),"fixed3")
+        out=self.ctrl.run(req("What typed factors contribute to heart failure?"),"fixed3")
         self.assertEqual(out.feedback_iterations,2)
         self.assertEqual(out.status,"ok")
 

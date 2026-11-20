@@ -8,14 +8,22 @@ on:
       - "research_v2/g1_target_resolution.py"
       - "research_v2/g1_typed_retrieval.py"
       - "research_v2/thesis132_g1.py"
+      - "research_v2/thesis132_evidence.py"
+      - "research_v2/thesis132_gold_scoring.py"
       - "tests/test_g1_target_resolution_local.py"
+      - "tests/test_thesis132_evidence_local.py"
+      - "tests/test_thesis132_gold_scoring_local.py"
       - ".github/workflows/g1-target-sufficiency.yml"
   pull_request:
     paths:
       - "research_v2/g1_target_resolution.py"
       - "research_v2/g1_typed_retrieval.py"
       - "research_v2/thesis132_g1.py"
+      - "research_v2/thesis132_evidence.py"
+      - "research_v2/thesis132_gold_scoring.py"
       - "tests/test_g1_target_resolution_local.py"
+      - "tests/test_thesis132_evidence_local.py"
+      - "tests/test_thesis132_gold_scoring_local.py"
       - ".github/workflows/g1-target-sufficiency.yml"
   workflow_dispatch:
 
@@ -48,3 +56,7 @@ jobs:
         run: |
           python -m research_v2.benchmark_v2_validation
           python -m unittest discover -s tests -p 'test_thesis132_local.py' -v
+      - name: Independent evidence ledger and gold scoring safeguards
+        run: |
+          python -m unittest discover -s tests -p 'test_thesis132_evidence_local.py' -v
+          python -m unittest discover -s tests -p 'test_thesis132_gold_scoring_local.py' -v

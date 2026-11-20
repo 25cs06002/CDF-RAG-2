@@ -34,8 +34,10 @@ class BenchmarkV2Tests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temporary:
             out=write_review_queue(rows,sources,Path(temporary))
             content=(out/"independent_adjudication_worksheet.csv").read_text(encoding="utf-8")
-            self.assertEqual(len(content.splitlines()),133)
+            self.assertEqual(len(content.splitlines()),265)
             self.assertIn("reviewer_independence_declaration",content)
+            self.assertIn("verified_source_spans",content)
+            self.assertIn("review_slot",content)
             self.assertIn("EXTQ_021",content)
             self.assertIn("PILOT_050",content)
 

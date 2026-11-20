@@ -1,0 +1,218 @@
+{
+  "status": "PASS_STATIC_INTEGRITY_NOT_CLINICAL_GOLD",
+  "checked_on": "2026-11-21",
+  "method": "GitHub file bytes fetched and cross-compared in assistant JavaScript audit; not independent medical review",
+  "branches": {
+    "source": "g1-query-evidence-foundation",
+    "master_22_query_untouched": true
+  },
+  "file_git_blob_sha": {
+    "pilot": "59590b132028c6c662a21913511fc7f72e1009bc",
+    "extension": "248346bec507504ae1a1a49db6a5984a440552ea",
+    "annotated": "f2f1587c91e81ac19628cae03ac0a99ebacaa996",
+    "source_catalog": "dc1f84d34eab7ba8b23912b7626b53fdc2fbc7b6",
+    "manifest": "7598211d82b4aa403ca5b3db205b5c587c6239a1"
+  },
+  "count": {
+    "total": 132,
+    "pilot": 100,
+    "extension": 32,
+    "unique_ids": 132,
+    "unique_question_strings": 132,
+    "question_text_changes": 0,
+    "original_target_changes": 0,
+    "source_catalog_entries": 24,
+    "source_pages_referenced": 24,
+    "question_source_links": 223,
+    "questions_with_sources": 122,
+    "questions_without_topical_sources": 10,
+    "expert_reviewed_questions": 0,
+    "gold_answer_questions": 0,
+    "semantic_groups": 80,
+    "cross_cohort_semantic_groups": 18
+  },
+  "target_G0_compatibility": {
+    "exact_g0": 40,
+    "outside_g0": 82,
+    "unassigned": 10
+  },
+  "question_types": {
+    "direct": 19,
+    "paraphrased": 19,
+    "indirect": 19,
+    "multi_hop": 19,
+    "comparative": 16,
+    "risk_factor": 16,
+    "ambiguous": 12,
+    "unsupported": 12
+  },
+  "questions_without_topical_sources": [
+    "PILOT_085",
+    "PILOT_093",
+    "EXTQ_025",
+    "EXTQ_026",
+    "EXTQ_027",
+    "EXTQ_028",
+    "EXTQ_029",
+    "EXTQ_030",
+    "EXTQ_031",
+    "EXTQ_032"
+  ],
+  "cross_cohort_groups": [
+    {
+      "group": "general_factors_coronary artery disease",
+      "ids": [
+        "PILOT_001",
+        "PILOT_016",
+        "EXTQ_001",
+        "EXTQ_005"
+      ]
+    },
+    {
+      "group": "general_factors_heart failure",
+      "ids": [
+        "PILOT_003",
+        "PILOT_018",
+        "EXTQ_002",
+        "EXTQ_006"
+      ]
+    },
+    {
+      "group": "general_factors_chronic kidney disease",
+      "ids": [
+        "PILOT_008",
+        "PILOT_023",
+        "EXTQ_003",
+        "EXTQ_007"
+      ]
+    },
+    {
+      "group": "general_factors_hypothyroidism",
+      "ids": [
+        "PILOT_015",
+        "PILOT_030",
+        "EXTQ_004",
+        "EXTQ_008"
+      ]
+    },
+    {
+      "group": "concept_description_coronary artery disease",
+      "ids": [
+        "PILOT_031",
+        "EXTQ_009"
+      ]
+    },
+    {
+      "group": "concept_description_type 2 diabetes",
+      "ids": [
+        "PILOT_034",
+        "EXTQ_011"
+      ]
+    },
+    {
+      "group": "concept_description_chronic obstructive pulmonary disease",
+      "ids": [
+        "PILOT_037",
+        "EXTQ_012"
+      ]
+    },
+    {
+      "group": "concept_description_chronic kidney disease",
+      "ids": [
+        "PILOT_038",
+        "EXTQ_010"
+      ]
+    },
+    {
+      "group": "multi_hop_coronary artery disease",
+      "ids": [
+        "PILOT_046",
+        "EXTQ_013"
+      ]
+    },
+    {
+      "group": "multi_hop_heart failure",
+      "ids": [
+        "PILOT_048",
+        "EXTQ_016"
+      ]
+    },
+    {
+      "group": "multi_hop_obesity_insulin_resistance_t2d",
+      "ids": [
+        "PILOT_049",
+        "EXTQ_015"
+      ]
+    },
+    {
+      "group": "multi_hop_chronic kidney disease",
+      "ids": [
+        "PILOT_053",
+        "EXTQ_014"
+      ]
+    },
+    {
+      "group": "comparative_diabetes|hypertension|chronic kidney disease",
+      "ids": [
+        "PILOT_067",
+        "EXTQ_019"
+      ]
+    },
+    {
+      "group": "individual_diagnosis_with_inadequate_evidence",
+      "ids": [
+        "PILOT_085",
+        "PILOT_086",
+        "PILOT_087",
+        "PILOT_089",
+        "PILOT_090",
+        "PILOT_091",
+        "PILOT_092",
+        "EXTQ_025",
+        "EXTQ_027",
+        "EXTQ_028"
+      ]
+    },
+    {
+      "group": "occasional_headache_no_diagnosis",
+      "ids": [
+        "PILOT_088",
+        "EXTQ_026"
+      ]
+    },
+    {
+      "group": "exact_future_disease_no_data",
+      "ids": [
+        "PILOT_093",
+        "EXTQ_029"
+      ]
+    },
+    {
+      "group": "exact_individual_prediction_without_data",
+      "ids": [
+        "PILOT_094",
+        "PILOT_095",
+        "PILOT_096",
+        "PILOT_097",
+        "PILOT_098",
+        "PILOT_100",
+        "EXTQ_031",
+        "EXTQ_032"
+      ]
+    },
+    {
+      "group": "quiet_person_no_psychiatric_diagnosis",
+      "ids": [
+        "PILOT_099",
+        "EXTQ_030"
+      ]
+    }
+  ],
+  "failures": [],
+  "limitations": [
+    "This checks structural completeness and source ID references, not whether a linked page supports the whole proposed answer.",
+    "No independent qualified clinician has adjudicated the 132 questions.",
+    "No medical gold accuracy or held-out model evaluation is justified.",
+    "Python CI and user-local test executions are separate checks."
+  ]
+}

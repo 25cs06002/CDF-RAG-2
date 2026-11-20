@@ -37,10 +37,14 @@ FIGURES=[
 ]
 
 
-def _inside(path):
-    p=Path(path).expanduser().resolve()
-    if not p.is_relative_to(ROOT):
-        raise ValueError("All paths must stay inside the CDF-RAG-2 checkout")
+def _inside(path,root=ROOT):
+    """Resolve input relative to selected (possibly separate) checkout."""
+    p=Path(path).expanduser()
+    if not p.is_absolute():
+        p=Path(root)/p
+    p=p.resolve()
+    if not p.is_relative_to(root):
+        raise ValueError("Path escapes the selected CDF-RAG-2 checkout")
     return p
 
 
@@ -58,16 +62,20 @@ def _csv(path):
 
 
 def stage(submission, audit, output_root=STAGING, per_query=False,
-          triage=None, reviewed_case_examples=False, case_studies=None):
+          triage=None, reviewed_case_examples=False, case_studies=None,
+          source_repo=None):
     reg=_read(REG)
-    origin=_inside(submission)
-    audit_folder=_inside(audit)
-    dest_root=_inside(output_root)
+    source_root=Path(source_repo).expanduser().resolve() if source_repo else ROOT
+    if not (source_root/"data/benchmark/medical_causal_pilot100_draft_v1.jsonl").is_file():
+        raise ValueError("Source repo does not have frozen MTP pilot100")
+    origin=_inside(submission,source_root)
+    audit_folder=_inside(audit,source_root)
+    dest_root=_inside(output_root,ROOT)
     audit_json=_read(audit_folder/"audit.json")
     manifest=origin/"submission_manifest.json"
     if audit_json.get("status")!="PASS_TECHNICAL_INTEGRITY":
         raise ValueError("Missing PASS_TECHNICAL_INTEGRITY")
-    if audit_json.get("submission_dir")!=str(origin.relative_to(ROOT)):
+    if audit_json.get("submission_dir")!=str(origin.relative_to(source_root)):
         raise ValueError("Audit belongs to a different submission directory")
     if audit_json.get("submission_manifest_sha256")!=_sha(manifest):
         raise ValueError("Submission manifest was modified after audit")
@@ -97,7 +105,7 @@ def stage(submission, audit, output_root=STAGING, per_query=False,
             raise FileNotFoundError("Missing verified aggregate: "+name)
     triage_files=[]
     if triage:
-        tri=_inside(triage)
+        tri=_inside(triage,source_root)
         summary=tri/"summary.json"
         if not summary.is_file():
             raise FileNotFoundError("Triage summary unavailable")
@@ -107,7 +115,7 @@ def stage(submission, audit, output_root=STAGING, per_query=False,
         triage_files.append((summary,"g1_triage_summary.json"))
     case_files=[]
     if reviewed_case_examples:
-        case=_inside(case_studies)
+        case=_inside(case_studies,source_root)
         m=case/"case_studies_manifest.json"
         if not m.is_file() or _read(m).get("cases")!=17:
             raise ValueError("Case-study manifest doesn't match reviewed cohort")
@@ -121,7 +129,7 @@ def stage(submission, audit, output_root=STAGING, per_query=False,
     for name in chosen:
         src=origin/name;dst=out/name
         shutil.copy2(src,dst)
-        copied.append({"source":str(src.relative_to(ROOT)),
+        copied.append({"source":str(src.relative_to(source_root)),
                        "path":name,"sha256":_sha(dst),"bytes":dst.stat().st_size})
     fig_root=origin/"figures"
     for name in FIGURES:
@@ -129,13 +137,13 @@ def stage(submission, audit, output_root=STAGING, per_query=False,
         if src.is_file():
             (out/"figures").mkdir(exist_ok=True)
             shutil.copy2(src,out/"figures"/name)
-            copied.append({"source":str(src.relative_to(ROOT)),
+            copied.append({"source":str(src.relative_to(source_root)),
                            "path":"figures/"+name,
                            "sha256":_sha(out/"figures"/name),
                            "bytes":(out/"figures"/name).stat().st_size})
     for src,name in triage_files+case_files:
         shutil.copy2(src,out/name)
-        copied.append({"source":str(src.relative_to(ROOT)),
+        copied.append({"source":str(src.relative_to(source_root)),
                        "path":name,"sha256":_sha(out/name),
                        "bytes":(out/name).stat().st_size})
     ready={
@@ -143,6 +151,8 @@ def stage(submission, audit, output_root=STAGING, per_query=False,
         "source_audit_status":"PASS_TECHNICAL_INTEGRITY",
         "source_audit_file_sha256":_sha(audit_folder/"audit.json"),
         "source_manifest_sha256":_sha(manifest),
+        "source_checkout":str(source_root),
+        "destination_checkout":str(ROOT),
         "include_query_level_data":per_query,
         "include_reviewer_examples":reviewed_case_examples,
         "medical_gold":False,
@@ -164,6 +174,8 @@ def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument("--submission-dir",type=Path,required=True)
     p.add_argument("--audit-dir",type=Path,required=True)
+    p.add_argument("--source-repo",type=Path,
+                   help="Read local outputs from another CDF-RAG-2 checkout/worktree")
     p.add_argument("--output-root",type=Path,default=STAGING)
     p.add_argument("--include-per-query",action="store_true")
     p.add_argument("--triage-dir",type=Path)
@@ -172,7 +184,8 @@ def main():
     args=p.parse_args()
     stage(args.submission_dir,args.audit_dir,args.output_root,
           args.include_per_query,args.triage_dir,
-          args.include_reviewed_examples,args.case_studies_dir)
+          args.include_reviewed_examples,args.case_studies_dir,
+          args.source_repo)
 
 
 if __name__=="__main__":

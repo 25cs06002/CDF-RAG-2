@@ -108,7 +108,7 @@ def resolve_target(
             # followed by a population/context, not two coordinated targets.
             # A true 'Stroke and Hypertension' list remains ambiguous.
             gap = query[ordered[0][1]:ordered[1][0]]
-            if re.search(r"\\b(?:in|among|with|who\\s+have|living\\s+with|due\\s+to)\\b", gap, re.I):
+            if re.search(r"\b(?:in|among|with|who\s+have|living\s+with|due\s+to)\b", gap, re.I):
                 return ordered[0][2], "explicit_endpoint_before_context"
             return None, "ambiguous_directional_endpoints"
     return None, "ambiguous_multiple_effects"

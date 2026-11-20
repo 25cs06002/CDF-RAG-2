@@ -1,0 +1,163 @@
+{
+  "schema": "THESIS132_SOURCE_URL_ACCESS_AUDIT_V1",
+  "audit_date": "2026-11-21",
+  "methodology": "One public web-reader URL open attempt per each of the original 24 catalogue URLs, with search-index follow-up for the two reader-restricted pages; URL access is not a medical evidence/claim audit.",
+  "total": 24,
+  "opened_in_web_reader": 22,
+  "reader_http_403": 2,
+  "source_catalog_original_blob_sha": "dc1f84d34eab7ba8b23912b7626b53fdc2fbc7b6",
+  "source_catalog_not_modified": true,
+  "clinical_gold": false,
+  "sources": [
+    {
+      "source_id": "CAD_NHLBI",
+      "original_url": "https://www.nhlbi.nih.gov/health/coronary-heart-disease/causes",
+      "reader_status": "web_reader_opened_2026-11-21",
+      "source_claim_level_verified": false
+    },
+    {
+      "source_id": "ATHEROSCLEROSIS_NHLBI",
+      "original_url": "https://www.nhlbi.nih.gov/health/atherosclerosis/causes",
+      "reader_status": "web_reader_opened_2026-11-21",
+      "source_claim_level_verified": false
+    },
+    {
+      "source_id": "CAD_RISK_NHLBI",
+      "original_url": "https://www.nhlbi.nih.gov/health/coronary-heart-disease/risk-factors",
+      "reader_status": "web_reader_opened_2026-11-21",
+      "source_claim_level_verified": false
+    },
+    {
+      "source_id": "STROKE_CDC",
+      "original_url": "https://www.cdc.gov/stroke/risk-factors/",
+      "reader_status": "web_reader_opened_2026-11-21",
+      "source_claim_level_verified": false
+    },
+    {
+      "source_id": "STROKE_TYPE_CDC",
+      "original_url": "https://www.cdc.gov/stroke/about/index.html",
+      "reader_status": "web_reader_opened_2026-11-21",
+      "source_claim_level_verified": false
+    },
+    {
+      "source_id": "HF_NHLBI",
+      "original_url": "https://www.nhlbi.nih.gov/health/heart-failure/causes",
+      "reader_status": "web_reader_opened_2026-11-21",
+      "source_claim_level_verified": false
+    },
+    {
+      "source_id": "T2D_NIDDK",
+      "original_url": "https://www.niddk.nih.gov/health-information/diabetes/overview/symptoms-causes",
+      "reader_status": "web_reader_opened_2026-11-21",
+      "source_claim_level_verified": false
+    },
+    {
+      "source_id": "T2D_RISK_NIDDK",
+      "original_url": "https://www.niddk.nih.gov/health-information/diabetes/overview/risk-factors-type-2-diabetes",
+      "reader_status": "web_reader_opened_2026-11-21",
+      "source_claim_level_verified": false
+    },
+    {
+      "source_id": "T2D_KIDNEY_CDC",
+      "original_url": "https://www.cdc.gov/diabetes/diabetes-complications/diabetes-and-chronic-kidney-disease.html",
+      "reader_status": "web_reader_opened_2026-11-21",
+      "source_claim_level_verified": false
+    },
+    {
+      "source_id": "OBESITY_CDC",
+      "original_url": "https://www.cdc.gov/obesity/risk-factors/risk-factors.html",
+      "reader_status": "web_reader_opened_2026-11-21",
+      "source_claim_level_verified": false
+    },
+    {
+      "source_id": "ASTHMA_NHLBI",
+      "original_url": "https://www.nhlbi.nih.gov/health/asthma/causes",
+      "reader_status": "web_reader_opened_2026-11-21",
+      "source_claim_level_verified": false
+    },
+    {
+      "source_id": "COPD_CDC",
+      "original_url": "https://www.cdc.gov/copd/about/index.html",
+      "reader_status": "web_reader_opened_2026-11-21",
+      "source_claim_level_verified": false
+    },
+    {
+      "source_id": "CKD_NIDDK",
+      "original_url": "https://www.niddk.nih.gov/health-information/kidney-disease/chronic-kidney-disease-ckd/causes",
+      "reader_status": "web_reader_opened_2026-11-21",
+      "source_claim_level_verified": false
+    },
+    {
+      "source_id": "CKD_CAUSAL_LIMIT_NIDDK",
+      "original_url": "https://www.niddk.nih.gov/health-information/professionals/clinical-tools-patient-management/kidney-disease/identify-manage-patients/evaluate-ckd",
+      "reader_status": "web_reader_opened_2026-11-21",
+      "source_claim_level_verified": false
+    },
+    {
+      "source_id": "MIGRAINE_NIH",
+      "original_url": "https://health.nih.gov/health-topics-a-z/migraine",
+      "reader_status": "web_reader_http_403_search_index_found",
+      "source_claim_level_verified": false,
+      "alternative_url": "https://medlineplus.gov/migraine.html",
+      "alternative_publisher": "MedlinePlus (NLM)",
+      "note": "Original health.nih.gov URL returned 403 in web reader; no claim that URL is dead; accessible MedlinePlus alternative."
+    },
+    {
+      "source_id": "EPILEPSY_NINDS",
+      "original_url": "https://www.ninds.nih.gov/health-information/disorders/epilepsy-and-seizures",
+      "reader_status": "web_reader_http_403_search_index_found",
+      "source_claim_level_verified": false,
+      "alternative_url": "https://medlineplus.gov/epilepsy.html",
+      "alternative_publisher": "MedlinePlus (NLM)",
+      "note": "Original ninds.nih.gov URL returned 403 in web reader; NINDS entry remained search-indexed; accessible MedlinePlus alternative."
+    },
+    {
+      "source_id": "TB_CDC",
+      "original_url": "https://www.cdc.gov/tb/hcp/clinical-overview/latent-tuberculosis-infection.html",
+      "reader_status": "web_reader_opened_2026-11-21",
+      "source_claim_level_verified": false
+    },
+    {
+      "source_id": "TB_DISEASE_CDC",
+      "original_url": "https://www.cdc.gov/tb/hcp/clinical-overview/tuberculosis-disease.html",
+      "reader_status": "web_reader_opened_2026-11-21",
+      "source_claim_level_verified": false
+    },
+    {
+      "source_id": "PNEUMONIA_NHLBI",
+      "original_url": "https://www.nhlbi.nih.gov/health/pneumonia/causes",
+      "reader_status": "web_reader_opened_2026-11-21",
+      "source_claim_level_verified": false
+    },
+    {
+      "source_id": "DEPRESSION_NIMH",
+      "original_url": "https://www.nimh.nih.gov/health/publications/depression",
+      "reader_status": "web_reader_opened_2026-11-21",
+      "source_claim_level_verified": false
+    },
+    {
+      "source_id": "LUNG_CANCER_CDC",
+      "original_url": "https://www.cdc.gov/lung-cancer/risk-factors/",
+      "reader_status": "web_reader_opened_2026-11-21",
+      "source_claim_level_verified": false
+    },
+    {
+      "source_id": "LUNG_CANCER_NSMOKE_CDC",
+      "original_url": "https://www.cdc.gov/lung-cancer/nonsmokers/",
+      "reader_status": "web_reader_opened_2026-11-21",
+      "source_claim_level_verified": false
+    },
+    {
+      "source_id": "THYROID_MEDLINE",
+      "original_url": "https://medlineplus.gov/hypothyroidism.html",
+      "reader_status": "web_reader_opened_2026-11-21",
+      "source_claim_level_verified": false
+    },
+    {
+      "source_id": "INFLUENZA_CDC",
+      "original_url": "https://www.cdc.gov/yellow-book/hcp/travel-associated-infections-diseases/influenza.html",
+      "reader_status": "web_reader_opened_2026-11-21",
+      "source_claim_level_verified": false
+    }
+  ]
+}

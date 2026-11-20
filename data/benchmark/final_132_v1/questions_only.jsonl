@@ -1,0 +1,132 @@
+{"query_id":"PILOT_001","query":"What factors are reported to contribute to the development of coronary artery disease?"}
+{"query_id":"PILOT_002","query":"What factors are reported to contribute to the development of stroke?"}
+{"query_id":"PILOT_003","query":"What factors are reported to contribute to the development of heart failure?"}
+{"query_id":"PILOT_004","query":"What factors are reported to contribute to the development of type 2 diabetes?"}
+{"query_id":"PILOT_005","query":"What factors are reported to contribute to the development of obesity?"}
+{"query_id":"PILOT_006","query":"What factors are reported to contribute to the development of asthma?"}
+{"query_id":"PILOT_007","query":"What factors are reported to contribute to the development of chronic obstructive pulmonary disease?"}
+{"query_id":"PILOT_008","query":"What factors are reported to contribute to the development of chronic kidney disease?"}
+{"query_id":"PILOT_009","query":"What factors are reported to contribute to the development of migraine?"}
+{"query_id":"PILOT_010","query":"What factors are reported to contribute to the development of epilepsy?"}
+{"query_id":"PILOT_011","query":"What factors are reported to contribute to the development of tuberculosis?"}
+{"query_id":"PILOT_012","query":"What factors are reported to contribute to the development of pneumonia?"}
+{"query_id":"PILOT_013","query":"What factors are reported to contribute to the development of depression?"}
+{"query_id":"PILOT_014","query":"What factors are reported to contribute to the development of lung cancer?"}
+{"query_id":"PILOT_015","query":"What factors are reported to contribute to the development of hypothyroidism?"}
+{"query_id":"PILOT_016","query":"Which underlying conditions or exposures might be involved in the onset of coronary artery disease?"}
+{"query_id":"PILOT_017","query":"Which underlying conditions or exposures might be involved in the onset of stroke?"}
+{"query_id":"PILOT_018","query":"Which underlying conditions or exposures might be involved in the onset of heart failure?"}
+{"query_id":"PILOT_019","query":"Which underlying conditions or exposures might be involved in the onset of type 2 diabetes?"}
+{"query_id":"PILOT_020","query":"Which underlying conditions or exposures might be involved in the onset of obesity?"}
+{"query_id":"PILOT_021","query":"Which underlying conditions or exposures might be involved in the onset of asthma?"}
+{"query_id":"PILOT_022","query":"Which underlying conditions or exposures might be involved in the onset of chronic obstructive pulmonary disease?"}
+{"query_id":"PILOT_023","query":"Which underlying conditions or exposures might be involved in the onset of chronic kidney disease?"}
+{"query_id":"PILOT_024","query":"Which underlying conditions or exposures might be involved in the onset of migraine?"}
+{"query_id":"PILOT_025","query":"Which underlying conditions or exposures might be involved in the onset of epilepsy?"}
+{"query_id":"PILOT_026","query":"Which underlying conditions or exposures might be involved in the onset of tuberculosis?"}
+{"query_id":"PILOT_027","query":"Which underlying conditions or exposures might be involved in the onset of pneumonia?"}
+{"query_id":"PILOT_028","query":"Which underlying conditions or exposures might be involved in the onset of depression?"}
+{"query_id":"PILOT_029","query":"Which underlying conditions or exposures might be involved in the onset of lung cancer?"}
+{"query_id":"PILOT_030","query":"Which underlying conditions or exposures might be involved in the onset of hypothyroidism?"}
+{"query_id":"PILOT_031","query":"Which condition affecting the coronary arteries should be investigated when assessing narrowed blood supply to heart muscle?"}
+{"query_id":"PILOT_032","query":"Which cerebrovascular condition is relevant when a question describes sudden interruption of blood flow to part of the brain?"}
+{"query_id":"PILOT_033","query":"Which cardiac condition is being discussed when the heart cannot pump blood effectively enough for the body's needs?"}
+{"query_id":"PILOT_034","query":"Which metabolic disorder should be considered when discussing impaired insulin action and persistent high blood glucose?"}
+{"query_id":"PILOT_035","query":"Which health condition is relevant to a question about excess body fat and long-term metabolic risk?"}
+{"query_id":"PILOT_036","query":"Which respiratory condition involves variable airway narrowing and recurring episodes of wheeze?"}
+{"query_id":"PILOT_037","query":"Which chronic lung condition is discussed when airflow limitation persists over time?"}
+{"query_id":"PILOT_038","query":"Which kidney condition is characterized by long-lasting reduction in kidney function?"}
+{"query_id":"PILOT_039","query":"Which neurological disorder is relevant to recurrent headaches with light sensitivity in some patients?"}
+{"query_id":"PILOT_040","query":"Which neurological condition is defined by a tendency toward recurrent unprovoked seizures?"}
+{"query_id":"PILOT_041","query":"Which infectious disease is associated with Mycobacterium tuberculosis, and how might it affect the lungs?"}
+{"query_id":"PILOT_042","query":"Which respiratory infection is relevant when lung air sacs become inflamed and may contain fluid?"}
+{"query_id":"PILOT_043","query":"Which mental health condition may involve persistent low mood and reduced interest, and what evidence is relevant to its origins?"}
+{"query_id":"PILOT_044","query":"Which malignancy originates in lung tissue, and what established exposures should be considered?"}
+{"query_id":"PILOT_045","query":"Which thyroid disorder is relevant when thyroid hormone production is lower than needed?"}
+{"query_id":"PILOT_046","query":"What evidence, if any, supports a pathway from smoking through atherosclerotic plaque development to coronary artery disease?"}
+{"query_id":"PILOT_047","query":"How might persistent high blood pressure affect vascular injury and subsequent stroke risk, and which steps are evidence-supported?"}
+{"query_id":"PILOT_048","query":"What is the evidence for an indirect pathway from coronary artery disease through heart muscle injury to heart failure?"}
+{"query_id":"PILOT_049","query":"Does evidence support a pathway from excess adiposity through insulin resistance to type 2 diabetes, and what are its limitations?"}
+{"query_id":"PILOT_050","query":"How can chronic high blood glucose contribute to vascular changes and kidney complications, according to evidence?"}
+{"query_id":"PILOT_051","query":"Can environmental exposure contribute to airway inflammation and asthma symptoms through intermediate mechanisms?"}
+{"query_id":"PILOT_052","query":"How does evidence connect tobacco exposure, chronic airway inflammation, and airflow limitation?"}
+{"query_id":"PILOT_053","query":"Which intermediate biological processes might connect longstanding high blood pressure with chronic kidney disease?"}
+{"query_id":"PILOT_054","query":"What evidence supports or contradicts a proposed pathway from atrial fibrillation through clot formation to ischemic stroke?"}
+{"query_id":"PILOT_055","query":"Could prior brain injury lead to structural changes and later seizure risk, and which links are supported?"}
+{"query_id":"PILOT_056","query":"What evidence describes a possible pathway from tuberculosis infection through lung damage to persistent breathing limitation?"}
+{"query_id":"PILOT_057","query":"Which intermediate immune responses might connect respiratory infection with the clinical manifestations of pneumonia?"}
+{"query_id":"PILOT_058","query":"What evidence exists for pathways linking chronic stress, sleep disruption, and depressive symptoms without assuming causality?"}
+{"query_id":"PILOT_059","query":"How might prolonged exposure to tobacco smoke relate to cellular DNA damage and lung cancer development?"}
+{"query_id":"PILOT_060","query":"Can autoimmune thyroid inflammation lead to reduced thyroid hormone production through intermediate tissue changes?"}
+{"query_id":"PILOT_061","query":"How do established risk factors for stroke compare with those for coronary artery disease?"}
+{"query_id":"PILOT_062","query":"How do the mechanisms implicated in heart failure differ from those associated with coronary artery disease?"}
+{"query_id":"PILOT_063","query":"How does the evidence on obesity-related risk differ between type 2 diabetes and coronary artery disease?"}
+{"query_id":"PILOT_064","query":"Which associations are shared by obesity and metabolic syndrome, and which should not be interpreted as causal?"}
+{"query_id":"PILOT_065","query":"How do asthma and chronic obstructive pulmonary disease differ in their common triggers and underlying mechanisms?"}
+{"query_id":"PILOT_066","query":"How do the causes and contributing factors of pneumonia differ from those of asthma?"}
+{"query_id":"PILOT_067","query":"How does the relationship between diabetes and chronic kidney disease compare with that between hypertension and kidney disease?"}
+{"query_id":"PILOT_068","query":"How do common migraine triggers differ from established causes of secondary headaches?"}
+{"query_id":"PILOT_069","query":"How do factors associated with epilepsy differ from triggers of an individual seizure?"}
+{"query_id":"PILOT_070","query":"How do transmission mechanisms of tuberculosis compare with those of influenza?"}
+{"query_id":"PILOT_071","query":"How do risk factors for depression compare with those for anxiety disorders?"}
+{"query_id":"PILOT_072","query":"How do established lung cancer risk factors compare between people who smoke and people who have never smoked?"}
+{"query_id":"PILOT_073","query":"Which modifiable risk factors for stroke have strong evidence, and which are only associated with risk?"}
+{"query_id":"PILOT_074","query":"What evidence supports elevated blood pressure as a risk factor for coronary artery disease?"}
+{"query_id":"PILOT_075","query":"Which factors increase the likelihood of developing heart failure in adults?"}
+{"query_id":"PILOT_076","query":"Which lifestyle and inherited factors are associated with future type 2 diabetes risk?"}
+{"query_id":"PILOT_077","query":"Which environmental and behavioral factors are associated with obesity risk at a population level?"}
+{"query_id":"PILOT_078","query":"Which environmental exposures are associated with asthma onset, and how certain is the evidence?"}
+{"query_id":"PILOT_079","query":"What is known about occupational exposure as a risk factor for chronic obstructive pulmonary disease?"}
+{"query_id":"PILOT_080","query":"How do hypertension and diabetes relate to risk of chronic kidney disease?"}
+{"query_id":"PILOT_081","query":"Which factors are linked to developing migraine, as distinct from provoking an attack?"}
+{"query_id":"PILOT_082","query":"Which conditions increase the likelihood of progression from latent tuberculosis infection to active disease?"}
+{"query_id":"PILOT_083","query":"Which social or biological factors are associated with depression risk, and what causal claims are justified?"}
+{"query_id":"PILOT_084","query":"How does evidence distinguish established lung cancer risk factors from uncertain associations?"}
+{"query_id":"PILOT_085","query":"I often feel tired; which disease is responsible for it?"}
+{"query_id":"PILOT_086","query":"My chest feels strange sometimes; is heart disease the cause?"}
+{"query_id":"PILOT_087","query":"I get short of breath at times; does that mean I have asthma?"}
+{"query_id":"PILOT_088","query":"My head hurts occasionally; what exact neurological disorder do I have?"}
+{"query_id":"PILOT_089","query":"Someone feels thirsty frequently; is diabetes necessarily responsible?"}
+{"query_id":"PILOT_090","query":"A person has had a bad week; does this establish depression?"}
+{"query_id":"PILOT_091","query":"A blood test is described as abnormal without values; what kidney disease is present?"}
+{"query_id":"PILOT_092","query":"A person coughs occasionally; can the exact infection be identified from this alone?"}
+{"query_id":"PILOT_093","query":"Without any symptoms, records, or measurements, what exact disease will this unnamed person develop next year?"}
+{"query_id":"PILOT_094","query":"Using only the phrase 'family history', can you identify the exact date this person will develop lung cancer?"}
+{"query_id":"PILOT_095","query":"Without imaging, examination, or history, determine the exact artery responsible for an unspecified person's possible stroke."}
+{"query_id":"PILOT_096","query":"Without laboratory values or medical history, identify the precise stage of kidney disease in an anonymous patient."}
+{"query_id":"PILOT_097","query":"Given no clinical description, identify the specific biological cause of an anonymous person's single episode of shaking."}
+{"query_id":"PILOT_098","query":"Without test results or exposure history, determine with certainty whether an unknown person has active tuberculosis."}
+{"query_id":"PILOT_099","query":"From the statement 'someone is quiet today' alone, infer that person's exact psychiatric diagnosis."}
+{"query_id":"PILOT_100","query":"Without any health records, predict the exact blood glucose level an anonymous individual will have tomorrow."}
+{"query_id":"EXTQ_001","query":"Which plaque-related processes contribute to the development of coronary artery disease?"}
+{"query_id":"EXTQ_002","query":"Which conditions can damage cardiac muscle and contribute to heart failure?"}
+{"query_id":"EXTQ_003","query":"What conditions are associated with developing chronic kidney disease, distinguishing risk factors from causes?"}
+{"query_id":"EXTQ_004","query":"What mechanisms may reduce thyroid hormone production in hypothyroidism?"}
+{"query_id":"EXTQ_005","query":"What evidence explains how fatty deposits narrow coronary vessels?"}
+{"query_id":"EXTQ_006","query":"What underlying illnesses can weaken the heart enough to cause pump failure?"}
+{"query_id":"EXTQ_007","query":"Which established illnesses put kidney function at risk over time?"}
+{"query_id":"EXTQ_008","query":"How can the thyroid gland become unable to produce adequate thyroid hormones?"}
+{"query_id":"EXTQ_009","query":"A question describes progressive plaque narrowing in the arteries supplying the myocardium. Which condition is under discussion?"}
+{"query_id":"EXTQ_010","query":"Which chronic condition is relevant when filtration function declines for a prolonged period?"}
+{"query_id":"EXTQ_011","query":"Which form of diabetes involves persistent insulin resistance together with impaired insulin secretion?"}
+{"query_id":"EXTQ_012","query":"A question discusses persistent airflow limitation linked to prolonged inhalational exposures. Which condition is relevant?"}
+{"query_id":"EXTQ_013","query":"Is there source evidence for a chain linking elevated LDL, coronary plaque, reduced blood flow, and coronary disease? Identify unsupported links."}
+{"query_id":"EXTQ_014","query":"Which intermediate processes, if independently supported, could connect longstanding hypertension with declining renal function?"}
+{"query_id":"EXTQ_015","query":"What evidence supports or limits a pathway from excess adiposity to insulin resistance and subsequently type 2 diabetes?"}
+{"query_id":"EXTQ_016","query":"What source-supported links connect coronary ischemia, myocardial damage, and reduced ejection fraction?"}
+{"query_id":"EXTQ_017","query":"How do mechanisms of ischemic and hemorrhagic stroke differ, and which statements are about risk rather than cause?"}
+{"query_id":"EXTQ_018","query":"How do coronary artery disease and heart failure differ in the role of reduced coronary blood flow?"}
+{"query_id":"EXTQ_019","query":"How do hypertension-related and diabetes-related kidney disease mechanisms differ?"}
+{"query_id":"EXTQ_020","query":"How is an asthma attack trigger different from the underlying causes of asthma onset?"}
+{"query_id":"EXTQ_021","query":"Which risk factors for type 2 diabetes can change, and which should not be called direct causes?"}
+{"query_id":"EXTQ_022","query":"How should family history, smoking, and raised cholesterol be classified as coronary disease risks or mechanisms?"}
+{"query_id":"EXTQ_023","query":"Which factors increase heart failure risk without establishing the cause for an individual patient?"}
+{"query_id":"EXTQ_024","query":"What factors raise chronic kidney disease risk, and what evidence would distinguish association from causation?"}
+{"query_id":"EXTQ_025","query":"Someone feels fatigued after work. Which exact endocrine disease must they have?"}
+{"query_id":"EXTQ_026","query":"A person has an occasional headache. Can the exact neurological diagnosis be established from this alone?"}
+{"query_id":"EXTQ_027","query":"Someone reports palpitations without an ECG. Which specific arrhythmia is definitely present?"}
+{"query_id":"EXTQ_028","query":"An isolated elevated laboratory value is mentioned without context. Is a particular chronic kidney diagnosis certain?"}
+{"query_id":"EXTQ_029","query":"Predict the exact disease that an unidentified healthy person will develop five years from now without any measurements."}
+{"query_id":"EXTQ_030","query":"Diagnose a specific psychiatric disorder solely because an unnamed individual was silent today."}
+{"query_id":"EXTQ_031","query":"Prove that one lifestyle factor caused an individual's stroke without history, examination, or investigation."}
+{"query_id":"EXTQ_032","query":"Deduce an individual's blood glucose measurement from their occupation alone."}

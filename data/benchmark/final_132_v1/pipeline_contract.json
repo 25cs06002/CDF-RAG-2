@@ -1,0 +1,76 @@
+{
+  "schema": "THESIS132_PIPELINE_INPUT_CONTRACT_V1",
+  "frozen_input": "questions_only.jsonl",
+  "input_sha256": "a45fcddfc153c0f9c2211c8167e001b03513216bf9191f2f08a4444d52df6c76",
+  "rows": 132,
+  "exact_fields": [
+    "query_id",
+    "query"
+  ],
+  "order_preserved": true,
+  "all_pipelines": [
+    "B1",
+    "B2",
+    "B3",
+    "B4",
+    "B5",
+    "B6",
+    "B7",
+    "B8",
+    "B9"
+  ],
+  "run_spec": {
+    "B1": {
+      "mode": "retrieval_only_or_shared_generator",
+      "entrypoint": "research_v2.thesis132 run",
+      "retriever": "sparse_document"
+    },
+    "B2": {
+      "mode": "retrieval_only_or_shared_generator",
+      "entrypoint": "research_v2.thesis132 run",
+      "retriever": "BM25_document"
+    },
+    "B3": {
+      "mode": "retrieval_only_or_shared_generator",
+      "entrypoint": "research_v2.thesis132 run",
+      "retriever": "dense_document"
+    },
+    "B4": {
+      "mode": "retrieval_only_or_shared_generator",
+      "entrypoint": "research_v2.thesis132 run",
+      "retriever": "hybrid_document"
+    },
+    "B5": {
+      "mode": "retrieval_only_or_shared_generator",
+      "entrypoint": "research_v2.thesis132 run",
+      "graph": "G0"
+    },
+    "B6": {
+      "mode": "retrieval_only_or_shared_generator",
+      "entrypoint": "research_v2.thesis132 run",
+      "graph": "G0"
+    },
+    "B7": {
+      "mode": "live_end_to_end_only",
+      "entrypoint": "research_v2.thesis132 run --allow-live",
+      "requires": "configured Neo4j and Ollama"
+    },
+    "B8": {
+      "mode": "live_end_to_end_only",
+      "entrypoint": "research_v2.thesis132 run --allow-live",
+      "requires": "configured Neo4j, Ollama and RL artifacts"
+    },
+    "B9": {
+      "mode": "prototype_retrieval_only",
+      "entrypoint": "research_v2.thesis132_adaptive --graph-dir <G1_FINAL> --policy adaptive",
+      "status": "candidate typed controller; no PPO and no final generator"
+    }
+  },
+  "expected_output_integrity": {
+    "one_record_per_query_per_model": true,
+    "no_error_as_abstention": true,
+    "benchmark_gold_not_passed_to_inference": true,
+    "same_query_sha_in_all_sessions": true
+  },
+  "quality_limitation": "No independently adjudicated clinical gold; compare operational metrics and blinded later expert judgments only."
+}

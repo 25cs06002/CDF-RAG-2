@@ -1,0 +1,133 @@
+query_id,query
+PILOT_001,What factors are reported to contribute to the development of coronary artery disease?
+PILOT_002,What factors are reported to contribute to the development of stroke?
+PILOT_003,What factors are reported to contribute to the development of heart failure?
+PILOT_004,What factors are reported to contribute to the development of type 2 diabetes?
+PILOT_005,What factors are reported to contribute to the development of obesity?
+PILOT_006,What factors are reported to contribute to the development of asthma?
+PILOT_007,What factors are reported to contribute to the development of chronic obstructive pulmonary disease?
+PILOT_008,What factors are reported to contribute to the development of chronic kidney disease?
+PILOT_009,What factors are reported to contribute to the development of migraine?
+PILOT_010,What factors are reported to contribute to the development of epilepsy?
+PILOT_011,What factors are reported to contribute to the development of tuberculosis?
+PILOT_012,What factors are reported to contribute to the development of pneumonia?
+PILOT_013,What factors are reported to contribute to the development of depression?
+PILOT_014,What factors are reported to contribute to the development of lung cancer?
+PILOT_015,What factors are reported to contribute to the development of hypothyroidism?
+PILOT_016,Which underlying conditions or exposures might be involved in the onset of coronary artery disease?
+PILOT_017,Which underlying conditions or exposures might be involved in the onset of stroke?
+PILOT_018,Which underlying conditions or exposures might be involved in the onset of heart failure?
+PILOT_019,Which underlying conditions or exposures might be involved in the onset of type 2 diabetes?
+PILOT_020,Which underlying conditions or exposures might be involved in the onset of obesity?
+PILOT_021,Which underlying conditions or exposures might be involved in the onset of asthma?
+PILOT_022,Which underlying conditions or exposures might be involved in the onset of chronic obstructive pulmonary disease?
+PILOT_023,Which underlying conditions or exposures might be involved in the onset of chronic kidney disease?
+PILOT_024,Which underlying conditions or exposures might be involved in the onset of migraine?
+PILOT_025,Which underlying conditions or exposures might be involved in the onset of epilepsy?
+PILOT_026,Which underlying conditions or exposures might be involved in the onset of tuberculosis?
+PILOT_027,Which underlying conditions or exposures might be involved in the onset of pneumonia?
+PILOT_028,Which underlying conditions or exposures might be involved in the onset of depression?
+PILOT_029,Which underlying conditions or exposures might be involved in the onset of lung cancer?
+PILOT_030,Which underlying conditions or exposures might be involved in the onset of hypothyroidism?
+PILOT_031,Which condition affecting the coronary arteries should be investigated when assessing narrowed blood supply to heart muscle?
+PILOT_032,Which cerebrovascular condition is relevant when a question describes sudden interruption of blood flow to part of the brain?
+PILOT_033,Which cardiac condition is being discussed when the heart cannot pump blood effectively enough for the body's needs?
+PILOT_034,Which metabolic disorder should be considered when discussing impaired insulin action and persistent high blood glucose?
+PILOT_035,Which health condition is relevant to a question about excess body fat and long-term metabolic risk?
+PILOT_036,Which respiratory condition involves variable airway narrowing and recurring episodes of wheeze?
+PILOT_037,Which chronic lung condition is discussed when airflow limitation persists over time?
+PILOT_038,Which kidney condition is characterized by long-lasting reduction in kidney function?
+PILOT_039,Which neurological disorder is relevant to recurrent headaches with light sensitivity in some patients?
+PILOT_040,Which neurological condition is defined by a tendency toward recurrent unprovoked seizures?
+PILOT_041,"Which infectious disease is associated with Mycobacterium tuberculosis, and how might it affect the lungs?"
+PILOT_042,Which respiratory infection is relevant when lung air sacs become inflamed and may contain fluid?
+PILOT_043,"Which mental health condition may involve persistent low mood and reduced interest, and what evidence is relevant to its origins?"
+PILOT_044,"Which malignancy originates in lung tissue, and what established exposures should be considered?"
+PILOT_045,Which thyroid disorder is relevant when thyroid hormone production is lower than needed?
+PILOT_046,"What evidence, if any, supports a pathway from smoking through atherosclerotic plaque development to coronary artery disease?"
+PILOT_047,"How might persistent high blood pressure affect vascular injury and subsequent stroke risk, and which steps are evidence-supported?"
+PILOT_048,What is the evidence for an indirect pathway from coronary artery disease through heart muscle injury to heart failure?
+PILOT_049,"Does evidence support a pathway from excess adiposity through insulin resistance to type 2 diabetes, and what are its limitations?"
+PILOT_050,"How can chronic high blood glucose contribute to vascular changes and kidney complications, according to evidence?"
+PILOT_051,Can environmental exposure contribute to airway inflammation and asthma symptoms through intermediate mechanisms?
+PILOT_052,"How does evidence connect tobacco exposure, chronic airway inflammation, and airflow limitation?"
+PILOT_053,Which intermediate biological processes might connect longstanding high blood pressure with chronic kidney disease?
+PILOT_054,What evidence supports or contradicts a proposed pathway from atrial fibrillation through clot formation to ischemic stroke?
+PILOT_055,"Could prior brain injury lead to structural changes and later seizure risk, and which links are supported?"
+PILOT_056,What evidence describes a possible pathway from tuberculosis infection through lung damage to persistent breathing limitation?
+PILOT_057,Which intermediate immune responses might connect respiratory infection with the clinical manifestations of pneumonia?
+PILOT_058,"What evidence exists for pathways linking chronic stress, sleep disruption, and depressive symptoms without assuming causality?"
+PILOT_059,How might prolonged exposure to tobacco smoke relate to cellular DNA damage and lung cancer development?
+PILOT_060,Can autoimmune thyroid inflammation lead to reduced thyroid hormone production through intermediate tissue changes?
+PILOT_061,How do established risk factors for stroke compare with those for coronary artery disease?
+PILOT_062,How do the mechanisms implicated in heart failure differ from those associated with coronary artery disease?
+PILOT_063,How does the evidence on obesity-related risk differ between type 2 diabetes and coronary artery disease?
+PILOT_064,"Which associations are shared by obesity and metabolic syndrome, and which should not be interpreted as causal?"
+PILOT_065,How do asthma and chronic obstructive pulmonary disease differ in their common triggers and underlying mechanisms?
+PILOT_066,How do the causes and contributing factors of pneumonia differ from those of asthma?
+PILOT_067,How does the relationship between diabetes and chronic kidney disease compare with that between hypertension and kidney disease?
+PILOT_068,How do common migraine triggers differ from established causes of secondary headaches?
+PILOT_069,How do factors associated with epilepsy differ from triggers of an individual seizure?
+PILOT_070,How do transmission mechanisms of tuberculosis compare with those of influenza?
+PILOT_071,How do risk factors for depression compare with those for anxiety disorders?
+PILOT_072,How do established lung cancer risk factors compare between people who smoke and people who have never smoked?
+PILOT_073,"Which modifiable risk factors for stroke have strong evidence, and which are only associated with risk?"
+PILOT_074,What evidence supports elevated blood pressure as a risk factor for coronary artery disease?
+PILOT_075,Which factors increase the likelihood of developing heart failure in adults?
+PILOT_076,Which lifestyle and inherited factors are associated with future type 2 diabetes risk?
+PILOT_077,Which environmental and behavioral factors are associated with obesity risk at a population level?
+PILOT_078,"Which environmental exposures are associated with asthma onset, and how certain is the evidence?"
+PILOT_079,What is known about occupational exposure as a risk factor for chronic obstructive pulmonary disease?
+PILOT_080,How do hypertension and diabetes relate to risk of chronic kidney disease?
+PILOT_081,"Which factors are linked to developing migraine, as distinct from provoking an attack?"
+PILOT_082,Which conditions increase the likelihood of progression from latent tuberculosis infection to active disease?
+PILOT_083,"Which social or biological factors are associated with depression risk, and what causal claims are justified?"
+PILOT_084,How does evidence distinguish established lung cancer risk factors from uncertain associations?
+PILOT_085,I often feel tired; which disease is responsible for it?
+PILOT_086,My chest feels strange sometimes; is heart disease the cause?
+PILOT_087,I get short of breath at times; does that mean I have asthma?
+PILOT_088,My head hurts occasionally; what exact neurological disorder do I have?
+PILOT_089,Someone feels thirsty frequently; is diabetes necessarily responsible?
+PILOT_090,A person has had a bad week; does this establish depression?
+PILOT_091,A blood test is described as abnormal without values; what kidney disease is present?
+PILOT_092,A person coughs occasionally; can the exact infection be identified from this alone?
+PILOT_093,"Without any symptoms, records, or measurements, what exact disease will this unnamed person develop next year?"
+PILOT_094,"Using only the phrase 'family history', can you identify the exact date this person will develop lung cancer?"
+PILOT_095,"Without imaging, examination, or history, determine the exact artery responsible for an unspecified person's possible stroke."
+PILOT_096,"Without laboratory values or medical history, identify the precise stage of kidney disease in an anonymous patient."
+PILOT_097,"Given no clinical description, identify the specific biological cause of an anonymous person's single episode of shaking."
+PILOT_098,"Without test results or exposure history, determine with certainty whether an unknown person has active tuberculosis."
+PILOT_099,"From the statement 'someone is quiet today' alone, infer that person's exact psychiatric diagnosis."
+PILOT_100,"Without any health records, predict the exact blood glucose level an anonymous individual will have tomorrow."
+EXTQ_001,Which plaque-related processes contribute to the development of coronary artery disease?
+EXTQ_002,Which conditions can damage cardiac muscle and contribute to heart failure?
+EXTQ_003,"What conditions are associated with developing chronic kidney disease, distinguishing risk factors from causes?"
+EXTQ_004,What mechanisms may reduce thyroid hormone production in hypothyroidism?
+EXTQ_005,What evidence explains how fatty deposits narrow coronary vessels?
+EXTQ_006,What underlying illnesses can weaken the heart enough to cause pump failure?
+EXTQ_007,Which established illnesses put kidney function at risk over time?
+EXTQ_008,How can the thyroid gland become unable to produce adequate thyroid hormones?
+EXTQ_009,A question describes progressive plaque narrowing in the arteries supplying the myocardium. Which condition is under discussion?
+EXTQ_010,Which chronic condition is relevant when filtration function declines for a prolonged period?
+EXTQ_011,Which form of diabetes involves persistent insulin resistance together with impaired insulin secretion?
+EXTQ_012,A question discusses persistent airflow limitation linked to prolonged inhalational exposures. Which condition is relevant?
+EXTQ_013,"Is there source evidence for a chain linking elevated LDL, coronary plaque, reduced blood flow, and coronary disease? Identify unsupported links."
+EXTQ_014,"Which intermediate processes, if independently supported, could connect longstanding hypertension with declining renal function?"
+EXTQ_015,What evidence supports or limits a pathway from excess adiposity to insulin resistance and subsequently type 2 diabetes?
+EXTQ_016,"What source-supported links connect coronary ischemia, myocardial damage, and reduced ejection fraction?"
+EXTQ_017,"How do mechanisms of ischemic and hemorrhagic stroke differ, and which statements are about risk rather than cause?"
+EXTQ_018,How do coronary artery disease and heart failure differ in the role of reduced coronary blood flow?
+EXTQ_019,How do hypertension-related and diabetes-related kidney disease mechanisms differ?
+EXTQ_020,How is an asthma attack trigger different from the underlying causes of asthma onset?
+EXTQ_021,"Which risk factors for type 2 diabetes can change, and which should not be called direct causes?"
+EXTQ_022,"How should family history, smoking, and raised cholesterol be classified as coronary disease risks or mechanisms?"
+EXTQ_023,Which factors increase heart failure risk without establishing the cause for an individual patient?
+EXTQ_024,"What factors raise chronic kidney disease risk, and what evidence would distinguish association from causation?"
+EXTQ_025,Someone feels fatigued after work. Which exact endocrine disease must they have?
+EXTQ_026,A person has an occasional headache. Can the exact neurological diagnosis be established from this alone?
+EXTQ_027,Someone reports palpitations without an ECG. Which specific arrhythmia is definitely present?
+EXTQ_028,An isolated elevated laboratory value is mentioned without context. Is a particular chronic kidney diagnosis certain?
+EXTQ_029,Predict the exact disease that an unidentified healthy person will develop five years from now without any measurements.
+EXTQ_030,Diagnose a specific psychiatric disorder solely because an unnamed individual was silent today.
+EXTQ_031,"Prove that one lifestyle factor caused an individual's stroke without history, examination, or investigation."
+EXTQ_032,Deduce an individual's blood glucose measurement from their occupation alone.

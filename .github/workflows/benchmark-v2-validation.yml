@@ -1,0 +1,67 @@
+name: CDF-RAG-2 Benchmark V2 Offline Integrity
+
+on:
+  push:
+    branches:
+      - g1-query-evidence-foundation
+      - research-v2
+    paths:
+      - "data/benchmark/v2/**"
+      - "data/benchmark/medical_causal_pilot100_draft_v1.jsonl"
+      - "data/benchmark/medical_causal_expansion32_draft_v1.jsonl"
+      - "research_v2/benchmark_v2_*.py"
+      - "tests/test_benchmark_v2*_local.py"
+      - ".github/workflows/benchmark-v2-validation.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-screened-integrity:
+    name: Benchmark metadata, source references, anti-false-gold safeguards
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Syntax-check source and tests
+        run: |
+          python -m compileall -q research_v2/benchmark_v2_validation.py research_v2/benchmark_v2_review_gate.py research_v2/benchmark_v2_export.py tests/test_benchmark_v2_validation_local.py tests/test_benchmark_v2_review_export_local.py
+      - name: Run source-screened benchmark regression tests
+        run: |
+          python -m unittest discover -s tests -p 'test_benchmark_v2*_local.py' -v
+      - name: Validate all 132 source-screened records
+        run: |
+          python -m research_v2.benchmark_v2_validation
+      - name: Generate independent reviewer slots and verify they are NOT approved
+        run: |
+          python -m research_v2.benchmark_v2_validation --prepare-review
+          python - <<'PY'
+          from pathlib import Path
+          from research_v2.benchmark_v2_review_gate import analyze
+          paths=list(Path("presentation_20261118/benchmark_v2_audit").glob(
+              "screening_*/independent_adjudication_worksheet.csv"))
+          assert len(paths)==1,paths
+          result=analyze(paths[0])
+          assert result["questions_pending"]==132,result
+          assert result["submitted_review_rows"]==264,result
+          assert not result["clinical_gold_certified"]
+          print("External review correctly pending; no fabricated clinical gold")
+          PY
+      - name: Export development-only retrieval questions without label leakage
+        run: |
+          python -m research_v2.benchmark_v2_export
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          files=list(Path("presentation_20261118/benchmark_v2_export").glob(
+              "dev132_*/questions_only_development132.jsonl"))
+          assert len(files)==1,files
+          data=[json.loads(x) for x in files[0].read_text().splitlines() if x.strip()]
+          assert len(data)==132
+          assert all(set(item)=={"query_id","query"} for item in data)
+          print("All 132 questions are complete and no target/gold labels leaked")
+          PY

@@ -1,0 +1,427 @@
+{
+  "registry_version": "1.0",
+  "created_on": "2026-11-21",
+  "canonical_branch": "master",
+  "consolidation_branch": "mtp-unified",
+  "scope": "Provenance-resolved MTP studies; noncomparable cohorts deliberately remain separate.",
+  "source_policy": "Never average across 22/100/132 studies or treat source-screening/graph structural F1 as clinical correctness.",
+  "upstream_research_attribution": "Original CDF-RAG by Khatibi, Wang, Rahmani, 2025. Own project is experimental CDF-RAG-2 extension.",
+  "study_22_deterministic": {
+    "source": "presentation_20261118/legacy_results/rl_vs_no_rl_comparison.csv",
+    "source_git_blob_sha": "c4ba46bfd51ed0c22e191b27e2f45024b348a3f1",
+    "queries": 22,
+    "configurations": [
+      "No-RL",
+      "PPO-RL"
+    ],
+    "metrics": {
+      "Causal Retrieval Coverage": {
+        "no_rl": 1,
+        "rl": 1,
+        "delta": 0
+      },
+      "Causal Chain Depth": {
+        "no_rl": 2.5,
+        "rl": 2.5,
+        "delta": 0
+      },
+      "Semantic Refinement Score": {
+        "no_rl": 1,
+        "rl": 0.860461413860321,
+        "delta": -0.13953858613967896
+      },
+      "Context Relevance": {
+        "no_rl": 0.6903696656227112,
+        "rl": 0.6920545101165771,
+        "delta": 0.0016848444938659668
+      },
+      "Groundedness": {
+        "no_rl": 0.6746975183486938,
+        "rl": 0.6747123003005981,
+        "delta": 0.000014781951904296875
+      },
+      "Average Answer Length": {
+        "no_rl": 14.590909090909092,
+        "rl": 14.545454545454543,
+        "delta": -0.04545454545454852
+      },
+      "Hallucination Rate": {
+        "no_rl": 0.3181818181818182,
+        "rl": 0.3181818181818182,
+        "delta": 0
+      },
+      "Retrieval Success Rate": {
+        "no_rl": 1,
+        "rl": 1,
+        "delta": 0
+      },
+      "Average Direct Causes": {
+        "no_rl": 4.454545454545454,
+        "rl": 4.454545454545454,
+        "delta": 0
+      },
+      "Total Direct Causes": {
+        "no_rl": 98,
+        "rl": 98,
+        "delta": 0
+      },
+      "Total Execution Time (s)": {
+        "no_rl": 870.6713000000001,
+        "rl": 1101.8953,
+        "delta": 231.22399999999982
+      },
+      "Average Latency (s)": {
+        "no_rl": 39.57596818181818,
+        "rl": 50.08615,
+        "delta": 10.51018181818182
+      },
+      "Average Latency (ms)": {
+        "no_rl": 39575.97136363636,
+        "rl": 50086.15272727272,
+        "delta": 10510.181363636359
+      },
+      "Median Latency (ms)": {
+        "no_rl": 39413.36,
+        "rl": 49663.195,
+        "delta": 10249.835
+      },
+      "Average Throughput (QPS)": {
+        "no_rl": 0.0273772727272727,
+        "rl": 0.0209,
+        "delta": -0.006477272727272703
+      },
+      "Refinement Success Rate": {
+        "no_rl": 1,
+        "rl": 1,
+        "delta": 0
+      }
+    },
+    "evidence_basis": "legacy limited G0 medical graph; proxy metrics; not independent clinician gold",
+    "status": "TRACKED_VERIFIABLE"
+  },
+  "study_22_alternate_gold_named_exports": {
+    "sources": [
+      {
+        "path": "evaluation_summary_no_rl_gold.csv",
+        "git_blob_sha": "3ad19af8496afe5bc36cbf795fa44cb88e5bd120"
+      },
+      {
+        "path": "evaluation_summary_rl_gold.csv",
+        "git_blob_sha": "f05f3252158689fd00106adc0001cb616304d327"
+      }
+    ],
+    "gold_in_filename_does_not_imply_independent_gold": true,
+    "status": "TRACKED_EXPLORATORY_DIFFERENT_GENERATION_OUTPUTS"
+  },
+  "study_100_end_to_end": {
+    "source": "presentation_20261118/metrics/matrix_20261116T111224165031Z/pipeline_comparison.csv",
+    "source_git_blob_sha": "de81d7fa18725fe8575beed3cd981eb11c5cb4a7",
+    "questions": 100,
+    "selected_models": [
+      {
+        "model": "B1",
+        "run_id": "B1_20261116T084532122618Z_623a9c",
+        "mode": "end_to_end",
+        "queries": 100,
+        "status_ok": 100,
+        "status_abstained": 0,
+        "status_error": 0,
+        "evidence_yield_pct": 100,
+        "answers_pct": 100,
+        "mean_total_latency_s": 18.5954017220129,
+        "p50_total_latency_s": 17.6111398715002,
+        "p95_total_latency_s": 28.57489039005886,
+        "mean_retrieval_s": 0.00034380276978481563,
+        "throughput_qps_including_init": 0.05377247519736354,
+        "evidence_basis": "AI-assisted candidate-source summaries"
+      },
+      {
+        "model": "B2",
+        "run_id": "B2_20261116T091631815451Z_4c7d76",
+        "mode": "end_to_end",
+        "queries": 100,
+        "status_ok": 100,
+        "status_abstained": 0,
+        "status_error": 0,
+        "evidence_yield_pct": 100,
+        "answers_pct": 100,
+        "mean_total_latency_s": 19.814127999599442,
+        "p50_total_latency_s": 20.14725763950264,
+        "p95_total_latency_s": 29.29702764889225,
+        "mean_retrieval_s": 0.0005577441077912227,
+        "throughput_qps_including_init": 0.05046645079615651,
+        "evidence_basis": "AI-assisted candidate-source summaries"
+      },
+      {
+        "model": "B3",
+        "run_id": "B3_20261116T094933334684Z_2d61d8",
+        "mode": "end_to_end",
+        "queries": 100,
+        "status_ok": 100,
+        "status_abstained": 0,
+        "status_error": 0,
+        "evidence_yield_pct": 100,
+        "answers_pct": 100,
+        "mean_total_latency_s": 20.968165994532175,
+        "p50_total_latency_s": 20.87038247351302,
+        "p95_total_latency_s": 30.963105774097492,
+        "mean_retrieval_s": 0.03533169523871038,
+        "throughput_qps_including_init": 0.0474799982976048,
+        "evidence_basis": "AI-assisted candidate-source summaries"
+      },
+      {
+        "model": "B4",
+        "run_id": "B4_20261116T102439492294Z_4a206c",
+        "mode": "end_to_end",
+        "queries": 100,
+        "status_ok": 100,
+        "status_abstained": 0,
+        "status_error": 0,
+        "evidence_yield_pct": 100,
+        "answers_pct": 100,
+        "mean_total_latency_s": 19.405963479157652,
+        "p50_total_latency_s": 20.20091612151009,
+        "p95_total_latency_s": 27.384209790782187,
+        "mean_retrieval_s": 0.01718495309993159,
+        "throughput_qps_including_init": 0.051498847586601636,
+        "evidence_basis": "AI-assisted candidate-source summaries"
+      },
+      {
+        "model": "B5",
+        "run_id": "B5_20261116T105701289367Z_2f2f1f",
+        "mode": "end_to_end",
+        "queries": 100,
+        "status_ok": 41,
+        "status_abstained": 59,
+        "status_error": 0,
+        "evidence_yield_pct": 41,
+        "answers_pct": 41,
+        "mean_total_latency_s": 4.720413104075706,
+        "p50_total_latency_s": 0.00032510649180039763,
+        "p95_total_latency_s": 16.171456754818788,
+        "mean_retrieval_s": 0.00016160510014742613,
+        "throughput_qps_including_init": 0.2117753675901104,
+        "evidence_basis": "G0 graph snapshot"
+      },
+      {
+        "model": "B6",
+        "run_id": "B6_20261116T110453498736Z_012e43",
+        "mode": "end_to_end",
+        "queries": 100,
+        "status_ok": 36,
+        "status_abstained": 64,
+        "status_error": 0,
+        "evidence_yield_pct": 36,
+        "answers_pct": 36,
+        "mean_total_latency_s": 4.424873459390365,
+        "p50_total_latency_s": 0.00026252047973684967,
+        "p95_total_latency_s": 16.417189683998004,
+        "mean_retrieval_s": 0.00015219293010886758,
+        "throughput_qps_including_init": 0.22597816385737454,
+        "evidence_basis": "G0 graph snapshot"
+      },
+      {
+        "model": "B7",
+        "run_id": "B7_20261115T135107455712Z_c9d5df",
+        "mode": "end_to_end",
+        "queries": 100,
+        "status_ok": 100,
+        "status_abstained": 0,
+        "status_error": 0,
+        "evidence_yield_pct": 49,
+        "answers_pct": 100,
+        "mean_total_latency_s": 28.946403853637747,
+        "p50_total_latency_s": 7.721643010998378,
+        "p95_total_latency_s": 77.84876603654702,
+        "mean_retrieval_s": null,
+        "throughput_qps_including_init": 0.03448470374696947,
+        "evidence_basis": "G0 graph snapshot"
+      },
+      {
+        "model": "B8",
+        "run_id": "B8_20261115T143927296177Z_ca73b1",
+        "mode": "end_to_end",
+        "queries": 100,
+        "status_ok": 100,
+        "status_abstained": 0,
+        "status_error": 0,
+        "evidence_yield_pct": 65,
+        "answers_pct": 100,
+        "mean_total_latency_s": 48.52844140401343,
+        "p50_total_latency_s": 50.94595603499329,
+        "p95_total_latency_s": 93.88541696407482,
+        "mean_retrieval_s": null,
+        "throughput_qps_including_init": 0.020593059082131295,
+        "evidence_basis": "G0 graph snapshot"
+      }
+    ],
+    "source_query_file": "presentation_20261118/benchmark/questions_only.jsonl",
+    "all_8_models_tracked": true,
+    "status": "TRACKED_VERIFIABLE",
+    "interpretation": "All eight selected runs completed without execution errors. Earlier failed attempts remain archived, not canonical.",
+    "limitations": [
+      "Different retrieval evidence for B1-B4 candidate documents versus B5-B8 G0 graph.",
+      "B5/B6 high abstention means full response latency comparability is confounded.",
+      "Answer-present is not answer-correctness."
+    ]
+  },
+  "paired_b7_b8": {
+    "source": "presentation_20261118/metrics/legacy_pair_20261116T115151459376Z_c68613/comparison.json",
+    "source_git_blob_sha": "b8e0e4188ef46309f1c9d47c0d53a272c3665268",
+    "queries": 100,
+    "observed_b7_graph_evidence": 49,
+    "observed_b8_graph_evidence": 65,
+    "paired_mean_latency_delta_ms": 19582.03755037568,
+    "structural_reference_20": {
+      "source": "presentation_20261118/metrics/g0_structural_pilot_v1/structural_scores.json",
+      "reference": "unreviewed G0 graph snapshot",
+      "b7_micro_f1": 0.8717948717948718,
+      "b8_micro_f1": 0.9707602339181286,
+      "clinical_accuracy": false
+    },
+    "interpretation": "Operational observational comparison; PPO effect not isolated because B7 and B8 also differ in retrieval implementation.",
+    "status": "TRACKED_VERIFIABLE"
+  },
+  "study_132_retrieval_only": {
+    "questions": 132,
+    "models": [
+      {
+        "model": "B1",
+        "query_count": 132,
+        "evidence_100": 100,
+        "evidence_32": 32,
+        "evidence_132": 132,
+        "mean_retrieval_ms_weighted": 0.2445369696969697,
+        "errors": 0,
+        "mode": "retrieval_only",
+        "metadata_origin": "2026-11-18 local user execution and successful submission_readiness audit; raw 792 records not yet committed"
+      },
+      {
+        "model": "B2",
+        "query_count": 132,
+        "evidence_100": 100,
+        "evidence_32": 32,
+        "evidence_132": 132,
+        "mean_retrieval_ms_weighted": 0.40841575757575754,
+        "errors": 0,
+        "mode": "retrieval_only",
+        "metadata_origin": "2026-11-18 local user execution and successful submission_readiness audit; raw 792 records not yet committed"
+      },
+      {
+        "model": "B3",
+        "query_count": 132,
+        "evidence_100": 100,
+        "evidence_32": 32,
+        "evidence_132": 132,
+        "mean_retrieval_ms_weighted": 12.725283939393938,
+        "errors": 0,
+        "mode": "retrieval_only",
+        "metadata_origin": "2026-11-18 local user execution and successful submission_readiness audit; raw 792 records not yet committed"
+      },
+      {
+        "model": "B4",
+        "query_count": 132,
+        "evidence_100": 100,
+        "evidence_32": 32,
+        "evidence_132": 132,
+        "mean_retrieval_ms_weighted": 13.917615757575756,
+        "errors": 0,
+        "mode": "retrieval_only",
+        "metadata_origin": "2026-11-18 local user execution and successful submission_readiness audit; raw 792 records not yet committed"
+      },
+      {
+        "model": "B5",
+        "query_count": 132,
+        "evidence_100": 41,
+        "evidence_32": 8,
+        "evidence_132": 49,
+        "mean_retrieval_ms_weighted": 0.16239545454545454,
+        "errors": 0,
+        "mode": "retrieval_only",
+        "metadata_origin": "2026-11-18 local user execution and successful submission_readiness audit; raw 792 records not yet committed"
+      },
+      {
+        "model": "B6",
+        "query_count": 132,
+        "evidence_100": 36,
+        "evidence_32": 5,
+        "evidence_132": 41,
+        "mean_retrieval_ms_weighted": 0.14570606060606062,
+        "errors": 0,
+        "mode": "retrieval_only",
+        "metadata_origin": "2026-11-18 local user execution and successful submission_readiness audit; raw 792 records not yet committed"
+      }
+    ],
+    "mode": "retrieval_only",
+    "encoder": "sentence",
+    "local_submission_dir": "presentation_20261118/partial_submission_sprint/submission_20261118T124507167424Z_76df52",
+    "local_audit_dir": "presentation_20261118/submission_readiness/audit_20261118T125754420305Z_e4ed34",
+    "local_audit_submission_manifest_sha256": "1c11453d61a2fe6e587f597fb85a24ae3c4dbd711748b42383bb0a4e105519bc",
+    "execution_software_errors": 0,
+    "query_model_records": 792,
+    "raw_records_committed": false,
+    "status": "LOCAL_TECHNICALLY_AUDITED_SUMMARY_REPORTED_NOT_YET_ARCHIVED_ON_GITHUB",
+    "evidence_bases": "B1-B4 candidate summaries; B5-B6 G0 graph; evidence yield is not relevance"
+  },
+  "graph_expansion_132": {
+    "queries": 132,
+    "candidate_graph_nodes": 78,
+    "g0_nodes": 35,
+    "g0_inherited_unverified_causal_edges": 37,
+    "g1_causal_format_edges": 52,
+    "new_typed_relations": {
+      "CAUSES": 15,
+      "RISK_FACTOR_FOR": 8,
+      "ASSOCIATED_WITH": 1
+    },
+    "B5": {
+      "g0_evidence": 49,
+      "g1_legacy_evidence": 53,
+      "g1_stabilized_evidence": 55
+    },
+    "B6": {
+      "g0_evidence": 41,
+      "g1_legacy_evidence": 35,
+      "g1_stabilized_evidence": 44
+    },
+    "graph_and_reviewed_runs_committed": false,
+    "status": "LOCAL_RESULTS_REPORTED_NOT_GITHUB_ARCHIVED",
+    "interpretation": "Graph expansion changed target selection; evidence-yield improvement is not medical accuracy."
+  },
+  "manually_reviewed_changes": {
+    "reviewed_model_query_cases": 31,
+    "distinct_reviewed_questions": 20,
+    "evidence_occurrences": 132,
+    "distinct_question_evidence_assertions": 58,
+    "flagged_model_query_cases": 17,
+    "flagged_distinct_questions": 12,
+    "flagged_evidence_occurrences": 64,
+    "triage_priorities": {
+      "P0_WRONG_TARGET": 8,
+      "P1_UNSUPPORTED_GAIN": 6,
+      "P2_TARGET_UNCERTAIN": 3
+    },
+    "sample_selection": "changed model-query cases, nonrepresentative",
+    "expert_medical_gold": false,
+    "local_outputs_not_in_git": true,
+    "status": "LOCAL_REVIEW_AND_AUDIT_REPORTED"
+  },
+  "dataset_132_v2": {
+    "source": "data/benchmark/v2/medical_causal_132_source_screened_v2.jsonl",
+    "manifest": "data/benchmark/v2/manifest.json",
+    "manifest_git_blob_sha": "7598211d82b4aa403ca5b3db205b5c587c6239a1",
+    "total_questions": 132,
+    "source_catalog_entries": 24,
+    "clinically_verified_gold_questions": 0,
+    "independent_clinician_reviewed_questions": 0,
+    "dataset_role": "development and diagnostic data; query texts preserved from 100+32",
+    "status": "TRACKED_AND_GITHUB_CI_SOURCE_SCREENED_NOT_EXPERT_GOLD"
+  },
+  "missing_and_planned": {
+    "pending_local_result_archival": "Use vetted aggregate import tool; avoid unreviewed generated answers or sensitive third-party text.",
+    "medical_adjudication": "Independent qualified reviewer source-span, edge/path and answer assessment",
+    "true_holdout": "New separate queries not used in G1/resolver design",
+    "adaptive_multi_round_controller": "Not yet implemented and independently evaluated",
+    "eight_model_matched_corpus_accuracy": "Not yet performed"
+  }
+}

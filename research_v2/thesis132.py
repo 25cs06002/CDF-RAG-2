@@ -101,6 +101,14 @@ def freeze():
                 or input_file.read_text(encoding="utf-8")!=queries
                 or _read_json(metadata)!=data):
             raise ValueError("Frozen cohort already exists with different contents")
+        with (directory/"fold_metadata.csv").open("r",encoding="utf-8",newline="") as stream:
+            old_folds=list(csv.DictReader(stream))
+        if (len(old_folds)!=132 or
+                any(old["query_id"]!=new["query_id"] or
+                    old["semantic_group"]!=new["semantic_group"] or
+                    int(old["fold"])!=folds[new["query_id"]]
+                    for old,new in zip(old_folds,rows))):
+            raise ValueError("Previously frozen family-fold metadata was changed")
     else:
         directory.mkdir(parents=True,exist_ok=False)
         (directory/"questions_only.jsonl").write_text(queries,encoding="utf-8")
@@ -148,8 +156,14 @@ def run(models,mode,encoder,limit,top_k,allow_live,session_dir=None):
         if not 1<=limit<=132:
             raise ValueError("Limit must be 1..132")
         questions=questions[:limit]
+    from .experiment_runner import git_commit
+    g0root=ROOT/"research_artifacts/graph-G0"
     snapshot={
         "schema":"THESIS132_SESSION_V1","dataset_path":str(input_file.relative_to(ROOT)),
+        "code_commit":git_commit(),
+        "candidate_corpus_sha256":file_sha256(CORPUS) if CORPUS.is_file() else None,
+        "G0_nodes_sha256":file_sha256(g0root/"nodes.csv"),
+        "G0_edges_sha256":file_sha256(g0root/"edges.csv"),
         "dataset_sha256":file_sha256(input_file),
         "query_count":len(questions),"mode":mode,"encoder":encoder,"top_k":top_k,
         "graph_version":"G0",
@@ -165,7 +179,9 @@ def run(models,mode,encoder,limit,top_k,allow_live,session_dir=None):
         if not work.is_dir():
             raise FileNotFoundError(work)
         old=_read_json(work/"session.json")
-        for key in ("dataset_sha256","query_count","mode","encoder","top_k"):
+        for key in ("dataset_sha256","query_count","mode","encoder","top_k",
+                    "code_commit","candidate_corpus_sha256",
+                    "G0_nodes_sha256","G0_edges_sha256"):
             if old.get(key)!=snapshot[key]:
                 raise ValueError("Resume session does not match "+key)
         snapshot=old
@@ -241,6 +257,16 @@ def summarize(session_dir):
     frozen,input_file,questions=_cohort()
     if meta["dataset_sha256"]!=file_sha256(input_file):
         raise ValueError("Input changed")
+    from .experiment_runner import git_commit
+    if meta["code_commit"]!=git_commit():
+        raise ValueError("Code revision differs from the frozen experimental session")
+    g0root=ROOT/"research_artifacts/graph-G0"
+    if (meta["G0_nodes_sha256"]!=file_sha256(g0root/"nodes.csv") or
+        meta["G0_edges_sha256"]!=file_sha256(g0root/"edges.csv")):
+        raise ValueError("G0 evidence snapshot changed")
+    corpus_hash=file_sha256(CORPUS) if CORPUS.is_file() else None
+    if meta["candidate_corpus_sha256"]!=corpus_hash:
+        raise ValueError("Document corpus changed")
     subset=questions[:meta["query_count"]]
     ids=[r.query_id for r in subset]
     from .schema import PipelineRecord
@@ -252,6 +278,11 @@ def summarize(session_dir):
               if x.strip()]
         if file_sha256(folder/"records.jsonl")!=info["record_sha256"]:
             raise ValueError("Archived result changed: "+model)
+        run_manifest=_read_json(folder/"manifest.json")
+        if (run_manifest["input_sha256"]!=meta["dataset_sha256"]
+                or run_manifest["git_commit"]!=meta["code_commit"]
+                or run_manifest["run_id"]!=info["run_id"]):
+            raise ValueError("Run provenance/commit hash mismatch: "+model)
         if len(data)!=len(ids) or [x.query_id for x in data]!=ids:
             raise ValueError("Question order/count mismatch: "+model)
         vals=[x.timings.total_ms for x in data if x.timings.total_ms is not None]

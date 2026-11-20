@@ -113,6 +113,7 @@ def score_record(record: PipelineRecord, gold: dict, top_k: int = 5) -> dict:
         raise ValueError("top_k must be >=1")
     answerable = gold["answerability"] == "answerable"
     abstained = record.status == "abstained"
+    completed = record.status == "ok"
     # Precision/Recall measure provenance/source IDs, not text-level relevance
     # or medical truth by themselves.
     ids = list(dict.fromkeys(
@@ -136,9 +137,10 @@ def score_record(record: PipelineRecord, gold: dict, top_k: int = 5) -> dict:
         "query_id": record.query_id,
         "status": record.status,
         "answerability": gold["answerability"],
-        "abstention_decision_correct": (not answerable and abstained) or (answerable and not abstained),
-        "unsafe_nonabstention": not answerable and not abstained,
+        "abstention_decision_correct": (not answerable and abstained) or (answerable and completed),
+        "unsafe_nonabstention": not answerable and completed,
         "false_abstention": answerable and abstained,
+        "execution_error": record.status == "error",
         "source_precision_at_k": source_precision,
         "source_recall_at_k": source_recall,
         "gold_edge_precision": edge_precision,
@@ -163,6 +165,7 @@ def _summary(rows: list[dict]) -> dict:
         "queries": len(rows),
         "abstention_decision_accuracy": _mean([r["abstention_decision_correct"] for r in rows]),
         "unsafe_nonabstention": sum(r["unsafe_nonabstention"] for r in rows),
+        "execution_errors": sum(r["execution_error"] for r in rows),
         "false_abstention": sum(r["false_abstention"] for r in rows),
         "source_precision_at_k": _mean([r["source_precision_at_k"] for r in rows]),
         "source_recall_at_k": _mean([r["source_recall_at_k"] for r in rows]),

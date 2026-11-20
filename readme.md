@@ -1,6 +1,6 @@
 # CDF-RAG-2 — Unified M.Tech Research Repository
 
-**Canonical branch: master** (after validation of the merge from `mtp-unified`).
+**Canonical branch: master**. The former `research-v2` and G1 branches are retained as historical development references.
 **Research title:** Adaptive Multi-Round Retrieval-Augmented Generation Architecture for Reliable Domain-Specific Question Answering.
 **Initial study domain:** medical causal question answering.
 **Status:** preliminary retrieval experiments and G1 failure analysis completed; full evidence-sufficiency-driven adaptive multi-round model NOT yet validated.
@@ -112,7 +112,13 @@ answers, directed edges, evidence spans and review disagreements.
 
 The successful 132-query submission bundle, reviewed G1 annotations and
 case-study artifacts created on the author's Ubuntu machine are not all
-committed remotely. They cannot be reconstructed losslessly from aggregate
+committed remotely.
+To import without affecting the original local repository, create a separate
+Git worktree from `origin/master` and use `--source-repo` to read the audited
+outputs from the original Ubuntu checkout. Only the allowlisted results
+are copied; no input experiment or review file is overwritten. See
+[the complete commands](docs/MTP_UNIFIED_ROADMAP.md#import-commands-for-a-separate-safe-git-worktree).
+ They cannot be reconstructed losslessly from aggregate
 metrics. Use the opt-in, hash-checked importer
 `research_v2/unified_import_local.py` to stage nonsensitive aggregate
 files. Verify source rights, private content and hashes before pushing.

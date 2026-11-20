@@ -143,3 +143,61 @@ to force disagreement away.
 
 See the canonical registry for exact SHA-locked source files and any
 locally reported experimental results still awaiting Git archival.
+
+## Import commands for a separate safe Git worktree
+
+These commands should be run on your Ubuntu machine where the **original
+locally audited experiments already exist**. Do not replace or reset the
+original `~/Folder/CDF-RAG-2` directory.
+
+```bash
+cd ~/Folder/CDF-RAG-2
+git status --short                      # inspect, do not discard local changes
+git fetch origin master
+git worktree add -b mtp-local-results ../CDF-RAG-2-unified origin/master
+
+cd ../CDF-RAG-2-unified
+source ../CDF-RAG-2/venv/bin/activate
+
+python -m research_v2.unified_integrity --json
+python -m research_v2.benchmark_v2_validation
+
+python -m research_v2.unified_import_local \
+  --source-repo ../CDF-RAG-2 \
+  --submission-dir "presentation_20261118/partial_submission_sprint/submission_20261118T124507167424Z_76df52" \
+  --audit-dir "presentation_20261118/submission_readiness/audit_20261118T125754420305Z_e4ed34" \
+  --triage-dir "presentation_20261118/g1_error_triage/triage_20261118T125808659756Z_35d31c"
+```
+
+By default, the importer includes audited **aggregate** 22/100/132 and
+G0/G1 tables, graphs and manifests, but excludes per-query question texts,
+raw generated model answers and full reviewer case notes. The original
+reviewed CSVs and G1 graph snapshots are not silently copied or approved.
+
+For full 792 query-model retrieval records, first inspect them for
+patient information, credentials and copyrighted passages, then rerun with
+`--include-per-query`. For reviewer details, `--include-reviewed-examples`
+and `--case-studies-dir` are separately opt-in.
+
+After the importer succeeds:
+
+```bash
+git status --short
+# Inspect the new research_artifacts/unified/imported_local/import_... directory
+git add research_artifacts/unified/imported_local/
+git diff --cached --stat
+git diff --cached --check
+git commit -m "data(mtp): archive reviewed aggregate results from audited local 132-query and G1 runs"
+git push -u origin mtp-local-results
+```
+
+Open and review a PR from `mtp-local-results` to `master` before merging;
+do not force-push or replace historical artifacts. This keeps unreviewed
+medical outputs and third-party text out of the public repository unless
+you explicitly inspect and approve their inclusion.
+
+**Important:** A successful import makes the aggregate files available on
+GitHub, but it does not certify medical accuracy or independently adjudicate
+the 132-question benchmark. Full G1 graph artifacts and independent review
+worksheets require a separate intentional, privacy-aware preservation step.
+

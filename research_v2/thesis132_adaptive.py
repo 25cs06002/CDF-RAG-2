@@ -33,6 +33,11 @@ OUTPUT=ROOT/"presentation_20261118/thesis132/adaptive"
 POLICIES={"fixed1","fixed2","fixed3","adaptive"}
 MULTIHOP=re.compile(r"\b(intermediate|pathways?|multi.hop|through|chain|sequence|leads? to)\b",re.I)
 COMPARISON=re.compile(r"\b(compare|compared|difference|different|versus|vs\.?|contrast)\b",re.I)
+NEGATED_CAUSAL=re.compile(
+    r"(?:without\s+(?:assuming|asserting|claiming)\s+(?:direct\s+)?causal"
+    r"|should\s+not\s+be\s+(?:called|treated\s+as)\s+direct\s+causes"
+    r"|do\s+not\s+assume\s+(?:direct\s+)?causal)",re.I)
+
 
 
 class AdaptiveCandidateController:
@@ -53,12 +58,14 @@ class AdaptiveCandidateController:
         if policy not in POLICIES:raise ValueError("Unknown policy")
         start=time.perf_counter()
         require_path=bool(MULTIHOP.search(request.query))
-        if ABSTAIN_RX.search(request.query) or self._multi_ambiguous(request.query):
+        if (ABSTAIN_RX.search(request.query) or
+                self._multi_ambiguous(request.query) or
+                NEGATED_CAUSAL.search(request.query)):
             return PipelineRecord(
                 run_id=request.run_id,query_id=request.query_id,
                 pipeline_id="b9_candidate_"+policy,
                 original_query=request.query,status="abstained",
-                action_history=["abstain_ambiguous_or_unsupported"],
+                action_history=["abstain_ambiguous_unsupported_or_negated_causal"],
                 timings=StageTimings(total_ms=(time.perf_counter()-start)*1000,
                                      retrieval_ms=0),
             )

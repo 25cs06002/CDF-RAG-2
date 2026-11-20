@@ -1,0 +1,62 @@
+name: Unified MTP Repository Integrity
+
+on:
+  push:
+    branches:
+      - mtp-unified
+      - master
+    paths:
+      - "readme.md"
+      - "docs/MTP_UNIFIED_ROADMAP.md"
+      - "research_artifacts/unified/**"
+      - "research_v2/unified_*.py"
+      - "tests/test_mtp_unified_integrity.py"
+      - "data/benchmark/v2/**"
+      - "presentation_20261118/legacy_results/rl_vs_no_rl_comparison.csv"
+      - "presentation_20261118/metrics/matrix_20261116T111224165031Z/pipeline_comparison.csv"
+      - ".github/workflows/mtp-unified-integrity.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  unified-provenance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify merged branch ancestry (master / research-v2 / G1)
+        run: |
+          git fetch --no-tags origin master research-v2 g1-query-evidence-foundation
+          git merge-base --is-ancestor origin/master HEAD || {
+            echo "Historical master commits are not in this unified branch"; exit 1;
+          }
+          git merge-base --is-ancestor origin/research-v2 HEAD
+          git merge-base --is-ancestor origin/g1-query-evidence-foundation HEAD
+      - name: Compile validation and local import tools
+        run: |
+          python -m compileall -q research_v2/unified_integrity.py research_v2/unified_import_local.py research_v2/benchmark_v2_validation.py research_v2/benchmark_v2_export.py research_v2/benchmark_v2_review_gate.py
+      - name: Validate all historically archived and locally reported experiment scopes
+        run: |
+          python -m research_v2.unified_integrity --json
+          python -m unittest discover -s tests -p "test_mtp_unified_integrity.py" -v
+      - name: Validate 132-question source-screened development metadata
+        run: |
+          python -m research_v2.benchmark_v2_validation
+          python -m unittest discover -s tests -p "test_benchmark_v2*_local.py" -v
+      - name: Assert no independent clinical gold is claimed
+        run: |
+          python - <<'PY'
+          from research_v2.unified_integrity import verify
+          data=verify()
+          assert data["independently_certified_medical_gold_questions"]==0
+          assert data["selected_archive_errors"]==0
+          assert not data["cross_cohort_accuracy_pooling_permitted"]
+          print("PASS — historical result provenance retained; medical gold not invented")
+          PY

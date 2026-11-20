@@ -5,6 +5,8 @@ on:
     branches:
       - g1-query-evidence-foundation
       - research-v2
+      - mtp-unified
+      - master
     paths:
       - "data/benchmark/v2/**"
       - "data/benchmark/medical_causal_pilot100_draft_v1.jsonl"

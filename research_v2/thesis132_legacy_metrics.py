@@ -143,7 +143,7 @@ def build(session_dir: Path, output_root: Path | None = None) -> tuple[Path, dic
                    if line.strip()]
         summary_path = folder / "summary.json"
         raw = json.loads(summary_path.read_text(encoding="utf-8"))
-        measured = raw.get("wall_clock_seconds")
+        measured = raw.get("wall_time_seconds")
         if measured is None:
             measured = raw.get("elapsed_seconds")
         if measured is None:

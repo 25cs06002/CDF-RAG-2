@@ -3,6 +3,12 @@
 **Single canonical entry point:** [../readme.md](../readme.md)
 **Machine-checkable result registry:** [../research_artifacts/unified/experiment_registry_v1.json](../research_artifacts/unified/experiment_registry_v1.json)
 
+> **Fixed 132-question thesis execution:** See
+> [MTP_132_THESIS_EXECUTION.md](MTP_132_THESIS_EXECUTION.md)
+> for the executable phases and current status. The original
+> 132-question source-screened development data remain fixed; no
+> independent external holdout or clinician gold is claimed.
+
 ## The actual research chronology
 
 1. **Pre-mid-semester 22-query feasibility:** original No-RL and RL (PPO)

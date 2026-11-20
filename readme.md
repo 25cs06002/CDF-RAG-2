@@ -14,6 +14,34 @@ Rahmani**. Its README, published ablations and citations are preserved separatel
 at [docs/ORIGINAL_CDF_RAG_README.md](docs/ORIGINAL_CDF_RAG_README.md).
 **Do not present upstream paper's F1 values as results of this M.Tech project.**
 
+## Fixed 132-question thesis evaluation — current executable protocol
+
+**Use exactly the existing 100 pilot + 32 extension questions.**
+See [MTP 132 thesis execution protocol](docs/MTP_132_THESIS_EXECUTION.md)
+for the required order: safe Git worktree pull, source-screened 132 freeze,
+G1 17-case regression, independent source/clinical review workflow,
+B1–B8 132 experiments, B9 adaptive candidate retrieval and
+cost/reliability analysis.
+
+New modules:
+- \`research_v2/thesis132.py\`: deterministic 132 freeze, family folds,
+  B1–B8 runner, SHA-locked runs, operational summary.
+- \`research_v2/thesis132_g1.py\`: typed candidate G1 vs stabilized G1
+  on all 132 with reviewer labels joined **after** inference.
+- \`research_v2/thesis132_adaptive.py\`: B9 early stopping prototype
+  (0–2 additional retrieval stages), no new PPO or clinical-gold claim.
+- \`research_v2/thesis132_adaptive_compare.py\`: paired fixed-round
+  versus adaptive ablation, matching graph/corpus/input hashes.
+- \`research_v2/thesis132_analysis.py\`: by-category, by-fold, latency,
+  evidence-yield, grouped uncertainty and paired B7/B8 observations.
+
+**Status:** tools/CI checks implemented; full 132-query E2E runs,
+independent clinical gold adjudication, corrected target case validation,
+new retrieval-feedback PPO training and the final thesis are **pending
+local experiments and externally authenticated review**.
+The 132 questions were previously used in G1 design. Family folds are
+for future prospective evaluation and **not** previously unseen holdout.
+
 ## One authoritative source of truth
 
 - **Experimental provenance:** [research_artifacts/unified/experiment_registry_v1.json](research_artifacts/unified/experiment_registry_v1.json)

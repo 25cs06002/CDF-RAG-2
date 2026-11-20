@@ -23,3 +23,9 @@ __pycache__/
 # Presentation experiments: keep large/raw model outputs local until reviewed
 presentation_20261118/runs/
 presentation_20261118/logs/
+
+# Thesis132 experimental sessions, copied candidate graph snapshots and reviewer triage
+# Keep locally generated/sensitive artifacts out of automatic public pushes.
+presentation_20261118/thesis132/
+research_artifacts/local_g1_snapshots/
+presentation_20261118/g1_error_triage/

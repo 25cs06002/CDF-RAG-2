@@ -43,6 +43,10 @@ jobs:
         run: |
           python -m compileall -q research_v2/thesis132_adaptive.py tests/test_thesis132_adaptive_local.py
           python -m unittest discover -s tests -p 'test_thesis132_adaptive_local.py' -v
+      - name: Validate version-matched fixed versus adaptive candidate ablations
+        run: |
+          python -m compileall -q research_v2/thesis132_adaptive_compare.py tests/test_thesis132_adaptive_compare_local.py
+          python -m unittest discover -s tests -p 'test_thesis132_adaptive_compare_local.py' -v
       - name: Audit source-reviewed dataset remains non-gold
         run: |
           python -m research_v2.benchmark_v2_validation

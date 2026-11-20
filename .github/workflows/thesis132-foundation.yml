@@ -7,7 +7,7 @@ on:
       - master
     paths:
       - "research_v2/thesis132*.py"
-      - "tests/test_thesis132_local.py"
+      - "tests/test_thesis132*_local.py"
       - ".github/workflows/thesis132-foundation.yml"
       - "data/benchmark/v2/**"
   workflow_dispatch:

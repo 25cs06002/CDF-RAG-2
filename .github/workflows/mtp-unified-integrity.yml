@@ -46,6 +46,7 @@ jobs:
         run: |
           python -m research_v2.unified_integrity --json
           python -m unittest discover -s tests -p "test_mtp_unified_integrity.py" -v
+          python -m unittest discover -s tests -p "test_unified_import_local.py" -v
       - name: Validate 132-question source-screened development metadata
         run: |
           python -m research_v2.benchmark_v2_validation

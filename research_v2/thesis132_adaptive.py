@@ -71,7 +71,8 @@ class AdaptiveCandidateController:
         typed_ms=0.0
         document_ms=0.0
         target=None
-        needed=3 if policy=="fixed3" else 2 if policy=="fixed2" else 1 if policy=="fixed1" else 3
+        needed=(3 if require_path else 2) if policy=="adaptive" else (
+            3 if policy=="fixed3" else 2 if policy=="fixed2" else 1)
         # Query is never modified using its expected target or reviewer labels.
         for stage in range(needed):
             if policy=="adaptive":

@@ -1,0 +1,69 @@
+name: Thesis132 Offline Retrieval-Only B1-B6 (LSA)
+
+on:
+  push:
+    branches:
+      - work/thesis132-g1-target-sufficiency
+    paths:
+      - ".github/workflows/thesis132-offline-retrieval.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  offline-132:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install lightweight offline retrieval dependencies
+        run: |
+          python -m pip install --disable-pip-version-check "pydantic>=2,<3" requests python-dotenv numpy scikit-learn
+      - name: Freeze historical-exposed 132
+        run: |
+          python -m research_v2.benchmark_v2_validation
+          python -m research_v2.thesis132 freeze
+      - name: Six full retrieval-only baselines, fixed 132, LSA surrogate dense encoder
+        run: |
+          python -m research_v2.thesis132 run --models B1,B2,B3,B4,B5,B6 --mode retrieval_only --encoder lsa --top-k 5
+      - name: Verify full session and export honest operational metrics
+        run: |
+          set -euo pipefail
+          test "$(find presentation_20261118/thesis132/runs -mindepth 1 -maxdepth 1 -type d -name 'batch_*' | wc -l)" -eq 1
+          SESSION="$(find presentation_20261118/thesis132/runs -mindepth 1 -maxdepth 1 -type d -name 'batch_*' | head -1)"
+          export SESSION
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          d = Path(os.environ["SESSION"])
+          meta = json.loads((d / "session.json").read_text())
+          assert meta["query_count"] == 132, meta
+          assert meta["mode"] == "retrieval_only"
+          assert meta["encoder"] == "lsa"
+          assert set(meta["runs"]) == {f"B{i}" for i in range(1, 7)}, meta["runs"]
+          for model, run in meta["runs"].items():
+              summary = json.loads((d / run["folder"] / "summary.json").read_text())
+              assert summary["total_queries"] == 132 and summary["errors"] == 0 and not summary["aborted"], (model, summary)
+          print("All six models produced 132 complete records; source bases differ; NOT medical gold.")
+          PY
+          python -m research_v2.thesis132 summarize --session-dir "$SESSION"
+          python -m research_v2.thesis132_analysis --session-dir "$SESSION"
+          python -m research_v2.thesis132_legacy_metrics --session-dir "$SESSION"
+          mkdir -p export_for_user
+          cp "$SESSION/session.json" export_for_user/session.json
+          find "$SESSION" -name 'summary.json' -type f -print | while read -r file; do
+            cp "$file" "export_for_user/$(basename "$(dirname "$file")")_summary.json"
+          done
+          find "$SESSION" -name 'analysis.json' -type f -exec cp '{}' export_for_user/analysis.json \;
+          find "$SESSION" -name 'legacy_metric_bridge.csv' -type f -exec cp '{}' export_for_user/legacy_metric_bridge.csv \;
+      - name: Save minimal non-gold summary artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: cdf-rag2-132-B1-B6-retrieval-only-LSA-non-gold
+          path: export_for_user/
+          if-no-files-found: error
+          retention-days: 30

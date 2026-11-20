@@ -233,27 +233,31 @@ def write_review_queue(items,by_source,output_root=OUTPUT):
         "screening_"+datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")+
         "_"+uuid.uuid4().hex[:6])
     out.mkdir(parents=True,exist_ok=False)
-    fields=["query_id","query_type","medical_domain","query","focus_entities",
-            "expected_response_type","source_ids","source_urls",
+    fields=["query_id","review_slot","query_type","medical_domain","query",
+            "focus_entities","expected_response_type","source_ids","source_urls",
             "response_rubric_candidate","reviewer_id","reviewer_qualification",
             "reviewer_independence_declaration","source_claims_checked",
             "entity_roles_approved","relation_directions_approved",
-            "response_rubric_approved","decision","review_notes","review_date"]
+            "response_rubric_approved","verified_answer","verified_edges_json",
+            "verified_paths_json","verified_source_spans","decision","review_notes",
+            "review_date"]
     with (out/"independent_adjudication_worksheet.csv").open(
             "w",newline="",encoding="utf-8") as f:
         writer=csv.DictWriter(f,fieldnames=fields)
         writer.writeheader()
         for row in items:
-            writer.writerow({
-                "query_id":row["query_id"],"query_type":row["query_type"],
-                "medical_domain":row["medical_domain"],"query":row["query"],
-                "focus_entities":json.dumps(row["focus_entities"],ensure_ascii=False),
-                "expected_response_type":row["expected_response_type"],
-                "source_ids":";".join(row["source_reference_ids"]),
-                "source_urls":";".join(by_source[x]["url"] for x in row["source_reference_ids"]),
-                "response_rubric_candidate":row["response_rubric_candidate"],
-                **{col:"" for col in fields[9:]}
-            })
+            for slot in (1,2):
+                writer.writerow({
+                    "query_id":row["query_id"],"review_slot":slot,
+                    "query_type":row["query_type"],
+                    "medical_domain":row["medical_domain"],"query":row["query"],
+                    "focus_entities":json.dumps(row["focus_entities"],ensure_ascii=False),
+                    "expected_response_type":row["expected_response_type"],
+                    "source_ids":";".join(row["source_reference_ids"]),
+                    "source_urls":";".join(by_source[x]["url"] for x in row["source_reference_ids"]),
+                    "response_rubric_candidate":row["response_rubric_candidate"],
+                    **{col:"" for col in fields[10:]}
+                })
     return out
 
 

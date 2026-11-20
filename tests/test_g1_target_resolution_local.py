@@ -20,7 +20,7 @@ class TargetResolutionTests(unittest.TestCase):
 
     def test_direction_to_downstream_endpoint(self):
         target, reason = resolve_target(
-            "What pathway leads from A through B to Stroke?",
+            "What pathway from A through B leads to Stroke?",
             self.nodes, eligible={"A", "B", "Stroke"},
         )
         # 'to Stroke' must be an explicit directional cue to select it.

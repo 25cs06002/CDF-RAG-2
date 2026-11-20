@@ -1,3 +1,11 @@
+> **ARCHIVED HISTORICAL SNAPSHOT — NOT CURRENT STATUS.** This document
+> records decisions and experiment availability at the time it was written.
+> Newer B1–B8 100-query end-to-end runs, 132-query retrieval experiments,
+> G1 stability analysis and benchmark v2 are indexed in
+> [the canonical MTP results registry](../research_artifacts/unified/experiment_registry_v1.json)
+> and [unified README](../readme.md). Older “pending” labels must not be
+> interpreted as current results. No historical experimental number was altered.
+
 # G1 foundation — preservation, review and fast presentation experiments
 
 **Development branch:** `g1-query-evidence-foundation`. The workflow is

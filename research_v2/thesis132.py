@@ -218,7 +218,7 @@ def run(models,mode,encoder,limit,top_k,allow_live,session_dir=None):
             summary,out=run_experiment(
                 pipeline=pipe,questions=questions,run_id=name,
                 source_file=input_file,output_root=work/"records",
-                graph_version="G0",random_seed=2026)
+                graph_version="G0",random_seed=None)
         snapshot["runs"][model]={
             "folder":str(out.relative_to(work)),
             "run_id":name,"summary":summary,

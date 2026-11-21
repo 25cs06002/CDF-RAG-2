@@ -125,12 +125,17 @@ def freeze():
     return directory
 
 def _cohort():
+    # Enforce the tracked same-input B1–B9 release before any model run.
+    from .thesis132_dataset_release import verify_release
+    release_audit = verify_release()
     frozen=freeze()
     data=_read_json(frozen/"manifest.json")
     input_file=frozen/"questions_only.jsonl"
     records=load_questions(input_file)
     if len(records)!=132 or [x.query_id for x in records]!=data["question_ids"]:
         raise ValueError("Frozen query IDs don't match source")
+    if file_sha256(input_file)!=release_audit["query_sha256"]:
+        raise ValueError("Frozen inference inputs differ from FINAL_132 release")
     return frozen,input_file,records
 
 def _selected(models):

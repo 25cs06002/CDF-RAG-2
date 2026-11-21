@@ -1,0 +1,68 @@
+{
+  "approved_source_count": 78,
+  "approved_new_node_count": 43,
+  "approved_typed_relations": {
+    "CAUSES": 15,
+    "ASSOCIATED_WITH": 1,
+    "RISK_FACTOR_FOR": 8
+  },
+  "approved_aliases": 0,
+  "source_urls_checked_online": false,
+  "medical_gold": false,
+  "stage": "G1_CANDIDATE_REQUIRES_INDEPENDENT_VERIFICATION",
+  "new_causal_edges": 15,
+  "inherited_G0_edges_unverified": 37,
+  "total_nodes": 78,
+  "total_causes_edges": 52,
+  "review_workspace": "research_artifacts/experiment-artifacts/g1_review_workspaces/G1_REVIEW_20261117T113204947304Z_959206",
+  "source_ledger_sha256": "38d0360358fad5f4d5110d94ffe1af85cfd0d0c2d257024c9b3adc071e30cde5",
+  "edge_ledger_sha256": "d17533577dff7315046ce688491d7c33c65cff936f241727812f7ae29ebf5e9e",
+  "alias_ledger_sha256": "0b865b4a57689a4761d2df74bcc9e78c59be07502eedb26bb3190c8ad4c9d378",
+  "editable_edge_ledger_sha256": "d17533577dff7315046ce688491d7c33c65cff936f241727812f7ae29ebf5e9e",
+  "editable_alias_ledger_sha256": "0b865b4a57689a4761d2df74bcc9e78c59be07502eedb26bb3190c8ad4c9d378",
+  "clinical_accuracy": false,
+  "typed_relation_source_urls_web_screened": 24,
+  "online_source_screening_date": "2026-11-21",
+  "source_id_crosswalk_reconciled": 24,
+  "source_registry_url_match_count": 24,
+  "source_crosswalk_sha256": "994439c3eb6d92eecb4b77b1698d3baf0afb3978bb8efd38d218f2fe5cf3fd8e",
+  "version_note": "G1 same 78 nodes + 52 graph edges + 24 typed candidate links; canonical case repair and source metadata extension, not a clinical gold release",
+  "canonical_case_repairs": [
+    {
+      "edge_id": "P2M_PILOT_047_LINK2",
+      "field": "object",
+      "old_value": "Stroke",
+      "canonical_value": "stroke"
+    },
+    {
+      "edge_id": "P2M_PILOT_048_LINK1",
+      "field": "subject",
+      "old_value": "Coronary artery disease",
+      "canonical_value": "coronary artery disease"
+    },
+    {
+      "edge_id": "P2M_PILOT_048_LINK2",
+      "field": "object",
+      "old_value": "Heart failure",
+      "canonical_value": "heart failure"
+    },
+    {
+      "edge_id": "P2M_PILOT_059_LINK2",
+      "field": "object",
+      "old_value": "Lung cancer",
+      "canonical_value": "lung cancer"
+    }
+  ],
+  "typed_relation_source_web_screening_counts": {
+    "support_with_qualification": 16,
+    "association_support_only": 2,
+    "indirect_intermediate_support": 2,
+    "claim_needs_narrowing": 3,
+    "research_review_support": 1
+  },
+  "independent_verification_attestation": "user_reports_all_24_independently_verified_2026-11-21",
+  "independent_verification_reviewer_evidence": "not_supplied_in_source_review_or_crosswalk; source_review lists STU_001 only",
+  "independent_verification_documentation_verified_by_this_package": false,
+  "exact_archived_source_passage_verification_complete": false,
+  "review_status_compatibility": "24 links retain review_status=approved for G1TypedIndex; attestation is separately recorded in typed_relationships.csv"
+}

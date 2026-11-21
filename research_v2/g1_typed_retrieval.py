@@ -18,6 +18,7 @@ from pathlib import Path
 
 from .experiment_runner import PROJECT_ROOT, file_sha256
 from .g1_query_interpreter import ABSTAIN_RX, exact_mention, load_approved_aliases
+from .g1_target_resolution import resolve_target
 from .g1_foundation import RELATIONS
 from .schema import CausalEdge, CausalPath, EvidenceDocument, PipelineRecord, StageTimings
 
@@ -62,20 +63,11 @@ class G1TypedIndex:
     def target(self,query: str):
         if ABSTAIN_RX.search(query):
             return None,"under_determined_question"
-        possible=set()
-        for node in self.nodes:
-            if node.casefold()=="diabetes" and re.search(r"\btype\s*[12]\s*diabetes\b",query,re.I):
-                continue
-            if exact_mention(query,node) and self.by_effect[node.casefold()]:
-                possible.add(node)
-        for alias,concept in self.aliases.items():
-            if exact_mention(query,alias) and self.by_effect[concept.casefold()]:
-                possible.add(concept)
-        if len(possible)==1:
-            return next(iter(possible)),"unique_approved_effect"
-        if len(possible)>1:
-            return None,"ambiguous_multiple_effects"
-        return None,"no_explicit_reviewed_effect"
+        # Only explicitly mentioned evidence-eligible EFFECTS are targets.
+        # Directional syntax may resolve a downstream endpoint, but
+        # comparisons and unresolved multiple effects abstain.
+        eligible={n for n in self.nodes if self.by_effect[n.casefold()]}
+        return resolve_target(query,self.nodes,self.aliases,eligible)
 
     @staticmethod
     def allowed_relations(query):
@@ -85,8 +77,10 @@ class G1TypedIndex:
         if TRIGGER.search(query):
             return {"TRIGGERS_EXACERBATION","CAUSES"}
         if RISK.search(query):
-            return {"RISK_FACTOR_FOR","ASSOCIATED_WITH","CAUSES","PROTECTS_AGAINST","UNCERTAIN"}
-        return RELATIONS
+            return {"RISK_FACTOR_FOR","ASSOCIATED_WITH","CAUSES","PROTECTS_AGAINST"}
+        # Taxonomy-only and explicitly uncertain edges cannot establish
+        # candidate causal/risk evidence for an unspecified question.
+        return RELATIONS-{"IS_A","UNCERTAIN"}
 
     def retrieve(self,query: str, *, causal_multihop: bool = False, top_k: int = 5,
                  query_id: str = "Q", run_id: str = "G1_SHADOW"):

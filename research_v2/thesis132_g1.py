@@ -21,6 +21,7 @@ from .experiment_runner import PROJECT_ROOT as ROOT,file_sha256
 from .base_pipeline import PipelineRequest
 from .g1_stable_retrieval import StableTargetG1
 from .g1_typed_retrieval import G1TypedIndex
+from .g1_target_resolution import mentioned_concepts
 from .pipelines.baselines import G0Corpus,BaselinePipeline
 from .thesis132 import _cohort,_inside,_write_json
 
@@ -50,9 +51,10 @@ def _safe_gate(index,question, *, top_k=5,query_id="Q"):
         return {"target":"","evidence_ids":[],"status":"abstained",
                 "decision":"withhold","reason":"under_determined_question",
                 "rounds":0,"retrieval_ms":(time.perf_counter()-start)*1000}
-    mentioned=[node for node in index.nodes if index.by_effect[node.casefold()]
-               and (node.casefold() in question.casefold())]
-    if COMPARATIVE.search(question) and len(set(mentioned))>=2:
+    eligible={n for n in index.nodes if index.by_effect[n.casefold()]}
+    mentioned={n for _,_,n in mentioned_concepts(
+        question,index.nodes,getattr(index,"aliases",{}),eligible)}
+    if COMPARATIVE.search(question) and len(mentioned)>=2:
         return {"target":"","evidence_ids":[],"status":"abstained",
                 "decision":"clarification_or_multi_target_required",
                 "reason":"comparative_multi_entity_not_single_target",
@@ -66,9 +68,10 @@ def _safe_gate(index,question, *, top_k=5,query_id="Q"):
         ids=[]
         target=""
         reason="subtype_not_generic_diabetes"
-    # A source-reviewed candidate typed relationship is evidence to inspect,
-    # not independently expert-confirmed medical gold.
-    if not ids and MULTIHOP.search(question):
+    # A multi-hop question requires an actual directed, two-hop
+    # CAUSES -> CAUSES path. A one-hop document is NEVER sufficient,
+    # even if it was returned in round one.
+    if MULTIHOP.search(question):
         multi,reason2=index.retrieve(question,causal_multihop=True,top_k=top_k,
                                      query_id=query_id,run_id="THESIS132_CANDIDATE_GATE")
         rounds=2
@@ -78,7 +81,10 @@ def _safe_gate(index,question, *, top_k=5,query_id="Q"):
             ids+=["PATH:"+">".join(p.nodes) for p in multi.causal_paths]
             reason="typed_candidate_twohop_path_found"
         else:
+            target=""
+            ids=[]
             reason="no_approved_candidate_twohop_after_refinement"
+    # Candidate evidence is not independently clinically adjudicated gold.
     enough=bool(ids)
     return {"target":target,"evidence_ids":ids,
             "status":"candidate_evidence" if enough else "abstained",

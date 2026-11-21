@@ -1,0 +1,79 @@
+name: G1 Target Resolution and Sufficiency Regression
+
+on:
+  push:
+    branches:
+      - work/thesis132-g1-target-sufficiency
+    paths:
+      - "research_v2/g1_target_resolution.py"
+      - "research_v2/g1_typed_retrieval.py"
+      - "research_v2/thesis132_g1.py"
+      - "research_v2/thesis132_evidence.py"
+      - "research_v2/thesis132_gold_scoring.py"
+      - "research_v2/thesis132_gold_template.py"
+      - "research_v2/thesis132_legacy_metrics.py"
+      - "tests/test_g1_target_resolution_local.py"
+      - "tests/test_thesis132_evidence_local.py"
+      - "tests/test_thesis132_gold_scoring_local.py"
+      - "tests/test_thesis132_gold_template_local.py"
+      - "tests/test_thesis132_legacy_metrics_local.py"
+      - "tests/test_g1_reconciled_local.py"
+      - "research_artifacts/graph-G1-reconciled-20261121/**"
+      - "research_artifacts/g1_reconciliation_20261121/**"
+      - ".github/workflows/g1-target-sufficiency.yml"
+  pull_request:
+    paths:
+      - "research_v2/g1_target_resolution.py"
+      - "research_v2/g1_typed_retrieval.py"
+      - "research_v2/thesis132_g1.py"
+      - "research_v2/thesis132_evidence.py"
+      - "research_v2/thesis132_gold_scoring.py"
+      - "research_v2/thesis132_gold_template.py"
+      - "research_v2/thesis132_legacy_metrics.py"
+      - "tests/test_g1_target_resolution_local.py"
+      - "tests/test_thesis132_evidence_local.py"
+      - "tests/test_thesis132_gold_scoring_local.py"
+      - "tests/test_thesis132_gold_template_local.py"
+      - "tests/test_thesis132_legacy_metrics_local.py"
+      - "tests/test_g1_reconciled_local.py"
+      - "research_artifacts/graph-G1-reconciled-20261121/**"
+      - "research_artifacts/g1_reconciliation_20261121/**"
+      - ".github/workflows/g1-target-sufficiency.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  query-only-g1-regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install offline protocol dependencies
+        run: |
+          python -m pip install --disable-pip-version-check "pydantic>=2,<3" requests python-dotenv
+      - name: Syntax checks
+        run: |
+          python -m compileall -q research_v2 tests
+      - name: New G1 directional-target and multi-hop gating regressions
+        run: |
+          python -m unittest discover -s tests -p 'test_g1_target_resolution_local.py' -v
+      - name: Existing typed and stable G1 regressions
+        run: |
+          python -m unittest discover -s tests -p 'test_g1_typed_local.py' -v
+          python -m unittest discover -s tests -p 'test_g1_stable_local.py' -v
+      - name: Frozen 132 and source-screened benchmark integrity
+        run: |
+          python -m research_v2.benchmark_v2_validation
+          python -m unittest discover -s tests -p 'test_thesis132_local.py' -v
+      - name: Independent evidence ledger and gold scoring safeguards
+        run: |
+          python -m unittest discover -s tests -p 'test_thesis132_evidence_local.py' -v
+          python -m unittest discover -s tests -p 'test_thesis132_gold_scoring_local.py' -v
+          python -m unittest discover -s tests -p 'test_thesis132_gold_template_local.py' -v
+          python -m unittest discover -s tests -p 'test_thesis132_legacy_metrics_local.py' -v
+          python -m unittest discover -s tests -p 'test_g1_reconciled_local.py' -v

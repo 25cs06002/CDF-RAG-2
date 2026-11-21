@@ -242,6 +242,41 @@ def _classification(model, details):
     return base
 
 
+def _classification_report_rows(classifier):
+    """Per-class precision/recall/F1 like sklearn classification_report.
+
+    Positives = hallucination. Report unavailable with zero approved,
+    output-aligned detector+gold observations.
+    """
+    if not classifier["classification_support"]:
+        return []
+    tn, fp, fn, tp = (classifier[k] for k in ("tn","fp","fn","tp"))
+    total = tn + fp + fn + tp
+    p0 = tn/(tn+fn) if tn+fn else 0.0
+    r0 = tn/(tn+fp) if tn+fp else 0.0
+    p1 = tp/(tp+fp) if tp+fp else 0.0
+    r1 = tp/(tp+fn) if tp+fn else 0.0
+    rows = [
+        {"label":"No Hallucination","precision":p0,"recall":r0,
+         "f1_score":_f1(p0,r0),"support":tn+fp},
+        {"label":"Hallucination","precision":p1,"recall":r1,
+         "f1_score":_f1(p1,r1),"support":fn+tp},
+    ]
+    rows.append({
+        "label":"macro avg",
+        "precision":(p0+p1)/2,"recall":(r0+r1)/2,
+        "f1_score":(_f1(p0,r0)+_f1(p1,r1))/2,"support":total,
+    })
+    rows.append({
+        "label":"weighted avg",
+        "precision":(p0*(tn+fp)+p1*(fn+tp))/total,
+        "recall":(r0*(tn+fp)+r1*(fn+tp))/total,
+        "f1_score":(_f1(p0,r0)*(tn+fp)+_f1(p1,r1)*(fn+tp))/total,
+        "support":total,
+    })
+    return rows
+
+
 def _metric_row(name, value, unit="", status="measured", notes=""):
     return {"Metric":name,"Value":value,"Unit":unit,"Status":status,"Notes":notes}
 
@@ -457,6 +492,10 @@ def evaluate(source=DEFAULT_SOURCE, output_dir=None, *, semantic_proxies=False,
             ]
             emit(f"confusion_matrix_{model}_132.csv",
                  list(cm[0]),cm)
+            classification_rows = _classification_report_rows(c)
+            emit(f"classification_report_{model}_132.csv",
+                 ("label","precision","recall","f1_score","support"),
+                 classification_rows)
     # Paired comparison fully aligned by fixed query ID.
     paired=[]
     for ra,rb in zip(per["B7"],per["B8"]):
@@ -611,4 +650,11 @@ def display_hallucination(report_dir,model):
         print(f"[[{c['tn']} {c['fp']}]")
         print(f" [{c['fn']} {c['tp']}]]")
         print("TP:",c["tp"],"TN:",c["tn"],"FP:",c["fp"],"FN:",c["fn"])
+        print("\nClassification Report:")
+        print(f"{'Class':<22}{'precision':>12}{'recall':>12}{'f1-score':>12}{'support':>10}")
+        numeric = {key: float(c[key]) if key in ("accuracy","precision","recall","f1") else int(c[key])
+                   for key in ("accuracy","precision","recall","f1","tn","fp","fn","tp")}
+        for row in _classification_report_rows(numeric):
+            print(f"{row['label']:<22}{row['precision']:>12.3f}{row['recall']:>12.3f}"
+                  f"{row['f1_score']:>12.3f}{row['support']:>10}")
     print("This does not evaluate false or correct medical claims without external review.")

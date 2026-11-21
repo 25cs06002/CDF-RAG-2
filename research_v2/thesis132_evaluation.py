@@ -343,7 +343,7 @@ def _aggregate(model, rows, original):
             r["_timings"]["latency_ms"] for r in rows if r["status"] == "abstained"),
         "median_latency_abstained_ms": _quantile(
             [r["_timings"]["latency_ms"] for r in rows if r["status"] == "abstained"], .5),
-        **{"mean_"+key: _mean(r["_timings"][key+"_ms"] for r in rows)
+        **{"mean_"+key+"_ms": _mean(r["_timings"][key+"_ms"] for r in rows)
            for key in ("refinement", "retrieval", "rewriting", "generation", "validation")},
         "wall_time_seconds": wall, "run_throughput_qps": n/wall,
         "detector_observations": len(det), "detector_flagged": sum(det),

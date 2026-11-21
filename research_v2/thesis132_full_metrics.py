@@ -570,7 +570,20 @@ def _metric_display(value,name):
     if name in ("Queries Evaluated","Answers Present","Abstained Queries",
                 "Execution Errors","Total Direct Causes","Number of Causal Paths"):
         return str(int(n))
+    if "(ms)" in name:
+        return f"{n:.2f}"
     return f"{n:.4f}"
+
+
+def _display_metric_name(name):
+    aliases = {
+        "Minimum Throughput (QPS, latency proxy)": "Min reciprocal latency QPS (proxy)",
+        "Maximum Throughput (QPS, latency proxy)": "Max reciprocal latency QPS (proxy)",
+        "Mean Latency if Answered (ms)": "Mean latency (OK only, ms)",
+        "Mean Latency if Abstained (ms)": "Mean latency (abstain, ms)",
+        "Validation Pass Fraction (Not Gold)": "Validator pass rate (not gold)",
+    }
+    return aliases.get(name, name)
 
 
 def _read_csv(path):
@@ -609,21 +622,23 @@ def display_comparison(report_dir):
     print("\n"+"="*122)
     print("B1–B8 / 132-QUESTION EVALUATION COMPARISON".center(122))
     print("="*122)
-    print(f"{'Metric':<37}"+ "".join(f"{m:>10}" for m in MODELS))
+    print(f"{'Metric':<34}"+ "".join(f"{m:>11}" for m in MODELS))
     for row in rows:
         if row["Metric"] in ("Queries Evaluated","Refinement Success Rate"):
             continue
-        print(f"{row['Metric'][:37]:<37}"+
-              "".join(f"{_metric_display(row[m],row['Metric']):>10}" for m in MODELS))
+        label = _display_metric_name(row["Metric"])
+        print(f"{label[:34]:<34}"+
+              "".join(f"{_metric_display(row[m],row['Metric']):>11}" for m in MODELS))
     print("\nB7 / B8 direct comparison")
     print(f"{'Metric':<44} {'B7 No-RL':>16} {'B8 PPO RL':>16} {'B8-B7':>16}")
     for row in rows:
-        print(f"{row['Metric'][:44]:<44} "+
+        print(f"{_display_metric_name(row['Metric'])[:44]:<44} "+
               f"{_metric_display(row['B7'],row['Metric']):>16} "+
               f"{_metric_display(row['B8'],row['Metric']):>16} "+
               f"{_metric_display(row['B8_minus_B7'],row['Metric']):>16}")
     print("\nN/A = unmeasured/unavailable, NOT zero.")
     print("Context/Groundedness/SRS are embedding similarity proxies, not clinical accuracy.")
+    print("For fractional rates, the B8-B7 difference is expressed in percentage points.")
     print("Comparison CSV:",folder/"comparison_all_models_132_full.csv")
 
 

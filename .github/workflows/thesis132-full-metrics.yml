@@ -24,6 +24,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Install minimal offline validation dependencies
+        run: python -m pip install --disable-pip-version-check 'pydantic>=2,<3' requests python-dotenv
       - name: Check syntax
         run: |
           python -m compileall -q research_v2/thesis132_full_metrics.py evaluate_all_metrics_132.py show_evaluation_132.py compare_all_models_132.py compare_hallucination_132.py prepare_hallucination_reviews_132.py tests/test_thesis132_full_metrics_local.py

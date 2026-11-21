@@ -146,6 +146,19 @@ def _doc_texts():
         if doc["document_id"] in docs:
             raise ValueError("Duplicate candidate document ID")
         docs[doc["document_id"]] = doc["text"]
+    # B5/B6 return G0 graph-verbalization document IDs, not phase-2
+    # candidates. Reconstruct the exact original G0Corpus wording from the
+    # versioned 37-edge snapshot; do not treat IDs as evidence text.
+    edges_path = ROOT / "research_artifacts/graph-G0/edges.csv"
+    with edges_path.open(newline="", encoding="utf-8") as stream:
+        for idx, edge in enumerate(csv.DictReader(stream), 1):
+            key = f"G0_EDGE_{idx:04d}"
+            if key in docs:
+                raise ValueError("Duplicate G0 graph document ID: " + key)
+            docs[key] = (
+                f'{edge["cause"]} is linked as a cause of '
+                f'{edge["effect"]} in the G0 graph snapshot.'
+            )
     return docs
 
 
@@ -319,6 +332,13 @@ def _compare_numeric(a,b):
 def evaluate(source=DEFAULT_SOURCE, output_dir=None, *, semantic_proxies=False,
              gold_csv=None, batch_size=32):
     base,manifest,existing,raw,_=_load(source)
+    config = manifest["session_configuration"]
+    for path, key in (
+        (CANDIDATES, "candidate_corpus_sha256"),
+        (ROOT / "research_artifacts/graph-G0/edges.csv", "G0_edges_sha256"),
+    ):
+        if _hash(path) != config[key]:
+            raise ValueError("Source evidence file drift: " + str(path))
     parsed={model:_derive(model,raw[model]) for model in MODELS}
     base_summary={model:_aggregate(model,parsed[model],existing[model]) for model in MODELS}
     identifiers={row["query_id"] for row in raw["B1"]}

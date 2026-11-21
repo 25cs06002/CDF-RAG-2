@@ -9,6 +9,7 @@ from pathlib import Path
 from research_v2.thesis132_full_metrics import (
     DEFAULT_SOURCE, MODELS, METRIC_NAMES, _classification, _read_gold,
     evaluate, display_model, display_comparison, display_hallucination,
+    _classification_report_rows,
 )
 from research_v2.thesis132_evaluation import ROOT
 
@@ -71,6 +72,18 @@ class FullMetric132Tests(unittest.TestCase):
         self.assertEqual(c["recall"],0.5)
         self.assertEqual(c["f1"],0.5)
         self.assertTrue(c["classification_status"].startswith("partial"))
+
+    def test_classification_report_matches_confusion_matrix(self):
+        classifier={"classification_support":22,
+                    "tn":11,"fp":6,"fn":4,"tp":1}
+        rows=_classification_report_rows(classifier)
+        self.assertEqual([r["label"] for r in rows],
+                         ["No Hallucination","Hallucination","macro avg","weighted avg"])
+        self.assertEqual([rows[0]["support"],rows[1]["support"]],[17,5])
+        self.assertAlmostEqual(rows[1]["precision"],1/7)
+        self.assertAlmostEqual(rows[1]["recall"],1/5)
+        self.assertAlmostEqual(rows[1]["f1_score"],1/6)
+        self.assertEqual(rows[-1]["support"],22)
 
     def test_gold_rejects_fabricated_approved_labels(self):
         with tempfile.TemporaryDirectory(dir=ROOT) as temp:

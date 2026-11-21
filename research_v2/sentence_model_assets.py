@@ -117,8 +117,14 @@ def resolve_cached_snapshot() -> Path:
 
     # local_files_only=True guarantees no
     # network download is attempted.
+    revision = os.getenv(
+        "SENTENCE_MODEL_REVISION",
+        "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    )
+
     path = snapshot_download(
         repo_id=MODEL_ID,
+        revision=revision,
         local_files_only=True,
         cache_dir=custom_cache or None,
     )

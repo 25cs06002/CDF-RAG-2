@@ -1,0 +1,38 @@
+name: Thesis132 LaTeX Working Draft
+on:
+  push:
+    branches: [work/thesis132-g1-target-sufficiency]
+    paths:
+      - 'docs/thesis_latex/**'
+      - 'docs/thesis_manuscript/**'
+      - '.github/workflows/thesis132-latex.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install document build tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends pandoc latexmk texlive-latex-extra texlive-fonts-recommended texlive-pictures poppler-utils
+      - name: Build thesis
+        run: |
+          python3 docs/thesis_latex/build_thesis.py --compile
+          pdfinfo docs/thesis_latex/build/main.pdf
+      - name: Upload editable sources and PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesis132-latex-working-draft
+          path: |
+            docs/thesis_latex/build/*.tex
+            docs/thesis_latex/build/*.bib
+            docs/thesis_latex/build/*.json
+            docs/thesis_latex/build/*.md
+            docs/thesis_latex/build/chapters/
+            docs/thesis_latex/build/figures/
+            docs/thesis_latex/build/main.pdf
+            docs/thesis_latex/build/main.log
+          retention-days: 30

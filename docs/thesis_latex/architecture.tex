@@ -1,0 +1,30 @@
+\begin{figure}[p]
+\centering
+\begin{tikzpicture}[
+  node distance=8mm,
+  block/.style={draw, rounded corners=2pt, align=center, text width=9.6cm, minimum height=8mm, inner sep=5pt, fill=black!3},
+  smallblock/.style={draw, rounded corners=2pt, align=center, text width=4.0cm, minimum height=9mm, inner sep=4pt},
+  decision/.style={draw, rounded corners=2pt, align=center, text width=9.6cm, minimum height=9mm, fill=black!8},
+  link/.style={-{Stealth[length=2.5mm]},thick}
+]
+\node[block] (q) {Input question (query text and ID)};
+\node[decision,below=of q] (route) {Rule-based intent/target routing and abstention guards};
+\node[smallblock,below left=10mm and 1mm of route.south] (g) {Typed graph evidence\\direct links / two-link paths};
+\node[smallblock,below right=10mm and 1mm of route.south] (d) {BM25 document evidence\\targeted / open / balanced};
+\node[block,below=10mm of route.south,yshift=-18mm] (pool) {Accumulate and deduplicate candidates\\route-specific structural gate; at most five offered IDs};
+\node[block,below=of pool] (sel) {Llama 3.2 3B\\select evidence identifiers in strict JSON};
+\node[decision,below=of sel] (check) {Validate schema, identifier membership, uniqueness and comparison coverage};
+\node[block,below=of check] (out) {Render source-attributed candidate text\\scope qualification or abstain};
+\draw[link] (q)--(route);
+\draw[link] (route.south)--(g.north);
+\draw[link] (route.south)--(d.north);
+\draw[link] (g.south)--(pool.north);
+\draw[link] (d.south)--(pool.north);
+\draw[link] (pool)--(sel);
+\draw[link] (sel)--(check);
+\draw[link] (check)--(out);
+\draw[link,dashed] (check.east) -- ++(7mm,0) |- node[pos=.18,right,align=left,font=\scriptsize]{continue if\\eligible and\\budget remains} (pool.east);
+\end{tikzpicture}
+\caption{B9-v2 adaptive evidence retrieval and constrained rendering. Routes schedule at most three retrieval rounds. Guarded requests, invalid selections and exhausted budgets can abstain; the structural gate is not clinical entailment.}
+\label{fig:b9-controller}
+\end{figure}

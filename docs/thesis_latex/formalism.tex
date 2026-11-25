@@ -1,0 +1,23 @@
+\section{Formal description of selection and evaluation}
+Let \(q\) be the query, \(R=3\) the maximum round budget and \(k=5\) the maximum offered-item budget. If \(C_t\) denotes candidates retrieved at round \(t\), the accumulated pool and offered identifiers are
+\begin{align}
+ E_0 &= \varnothing, \qquad E_t = \operatorname{dedup}_{\rm id}(E_{t-1}\cup C_t),\\
+ A_t &\subseteq \operatorname{ids}(E_t),\qquad |A_t|\le k.
+\end{align}
+The selector returns an identifier list \(S_t\). Acceptance requires a valid JSON schema, a nonempty list of unique IDs in \(A_t\), and comparison coverage when applicable:
+\begin{equation}
+  S_t\subseteq A_t,\qquad 1\le |S_t|\le k,\qquad
+  S_t\cap G_j\ne\varnothing\quad\text{for every required comparison group }G_j.
+\end{equation}
+These predicates constrain the renderer, not the truth of the original candidate statements. A valid empty selection or incomplete comparison may trigger the next scheduled retrieval; malformed selection fails closed. The following measured quantities use the frozen cohort size \(N=132\):
+\begin{align}
+ H_{\mathrm{AI}} &= \frac{n_{\mathrm{Yes}}}{n_{\mathrm{Yes}}+n_{\mathrm{No}}},\\
+ Y_{\mathrm{strict}} &= \frac{1}{N}\sum_{i=1}^{N}\mathbf{1}\{\text{strict supported and grounded}_i\},\\
+ \overline{L} &= \frac{1}{N}\sum_{i=1}^{N} L_i,\qquad
+ \mathrm{QPS}=\frac{N}{T_{\mathrm{wall}}}.
+\end{align}
+An undefined denominator is reported as unavailable. The strict criterion is defined in the evaluation chapter; completeness is an additional B9-only AI-reference assessment. The cosine proxies use normalized sentence embeddings \(u,v\):
+\[
+ \mathrm{cos}(u,v)=\frac{u^\top v}{\lVert u\rVert_2\lVert v\rVert_2}.
+\]
+Similarity does not establish factual support, causal direction, or clinical accuracy.

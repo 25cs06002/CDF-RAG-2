@@ -138,25 +138,31 @@ class B9Controller:
 
     def _docs(self,req,target,focus):
         if not target:return [],False
-        # Cache only retrieval, not generated answers. Per-run cache is cold
-        # initially, and cache hits are recorded in the round trace.
-        text=(target+" "+req.query) if focus else req.query
-        key=(text,self.top_k)
+        # Only established abbreviation equivalence, restricted to document
+        # retrieval; no graph alias is created. The corpus uses "COPD".
+        aliases={"chronic obstructive pulmonary disease":("COPD",)}
+        terms=(target,*aliases.get(target.casefold(),()))
+        text=(" ".join(terms)+" "+req.query) if focus else (
+            req.query+" "+" ".join(terms[1:]))
+        key=(text,target,self.top_k)
         hit=key in self.cache
         if hit:self.cache_hits+=1
         else:
-            r=self.documents.run(PipelineRequest(run_id=req.run_id,query_id=req.query_id,
-                                                  query=text,graph_version=req.graph_version))
-            if r.status=="error":raise RuntimeError(r.error_message or "document retrieval error")
-            self.cache[key]=[d.model_dump() for d in r.retrieved_documents]
-        docs=[]
-        for d in self.cache[key]:
-            if not d["source_id"] or not d["source_id"].startswith("https://"):continue
-            if d["score"] is None or d["score"]<=0:continue
-            if not exact_mention(d["text"],target):continue
-            docs.append(dict(id=d["document_id"],kind="candidate_document",text=d["text"],
-                             source=d["source_id"],edge_ids=[]))
-        return docs[:self.top_k],hit
+            # BM25 scores are not exposed on BaselinePipeline EvidenceDocument
+            # objects. Rank directly against the same frozen corpus, filtering
+            # eligible target matches BEFORE applying the top-k budget.
+            corpus=self.documents.corpus
+            scores=corpus.bm25_scores(text)
+            eligible=[i for i,d in enumerate(corpus.documents)
+                      if scores[i]>0 and d.source_id and
+                      d.source_id.startswith("https://") and
+                      any(exact_mention(d.text,term) for term in terms)]
+            ranked=sorted(eligible,key=lambda i:(-scores[i],i))[:self.top_k]
+            self.cache[key]=[dict(id=corpus.documents[i].document_id,
+                kind="candidate_document",text=corpus.documents[i].text,
+                source=corpus.documents[i].source_id,edge_ids=[],
+                bm25_score=scores[i]) for i in ranked]
+        return self.cache[key],hit
 
     def run(self,request):
         start=time.perf_counter()

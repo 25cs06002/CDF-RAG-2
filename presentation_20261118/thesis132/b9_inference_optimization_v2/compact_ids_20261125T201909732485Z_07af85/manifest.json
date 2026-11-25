@@ -1,0 +1,52 @@
+{
+  "schema": "B9_INFERENCE_PROFILE_V1",
+  "variant": "compact_ids",
+  "status": "COMPLETE_132",
+  "questions": 132,
+  "reference_manifest_sha256": "4eea5fce78929d34342a18077745434df1d6960021d81e459ab19ce81029ce6c",
+  "inputs": {
+    "presentation_20261118/corpus/provisional_source_summaries_v1/documents.jsonl": "6d136603606ec8f5cfccfe064a8c9e8ff85d3720bb52b707dad47f7e155e9e8d",
+    "research_artifacts/graph-G1-reconciled-20261121/manifest.json": "469ed518b10274c69f8055e2179191faece03c3a1e97940dc532a95fd5ca9670",
+    "research_artifacts/graph-G1-reconciled-20261121/typed_relationships.csv": "d17533577dff7315046ce688491d7c33c65cff936f241727812f7ae29ebf5e9e",
+    "research_artifacts/graph-G1-reconciled-20261121/nodes.csv": "5e35da849ae4e464c02448de0e2a51a8b4d04c176f15eb29d157882a22120e27",
+    "research_artifacts/graph-G1-reconciled-20261121/approved_aliases.csv": "0b865b4a57689a4761d2df74bcc9e78c59be07502eedb26bb3190c8ad4c9d378",
+    "research_v2/thesis132_b9.py": "bd4e056bda47bd2932c78876edcbd20d3be304a5d8700e6aebfc8af080463992",
+    "research_v2/thesis132_b9_v2.py": "d15d1068e458dbd2010348e27351902ccb46c79edad1d3736bff1218a8286751",
+    "research_v2/g1_typed_retrieval.py": "cf449c2c0d8fc6ff70d216ac04ae3f616fae1a5f437b950d8b5adf7906ffe4b9",
+    "research_v2/g1_target_resolution.py": "c2b265769ea97072e6fed779fe8fe569443554026ee6667d77e991b89460c150",
+    "research_v2/pipelines/baselines.py": "3a6d4804e565ff0a94471c39b1009debb232b44f5326411cb9d02ec9850689d0",
+    "research_v2/ollama_generation.py": "89e28f3183074ef30739a991085438a230714fe9af55baf0d411a1551454e930"
+  },
+  "dataset_sha256": "a45fcddfc153c0f9c2211c8167e001b03513216bf9191f2f08a4444d52df6c76",
+  "generation_settings": {
+    "model": "llama3.2:latest",
+    "endpoint": "http://127.0.0.1:11434",
+    "num_ctx": 2048,
+    "num_predict": 256,
+    "unload_every_n": 5,
+    "attempts": 3,
+    "timeout_seconds": 180,
+    "keep_alive": "5m",
+    "temperature": 0
+  },
+  "model_digest": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+  "profiler_sha256": "9881cf134768cc34214da4cd55a4b3f458f9359582103851bf5c3448a91d7189",
+  "host": {
+    "platform": "Linux",
+    "machine": "x86_64",
+    "cpu_count": 12,
+    "mem_total_kib": 7915776
+  },
+  "code_commit": "442465976672671d5ac8317f5326df06f6cd5669",
+  "resource_interval_seconds": 0.25,
+  "cold_model_unload_requested": true,
+  "reference_labels_used_for_inference": false,
+  "outputs_sha256": {
+    "per_query.csv": "4112622fd8e0d2f7814d426d776740101351fda2269443551a3969812bde31e9",
+    "records.jsonl": "e7510ebc25df9fce2f16e7e03a0a8763697483f99ec4fe457df63e977812da7e",
+    "resource_samples.csv": "a717994f667e0d54feaa7a4e970959bd9066fe6b006424566e37668131b27167",
+    "round_traces.jsonl": "cddeb5fc0ae5e90cbbee54b6fe7b4803233e827714a81c963cac0eb27b6d703c",
+    "selector_telemetry.jsonl": "bab65732155b5cab22898c77b857525adb18efc329d5b43b35c2edf5ae69ee5d",
+    "summary.json": "ee1e7f46836f4edb246601ed56c85b612b8fb10cabc3415bd48dc5f86c363e80"
+  }
+}

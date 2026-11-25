@@ -1,0 +1,27 @@
+name: Thesis132 Consolidated Evaluation
+on:
+  push:
+    branches: [work/thesis132-g1-target-sufficiency]
+    paths:
+      - 'research_v2/thesis132_consolidated.py'
+      - 'consolidate_evaluation_132.py'
+      - 'tests/test_thesis132_consolidated_local.py'
+      - '.github/workflows/thesis132-consolidated.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s tests -p 'test_thesis132_consolidated_local.py' -v
+      - run: python consolidate_evaluation_132.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: thesis132-consolidated
+          path: presentation_20261118/thesis132/csv_reports/batch132_csv_20261121T061653054773Z_bfeb15/consolidated_132_*/
+          retention-days: 14

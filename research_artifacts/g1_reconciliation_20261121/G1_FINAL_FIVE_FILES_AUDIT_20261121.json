@@ -1,0 +1,66 @@
+{
+  "zip": "/mnt/data/CDF_RAG_2_G1_FINAL_FIVE_FILES_20261121.zip",
+  "checksums": {
+    "manifest.json": "469ed518b10274c69f8055e2179191faece03c3a1e97940dc532a95fd5ca9670",
+    "nodes.csv": "5e35da849ae4e464c02448de0e2a51a8b4d04c176f15eb29d157882a22120e27",
+    "edges.csv": "5c58ebcb2b57cbbf445b676d1c34bc4180854b4068fe09833438c9874ad8f77b",
+    "typed_relationships.csv": "d17533577dff7315046ce688491d7c33c65cff936f241727812f7ae29ebf5e9e",
+    "approved_aliases.csv": "0b865b4a57689a4761d2df74bcc9e78c59be07502eedb26bb3190c8ad4c9d378"
+  },
+  "files": [
+    "manifest.json",
+    "nodes.csv",
+    "edges.csv",
+    "typed_relationships.csv",
+    "approved_aliases.csv"
+  ],
+  "node_count": 78,
+  "edges_count": 52,
+  "typed_relationship_count": 24,
+  "typed_relation_counts": {
+    "CAUSES": 15,
+    "ASSOCIATED_WITH": 1,
+    "RISK_FACTOR_FOR": 8
+  },
+  "source_id_and_url_registry_crosswalk_matches": 24,
+  "original_reviewer_ids": {
+    "STU_001": 24
+  },
+  "crosswalk_approval_states": {
+    "proposed": 24
+  },
+  "case_repairs": [
+    {
+      "edge_id": "P2M_PILOT_047_LINK2",
+      "field": "object",
+      "old_value": "Stroke",
+      "canonical_value": "stroke"
+    },
+    {
+      "edge_id": "P2M_PILOT_048_LINK1",
+      "field": "subject",
+      "old_value": "Coronary artery disease",
+      "canonical_value": "coronary artery disease"
+    },
+    {
+      "edge_id": "P2M_PILOT_048_LINK2",
+      "field": "object",
+      "old_value": "Heart failure",
+      "canonical_value": "heart failure"
+    },
+    {
+      "edge_id": "P2M_PILOT_059_LINK2",
+      "field": "object",
+      "old_value": "Lung cancer",
+      "canonical_value": "lung cancer"
+    }
+  ],
+  "original_legacy_edges_modified": false,
+  "source_titles_and_urls_added": 24,
+  "reported_independent_verification_marked_as_user_attestation": 24,
+  "archived_exact_source_passage_evidence_present": false,
+  "independent_reviewer_ids_documented": false,
+  "gold_release": false,
+  "reviewer_decisions_fabricated": false,
+  "source_urls_checked_online_as_relevant_sources": true
+}

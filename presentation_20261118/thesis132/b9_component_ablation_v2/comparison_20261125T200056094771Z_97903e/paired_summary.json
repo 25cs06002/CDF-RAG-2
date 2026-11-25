@@ -1,0 +1,33 @@
+{
+  "graph_off_to_full": {
+    "question_pairs": 132,
+    "both_answered": 99,
+    "transitions": {
+      "ok_to_ok": 99,
+      "abstained_to_abstained": 33
+    },
+    "identical_answers_among_both": 84,
+    "mean_all_query_latency_delta_ms": -807.817860007438,
+    "mean_common_answered_latency_delta_ms": -1083.6447649090412,
+    "mean_common_answered_from_ms": 8058.763115535436,
+    "mean_common_answered_to_ms": 6975.118350626394,
+    "mean_round_delta": -0.11363636363636363,
+    "mean_selector_call_delta": 0
+  },
+  "document_off_to_full": {
+    "question_pairs": 132,
+    "both_answered": 15,
+    "transitions": {
+      "abstained_to_ok": 84,
+      "ok_to_ok": 15,
+      "abstained_to_abstained": 33
+    },
+    "identical_answers_among_both": 15,
+    "mean_all_query_latency_delta_ms": 4921.766616197216,
+    "mean_common_answered_latency_delta_ms": 3.839486333041956,
+    "mean_common_answered_from_ms": 3594.019497066862,
+    "mean_common_answered_to_ms": 3597.8589833999044,
+    "mean_round_delta": -0.7954545454545454,
+    "mean_selector_call_delta": 0.6439393939393939
+  }
+}

@@ -1,0 +1,34 @@
+Metric,Value,Unit,Notes
+Queries Evaluated,132,count,"Fixed, frozen 132-question development set"
+Successful Executions,132,count,"Pipeline status, not answer correctness"
+Abstained Executions,0,count,"Explicit abstention, not execution error"
+Execution Errors,0,count,Pipeline errors
+Retrieval Success Rate,1.0,fraction,"Candidate evidence present, not correct/relevant retrieval"
+Causal Retrieval Coverage,0.0,fraction,"Any recorded causal edge or path, not gold causal accuracy"
+Causal Chain Depth,,mean_hops,Mean of reported per-query mean path hops only for queries with paths
+Semantic Refinement Score,,unavailable,Not calculated: no independently validated refinement metric
+Context Relevance,,unavailable,Not calculated: no independently reviewed relevance reference
+Groundedness,,unavailable,Not calculated: no independently verified claim/evidence reference
+Average Answer Length,102.27272727272727,words,Among nonempty answers only
+Hallucination Rate,,unavailable,Not medical gold; automated detector flag rate reported separately
+Detector Flag Rate (Not Gold),,fraction,Fraction flagged among nonempty detector observations only
+Retrieval Success Count,132,count,Queries with candidate evidence
+Answer Present Rate,1.0,fraction,"Nonempty answer text, not correct answer"
+Answers Without Recorded Evidence,0,count,Recorded answers with zero candidate document/edge/path
+Average Direct Causes,0.0,CAUSES edges/query,Reported CAUSES edges per all 132 queries; not validated facts
+Total Direct Causes,0,CAUSES edges,"Recorded CAUSES edges, not clinically adjudicated"
+Total Causal Paths,0,paths,"Reported path count, may contain repeated evidence"
+Total Execution Time (s),2298.342,seconds,"Recorded per-model wall time, includes measured initialization"
+Average Latency (s),17.411550330587268,seconds,"All 132 queries, including abstentions; converted ms/1000"
+Average Latency (ms),17411.550330587266,ms,All statuses
+Minimum Latency (ms),6182.716300012544,ms,All statuses
+Maximum Latency (ms),31484.173613018356,ms,All statuses
+Median Latency (ms),16264.403034001589,ms,All statuses
+P95 Latency (ms),26815.502641571216,ms,All statuses; interpolated percentile
+Mean Latency if OK (ms),17411.550330587266,ms,"Conditioned on status=ok, avoids abstention confounding"
+Mean Latency if Abstained (ms),,ms,Conditioned on status=abstained
+Average Throughput (QPS),0.05743270583751243,queries/second,132 divided by recorded wall seconds; NOT mean reciprocal per-query latency
+Minimum Throughput (QPS),,unavailable,Not measured separately; do not substitute per-query reciprocal latency
+Maximum Throughput (QPS),,unavailable,Not measured separately; do not substitute per-query reciprocal latency
+Refinement Success Rate,,unavailable,No independent refinement success reference
+Mean Recorded Feedback Iterations,0,count,Legacy B7/B8 adapters record zero; not proof no PPO action occurred

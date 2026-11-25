@@ -1,0 +1,9 @@
+model,queries,detector_observations,detector_flags,detector_flag_rate_not_gold,gold_approved_count,gold_hallucination_count,gold_review_coverage_fraction,classification_support,classification_status,accuracy,precision,recall,f1,tn,fp,fn,tp
+B1,132,0,0,,0,0,0.0,0,unavailable_no_approved_gold,,,,,,,,
+B2,132,0,0,,0,0,0.0,0,unavailable_no_approved_gold,,,,,,,,
+B3,132,0,0,,0,0,0.0,0,unavailable_no_approved_gold,,,,,,,,
+B4,132,0,0,,0,0,0.0,0,unavailable_no_approved_gold,,,,,,,,
+B5,132,0,0,,0,0,0.0,0,unavailable_no_approved_gold,,,,,,,,
+B6,132,0,0,,0,0,0.0,0,unavailable_no_approved_gold,,,,,,,,
+B7,132,132,33,0.25,0,0,0.0,0,unavailable_no_approved_gold,,,,,,,,
+B8,132,132,43,0.32575757575757575,0,0,0.0,0,unavailable_no_approved_gold,,,,,,,,

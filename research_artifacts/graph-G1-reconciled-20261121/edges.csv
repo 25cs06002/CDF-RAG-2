@@ -1,0 +1,53 @@
+edge_id,cause,effect
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:13,Family history of diabetes,Diabetes
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:12,Genetic predisposition,Diabetes
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:16,Insulin resistance,Diabetes
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:15,Lack of physical activity,Diabetes
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:14,Poor diet,Diabetes
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:19,Environmental factors during pregnancy,Genetic predisposition
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:20,Exposure to certain toxins,Genetic predisposition
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:17,Family history of disease,Genetic predisposition
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:18,Inherited traits from parents,Genetic predisposition
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:21,Random chance and natural selection,Genetic predisposition
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:22,Air pollution,asthma
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:23,Allergies,asthma
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:26,Environmental toxins,asthma
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:25,Genetic predisposition,asthma
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:24,Respiratory infections,asthma
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:34,Chronic stress,depression
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:36,Genetic predisposition,depression
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:32,Lack of social support,depression
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:35,Poor sleep habits,depression
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:33,Traumatic event,depression
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:2,Diabetes,heart disease
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:4,Genetic predisposition,heart disease
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:1,High blood pressure,heart disease
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:3,Poor diet,heart disease
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:0,Smoking,heart disease
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:6,Radon exposure,lung cancer
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:5,Smoking,lung cancer
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:11,Environmental toxins,migraine
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:10,Food sensitivities,migraine
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:9,Hormonal changes,migraine
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:8,Sleep deprivation,migraine
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:7,Stress,migraine
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:29,Atherosclerosis,stroke
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:30,Blood clots,stroke
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:28,Diabetes,stroke
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:27,High blood pressure,stroke
+5:f21e9107-5996-47c4-a4d9-d203faf78f21:31,Traumatic brain injury,stroke
+G1E_670e0a0d9c9126b0,Cigarette smoking,Atherosclerotic plaque buildup in arteries
+G1E_c28667acdbf2afb6,Persistent high blood pressure,Arterial wall damage
+G1E_836bd144811298da,coronary artery disease,Heart muscle damage or weakening
+G1E_3e15b961b2c8a45e,Heart muscle damage or weakening,heart failure
+G1E_5ea6c201e3406451,Chronic high blood glucose,Damage to kidney blood vessels
+G1E_4f1f0d8df19b19fa,Inhaled allergens in susceptible individuals,Airway inflammation
+G1E_41b64586178c8d09,Airway inflammation,Asthma exacerbations
+G1E_ae29973f85db2f62,Longstanding high blood pressure,Damage and narrowing of kidney blood vessels
+G1E_632791ab6912c48e,Damage and narrowing of kidney blood vessels,Impaired kidney filtration
+G1E_5aef3485beeb5ebd,Atrial thrombus formation,Cardioembolic ischemic stroke
+G1E_edc38f28c0f7ddc3,Traumatic brain injury,Structural brain injury and epileptogenic remodeling
+G1E_92d810b5be6efa13,Respiratory pathogen infection of the alveoli,Alveolar immune inflammation with fluid or pus
+G1E_ca7fbb38f89bdfd1,Prolonged tobacco smoke exposure,DNA damage in lung cells
+G1E_ec9add3c63f90808,Autoimmune attack on the thyroid in Hashimoto disease,Inflammation and damage to thyroid tissue
+G1E_4e57cac37775b769,Inflammation and damage to thyroid tissue,Reduced thyroid hormone production (hypothyroidism)

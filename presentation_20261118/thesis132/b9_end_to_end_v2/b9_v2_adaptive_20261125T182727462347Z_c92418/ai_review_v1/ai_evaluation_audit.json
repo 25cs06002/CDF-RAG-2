@@ -1,0 +1,809 @@
+{
+  "protocol_version": "AIJ-MED-HALLUC v1",
+  "evaluator": {
+    "model": "Claude Opus 5.5",
+    "version": "claude-opus-5-5",
+    "role": "single AI judge; no human adjudication"
+  },
+  "annotation_date": "2026-11-26",
+  "human_clinical_review": "none",
+  "scope": {
+    "total_responses": 132,
+    "records_processed": 132
+  },
+  "review_input_sha256": "f77821bd1d3bdde2ac0a67c75495bd1748eeb7893166b5a2a32b0ffafe825946",
+  "run_manifest_sha256": "4eea5fce78929d34342a18077745434df1d6960021d81e459ab19ce81029ce6c",
+  "output_sha256": {
+    "ai_verified_hallucination_labels_132.csv": "f97307f7e054a2d4533331d95358df91734c520ec3420adb651b6a660d7e6f9e",
+    "medical_claim_verification_132.jsonl": "2b2de22b0025921e3cc6cfcfad19ab1c91f9eff7b865cdbe4cdc59b69e67072f",
+    "ai_hallucination_evaluation_summary.csv": "07333f263a56fe3582eb5903fef3d233365d9483ba8adbfd3358a155b09a9518"
+  },
+  "access_limitations": [
+    "Sources were inspected only through WebSearch result text and WebFetch; shell network access was disabled. WebFetch returns a model-extracted summary, not raw page text.",
+    "Exact quotes are limited to short passages from US-government pages that appeared verbatim in search-result page text; all other evidence is recorded as paraphrase.",
+    "Part of the evidence library was inspected on 2026-11-23 during the B1-B8 review in this same session; verbatim text from those inspections was not retained, so those entries are paraphrases.",
+    "Some cited pages were not themselves opened (epilepsy.com TBI page, PMC7618543, the DNA-adduct passages of the NCI lung-prevention PDQ, and the PMID mapping of the adipose-tissue review). In those cases the medical content was verified from other inspected authoritative sources and the attribution is reported as unconfirmed, not as fabricated.",
+    "pmc.ncbi.nlm.nih.gov full texts returned a browser-verification page to WebFetch; PMC content was taken from search-result text, PubMed records or publisher copies.",
+    "Paywalled full texts were not read; journal evidence relies on abstracts and openly visible text.",
+    "Single AI judge: no inter-rater agreement and no independent human clinical adjudication. The 132 questions are development-exposed and the G1 graph/document summaries are provisional.",
+    "Completeness, relevance and abstention-appropriateness are interpretive judgements; the 7 guard-route abstentions marked INAPPROPRIATE_ABSTENTION are the most debatable."
+  ],
+  "label_provenance_statement": "Labels were generated through AI-assisted evidence verification and automatically accepted under a predefined evaluation protocol. They have not been independently adjudicated by human clinical reviewers.",
+  "supplementary": {
+    "package_sha256": "2dce0b57844671fb2d0cc24d5a3195fe2c6db6319c799579dbf82da617bad6e2",
+    "input_sha256_verified": {
+      "B9_ai_label_template_132.csv": "6bc22d7a51fd2a7d91ecc5ed48001c75e263c2a38e35c1b80faed2fd202ebf95",
+      "B9_queries_132.csv": "cfc5b7ac6c491fcb457d0683ebeab9bfd30f0e7705428ee0298e4e4a2db345a8",
+      "B9_review_inputs_132.jsonl": "f77821bd1d3bdde2ac0a67c75495bd1748eeb7893166b5a2a32b0ffafe825946",
+      "B9_review_worksheet_132.csv": "5ef241e464a939fd856128ca66bbbb564f432cdc06e6e7e2d3544948891025b8",
+      "README_MASTER_PROMPT.md": "ab9c09766de1046a1d5e60761ffe2b9d0eb6c9d30896aa99df7ea028e039cfa4",
+      "b9_run_manifest.json": "4eea5fce78929d34342a18077745434df1d6960021d81e459ab19ce81029ce6c",
+      "documents.jsonl": "6d136603606ec8f5cfccfe064a8c9e8ff85d3720bb52b707dad47f7e155e9e8d",
+      "nodes.csv": "5e35da849ae4e464c02448de0e2a51a8b4d04c176f15eb29d157882a22120e27",
+      "provenance.jsonl": "dd8a2b3286128540c4a6fdc56cf5f887cf07dbaee64269370add7be6f3a166c8",
+      "source_catalog_screened_20261121.json": "caf04db403019a903d1d8286033cedbaf3ef215581f66f044268d975b85419b9",
+      "typed_relationships.csv": "d17533577dff7315046ce688491d7c33c65cff936f241727812f7ae29ebf5e9e"
+    },
+    "detector_predictions_used": false,
+    "rules": {
+      "claim_unit": "Each sentence of the answer is one claim, quoted exactly; framing and meta sentences are NON_FACTUAL. Attribution sentences ('NHLBI states X') are judged on X; attribution fidelity is reported separately in citation_issues.",
+      "answer_label": "Yes if any CONTRADICTED or UNSUPPORTED material claim or fabricated citation; otherwise Uncertain if any UNVERIFIABLE claim; otherwise No. Partial support alone is not Yes.",
+      "confidence": "high when every factual claim is fully supported; medium when any claim is only partially supported or rests on model-extracted evidence; low for Uncertain.",
+      "fabricated_citation": "true if a cited evidence ID is absent from the record's retrieved/selected evidence, the rendered text differs from the stored evidence text, or the cited URL differs from the evidence source.",
+      "grounding": "Checked by exact entailment: each rendered sentence must equal the stored text of the evidence item it cites, that item must be in the record's retrieved/selected evidence, and the URL must match.",
+      "completeness": "COMPLETE when the main elements asked for are covered; PARTIAL when major elements are missing; NONRESPONSIVE when the content does not address the question; empty answers are APPROPRIATE_ABSTENTION only when no safe general answer is possible without individual data.",
+      "partial_pathways": "The 11 partial_path_evidence answers are never marked COMPLETE; their reasoning lists which links are supported and which are missing."
+    },
+    "results": {
+      "labels": {
+        "No": 132
+      },
+      "confidence": {
+        "high": 125,
+        "medium": 7
+      },
+      "answer_completeness": {
+        "PARTIAL": 53,
+        "COMPLETE": 36,
+        "NONRESPONSIVE": 10,
+        "INAPPROPRIATE_ABSTENTION": 16,
+        "APPROPRIATE_ABSTENTION": 17
+      },
+      "grounding": {
+        "FULLY_GROUNDED": 99,
+        "NOT_APPLICABLE_EMPTY_ANSWER": 33
+      },
+      "claim_verdicts": {
+        "NON_FACTUAL": 127,
+        "SUPPORTED": 509,
+        "PARTIALLY_SUPPORTED": 4
+      },
+      "partial_pathway_records": [
+        "PILOT_046",
+        "PILOT_049",
+        "PILOT_051",
+        "PILOT_053",
+        "PILOT_054",
+        "PILOT_056",
+        "PILOT_057",
+        "PILOT_058",
+        "PILOT_060",
+        "EXTQ_014",
+        "EXTQ_015"
+      ],
+      "summary_row": {
+        "model": "B9",
+        "total_responses": 132,
+        "auto_accepted_total": 132,
+        "auto_accepted_yes": 0,
+        "auto_accepted_no": 132,
+        "uncertain_unresolved": 0,
+        "substantive_answers": 99,
+        "substantive_answers_accepted": 99,
+        "externally_supported_answers": 99,
+        "fully_grounded_answers": 99
+      }
+    },
+    "evidence_library": [
+      {
+        "key": "ADIPOSE_IR",
+        "title": "Ahmed, Sultana, Greene. Adipose tissue and insulin resistance in obese. Biomed Pharmacother 2021;137:111315 (DOAJ record)",
+        "url": "https://doaj.org/article/8046c970e30a421f80642f85accb4303",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26",
+        "finding": "Dysfunctional obese adipose tissue plays a pivotal role in insulin resistance; long-term low-grade inflammation impairs insulin signalling and glucose homeostasis; obesity and overnutrition lead to insulin resistance through lipotoxicity. (Likely the review cited as PMID 33561645; the PMID mapping was not confirmed in inspected text.)",
+        "exact_quotes": []
+      },
+      {
+        "key": "ADIPOSE_LONGO",
+        "title": "Longo et al. Adipose tissue dysfunction as determinant of obesity-associated metabolic complications. IJMS 2019 (PMC6539070)",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6539070",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26",
+        "finding": "The primary cause of type 2 diabetes is obesity-driven insulin resistance in adipose tissue, liver and muscle combined with impaired insulin secretion; mechanisms include adipose dysfunction/lipotoxicity and inflammation.",
+        "exact_quotes": []
+      },
+      {
+        "key": "AHA_AFIB",
+        "title": "American Heart Association - Why Atrial Fibrillation Matters",
+        "url": "https://www.heart.org/en/health-topics/atrial-fibrillation/why-atrial-fibrillation-af-or-afib-matters",
+        "access_mode": "WebSearch result text, inspected 2026-11-23 (B1-B8 review, same session)",
+        "finding": "In AFib the atria do not empty completely, blood pools and can clot; a clot pumped to the brain blocks an artery and causes an embolic (ischemic) stroke.",
+        "exact_quotes": []
+      },
+      {
+        "key": "AHA_AFIB_FACTS",
+        "title": "American Heart Association - Understanding AFib / What is Atrial Fibrillation",
+        "url": "https://www.heart.org/AFibfacts",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26",
+        "finding": "In AFib the atria beat irregularly so blood can pool in the atria and form clots, increasing stroke risk; a clot pumped out of the heart to the brain blocks blood supply and causes a stroke; AFib is linked with about fivefold stroke risk.",
+        "exact_quotes": []
+      },
+      {
+        "key": "AHA_HA",
+        "title": "American Heart Association - What is a Heart Attack?",
+        "url": "https://www.heart.org/en/health-topics/heart-attack/about-heart-attacks",
+        "access_mode": "WebSearch result text, inspected 2026-11-23 (B1-B8 review, same session)",
+        "finding": "When plaque inside a heart artery breaks, a blood clot forms around it and can block blood flow to the heart muscle, which then begins to suffer damage.",
+        "exact_quotes": []
+      },
+      {
+        "key": "AHA_HBP_STROKE",
+        "title": "American Heart Association / American Stroke Association - How High Blood Pressure Can Lead to Stroke",
+        "url": "https://www.heart.org/en/health-topics/high-blood-pressure/health-threats-from-high-blood-pressure/how-high-blood-pressure-can-lead-to-stroke",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26",
+        "finding": "High blood pressure damages arteries throughout the body and creates conditions that make arteries burst or clog more easily; weakened or blocked brain arteries create a much higher stroke risk; a stroke occurs when a brain vessel is blocked by a clot (ischemic) or bursts (hemorrhagic). (The answer cites the stroke.org copy of this same AHA/ASA article path; the heart.org copy was inspected.)",
+        "exact_quotes": []
+      },
+      {
+        "key": "ALVARO",
+        "title": "Alvaro, Roberts, Harris. A systematic review assessing bidirectionality between sleep disturbances, anxiety, and depression. Sleep 2013 (PMC3669059)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/23814343",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26",
+        "finding": "Systematic review of 9 studies (8 longitudinal, 1 retrospective); best available evidence suggests insomnia is bidirectionally related to anxiety and depression; childhood sleep problems predicted later depression; definitive conclusions limited by small number and heterogeneity of samples.",
+        "exact_quotes": []
+      },
+      {
+        "key": "ANX_MAG",
+        "title": "NIH MedlinePlus Magazine - Anxiety: what you need to know",
+        "url": "https://magazine.medlineplus.gov/article/anxiety-what-you-need-to-know",
+        "access_mode": "WebSearch result text, inspected 2026-11-23 (B1-B8 review, same session)",
+        "finding": "Risk factors for anxiety disorders include family history, experiencing traumatic or stressful events, and underlying medical conditions.",
+        "exact_quotes": []
+      },
+      {
+        "key": "BOLD_TB",
+        "title": "European Respiratory Journal (BOLD study, PMC4594762) - Tuberculosis associates with both airflow obstruction and low lung function",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4594762/",
+        "access_mode": "WebSearch result text, inspected 2026-11-23 (B1-B8 review, same session)",
+        "finding": "Self-reported history of tuberculosis associated with airflow obstruction (adjusted OR 2.51, 95% CI 1.83-3.42) and spirometric restriction.",
+        "exact_quotes": []
+      },
+      {
+        "key": "CDC_CAD",
+        "title": "CDC - About Coronary Artery Disease (CAD)",
+        "url": "https://www.cdc.gov/heart-disease/about/coronary-artery-disease.html",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26",
+        "finding": "CAD is caused by plaque buildup in the walls of the arteries that supply blood to the heart; narrowed arteries can block blood flow to the heart muscle; over time CAD can weaken the heart muscle and may lead to heart failure (wording seen on the same-titled CDC page cdc.gov/heartdisease/coronary_ad.htm); risk factors include overweight, inactivity, unhealthy eating, smoking and family history.",
+        "exact_quotes": [
+          "Over time, CAD can weaken the heart muscle.",
+          "CAD is caused by plaque buildup in the walls of the arteries that supply blood to the heart."
+        ]
+      },
+      {
+        "key": "CDC_DM_CKD",
+        "title": "CDC - Diabetes and Chronic Kidney Disease",
+        "url": "https://www.cdc.gov/diabetes/diabetes-complications/diabetes-and-chronic-kidney-disease.html",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26",
+        "finding": "Over time high blood sugar can damage blood vessels and nephrons in the kidneys; diabetes can reduce how well kidneys filter waste, leading to CKD; about 1 in 3 adults with diabetes and 1 in 5 with high blood pressure may have CKD.",
+        "exact_quotes": []
+      },
+      {
+        "key": "CDC_FLU",
+        "title": "CDC - How Flu Spreads",
+        "url": "https://www.cdc.gov/flu/spread/index.html",
+        "access_mode": "Inspected 2026-11-23 during the B1-B8 review in this session via WebSearch snippets and/or WebFetch model-extracted summaries; verbatim text not retained",
+        "finding": "Flu viruses spread mainly by droplets made when people with flu cough, sneeze or talk.",
+        "exact_quotes": []
+      },
+      {
+        "key": "CDC_HDS",
+        "title": "CDC - Heart Disease and Stroke (fact sheet)",
+        "url": "https://www.cdc.gov/chronicdisease/resources/publications/factsheets/heart-disease-stroke.htm",
+        "access_mode": "WebSearch result text, inspected 2026-11-23 (B1-B8 review, same session)",
+        "finding": "Leading risk factors for heart disease and stroke are high blood pressure, high LDL cholesterol, diabetes, smoking/secondhand smoke, obesity, unhealthy diet and physical inactivity; high blood pressure damages artery lining making it prone to plaque; high blood sugar can damage blood vessels.",
+        "exact_quotes": []
+      },
+      {
+        "key": "CDC_LC_NS",
+        "title": "CDC - Lung Cancer Among People Who Never Smoked",
+        "url": "https://www.cdc.gov/lung-cancer/nonsmokers/",
+        "access_mode": "Inspected 2026-11-23 during the B1-B8 review in this session via WebSearch snippets and/or WebFetch model-extracted summaries; verbatim text not retained",
+        "finding": "In never-smokers lung cancer is linked to radon, secondhand smoke and other exposures.",
+        "exact_quotes": []
+      },
+      {
+        "key": "CDC_LC_RF",
+        "title": "CDC - Lung Cancer Risk Factors",
+        "url": "https://www.cdc.gov/lung-cancer/risk-factors/",
+        "access_mode": "Inspected 2026-11-23 during the B1-B8 review in this session via WebSearch snippets and/or WebFetch model-extracted summaries; verbatim text not retained",
+        "finding": "Cigarette smoking is the number one risk factor (15-30 times higher risk); secondhand smoke causes lung cancer; radon is the second leading cause.",
+        "exact_quotes": []
+      },
+      {
+        "key": "CDC_OBESITY",
+        "title": "CDC - Risk Factors for Obesity",
+        "url": "https://www.cdc.gov/obesity/risk-factors/risk-factors.html",
+        "access_mode": "Inspected 2026-11-23 during the B1-B8 review in this session via WebSearch snippets and/or WebFetch model-extracted summaries; verbatim text not retained",
+        "finding": "Obesity risk reflects eating/activity/sleep behaviours, stress, genetics, other health conditions and medications, and environmental factors including environmental chemicals.",
+        "exact_quotes": []
+      },
+      {
+        "key": "CDC_SMOKE_CVD",
+        "title": "CDC - Cigarettes and Cardiovascular Disease",
+        "url": "https://www.cdc.gov/tobacco/about/cigarettes-and-cardiovascular-disease.html",
+        "access_mode": "Inspected 2026-11-23 during the B1-B8 review in this session via WebSearch snippets and/or WebFetch model-extracted summaries; verbatim text not retained",
+        "finding": "Smoking damages blood-vessel lining and increases plaque buildup; smoking raises coronary heart disease risk roughly 2-4 times.",
+        "exact_quotes": []
+      },
+      {
+        "key": "CDC_STROKE_RF",
+        "title": "CDC - Risk Factors for Stroke",
+        "url": "https://www.cdc.gov/stroke/risk-factors/index.html",
+        "access_mode": "WebSearch result text, inspected 2026-11-23 (B1-B8 review, same session)",
+        "finding": "High blood pressure is a leading cause of stroke (and is common in people with diabetes); excess cholesterol can build up and narrow arteries including those of the brain; atrial fibrillation and other heart conditions can cause clots that break loose and cause stroke; diabetes increases stroke risk; lowering blood pressure lowers stroke risk. Traumatic brain injury is not among the listed risk factors.",
+        "exact_quotes": []
+      },
+      {
+        "key": "CDC_TB_CAUSES",
+        "title": "CDC - Tuberculosis: Causes and How It Spreads",
+        "url": "https://www.cdc.gov/tb/causes/index.html",
+        "access_mode": "WebSearch result text, inspected 2026-11-23 (B1-B8 review, same session)",
+        "finding": "TB germs spread through the air when someone with active TB disease coughs, speaks or sings and can stay in the air for several hours; inactive TB becomes active if the immune system cannot stop the germs multiplying.",
+        "exact_quotes": []
+      },
+      {
+        "key": "CDC_TB_RISK",
+        "title": "CDC - Tuberculosis Risk Factors",
+        "url": "https://www.cdc.gov/tb/risk-factors/index.html",
+        "access_mode": "Inspected 2026-11-23 during the B1-B8 review in this session via WebSearch snippets and/or WebFetch model-extracted summaries; verbatim text not retained",
+        "finding": "Weakened immunity (e.g. HIV, diabetes, other conditions/treatments) raises the risk of progressing from TB infection to TB disease.",
+        "exact_quotes": []
+      },
+      {
+        "key": "COPD_MECH",
+        "title": "Review of COPD pathogenesis (PMC11391604) and COPD inflammation figure (PMC10082417)",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11391604/",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26",
+        "finding": "COPD mechanisms include mucus hypersecretion, emphysema and small-airway inflammation with fibrosis; smoke and irritants activate macrophages and epithelial cells, causing oxidative stress and release of inflammatory mediators; fibrogenic mediators drive small-airway fibrosis.",
+        "exact_quotes": []
+      },
+      {
+        "key": "COPD_TRIAD",
+        "title": "Int J COPD (review, PMC3157944) - Pathogenic triad in COPD",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3157944/",
+        "access_mode": "WebSearch result text, inspected 2026-11-23 (B1-B8 review, same session)",
+        "finding": "Persistent inflammation, protease-antiprotease imbalance and oxidative stress lead to mucous/goblet-cell metaplasia, mucus hypersecretion and fibrosis (airway remodeling).",
+        "exact_quotes": []
+      },
+      {
+        "key": "EF_TBI",
+        "title": "Epilepsy Foundation author (Kiriakopoulos) via Brain Injury Association of America - TBI, Seizures and Epilepsy",
+        "url": "https://biausa.org/public-affairs/media/tbi-seizures-and-epilepsy",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26",
+        "finding": "TBI is a well-recognised cause of seizures and epilepsy; early seizures (first week) are considered symptoms of the injury, late seizures and early seizures raise the risk of post-traumatic epilepsy. (The epilepsy.com page cited in the answer was not itself inspected.)",
+        "exact_quotes": []
+      },
+      {
+        "key": "ENDOTEXT_T2D",
+        "title": "Endotext - Pathogenesis of Type 2 Diabetes Mellitus (NCBI Bookshelf NBK279115)",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK279115/",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26",
+        "finding": "Muscle and liver insulin resistance are core abnormalities in type 2 diabetes; compensatory insulin secretion by beta cells may initially maintain normal plasma glucose, and beta-cell deterioration leads to hyperglycaemia (seen via the Endotext PDF and PubMed 25905339 record).",
+        "exact_quotes": []
+      },
+      {
+        "key": "HECHT26",
+        "title": "Hecht SS. Lung carcinogenesis by tobacco smoke. Int J Cancer 2012 (PMC3479369)",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3479369/",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26",
+        "finding": "Cigarette smoke contains multiple genotoxic lung carcinogens; the paper presents a mechanistic framework for how smoking causes lung cancer focused on carcinogens and their DNA adducts.",
+        "exact_quotes": []
+      },
+      {
+        "key": "LI2016",
+        "title": "Li et al. Insomnia and the risk of depression: a meta-analysis of prospective cohort studies. BMC Psychiatry 2016 (PMID 27816065)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/27816065/",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26",
+        "finding": "34 cohort studies with 172,077 participants (mean follow-up 60.4 months); pooled RR 2.27 (95% CI 1.89-2.71) with high heterogeneity; publication bias detected but trim-and-fill did not alter the estimate; insomnia significantly associated with increased depression risk.",
+        "exact_quotes": []
+      },
+      {
+        "key": "LI2016_METHODS",
+        "title": "Li et al. 2016, BMC Psychiatry full text (methods)",
+        "url": "https://bmcpsychiatry.biomedcentral.com/articles/10.1186/s12888-016-1075-3",
+        "access_mode": "WebFetch model-extracted page summary, inspected 2026-11-26",
+        "finding": "Inclusion criteria allowed depression measured by self-reported symptom scales, physician/clinician diagnosis, or structured clinical diagnostic interview.",
+        "exact_quotes": []
+      },
+      {
+        "key": "MEDLINE_DEP26",
+        "title": "MedlinePlus - Depression",
+        "url": "https://medlineplus.gov/depression.html",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26",
+        "finding": "Higher depression risk if a close relative has depression or another mental health disorder; trauma or stressful life events may raise risk further; causes include genetic, biological, environmental and psychological factors.",
+        "exact_quotes": [
+          "You may be at a higher risk of depression if you have a close relative who has it or another mental health disorder.",
+          "Going through trauma or stressful life events may raise your risk even more."
+        ]
+      },
+      {
+        "key": "MEDLINE_DEP_ENCY26",
+        "title": "MedlinePlus Medical Encyclopedia - Depression",
+        "url": "https://medlineplus.gov/ency/article/003213.htm",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26",
+        "finding": "Clinical depression is a mood disorder in which sadness, loss, anger or frustration interfere with everyday life for 2 weeks or more; depression often runs in families.",
+        "exact_quotes": []
+      },
+      {
+        "key": "MEDLINE_EPI",
+        "title": "MedlinePlus - Epilepsy",
+        "url": "https://medlineplus.gov/epilepsy.html",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26",
+        "finding": "Epilepsy has many possible causes including illness, brain injury and abnormal brain development; in many cases the cause is unknown.",
+        "exact_quotes": [
+          "Epilepsy has many possible causes, including illness, brain injury, and abnormal brain development. In many cases, the cause is unknown."
+        ]
+      },
+      {
+        "key": "MEDLINE_EPI_ENCY",
+        "title": "MedlinePlus Medical Encyclopedia - Epilepsy",
+        "url": "https://medlineplus.gov/ency/article/000694.htm",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26",
+        "finding": "A single seizure that does not happen again is not epilepsy; common causes include stroke, traumatic brain injury, infections, tumours and hereditary epilepsy.",
+        "exact_quotes": []
+      },
+      {
+        "key": "MEDLINE_FATIGUE",
+        "title": "MedlinePlus - Fatigue",
+        "url": "https://medlineplus.gov/fatigue.html",
+        "access_mode": "WebSearch result text, inspected 2026-11-23 (B1-B8 review, same session)",
+        "finding": "Fatigue is a symptom with many causes: chronic diseases (diabetes, COPD, heart, kidney, thyroid disease), anemia, infections, sleep apnea and other sleep disorders, depression and anxiety, treatments and lifestyle habits.",
+        "exact_quotes": []
+      },
+      {
+        "key": "MEDLINE_MIGRAINE",
+        "title": "MedlinePlus - Migraine",
+        "url": "https://medlineplus.gov/migraine.html",
+        "access_mode": "Inspected 2026-11-23 during the B1-B8 review in this session via WebSearch snippets and/or WebFetch model-extracted summaries; verbatim text not retained",
+        "finding": "Migraine has a genetic cause and runs in families; attacks are set off by triggers such as stress, hormonal changes, sleep changes, certain foods/drinks and environmental factors; family history is a risk factor, not a trigger.",
+        "exact_quotes": []
+      },
+      {
+        "key": "MEDLINE_SOB",
+        "title": "MedlinePlus - Breathing difficulty",
+        "url": "https://medlineplus.gov/ency/article/003075.htm",
+        "access_mode": "WebSearch result text, inspected 2026-11-23 (B1-B8 review, same session)",
+        "finding": "Shortness of breath has many causes including lung problems and heart problems (angina chest pain from poor coronary blood flow, heart attack, heart failure, arrhythmias), allergies and high altitude.",
+        "exact_quotes": []
+      },
+      {
+        "key": "MEDLINE_THIRST",
+        "title": "MedlinePlus - Thirst - excessive",
+        "url": "https://medlineplus.gov/ency/article/003085.htm",
+        "access_mode": "WebSearch result text, inspected 2026-11-23 (B1-B8 review, same session)",
+        "finding": "Causes include a salty or spicy meal, blood loss, diabetes mellitus, diabetes insipidus, certain medicines, fluid shifts from sepsis, burns or heart/liver/kidney failure, and psychogenic polydipsia.",
+        "exact_quotes": []
+      },
+      {
+        "key": "MEGHJI_PTLD",
+        "title": "Meghji et al. Post-tuberculosis lung disease: towards prevention, diagnosis, and care. Lancet Respir Med 2025 (PubMed 40127662)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40127662/",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26",
+        "finding": "Post-TB lung disease includes parenchymal damage, airway disease and pulmonary vascular disease; about half of pulmonary TB survivors have ongoing structural pathology, impaired lung function or respiratory symptoms after active disease resolves. (The PMC7618543 article cited in the answer was not itself inspected.)",
+        "exact_quotes": []
+      },
+      {
+        "key": "NCI_LUNG_PDQ_HP",
+        "title": "NCI - Lung Cancer Prevention (PDQ) Health Professional Version",
+        "url": "https://www.cancer.gov/types/lung/hp/lung-prevention-pdq",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26",
+        "finding": "Based on solid evidence cigarette smoking causes lung cancer; current smokers have about 20 times the risk of nonsmokers; secondhand smoke and radiation exposure increase lung cancer risk. The DNA-adduct / multistep-carcinogenesis passages attributed to this page were not seen in the inspected excerpts.",
+        "exact_quotes": [
+          "Based on solid evidence, cigarette smoking causes lung cancer"
+        ]
+      },
+      {
+        "key": "NCI_LUNG_PDQ_PT",
+        "title": "NCI - Lung Cancer Prevention (PDQ) Patient Version",
+        "url": "https://www.cancer.gov/types/lung/patient/lung-prevention-pdq",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26",
+        "finding": "Protective factors for lung cancer include not smoking and lower exposure to radon; tobacco smoking is the most important risk factor.",
+        "exact_quotes": []
+      },
+      {
+        "key": "NCI_RADON",
+        "title": "NCI - Radon and Cancer fact sheet",
+        "url": "https://www.cancer.gov/about-cancer/causes-prevention/risk/substances/radon/radon-fact-sheet",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26",
+        "finding": "People who inhale high levels of radon are at increased risk of lung cancer; radon is the second leading cause of lung cancer in the US.",
+        "exact_quotes": [
+          "Scientists agree that radon causes lung cancer in humans."
+        ]
+      },
+      {
+        "key": "NCI_TOBACCO",
+        "title": "NCI - Tobacco",
+        "url": "https://www.cancer.gov/tobacco",
+        "access_mode": "WebSearch result text, inspected 2026-11-23 (B1-B8 review, same session)",
+        "finding": "Tobacco products and secondhand smoke contain many chemicals that damage DNA; tobacco use causes many cancers including lung cancer.",
+        "exact_quotes": []
+      },
+      {
+        "key": "NHLBI_AFIB_LW",
+        "title": "NHLBI - Atrial Fibrillation: Living With",
+        "url": "https://www.nhlbi.nih.gov/health/atrial-fibrillation/living-with",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26",
+        "finding": "Blood clots can form when atrial fibrillation keeps the heart from pumping blood out properly.",
+        "exact_quotes": [
+          "Blood clots can happen when atrial fibrillation keeps the heart from pumping the blood out properly."
+        ]
+      },
+      {
+        "key": "NHLBI_ASTHMA",
+        "title": "NHLBI - Asthma - Causes and Triggers",
+        "url": "https://www.nhlbi.nih.gov/health/asthma/causes",
+        "access_mode": "Inspected 2026-11-23 during the B1-B8 review in this session via WebSearch snippets and/or WebFetch model-extracted summaries; verbatim text not retained",
+        "finding": "Exact causes of asthma are unknown; risk factors include environmental exposures (allergens, air pollution, tobacco smoke, workplace chemicals/dust), viral respiratory infections in early life, family history/genetics, allergies (asthma is usually a type of allergic reaction) and obesity; triggers provoke airway inflammation, swelling, mucus and muscle tightening.",
+        "exact_quotes": []
+      },
+      {
+        "key": "NHLBI_ASTHMA_ARCH",
+        "title": "NHLBI - Asthma health topic (archived copy, UNT web archive)",
+        "url": "https://webarchive.library.unt.edu/web/20201218063355/https://www.nhlbi.nih.gov/health-topics/asthma",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26",
+        "finding": "Inflammation makes airways swell and narrow and possibly produce more mucus; muscles around the airways may also tighten (bronchospasm); asthma symptoms include wheezing, chest tightness, shortness of breath and coughing; environmental exposures may raise the risk of developing asthma or worsen symptoms.",
+        "exact_quotes": [
+          "Inflammation makes your airways swell and narrow and possibly produce more mucus."
+        ]
+      },
+      {
+        "key": "NHLBI_ASTHMA_ATTACKS",
+        "title": "NHLBI - Asthma Attack",
+        "url": "https://www.nhlbi.nih.gov/health/asthma/attacks",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26",
+        "finding": "Asthma attacks happen when swelling or tightening narrows the airways; symptoms get much worse during an attack; wheezing may occur.",
+        "exact_quotes": [
+          "Asthma attacks, or flare-ups, happen when swelling or tightening narrows the airways, making it harder to breathe.",
+          "During an asthma attack, symptoms get much worse."
+        ]
+      },
+      {
+        "key": "NHLBI_CHD",
+        "title": "NHLBI - Coronary Heart Disease - Causes",
+        "url": "https://www.nhlbi.nih.gov/health/coronary-heart-disease/causes",
+        "access_mode": "Inspected 2026-11-23 during the B1-B8 review in this session via WebSearch snippets and/or WebFetch model-extracted summaries; verbatim text not retained",
+        "finding": "Plaque buildup (atherosclerosis) in the coronary arteries is the leading cause of coronary heart disease; inflammation, high blood pressure and diabetes can damage arteries; family history and familial hypercholesterolemia raise risk.",
+        "exact_quotes": []
+      },
+      {
+        "key": "NHLBI_COPD",
+        "title": "NHLBI - COPD - Causes and Risk Factors",
+        "url": "https://www.nhlbi.nih.gov/health/copd/causes",
+        "access_mode": "Inspected 2026-11-23 during the B1-B8 review in this session via WebSearch snippets and/or WebFetch model-extracted summaries; verbatim text not retained",
+        "finding": "Cigarette smoking is the most common cause of COPD in the US; secondhand smoke, air pollution, workplace dust/fumes/chemicals and alpha-1 antitrypsin deficiency also contribute; airways become thickened and inflamed.",
+        "exact_quotes": []
+      },
+      {
+        "key": "NHLBI_HA",
+        "title": "NHLBI - Heart Attack - Causes",
+        "url": "https://www.nhlbi.nih.gov/health/heart-attack/causes",
+        "access_mode": "WebSearch result text, inspected 2026-11-23 (B1-B8 review, same session)",
+        "finding": "Plaque narrows coronary arteries; blood clots can form on plaques and block coronary blood flow; if the blockage is not treated quickly, part of the heart muscle begins to die.",
+        "exact_quotes": []
+      },
+      {
+        "key": "NHLBI_HBP_SYM",
+        "title": "NHLBI - High Blood Pressure: Symptoms",
+        "url": "https://www.nhlbi.nih.gov/health/high-blood-pressure/symptoms",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26",
+        "finding": "Undiagnosed or uncontrolled high blood pressure can lead to serious problems including aneurysm, stroke, chronic kidney disease, eye damage, heart attack, heart failure and atherosclerosis (plaque buildup in arteries). Explicit 'arterial wall damage' wording was not seen in the inspected text.",
+        "exact_quotes": []
+      },
+      {
+        "key": "NHLBI_HF",
+        "title": "NHLBI - Heart Failure - Causes and Risk Factors",
+        "url": "https://www.nhlbi.nih.gov/health/heart-failure/causes",
+        "access_mode": "Inspected 2026-11-23 during the B1-B8 review in this session via WebSearch snippets and/or WebFetch model-extracted summaries; verbatim text not retained",
+        "finding": "HFrEF results from conditions that damage heart muscle such as coronary heart disease and heart attack; HFpEF results from conditions that stiffen/overwork the heart such as high blood pressure, obesity and diabetes; risk factors include family history/genetics, smoking, unhealthy eating and chronic kidney disease.",
+        "exact_quotes": []
+      },
+      {
+        "key": "NHLBI_INSOMNIA_CAUSES",
+        "title": "NHLBI - Insomnia: Causes and Risk Factors",
+        "url": "https://www.nhlbi.nih.gov/health/insomnia/causes",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26",
+        "finding": "Stress or worrying about school or work, relationships, money or the death of a loved one raises insomnia risk; the NHLBI risk-factor page also lists worrying about sleep.",
+        "exact_quotes": [
+          "Stress or worrying about school or work, relationships, money, or the death of a loved one raises your risk of insomnia."
+        ]
+      },
+      {
+        "key": "NHLBI_METSYN",
+        "title": "NHLBI - Metabolic Syndrome",
+        "url": "https://www.nhlbi.nih.gov/health/metabolic-syndrome",
+        "access_mode": "WebSearch result text, inspected 2026-11-23 (B1-B8 review, same session)",
+        "finding": "Metabolic syndrome (also called insulin resistance syndrome) is a cluster including high blood pressure, high blood sugar, high triglycerides, low HDL and a large waist; it raises heart disease, diabetes and stroke risk.",
+        "exact_quotes": []
+      },
+      {
+        "key": "NHLBI_PNA",
+        "title": "NHLBI - Pneumonia - Causes and Risk Factors",
+        "url": "https://www.nhlbi.nih.gov/health/pneumonia/causes",
+        "access_mode": "Inspected 2026-11-23 during the B1-B8 review in this session via WebSearch snippets and/or WebFetch model-extracted summaries; verbatim text not retained",
+        "finding": "Bacteria, viruses or fungi cause pneumonia; Streptococcus pneumoniae is the most common bacterial cause, influenza and rhinovirus common viral causes; the immune response inflames the alveoli, which can fill with fluid or pus; risk factors include smoking, chronic lung disease, heart failure, weakened immunity and air pollution (high blood pressure is not listed).",
+        "exact_quotes": []
+      },
+      {
+        "key": "NHLBI_PNA_ARCH",
+        "title": "NHLBI - Pneumonia health topic (archived copy, UNT web archive)",
+        "url": "https://webarchive.library.unt.edu/web/20201218063355/https://www.nhlbi.nih.gov/health-topics/pneumonia",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26",
+        "finding": "When germs reach the lungs, immune cells attack them and may cause inflammation of the air sacs; inflammation can cause the air sacs to fill with fluid and pus.",
+        "exact_quotes": []
+      },
+      {
+        "key": "NHLBI_PNA_WHAT",
+        "title": "NHLBI - What Is Pneumonia?",
+        "url": "https://www.nhlbi.nih.gov/health/pneumonia",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26",
+        "finding": "Pneumonia is an infection of one or both lungs that causes the alveoli to fill with fluid or pus; bacteria, viruses or fungi may cause it; symptoms may include cough, fever, chills and trouble breathing; diagnosis uses history, examination and tests such as chest X-ray.",
+        "exact_quotes": [
+          "It causes the air sacs, or alveoli, of the lungs to fill up with fluid or pus."
+        ]
+      },
+      {
+        "key": "NHLBI_SMOKE",
+        "title": "NHLBI - How Smoking Affects the Heart and Blood Vessels",
+        "url": "https://www.nhlbi.nih.gov/health/heart/smoking/risks",
+        "access_mode": "Inspected 2026-11-23 during the B1-B8 review in this session via WebSearch snippets and/or WebFetch model-extracted summaries; verbatim text not retained",
+        "finding": "Smoking damages the heart and blood vessels and raises the risk of atherosclerosis and coronary heart disease.",
+        "exact_quotes": []
+      },
+      {
+        "key": "NHLBI_STROKE",
+        "title": "NHLBI - Stroke - Causes and Risk Factors",
+        "url": "https://www.nhlbi.nih.gov/health/stroke/causes",
+        "access_mode": "Inspected 2026-11-23 during the B1-B8 review in this session via WebSearch snippets and/or WebFetch model-extracted summaries; verbatim text not retained",
+        "finding": "Ischemic stroke results from a clot/blockage of a brain artery (including emboli, e.g. from atrial fibrillation); hemorrhagic stroke results from bleeding from a ruptured vessel; risk factors include depression/stress and air pollution among others; traumatic brain injury is not listed.",
+        "exact_quotes": []
+      },
+      {
+        "key": "NIDDK_CKD",
+        "title": "NIDDK - Causes of Chronic Kidney Disease",
+        "url": "https://www.niddk.nih.gov/health-information/kidney-disease/chronic-kidney-disease-ckd/causes",
+        "access_mode": "Inspected 2026-11-23 during the B1-B8 review in this session via WebSearch snippets and/or WebFetch model-extracted summaries; verbatim text not retained",
+        "finding": "Diabetes and high blood pressure are the most common causes of CKD; high glucose damages kidney filters/vessels; hypertension damages renal blood vessels and filtering units; other causes include genetic (e.g. polycystic) and glomerular diseases.",
+        "exact_quotes": []
+      },
+      {
+        "key": "NIDDK_CKD_TESTS",
+        "title": "NIDDK - Chronic Kidney Disease Tests & Diagnosis",
+        "url": "https://www.niddk.nih.gov/health-information/kidney-disease/chronic-kidney-disease-ckd/tests-diagnosis",
+        "access_mode": "Inspected 2026-11-23 during the B1-B8 review in this session via WebSearch snippets and/or WebFetch model-extracted summaries; verbatim text not retained",
+        "finding": "CKD is assessed with eGFR (below 60 for 3 months indicates CKD) and urine albumin.",
+        "exact_quotes": []
+      },
+      {
+        "key": "NIDDK_DKD26",
+        "title": "NIDDK - Diabetic Kidney Disease",
+        "url": "https://www.niddk.nih.gov/health-information/diabetes/overview/preventing-problems/diabetic-kidney-disease",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26",
+        "finding": "Diabetic kidney disease is kidney disease caused by diabetes; high blood glucose can damage kidney blood vessels, which then do not work as well; having diabetes for a longer time increases the chance of kidney damage; high blood pressure can also damage the kidneys.",
+        "exact_quotes": [
+          "Diabetic kidney disease is a type of kidney disease caused by diabetes.",
+          "High blood glucose, also called blood sugar, can damage the blood vessels in your kidneys."
+        ]
+      },
+      {
+        "key": "NIDDK_DM_SC",
+        "title": "NIDDK - Symptoms & Causes of Diabetes",
+        "url": "https://www.niddk.nih.gov/health-information/diabetes/overview/symptoms-causes",
+        "access_mode": "Inspected 2026-11-23 during the B1-B8 review in this session via WebSearch snippets and/or WebFetch model-extracted summaries; verbatim text not retained",
+        "finding": "Type 2 diabetes develops from insulin resistance plus insufficient insulin production, influenced by lifestyle factors and genes; increased thirst and fatigue are diabetes symptoms.",
+        "exact_quotes": []
+      },
+      {
+        "key": "NIDDK_HASHI",
+        "title": "NIDDK - Hashimoto's Disease",
+        "url": "https://www.niddk.nih.gov/health-information/endocrine-diseases/hashimotos-disease",
+        "access_mode": "Inspected 2026-11-23 during the B1-B8 review in this session via WebSearch snippets and/or WebFetch model-extracted summaries; verbatim text not retained",
+        "finding": "Autoimmune attack inflames and damages the thyroid so it cannot make enough thyroid hormone; hypothyroidism is a common result.",
+        "exact_quotes": []
+      },
+      {
+        "key": "NIDDK_HBP_KID",
+        "title": "NIDDK - High Blood Pressure & Kidney Disease",
+        "url": "https://www.niddk.nih.gov/health-information/kidney-disease/high-blood-pressure",
+        "access_mode": "Inspected 2026-11-23 during the B1-B8 review in this session via WebSearch snippets and/or WebFetch model-extracted summaries; verbatim text not retained",
+        "finding": "High blood pressure narrows, weakens and damages blood vessels including those of the kidneys, reducing blood flow; it is the second leading cause of kidney failure; risk factors listed include diabetes, heart disease and family history of kidney failure.",
+        "exact_quotes": []
+      },
+      {
+        "key": "NIDDK_HYPO",
+        "title": "NIDDK - Hypothyroidism (Underactive Thyroid)",
+        "url": "https://www.niddk.nih.gov/health-information/endocrine-diseases/hypothyroidism",
+        "access_mode": "Inspected 2026-11-23 during the B1-B8 review in this session via WebSearch snippets and/or WebFetch model-extracted summaries; verbatim text not retained",
+        "finding": "Hashimoto's disease is the most common cause; other causes include thyroiditis, thyroid surgery, radiation treatment and iodine imbalance; family history of thyroid disease raises risk; fatigue is a common symptom.",
+        "exact_quotes": []
+      },
+      {
+        "key": "NIDDK_IR",
+        "title": "NIDDK - Insulin Resistance & Prediabetes",
+        "url": "https://www.niddk.nih.gov/health-information/diabetes/overview/what-is-diabetes/prediabetes-insulin-resistance",
+        "access_mode": "Inspected 2026-11-23 during the B1-B8 review in this session via WebSearch snippets and/or WebFetch model-extracted summaries; verbatim text not retained",
+        "finding": "Overweight, obesity and a large waist increase the chance of insulin resistance; weight loss and physical activity can reverse insulin resistance.",
+        "exact_quotes": []
+      },
+      {
+        "key": "NIDDK_T2D_RISK",
+        "title": "NIDDK - Risk Factors for Type 2 Diabetes",
+        "url": "https://www.niddk.nih.gov/health-information/diabetes/overview/risk-factors-type-2-diabetes",
+        "access_mode": "Inspected 2026-11-23 during the B1-B8 review in this session via WebSearch snippets and/or WebFetch model-extracted summaries; verbatim text not retained",
+        "finding": "Higher likelihood of type 2 diabetes with overweight/obesity, age 35 or older, family history, physical inactivity, prediabetes and history of gestational diabetes.",
+        "exact_quotes": []
+      },
+      {
+        "key": "NIDDK_WEIGHT",
+        "title": "NIDDK - Factors Affecting Weight & Health",
+        "url": "https://www.niddk.nih.gov/health-information/weight-management/adult-overweight-obesity/factors-affecting-weight-health",
+        "access_mode": "Inspected 2026-11-23 during the B1-B8 review in this session via WebSearch snippets and/or WebFetch model-extracted summaries; verbatim text not retained",
+        "finding": "Extra calories over time are stored as fat and cause weight gain; not getting enough sleep is linked to weight gain; genes and family habits influence weight.",
+        "exact_quotes": []
+      },
+      {
+        "key": "NIMH_DEP",
+        "title": "NIMH - Depression",
+        "url": "https://www.nimh.nih.gov/health/publications/depression",
+        "access_mode": "Inspected 2026-11-23 during the B1-B8 review in this session via WebSearch snippets and/or WebFetch model-extracted summaries; verbatim text not retained",
+        "finding": "Depression results from a combination of genetic, biological, environmental and psychological factors; it can co-occur with diabetes and heart disease; diagnosis requires symptoms most of the day, nearly every day, for at least two weeks.",
+        "exact_quotes": []
+      },
+      {
+        "key": "NINDS_EPI",
+        "title": "NINDS - Epilepsy and Seizures",
+        "url": "https://www.ninds.nih.gov/health-information/disorders/epilepsy-and-seizures",
+        "access_mode": "Inspected 2026-11-23 during the B1-B8 review in this session via WebSearch snippets and/or WebFetch model-extracted summaries; verbatim text not retained",
+        "finding": "About half of epilepsy cases have no known cause; causes include genetics, brain injury/TBI, stroke, infections and developmental/prenatal brain injury; the brain's attempt to repair after injury can form abnormal connections; seizure triggers (e.g. very high or low blood sugar, toxins) do not themselves cause epilepsy.",
+        "exact_quotes": []
+      },
+      {
+        "key": "NINDS_EPI26",
+        "title": "NINDS - Epilepsy and Seizures",
+        "url": "https://www.ninds.nih.gov/health-information/disorders/epilepsy-and-seizures",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26",
+        "finding": "About half of people with epilepsy do not know the cause; epilepsy is linked to genetic factors, developmental abnormalities, infection, TBI, stroke and tumours; when the brain tries to repair itself after a head injury it can create nerve-connection problems that lead to seizures; a pre-existing brain problem raises the risk of a second seizure.",
+        "exact_quotes": [
+          "A person with a pre-existing brain problem, for example, a prior stroke or traumatic brain injury, will have a higher risk of experiencing a second seizure."
+        ]
+      },
+      {
+        "key": "NINDS_HEADACHE",
+        "title": "NINDS - Headache",
+        "url": "https://www.ninds.nih.gov/health-information/disorders/headache",
+        "access_mode": "Inspected 2026-11-23 during the B1-B8 review in this session via WebSearch snippets and/or WebFetch model-extracted summaries; verbatim text not retained",
+        "finding": "Secondary headaches are caused by another condition (e.g. head injury, infection, other disorders), unlike primary headaches such as migraine.",
+        "exact_quotes": []
+      },
+      {
+        "key": "PEASE",
+        "title": "Pease et al. Insights into epileptogenesis from post-traumatic epilepsy. Nat Rev Neurol 2024 (PMC12257072)",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12257072",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26",
+        "finding": "PTE accounts for 5% of epilepsies; TBI carries a high risk of recurrent seizures with a relatively short latency, making PTE a model of human epileptogenesis; seizures after TBI exacerbate neurodegeneration, inflammation and blood-brain barrier dysfunction; the review describes mechanisms of epileptogenesis after TBI.",
+        "exact_quotes": []
+      },
+      {
+        "key": "PRENTKI",
+        "title": "Prentki & Nolan. Islet beta cell failure in type 2 diabetes. JCI 2006 (PMC1483155)",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1483155",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26",
+        "finding": "Beta-cell compensation keeps glycaemia near normal despite insulin resistance; when compensation fails subjects progress from normal glucose tolerance to IGT and type 2 diabetes.",
+        "exact_quotes": []
+      },
+      {
+        "key": "PTB_RESIDUAL",
+        "title": "Residual respiratory disability after successful treatment of pulmonary TB: systematic review and meta-analysis (PMC10189364)",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10189364",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26",
+        "finding": "Across 61 studies, 59.1% of treated pulmonary TB participants had abnormal spirometry versus 5.4% of controls; persistent cavitation, fibrosis and bronchiectasis were common after treatment.",
+        "exact_quotes": []
+      },
+      {
+        "key": "PTE_DEF",
+        "title": "Post-traumatic epilepsy cohort/review (PMC4132580)",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4132580",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26",
+        "finding": "Post-traumatic epilepsy is defined as recurring seizures more than 7 days after injury and complicates 3-5% of moderate and 25-50% of severe TBIs.",
+        "exact_quotes": []
+      },
+      {
+        "key": "PTE_REVIEWS",
+        "title": "Reviews of post-traumatic epileptogenesis (Springer Curr Phys Med Rehabil Rep 2024; Yazdi et al. Seizure 2025)",
+        "url": "https://link.springer.com/article/10.1007/s40141-024-00475-1",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26",
+        "finding": "Post-traumatic epileptogenesis is a latent, multifactorial process distinct from acute seizure triggers, involving blood-brain barrier disruption, chronic neuroinflammation, maladaptive gliosis, loss of inhibitory circuitry and unregulated neuronal plasticity.",
+        "exact_quotes": []
+      },
+      {
+        "key": "RAVIMOHAN",
+        "title": "Ravimohan et al. Tuberculosis and lung damage: from epidemiology to pathophysiology. Eur Respir Rev 2018 (PMC6019552)",
+        "url": "https://publications.ersnet.org/lookup/doi/10.1183/16000617.0077-2017",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26",
+        "finding": "Links post-TB lung impairment to dysregulated host immune responses; pulmonary cavitation, fibrosis and bronchiectasis probably contribute collectively to lung remodelling in TB. Lesion-specific lung-function associations were not seen in the inspected text.",
+        "exact_quotes": []
+      },
+      {
+        "key": "SG2010",
+        "title": "US Surgeon General 2010 - How Tobacco Smoke Causes Disease (NCBI Bookshelf NBK53010)",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK53010/",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26",
+        "finding": "Tobacco-smoke carcinogens are metabolically activated to bind DNA and form adducts, which are central to the carcinogenic process; repair systems can remove adducts, and higher adduct levels are linked with higher probability of cancer.",
+        "exact_quotes": []
+      },
+      {
+        "key": "STATPEARLS_PNA",
+        "title": "StatPearls - Bacterial Pneumonia (NBK534295 family of chapters)",
+        "url": "https://www.statpearls.com/sp/al/39/27366/",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26",
+        "finding": "Cytokine-mediated leakage of the alveolar-capillary membrane decreases lung compliance and produces dyspnoea; bacterial pneumonia commonly presents with fever, cough, dyspnoea and chest pain.",
+        "exact_quotes": []
+      },
+      {
+        "key": "TBI_LESIONS",
+        "title": "Practical Neurology - Concussion and Epilepsy: What is the Link?",
+        "url": "https://practicalneurology.com/diseases-diagnoses/epilepsy-seizures/concussion-and-epilepsy-what-is-the-link/30769/",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26",
+        "finding": "TBI produces direct trauma with contusions, haemorrhages and lacerations, and diffuse axonal injury; contusion increases seizure likelihood; later-seizure risk rises with injury severity.",
+        "exact_quotes": []
+      },
+      {
+        "key": "TB_REMODEL",
+        "title": "European Respiratory Review (PMC6019552) - Tuberculosis and lung damage: from epidemiology to pathophysiology",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6019552/",
+        "access_mode": "WebSearch result text, inspected 2026-11-23 (B1-B8 review, same session)",
+        "finding": "Pulmonary TB remodels the lung through caseous necrosis/cavitation, fibrosis and bronchiectasis; past pulmonary TB is a risk factor for long-term respiratory impairment.",
+        "exact_quotes": []
+      },
+      {
+        "key": "WECHSLER_WELLS",
+        "title": "Wechsler ME, Wells JM. What every clinician should know about inflammation in COPD. ERJ Open Res 2024 (PMC11417604)",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11417604/",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26",
+        "finding": "Inflammation drives COPD pathogenesis and exacerbations; exposure to cigarette smoke and other noxious particles produces a pathogenic triad (inflammation, protease-antiprotease imbalance, oxidative stress); oxidative stress from chronic smoking contributes to lung cellular damage, mucus hypersecretion and inflammation.",
+        "exact_quotes": []
+      }
+    ],
+    "integrity_checks": {
+      "csv_header_identical_to_template": true,
+      "csv_132_rows": true,
+      "csv_ids_and_order_match_template": true,
+      "csv_hashes_preserved": true,
+      "csv_prefilled_columns_preserved": true,
+      "jsonl_132_objects": true,
+      "jsonl_answers_and_hashes_exact": true,
+      "jsonl_keys_exact": true,
+      "jsonl_claim_and_evidence_keys": true,
+      "supported_partial_contradicted_have_evidence": true,
+      "empty_answers_have_no_claims": true,
+      "claims_are_exact_substrings_of_answer": true,
+      "csv_counts_and_labels_match_jsonl": true,
+      "status_rules": true,
+      "human_status_not_reviewed": true,
+      "no_human_approval_wording": true,
+      "summary_recomputed_from_jsonl": true,
+      "inputs_match_package_manifest": true,
+      "review_input_sha256_matches_manifest": true,
+      "run_manifest_sha256_matches_file": true
+    },
+    "output_sha256_note": "The audit file cannot contain its own digest; its SHA-256 is reported with the delivery."
+  }
+}

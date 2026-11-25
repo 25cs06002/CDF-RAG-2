@@ -1,0 +1,52 @@
+name: Thesis132 Real B1-B8 Metrics and Comparison Validation
+
+on:
+  push:
+    branches: [work/thesis132-g1-target-sufficiency]
+    paths:
+      - 'research_v2/thesis132_evaluation.py'
+      - 'evaluate_metrics_132.py'
+      - 'compare_evaluation_132.py'
+      - 'tests/test_thesis132_evaluation_local.py'
+      - 'docs/THESIS132_EVALUATION_SUMMARY_GUIDE.md'
+      - 'presentation_20261118/thesis132/csv_reports/batch132_csv_20261121T061653054773Z_bfeb15/**'
+      - '.github/workflows/thesis132-evaluation-metrics.yml'
+  pull_request:
+    paths:
+      - 'research_v2/thesis132_evaluation.py'
+      - 'evaluate_metrics_132.py'
+      - 'compare_evaluation_132.py'
+      - 'tests/test_thesis132_evaluation_local.py'
+      - '.github/workflows/thesis132-evaluation-metrics.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Syntax check
+        run: |
+          python -m compileall -q research_v2/thesis132_evaluation.py evaluate_metrics_132.py compare_evaluation_132.py tests/test_thesis132_evaluation_local.py
+      - name: Test authentic 8 x 132 CSVs and hash integrity
+        run: python -m unittest discover -s tests -p 'test_thesis132_evaluation_local.py' -v
+      - name: Generate evaluation summaries for authentic B1-B8 CSVs
+        run: |
+          python evaluate_metrics_132.py --input-dir presentation_20261118/thesis132/csv_reports/batch132_csv_20261121T061653054773Z_bfeb15
+      - name: Print paired B7/B8 comparison
+        run: |
+          analysis=$(find presentation_20261118/thesis132/csv_reports/batch132_csv_20261121T061653054773Z_bfeb15 -mindepth 1 -maxdepth 1 -type d -name 'evaluation_132_*' | sort | tail -1)
+          test -n "$analysis"
+          python compare_evaluation_132.py --analysis-dir "$analysis"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: thesis132-b1-b8-evaluation-summary-csv
+          path: presentation_20261118/thesis132/csv_reports/batch132_csv_20261121T061653054773Z_bfeb15/evaluation_132_*/
+          retention-days: 14

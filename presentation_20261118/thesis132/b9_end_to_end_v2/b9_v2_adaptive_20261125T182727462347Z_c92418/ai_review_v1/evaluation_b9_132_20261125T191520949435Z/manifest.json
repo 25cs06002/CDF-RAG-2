@@ -1,0 +1,26 @@
+{
+  "schema": "THESIS132_B9_AI_REFERENCE_V1",
+  "provenance": "AI judge reference only; no independent human clinical adjudication",
+  "run_manifest_sha256": "4eea5fce78929d34342a18077745434df1d6960021d81e459ab19ce81029ce6c",
+  "review_audit_sha256": "6087f8bafa431c6c833bc645d9e74bfae0aadca745d91be8a922d17c4ce3ab7f",
+  "baseline_manifest_sha256": "91399bfcadd1fdf2bcc8842a04d07372db21afb8baab3e2f1cbb26de929c4477",
+  "limitations": [
+    "Sources were inspected only through WebSearch result text and WebFetch; shell network access was disabled. WebFetch returns a model-extracted summary, not raw page text.",
+    "Exact quotes are limited to short passages from US-government pages that appeared verbatim in search-result page text; all other evidence is recorded as paraphrase.",
+    "Part of the evidence library was inspected on 2026-11-23 during the B1-B8 review in this same session; verbatim text from those inspections was not retained, so those entries are paraphrases.",
+    "Some cited pages were not themselves opened (epilepsy.com TBI page, PMC7618543, the DNA-adduct passages of the NCI lung-prevention PDQ, and the PMID mapping of the adipose-tissue review). In those cases the medical content was verified from other inspected authoritative sources and the attribution is reported as unconfirmed, not as fabricated.",
+    "pmc.ncbi.nlm.nih.gov full texts returned a browser-verification page to WebFetch; PMC content was taken from search-result text, PubMed records or publisher copies.",
+    "Paywalled full texts were not read; journal evidence relies on abstracts and openly visible text.",
+    "Single AI judge: no inter-rater agreement and no independent human clinical adjudication. The 132 questions are development-exposed and the G1 graph/document summaries are provisional.",
+    "Completeness, relevance and abstention-appropriateness are interpretive judgements; the 7 guard-route abstentions marked INAPPROPRIATE_ABSTENTION are the most debatable.",
+    "AI reference only; B9 judge session may differ from B1-B8.",
+    "B9 semantic proxies not calculated; no detector predictions.",
+    "Completeness labels B9-only; development-exposed questions and different evidence/generation, descriptive comparison."
+  ],
+  "output_sha256": {
+    "B9_ai_by_query_type_132.csv": "6382300b5ecf2635a03cb19237fd570829a4fbefb91a7273d33779f96f1b0000",
+    "B9_ai_per_query_132.csv": "574ed61b7dc9ea19a1f7bd70d74ad36c9bceec696512fc31a378b0de06ceec53",
+    "B9_ai_quality_132.csv": "4c3ca2d1798f798fe561784a41672fdb0f2e113e8c10508a8fbb13aec68b2b7d",
+    "consolidated_B1_B9_132.csv": "38542332c2a8663e23960d6087ea3af8ea16d866341cdef503923f60c7e6bc8a"
+  }
+}

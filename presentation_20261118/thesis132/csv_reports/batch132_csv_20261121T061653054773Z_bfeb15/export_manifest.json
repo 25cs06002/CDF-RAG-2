@@ -1,0 +1,106 @@
+{
+  "schema": "THESIS132_BATCH_CSV_EXPORT_V1",
+  "status": "COMPLETE_8_MODELS",
+  "created_utc": "2026-11-21T06:16:53.152090+00:00",
+  "query_count_per_model": 132,
+  "models_present": [
+    "B1",
+    "B2",
+    "B3",
+    "B4",
+    "B5",
+    "B6",
+    "B7",
+    "B8"
+  ],
+  "models_missing": [],
+  "models_with_errors": [],
+  "full_8_models_successful": true,
+  "dataset_sha256": "a45fcddfc153c0f9c2211c8167e001b03513216bf9191f2f08a4444d52df6c76",
+  "session_configuration": {
+    "dataset_sha256": "a45fcddfc153c0f9c2211c8167e001b03513216bf9191f2f08a4444d52df6c76",
+    "query_count": 132,
+    "mode": "end_to_end",
+    "encoder": "sentence",
+    "top_k": 5,
+    "code_commit": "e760d6d3fc2f238a541d23cf4aa54748c831a84d",
+    "candidate_corpus_sha256": "6d136603606ec8f5cfccfe064a8c9e8ff85d3720bb52b707dad47f7e155e9e8d",
+    "G0_nodes_sha256": "254890905388fb1e9df51da88b39b1686aa90247fd7da661f9d5aefc7c950675",
+    "G0_edges_sha256": "38fb6bddadc1f9b2777f2811e7ba15c6ab0b944143f41d8426590ea632f3e168"
+  },
+  "source_runs": {
+    "B1": {
+      "session": "presentation_20261118/thesis132/runs/batch_20261121T002630113287Z_7d470a",
+      "records_path": "presentation_20261118/thesis132/runs/batch_20261121T002630113287Z_7d470a/records/THESIS132_B1_20261121T002630208756Z_2f4198/records.jsonl",
+      "records_sha256": "a9d0f6d3ce383928bc2f228479df3d3823c94ff8defffec844390f34ed8eeb41",
+      "run_id": "THESIS132_B1_20261121T002630208756Z_2f4198"
+    },
+    "B2": {
+      "session": "presentation_20261118/thesis132/runs/batch_20261121T002630113287Z_7d470a",
+      "records_path": "presentation_20261118/thesis132/runs/batch_20261121T002630113287Z_7d470a/records/THESIS132_B2_20261121T010448568318Z_ec1b55/records.jsonl",
+      "records_sha256": "ff38ae649d8ec979eb5d5d4485a30235c0adcd9b6645d8bdc1c114b1f1b519c0",
+      "run_id": "THESIS132_B2_20261121T010448568318Z_ec1b55"
+    },
+    "B3": {
+      "session": "presentation_20261118/thesis132/runs/batch_20261121T002630113287Z_7d470a",
+      "records_path": "presentation_20261118/thesis132/runs/batch_20261121T002630113287Z_7d470a/records/THESIS132_B3_20261121T014428165627Z_80d05a/records.jsonl",
+      "records_sha256": "07ae88a8f567233a6913b01ce960ce8bb75a1c4cfc245e7d29f7ed85d670fc1b",
+      "run_id": "THESIS132_B3_20261121T014428165627Z_80d05a"
+    },
+    "B4": {
+      "session": "presentation_20261118/thesis132/runs/batch_20261121T002630113287Z_7d470a",
+      "records_path": "presentation_20261118/thesis132/runs/batch_20261121T002630113287Z_7d470a/records/THESIS132_B4_20261121T022749563455Z_dd004f/records.jsonl",
+      "records_sha256": "907e2a6df75a76b47704cdf9dd27f4d1bbb69680fcb948b935e319ab435414f1",
+      "run_id": "THESIS132_B4_20261121T022749563455Z_dd004f"
+    },
+    "B5": {
+      "session": "presentation_20261118/thesis132/runs/batch_20261121T002630113287Z_7d470a",
+      "records_path": "presentation_20261118/thesis132/runs/batch_20261121T002630113287Z_7d470a/records/THESIS132_B5_20261121T031002265371Z_afc204/records.jsonl",
+      "records_sha256": "ab4b6a693f68cf06c968c637524ae7be70a40e072b7b4164a506ae7af4b785d7",
+      "run_id": "THESIS132_B5_20261121T031002265371Z_afc204"
+    },
+    "B6": {
+      "session": "presentation_20261118/thesis132/runs/batch_20261121T002630113287Z_7d470a",
+      "records_path": "presentation_20261118/thesis132/runs/batch_20261121T002630113287Z_7d470a/records/THESIS132_B6_20261121T031913851529Z_a99234/records.jsonl",
+      "records_sha256": "87c447596786d3b09e7545f87aa54f484f0c50a2899506209d3db279d969b8a9",
+      "run_id": "THESIS132_B6_20261121T031913851529Z_a99234"
+    },
+    "B7": {
+      "session": "presentation_20261118/thesis132/runs/batch_20261121T002630113287Z_7d470a",
+      "records_path": "presentation_20261118/thesis132/runs/batch_20261121T002630113287Z_7d470a/records/THESIS132_B7_20261121T032756854543Z_de8095/records.jsonl",
+      "records_sha256": "d87790cf43c9e36af751904a3e050148c27675665c6468008ac24f0f0379e604",
+      "run_id": "THESIS132_B7_20261121T032756854543Z_de8095"
+    },
+    "B8": {
+      "session": "presentation_20261118/thesis132/runs/batch_20261121T002630113287Z_7d470a",
+      "records_path": "presentation_20261118/thesis132/runs/batch_20261121T002630113287Z_7d470a/records/THESIS132_B8_20261121T042816798132Z_3d4bfa/records.jsonl",
+      "records_sha256": "17a354a6cdc6c2c863b6dec94b532dc9234e3591b6221dca0d4d141b9f8bd526",
+      "run_id": "THESIS132_B8_20261121T042816798132Z_3d4bfa"
+    }
+  },
+  "generated_csv_sha256": {
+    "B1_queries_132.csv": "59a7d370dc8258d01c3cbba1aae545e5d5597c39e2cf3e1d390f502e43cfe307",
+    "B2_queries_132.csv": "a6f108bd33676ed1b47b096b197ff6d7e51bfe820f89a9eb29f5d36d217d034f",
+    "B3_queries_132.csv": "c2daba8d2ffaffee2a88bdb9a1d27c334ea5a3e70d9a3b519cabe09d12f972f9",
+    "B4_queries_132.csv": "c7348814581874d55e2ad4faf182b07ccd94365a0e66f784f89fd67df8e2154d",
+    "B5_queries_132.csv": "ee6f25d73a76a9120e55a45169463eee608abb09d61eddbd7bf2e0fdf23314a0",
+    "B6_queries_132.csv": "262630c2ecb08374fafab6089525d2e45e05115ad2ea1d16ba039cb833ebc34b",
+    "B7_queries_132.csv": "655b04bb61d59a69669bf5ed5f7faa7977aa2dc7b9fd2d6ed509d67d8e0899fc",
+    "B8_queries_132.csv": "24b9ee425f12685ed37ed42f5404887f7fd8aebf3433675abd5a4a5e115fdae0",
+    "pipeline_summary_132.csv": "ea4a8a92f36e0b19d81fedccd4bb68ea9efa9442d9ffe265cb3aac788cdbe9ac",
+    "all_models_per_query_132.csv": "4444e7b4a299747bf8b241c2f5d20abdadeba5bf7c7e6f7a4edb78d3c6586873",
+    "comparison_by_query_132.csv": "b21012c7dedc0f654d01392d19f377c710a47a8db053b13caa3fbf86a38370fa"
+  },
+  "medical_accuracy": null,
+  "clinical_groundedness": null,
+  "historically_unseen_test": false,
+  "warnings": [
+    "Identical 132 inputs do not imply common evidence: B1-B4 use candidate documents; B5-B8 use G0.",
+    "Retrieval success measures candidate evidence availability, not medical correctness.",
+    "Hallucination detector flags are not independently adjudicated hallucinations.",
+    "Missing detector/timing/quality fields remain empty, never imputed as zero.",
+    "The 132 questions influenced prior G1 development; prospective family folds are not an external holdout.",
+    "Historical 22-question semantic similarity proxies are not automatically valid medical quality scores.",
+    "Reciprocal query latency is a proxy, not measured run throughput; run QPS includes recorded wall time."
+  ]
+}

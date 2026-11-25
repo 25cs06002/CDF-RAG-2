@@ -1,0 +1,16 @@
+{
+  "schema": "B9_INFERENCE_COMPARISON_V1",
+  "original_sha256": "e53b92e6e5f780cd8fdc768d0d08d458de691341c6de51c755df649aa07c1c13",
+  "compact_sha256": "5edd8b11ad62572ffd54d508e0578a9bcd37eb4d3657c71dcb50edad2a1750ce",
+  "limitations": [
+    "Single cold-start request per run, not verified identical thermal/load state; repeat for variability.",
+    "Compact IDs change selector prompts, not just runtime; changed answers require fresh review.",
+    "Ollama durations are server-reported; system CPU and RAM include other processes. Summed RSS can double-count shared pages; sampled peaks are lower bounds and not energy measurements.",
+    "Sampling overhead is included in both wall times. No medical gold or quality improvement claimed."
+  ],
+  "outputs_sha256": {
+    "inference_comparison_132.csv": "08e8c43e0a901f4aac5734cdcee20cbc02cd5b9334a0ee201731f2986f3e922c",
+    "paired_inference_132.csv": "260ed7c0c8a30677eaff5636d6df5b28ec3d2b52993e2d4eb97b232b05ccf8fb",
+    "paired_summary.json": "aa06bbf4fea6087723a5369ce8152c1b932279153d3764b784440ca1615e932a"
+  }
+}

@@ -1,0 +1,3963 @@
+{
+  "title": "AI-judge medical hallucination labelling audit record",
+  "label_provenance_statement": "Labels were generated through AI-assisted evidence verification and automatically accepted under a predefined evaluation protocol. They have not been independently adjudicated by human clinical reviewers.",
+  "protocol_version": "AIJ-MED-HALLUC v1",
+  "evaluation_date": "2026-11-23",
+  "generated_at_utc": "2026-11-23T13:36:01+00:00",
+  "evaluator": {
+    "model": "Claude Opus 5.5",
+    "model_id": "claude-opus-5-5",
+    "role": "single AI judge (no human adjudication)"
+  },
+  "human_involvement": {
+    "human_clinical_review": "none",
+    "reviewer_id": null,
+    "reviewer_qualification": null,
+    "independence_declaration": null,
+    "note": "No human reviewer fields were populated. Accepted labels are AI_AUTO_ACCEPTED, never HUMAN_APPROVED. The original worksheet was not modified: is_hallucination_gold remains blank and review_status remains 'pending' there."
+  },
+  "scope": {
+    "systems": [
+      "B1",
+      "B2",
+      "B3",
+      "B4",
+      "B5",
+      "B6",
+      "B7",
+      "B8"
+    ],
+    "questions_per_system": 132,
+    "total_responses": 1056,
+    "records_processed": 1056,
+    "pending_manifest": [],
+    "pending_manifest_note": "All 1,056 responses were processed; no batches are pending. Unresolved (Uncertain) cases are listed in ai_label_uncertain_cases.csv."
+  },
+  "input_files": [
+    {
+      "file": "B1_queries_132.csv",
+      "sha256": "59a7d370dc8258d01c3cbba1aae545e5d5597c39e2cf3e1d390f502e43cfe307",
+      "uploaded_copy": "94980250-B1_queries_132.csv",
+      "matches_upload": true,
+      "modified": false
+    },
+    {
+      "file": "B2_queries_132.csv",
+      "sha256": "a6f108bd33676ed1b47b096b197ff6d7e51bfe820f89a9eb29f5d36d217d034f",
+      "uploaded_copy": "2d400afc-B2_queries_132.csv",
+      "matches_upload": true,
+      "modified": false
+    },
+    {
+      "file": "B3_queries_132.csv",
+      "sha256": "c2daba8d2ffaffee2a88bdb9a1d27c334ea5a3e70d9a3b519cabe09d12f972f9",
+      "uploaded_copy": "3d918900-B3_queries_132.csv",
+      "matches_upload": true,
+      "modified": false
+    },
+    {
+      "file": "B4_queries_132.csv",
+      "sha256": "c7348814581874d55e2ad4faf182b07ccd94365a0e66f784f89fd67df8e2154d",
+      "uploaded_copy": "24a5e193-B4_queries_132.csv",
+      "matches_upload": true,
+      "modified": false
+    },
+    {
+      "file": "B5_queries_132.csv",
+      "sha256": "ee6f25d73a76a9120e55a45169463eee608abb09d61eddbd7bf2e0fdf23314a0",
+      "uploaded_copy": "954268c4-B5_queries_132.csv",
+      "matches_upload": true,
+      "modified": false
+    },
+    {
+      "file": "B6_queries_132.csv",
+      "sha256": "262630c2ecb08374fafab6089525d2e45e05115ad2ea1d16ba039cb833ebc34b",
+      "uploaded_copy": "67a165ba-B6_queries_132.csv",
+      "matches_upload": true,
+      "modified": false
+    },
+    {
+      "file": "B7_queries_132.csv",
+      "sha256": "655b04bb61d59a69669bf5ed5f7faa7977aa2dc7b9fd2d6ed509d67d8e0899fc",
+      "uploaded_copy": "1db2de89-B7_queries_132.csv",
+      "matches_upload": true,
+      "modified": false
+    },
+    {
+      "file": "B8_queries_132.csv",
+      "sha256": "24b9ee425f12685ed37ed42f5404887f7fd8aebf3433675abd5a4a5e115fdae0",
+      "uploaded_copy": "f538083d-B8_queries_132.csv",
+      "matches_upload": true,
+      "modified": false
+    },
+    {
+      "file": "README.md",
+      "sha256": "476ec459b555ff2866685d2fd45d9f2f6d48621028d539b7674b4d47e26254ad",
+      "uploaded_copy": "a1727e53-README.md",
+      "matches_upload": true,
+      "modified": false
+    },
+    {
+      "file": "documents.jsonl",
+      "sha256": "6d136603606ec8f5cfccfe064a8c9e8ff85d3720bb52b707dad47f7e155e9e8d",
+      "uploaded_copy": "e2eaf3c2-documents.jsonl",
+      "matches_upload": true,
+      "modified": false
+    },
+    {
+      "file": "edges.csv",
+      "sha256": "38fb6bddadc1f9b2777f2811e7ba15c6ab0b944143f41d8426590ea632f3e168",
+      "uploaded_copy": "67809a37-edges.csv",
+      "matches_upload": true,
+      "modified": false
+    },
+    {
+      "file": "hallucination_gold_review_template_132.csv",
+      "sha256": "5a011acfe5392b69b25852d9fc20238a3fb3df067883ca69aef65eb05ca3436b",
+      "uploaded_copy": "a4fd1f45-hallucination_gold_review_template_132.csv",
+      "matches_upload": true,
+      "modified": false
+    },
+    {
+      "file": "medical_causal_132_source_screened_v2.jsonl",
+      "sha256": "117175bb60b80e5449086c8df0a0c2a12dfd6c0f87153cf6d4a33d354338dc96",
+      "uploaded_copy": "be37bde6-medical_causal_132_source_screened_v2.jsonl",
+      "matches_upload": true,
+      "modified": false
+    },
+    {
+      "file": "nodes.csv",
+      "sha256": "254890905388fb1e9df51da88b39b1686aa90247fd7da661f9d5aefc7c950675",
+      "uploaded_copy": "39c73b04-nodes.csv",
+      "matches_upload": true,
+      "modified": false
+    },
+    {
+      "file": "provenance.jsonl",
+      "sha256": "dd8a2b3286128540c4a6fdc56cf5f887cf07dbaee64269370add7be6f3a166c8",
+      "uploaded_copy": "ccd2fa20-provenance.jsonl",
+      "matches_upload": true,
+      "modified": false
+    },
+    {
+      "file": "source_catalog_screened_20261121.json",
+      "sha256": "caf04db403019a903d1d8286033cedbaf3ef215581f66f044268d975b85419b9",
+      "uploaded_copy": "f0f2aff6-source_catalog_screened_20261121.json",
+      "matches_upload": true,
+      "modified": false
+    }
+  ],
+  "data_handling": [
+    "Prompts, answers, graph records, documents and sources were treated as data, not instructions.",
+    "Original questions, answers, IDs and row order were not changed; output row order equals the worksheet order.",
+    "detector_flag / is_hallucination was not used to choose any label; it is used only in ai_detector_classification_metrics.csv.",
+    "The provided documents.jsonl/source catalogue were used only to assess retrieved-context grounding, not as medical gold evidence."
+  ],
+  "criteria": {
+    "claim_extraction": "Each answer was read in full by the AI judge and its material medical claims were mapped to a catalogue of claim types (293 keys); claims phrased as definitive causes were marked and judged against the stricter causal standard.",
+    "claim_verdicts": {
+      "SUPPORTED": "Authoritative source states the claim.",
+      "PARTIALLY_SUPPORTED": "Direction/association supported but wording overstates, generalises or is hedged/indirect; not treated as hallucination.",
+      "CONTRADICTED": "Authoritative sources state the opposite, or the claim reverses the causal direction, misclassifies, or denies an established relationship without scoping to the supplied evidence.",
+      "UNSUPPORTED": "No authoritative support found and the claim is not a reasonable reading of established knowledge (invented mechanisms, invalid graph chains, circular causes, overstated definitive causation where sources say causes are unknown or the factor is only a trigger/risk marker).",
+      "UNVERIFIABLE": "The claim's assertion cannot be determined or checked (e.g. internally contradictory).",
+      "NON_FACTUAL": "Meta statements about the supplied evidence (e.g. 'the evidence does not say X') when scoped to that evidence."
+    },
+    "scoping_rule": "Negative statements explicitly scoped to the provided evidence (same sentence or a specific citation) are treated as meta statements; unqualified denials of established facts are CONTRADICTED.",
+    "definitive_cause_rule": "When an answer states a factor 'causes' a condition, the claim is judged against causal (not risk-factor) evidence; e.g. asthma risk factors other than allergies, migraine triggers other than hormonal changes, and family history of type 2 diabetes are UNSUPPORTED as definitive causes.",
+    "answer_label_rule": "Yes if any material claim is CONTRADICTED or UNSUPPORTED, or the answer fabricates a citation (non-existent quote/edge); Uncertain if any claim is UNVERIFIABLE and none is contradicted/unsupported/fabricated; otherwise No (including abstentions and empty answers, which make no medical claims).",
+    "grounding_rule": "Retrieved-context grounding is reported separately from medical correctness. Citation mismatch, organisation misattribution, wrong IDs and misrepresentation of the context affect evidence_grounding_status only; fabricated citations also make the label Yes.",
+    "grounding_status_values": {
+      "FULLY_GROUNDED": "All factual claims traceable to retrieved documents/edges.",
+      "PARTIALLY_GROUNDED": "Some factual claims traceable to retrieved context.",
+      "NOT_GROUNDED": "No factual claim traceable to retrieved context.",
+      "CITATION_MISMATCH": "Cited document does not state the claim, or wrong organisation attributed.",
+      "MISREPRESENTS_CONTEXT": "Answer misstates what the retrieved context/graph contains, or cites a wrong identifier.",
+      "FABRICATED_CITATION": "Answer quotes or cites content absent from the retrieved context.",
+      "NO_FACTUAL_CLAIMS": "Answer contains no material medical claims.",
+      "NOT_APPLICABLE_EMPTY_ANSWER": "Answer text is empty."
+    },
+    "acceptance_rule": "Yes/No labels whose deciding claims were checked against inspected authoritative evidence are AI_AUTO_ACCEPTED (high or medium confidence). Uncertain labels are AI_UNRESOLVED and are not forced into Yes/No.",
+    "confidence_rule": "high: decided by claims verified against direct authoritative statements; medium: decided by hedged/speculative or partially supported claims, or by claims whose verdict rests on interpretive judgement (including every verdict that changes because a factor is stated as a definitive cause); low: unresolved.",
+    "summary_definitions": {
+      "ai_judge_estimated_hallucination_prevalence": "auto_accepted_yes / auto_accepted_total. An AI-judge estimate on this benchmark, not a clinical error rate.",
+      "ai_judge_estimated_prevalence_among_substantive_answers": "Same, restricted to answers with at least one material medical claim.",
+      "externally_supported_answers": "Substantive answers auto-accepted as No (all material claims supported or partially supported).",
+      "answers_without_adequate_retrieved_evidence": "Substantive answers whose grounding status is NOT_GROUNDED, PARTIALLY_GROUNDED, CITATION_MISMATCH, MISREPRESENTS_CONTEXT or FABRICATED_CITATION.",
+      "answers_needing_verification": "Uncertain / AI_UNRESOLVED answers."
+    }
+  },
+  "access_limitations": [
+    "Shell network access was disabled; sources were inspected only through the WebSearch and WebFetch tools on 2026-11-23.",
+    "WebFetch returns a model-extracted summary of a page rather than raw page text; some sources were checked from search-result snippets only. Evidence entries are therefore paraphrased findings, not verbatim excerpts.",
+    "Evidence gathering began before a context compaction in this session; verbatim text from earlier inspections was not retained, only the recorded findings and URLs.",
+    "Paywalled full texts were not accessed; journal evidence relies on abstracts/PMC pages.",
+    "Single AI judge; no inter-rater agreement and no human clinical adjudication.",
+    "The benchmark questions and the evaluation protocol were developed with exposure to the same systems' outputs, so these labels are not a blinded test-set evaluation.",
+    "Claim-type catalogue mapping is an AI judgement; equivalent claims share one verdict so errors in a catalogue entry propagate to every answer using it."
+  ],
+  "evidence_library": [
+    {
+      "evidence_id": "NHLBI_CHD",
+      "organisation": "NHLBI",
+      "title": "Coronary Heart Disease - Causes",
+      "url": "https://www.nhlbi.nih.gov/health/coronary-heart-disease/causes",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch snippet and/or WebFetch model-extracted page summary inspected 2026-11-23 (paraphrased finding; verbatim text not retained)",
+      "finding_paraphrase": "Plaque buildup (atherosclerosis) in the coronary arteries is the leading cause of coronary heart disease; inflammation, high blood pressure and diabetes can damage arteries; family history and familial hypercholesterolemia raise risk."
+    },
+    {
+      "evidence_id": "NHLBI_HA",
+      "organisation": "NHLBI",
+      "title": "Heart Attack - Causes",
+      "url": "https://www.nhlbi.nih.gov/health/heart-attack/causes",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch result text inspected 2026-11-23 (paraphrased finding)",
+      "finding_paraphrase": "Plaque narrows coronary arteries; blood clots can form on plaques and block coronary blood flow; if the blockage is not treated quickly, part of the heart muscle begins to die."
+    },
+    {
+      "evidence_id": "AHA_HA",
+      "organisation": "American Heart Association",
+      "title": "What is a Heart Attack?",
+      "url": "https://www.heart.org/en/health-topics/heart-attack/about-heart-attacks",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch result text inspected 2026-11-23 (paraphrased finding)",
+      "finding_paraphrase": "When plaque inside a heart artery breaks, a blood clot forms around it and can block blood flow to the heart muscle, which then begins to suffer damage."
+    },
+    {
+      "evidence_id": "CDC_SMOKE_CVD",
+      "organisation": "CDC",
+      "title": "Cigarettes and Cardiovascular Disease",
+      "url": "https://www.cdc.gov/tobacco/about/cigarettes-and-cardiovascular-disease.html",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch snippet and/or WebFetch model-extracted page summary inspected 2026-11-23 (paraphrased finding; verbatim text not retained)",
+      "finding_paraphrase": "Smoking damages blood-vessel lining and increases plaque buildup; smoking raises coronary heart disease risk roughly 2-4 times."
+    },
+    {
+      "evidence_id": "NHLBI_SMOKE",
+      "organisation": "NHLBI",
+      "title": "How Smoking Affects the Heart and Blood Vessels",
+      "url": "https://www.nhlbi.nih.gov/health/heart/smoking/risks",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch snippet and/or WebFetch model-extracted page summary inspected 2026-11-23 (paraphrased finding; verbatim text not retained)",
+      "finding_paraphrase": "Smoking damages the heart and blood vessels and raises the risk of atherosclerosis and coronary heart disease."
+    },
+    {
+      "evidence_id": "CDC_HDS",
+      "organisation": "CDC",
+      "title": "Heart Disease and Stroke (fact sheet)",
+      "url": "https://www.cdc.gov/chronicdisease/resources/publications/factsheets/heart-disease-stroke.htm",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch result text inspected 2026-11-23 (paraphrased finding)",
+      "finding_paraphrase": "Leading risk factors for heart disease and stroke are high blood pressure, high LDL cholesterol, diabetes, smoking/secondhand smoke, obesity, unhealthy diet and physical inactivity; high blood pressure damages artery lining making it prone to plaque; high blood sugar can damage blood vessels."
+    },
+    {
+      "evidence_id": "CDC_STROKE_RF",
+      "organisation": "CDC",
+      "title": "Risk Factors for Stroke",
+      "url": "https://www.cdc.gov/stroke/risk-factors/index.html",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch result text inspected 2026-11-23 (paraphrased finding)",
+      "finding_paraphrase": "High blood pressure is a leading cause of stroke (and is common in people with diabetes); excess cholesterol can build up and narrow arteries including those of the brain; atrial fibrillation and other heart conditions can cause clots that break loose and cause stroke; diabetes increases stroke risk; lowering blood pressure lowers stroke risk. Traumatic brain injury is not among the listed risk factors."
+    },
+    {
+      "evidence_id": "NHLBI_STROKE",
+      "organisation": "NHLBI",
+      "title": "Stroke - Causes and Risk Factors",
+      "url": "https://www.nhlbi.nih.gov/health/stroke/causes",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch snippet and/or WebFetch model-extracted page summary inspected 2026-11-23 (paraphrased finding; verbatim text not retained)",
+      "finding_paraphrase": "Ischemic stroke results from a clot/blockage of a brain artery (including emboli, e.g. from atrial fibrillation); hemorrhagic stroke results from bleeding from a ruptured vessel; risk factors include depression/stress and air pollution among others; traumatic brain injury is not listed."
+    },
+    {
+      "evidence_id": "AHA_AFIB",
+      "organisation": "American Heart Association",
+      "title": "Why Atrial Fibrillation Matters",
+      "url": "https://www.heart.org/en/health-topics/atrial-fibrillation/why-atrial-fibrillation-af-or-afib-matters",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch result text inspected 2026-11-23 (paraphrased finding)",
+      "finding_paraphrase": "In AFib the atria do not empty completely, blood pools and can clot; a clot pumped to the brain blocks an artery and causes an embolic (ischemic) stroke."
+    },
+    {
+      "evidence_id": "NHLBI_HF",
+      "organisation": "NHLBI",
+      "title": "Heart Failure - Causes and Risk Factors",
+      "url": "https://www.nhlbi.nih.gov/health/heart-failure/causes",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch snippet and/or WebFetch model-extracted page summary inspected 2026-11-23 (paraphrased finding; verbatim text not retained)",
+      "finding_paraphrase": "HFrEF results from conditions that damage heart muscle such as coronary heart disease and heart attack; HFpEF results from conditions that stiffen/overwork the heart such as high blood pressure, obesity and diabetes; risk factors include family history/genetics, smoking, unhealthy eating and chronic kidney disease."
+    },
+    {
+      "evidence_id": "TBI_STROKE_MA",
+      "organisation": "PubMed Central (systematic review/meta-analysis)",
+      "title": "Traumatic brain injury and subsequent stroke risk (PMC8193616)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8193616/",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch snippet and/or WebFetch model-extracted page summary inspected 2026-11-23 (paraphrased finding; verbatim text not retained)",
+      "finding_paraphrase": "Pooled observational data show TBI is associated with higher subsequent stroke risk (pooled HR about 1.86)."
+    },
+    {
+      "evidence_id": "TBI_STROKE_COH",
+      "organisation": "PubMed (cohort study)",
+      "title": "TBI and long-term stroke risk (PMID 37334708)",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37334708/",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch snippet and/or WebFetch model-extracted page summary inspected 2026-11-23 (paraphrased finding; verbatim text not retained)",
+      "finding_paraphrase": "Cohort analysis reports TBI associated with increased stroke risk (HR about 1.69); observational association."
+    },
+    {
+      "evidence_id": "NIDDK_T2D_RISK",
+      "organisation": "NIDDK",
+      "title": "Risk Factors for Type 2 Diabetes",
+      "url": "https://www.niddk.nih.gov/health-information/diabetes/overview/risk-factors-type-2-diabetes",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch snippet and/or WebFetch model-extracted page summary inspected 2026-11-23 (paraphrased finding; verbatim text not retained)",
+      "finding_paraphrase": "Higher likelihood of type 2 diabetes with overweight/obesity, age 35 or older, family history, physical inactivity, prediabetes and history of gestational diabetes."
+    },
+    {
+      "evidence_id": "NIDDK_DM_SC",
+      "organisation": "NIDDK",
+      "title": "Symptoms & Causes of Diabetes",
+      "url": "https://www.niddk.nih.gov/health-information/diabetes/overview/symptoms-causes",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch snippet and/or WebFetch model-extracted page summary inspected 2026-11-23 (paraphrased finding; verbatim text not retained)",
+      "finding_paraphrase": "Type 2 diabetes develops from insulin resistance plus insufficient insulin production, influenced by lifestyle factors and genes; increased thirst and fatigue are diabetes symptoms."
+    },
+    {
+      "evidence_id": "NIDDK_IR",
+      "organisation": "NIDDK",
+      "title": "Insulin Resistance & Prediabetes",
+      "url": "https://www.niddk.nih.gov/health-information/diabetes/overview/what-is-diabetes/prediabetes-insulin-resistance",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch snippet and/or WebFetch model-extracted page summary inspected 2026-11-23 (paraphrased finding; verbatim text not retained)",
+      "finding_paraphrase": "Overweight, obesity and a large waist increase the chance of insulin resistance; weight loss and physical activity can reverse insulin resistance."
+    },
+    {
+      "evidence_id": "CDC_OBESITY",
+      "organisation": "CDC",
+      "title": "Risk Factors for Obesity",
+      "url": "https://www.cdc.gov/obesity/risk-factors/risk-factors.html",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch snippet and/or WebFetch model-extracted page summary inspected 2026-11-23 (paraphrased finding; verbatim text not retained)",
+      "finding_paraphrase": "Obesity risk reflects eating/activity/sleep behaviours, stress, genetics, other health conditions and medications, and environmental factors including environmental chemicals."
+    },
+    {
+      "evidence_id": "NIDDK_WEIGHT",
+      "organisation": "NIDDK",
+      "title": "Factors Affecting Weight & Health",
+      "url": "https://www.niddk.nih.gov/health-information/weight-management/adult-overweight-obesity/factors-affecting-weight-health",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch snippet and/or WebFetch model-extracted page summary inspected 2026-11-23 (paraphrased finding; verbatim text not retained)",
+      "finding_paraphrase": "Extra calories over time are stored as fat and cause weight gain; not getting enough sleep is linked to weight gain; genes and family habits influence weight."
+    },
+    {
+      "evidence_id": "NHLBI_METSYN",
+      "organisation": "NHLBI",
+      "title": "Metabolic Syndrome",
+      "url": "https://www.nhlbi.nih.gov/health/metabolic-syndrome",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch result text inspected 2026-11-23 (paraphrased finding)",
+      "finding_paraphrase": "Metabolic syndrome (also called insulin resistance syndrome) is a cluster including high blood pressure, high blood sugar, high triglycerides, low HDL and a large waist; it raises heart disease, diabetes and stroke risk."
+    },
+    {
+      "evidence_id": "MEDLINE_METSYN",
+      "organisation": "MedlinePlus",
+      "title": "Metabolic syndrome",
+      "url": "https://medlineplus.gov/ency/article/007290.htm",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch result text inspected 2026-11-23 (paraphrased finding)",
+      "finding_paraphrase": "Central obesity and insulin resistance are the two most important risk factors; metabolic syndrome increases the chance of coronary artery disease, stroke and type 2 diabetes."
+    },
+    {
+      "evidence_id": "CHILD_OB_A",
+      "organisation": "PubMed Central (cohort study)",
+      "title": "Early-life risk factors and childhood adiposity (PMC7779210)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7779210/",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch result text inspected 2026-11-23 (paraphrased finding)",
+      "finding_paraphrase": "Maternal smoking, excessive gestational weight gain and gestational diabetes are associated with subsequent childhood obesity."
+    },
+    {
+      "evidence_id": "CHILD_OB_B",
+      "organisation": "PubMed Central (cohort study)",
+      "title": "Developmental origins of childhood overweight (PMC2650814)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2650814/",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch result text inspected 2026-11-23 (paraphrased finding)",
+      "finding_paraphrase": "Modifiable prenatal/early-life factors including maternal smoking in pregnancy and excessive gestational weight gain increase risk of childhood overweight."
+    },
+    {
+      "evidence_id": "NHLBI_ASTHMA",
+      "organisation": "NHLBI",
+      "title": "Asthma - Causes and Triggers",
+      "url": "https://www.nhlbi.nih.gov/health/asthma/causes",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch snippet and/or WebFetch model-extracted page summary inspected 2026-11-23 (paraphrased finding; verbatim text not retained)",
+      "finding_paraphrase": "Exact causes of asthma are unknown; risk factors include environmental exposures (allergens, air pollution, tobacco smoke, workplace chemicals/dust), viral respiratory infections in early life, family history/genetics, allergies (asthma is usually a type of allergic reaction) and obesity; triggers provoke airway inflammation, swelling, mucus and muscle tightening."
+    },
+    {
+      "evidence_id": "ASTHMA_PRENATAL",
+      "organisation": "PubMed Central",
+      "title": "Prenatal tobacco smoke exposure and childhood asthma (PMC5034599)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5034599/",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch snippet and/or WebFetch model-extracted page summary inspected 2026-11-23 (paraphrased finding; verbatim text not retained)",
+      "finding_paraphrase": "Maternal smoking during pregnancy is associated with increased childhood asthma/wheeze risk."
+    },
+    {
+      "evidence_id": "ASTHMA_PRENATAL2",
+      "organisation": "PubMed Central",
+      "title": "In-utero smoke exposure and asthma (PMC1449839)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1449839/",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch snippet and/or WebFetch model-extracted page summary inspected 2026-11-23 (paraphrased finding; verbatim text not retained)",
+      "finding_paraphrase": "In-utero exposure to maternal smoking associated with higher asthma risk in children."
+    },
+    {
+      "evidence_id": "NHLBI_COPD",
+      "organisation": "NHLBI",
+      "title": "COPD - Causes and Risk Factors",
+      "url": "https://www.nhlbi.nih.gov/health/copd/causes",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch snippet and/or WebFetch model-extracted page summary inspected 2026-11-23 (paraphrased finding; verbatim text not retained)",
+      "finding_paraphrase": "Cigarette smoking is the most common cause of COPD in the US; secondhand smoke, air pollution, workplace dust/fumes/chemicals and alpha-1 antitrypsin deficiency also contribute; airways become thickened and inflamed."
+    },
+    {
+      "evidence_id": "COPD_PATH",
+      "organisation": "Journal of Clinical Investigation (review, PMC3408733)",
+      "title": "Pathogenesis of chronic obstructive pulmonary disease (Tuder & Petrache 2012)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3408733/",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch result text inspected 2026-11-23 (paraphrased finding)",
+      "finding_paraphrase": "Tobacco smoke is the key cause of COPD; it triggers airway inflammation within hours, and oxidants in smoke drive inflammatory responses; tissue damage involves oxidative stress, inflammation and proteolysis."
+    },
+    {
+      "evidence_id": "COPD_TRIAD",
+      "organisation": "Int J COPD (review, PMC3157944)",
+      "title": "Pathogenic triad in COPD",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3157944/",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch result text inspected 2026-11-23 (paraphrased finding)",
+      "finding_paraphrase": "Persistent inflammation, protease-antiprotease imbalance and oxidative stress lead to mucous/goblet-cell metaplasia, mucus hypersecretion and fibrosis (airway remodeling)."
+    },
+    {
+      "evidence_id": "BOLD_TB",
+      "organisation": "European Respiratory Journal (BOLD study, PMC4594762)",
+      "title": "Tuberculosis associates with both airflow obstruction and low lung function",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4594762/",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch result text inspected 2026-11-23 (paraphrased finding)",
+      "finding_paraphrase": "Self-reported history of tuberculosis associated with airflow obstruction (adjusted OR 2.51, 95% CI 1.83-3.42) and spirometric restriction."
+    },
+    {
+      "evidence_id": "COPD_EXAC",
+      "organisation": "PubMed Central (review, PMC7423341)",
+      "title": "COPD exacerbation triggers",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7423341/",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch snippet and/or WebFetch model-extracted page summary inspected 2026-11-23 (paraphrased finding; verbatim text not retained)",
+      "finding_paraphrase": "COPD exacerbations are most commonly triggered by respiratory infections and air pollutants."
+    },
+    {
+      "evidence_id": "COPD_LC",
+      "organisation": "Oncotarget meta-analysis (PMC5652835)",
+      "title": "COPD and risk of lung cancer: meta-analysis of prospective cohort studies",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5652835/",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch result text inspected 2026-11-23 (paraphrased finding)",
+      "finding_paraphrase": "Meta-analysis of 18 prospective cohorts found significantly increased lung cancer risk with COPD and emphysema."
+    },
+    {
+      "evidence_id": "CDC_TB_RISK",
+      "organisation": "CDC",
+      "title": "Tuberculosis Risk Factors",
+      "url": "https://www.cdc.gov/tb/risk-factors/index.html",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch snippet and/or WebFetch model-extracted page summary inspected 2026-11-23 (paraphrased finding; verbatim text not retained)",
+      "finding_paraphrase": "Weakened immunity (e.g. HIV, diabetes, other conditions/treatments) raises the risk of progressing from TB infection to TB disease."
+    },
+    {
+      "evidence_id": "CDC_TB_CAUSES",
+      "organisation": "CDC",
+      "title": "Tuberculosis: Causes and How It Spreads",
+      "url": "https://www.cdc.gov/tb/causes/index.html",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch result text inspected 2026-11-23 (paraphrased finding)",
+      "finding_paraphrase": "TB germs spread through the air when someone with active TB disease coughs, speaks or sings and can stay in the air for several hours; inactive TB becomes active if the immune system cannot stop the germs multiplying."
+    },
+    {
+      "evidence_id": "CDC_TB_CLIN",
+      "organisation": "CDC",
+      "title": "Clinical Overview of Tuberculosis",
+      "url": "https://www.cdc.gov/tb/hcp/clinical-overview/index.html",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch result text inspected 2026-11-23 (paraphrased finding)",
+      "finding_paraphrase": "Without treatment about 5% of infected people develop TB disease within two years and another 5% later; infection begins when droplet nuclei reach the alveoli."
+    },
+    {
+      "evidence_id": "WHO_TB",
+      "organisation": "WHO",
+      "title": "Tuberculosis fact sheet",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/tuberculosis",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch snippet and/or WebFetch model-extracted page summary inspected 2026-11-23 (paraphrased finding; verbatim text not retained)",
+      "finding_paraphrase": "Risk of TB disease is increased by diabetes, weakened immunity (e.g. HIV), undernutrition, tobacco use and harmful alcohol use."
+    },
+    {
+      "evidence_id": "TB_HOSTGEN",
+      "organisation": "Frontiers review (PMC6759583)",
+      "title": "Human genetic variability and TB pathogenesis",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6759583/",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch result text inspected 2026-11-23 (paraphrased finding)",
+      "finding_paraphrase": "Human genetic variability affects susceptibility to infection and progression of infection to disease, though replication of specific loci has been difficult."
+    },
+    {
+      "evidence_id": "TB_TWIN",
+      "organisation": "Curr Genet Med Rep review (PMC5965286)",
+      "title": "Host genetics of tuberculosis",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5965286/",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch result text inspected 2026-11-23 (paraphrased finding)",
+      "finding_paraphrase": "Twin studies show higher TB concordance in monozygotic (32-62%) than dizygotic (14-18%) twins; TB disease requires exposure plus host genetic and environmental factors."
+    },
+    {
+      "evidence_id": "TB_REMODEL",
+      "organisation": "European Respiratory Review (PMC6019552)",
+      "title": "Tuberculosis and lung damage: from epidemiology to pathophysiology",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6019552/",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch result text inspected 2026-11-23 (paraphrased finding)",
+      "finding_paraphrase": "Pulmonary TB remodels the lung through caseous necrosis/cavitation, fibrosis and bronchiectasis; past pulmonary TB is a risk factor for long-term respiratory impairment."
+    },
+    {
+      "evidence_id": "CDC_FLU",
+      "organisation": "CDC",
+      "title": "How Flu Spreads",
+      "url": "https://www.cdc.gov/flu/spread/index.html",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch snippet and/or WebFetch model-extracted page summary inspected 2026-11-23 (paraphrased finding; verbatim text not retained)",
+      "finding_paraphrase": "Flu viruses spread mainly by droplets made when people with flu cough, sneeze or talk."
+    },
+    {
+      "evidence_id": "NHLBI_PNA",
+      "organisation": "NHLBI",
+      "title": "Pneumonia - Causes and Risk Factors",
+      "url": "https://www.nhlbi.nih.gov/health/pneumonia/causes",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch snippet and/or WebFetch model-extracted page summary inspected 2026-11-23 (paraphrased finding; verbatim text not retained)",
+      "finding_paraphrase": "Bacteria, viruses or fungi cause pneumonia; Streptococcus pneumoniae is the most common bacterial cause, influenza and rhinovirus common viral causes; the immune response inflames the alveoli, which can fill with fluid or pus; risk factors include smoking, chronic lung disease, heart failure, weakened immunity and air pollution (high blood pressure is not listed)."
+    },
+    {
+      "evidence_id": "MEDLINE_MIGRAINE",
+      "organisation": "MedlinePlus",
+      "title": "Migraine",
+      "url": "https://medlineplus.gov/migraine.html",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch snippet and/or WebFetch model-extracted page summary inspected 2026-11-23 (paraphrased finding; verbatim text not retained)",
+      "finding_paraphrase": "Migraine has a genetic cause and runs in families; attacks are set off by triggers such as stress, hormonal changes, sleep changes, certain foods/drinks and environmental factors; family history is a risk factor, not a trigger."
+    },
+    {
+      "evidence_id": "NINDS_MIGRAINE",
+      "organisation": "NINDS",
+      "title": "Migraine",
+      "url": "https://www.ninds.nih.gov/health-information/disorders/migraine",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch snippet and/or WebFetch model-extracted page summary inspected 2026-11-23 (paraphrased finding; verbatim text not retained)",
+      "finding_paraphrase": "Lists migraine triggers including stress, sleep and dietary factors, tobacco and head trauma."
+    },
+    {
+      "evidence_id": "NINDS_EPI",
+      "organisation": "NINDS",
+      "title": "Epilepsy and Seizures",
+      "url": "https://www.ninds.nih.gov/health-information/disorders/epilepsy-and-seizures",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch snippet and/or WebFetch model-extracted page summary inspected 2026-11-23 (paraphrased finding; verbatim text not retained)",
+      "finding_paraphrase": "About half of epilepsy cases have no known cause; causes include genetics, brain injury/TBI, stroke, infections and developmental/prenatal brain injury; the brain's attempt to repair after injury can form abnormal connections; seizure triggers (e.g. very high or low blood sugar, toxins) do not themselves cause epilepsy."
+    },
+    {
+      "evidence_id": "NINDS_HEADACHE",
+      "organisation": "NINDS",
+      "title": "Headache",
+      "url": "https://www.ninds.nih.gov/health-information/disorders/headache",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch snippet and/or WebFetch model-extracted page summary inspected 2026-11-23 (paraphrased finding; verbatim text not retained)",
+      "finding_paraphrase": "Secondary headaches are caused by another condition (e.g. head injury, infection, other disorders), unlike primary headaches such as migraine."
+    },
+    {
+      "evidence_id": "PTE_MECH",
+      "organisation": "J Neuroinflammation review (PMC5237206)",
+      "title": "Inflammation in epileptogenesis after traumatic brain injury",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5237206/",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch result text inspected 2026-11-23 (paraphrased finding)",
+      "finding_paraphrase": "Post-traumatic epilepsy develops amid TBI-induced secondary injury; neuroinflammation, blood-brain barrier disruption, neuronal loss and network reorganisation contribute to epileptogenesis."
+    },
+    {
+      "evidence_id": "MEDLINE_FATIGUE",
+      "organisation": "MedlinePlus",
+      "title": "Fatigue",
+      "url": "https://medlineplus.gov/fatigue.html",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch result text inspected 2026-11-23 (paraphrased finding)",
+      "finding_paraphrase": "Fatigue is a symptom with many causes: chronic diseases (diabetes, COPD, heart, kidney, thyroid disease), anemia, infections, sleep apnea and other sleep disorders, depression and anxiety, treatments and lifestyle habits."
+    },
+    {
+      "evidence_id": "MEDLINE_THIRST",
+      "organisation": "MedlinePlus",
+      "title": "Thirst - excessive",
+      "url": "https://medlineplus.gov/ency/article/003085.htm",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch result text inspected 2026-11-23 (paraphrased finding)",
+      "finding_paraphrase": "Causes include a salty or spicy meal, blood loss, diabetes mellitus, diabetes insipidus, certain medicines, fluid shifts from sepsis, burns or heart/liver/kidney failure, and psychogenic polydipsia."
+    },
+    {
+      "evidence_id": "MEDLINE_SOB",
+      "organisation": "MedlinePlus",
+      "title": "Breathing difficulty",
+      "url": "https://medlineplus.gov/ency/article/003075.htm",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch result text inspected 2026-11-23 (paraphrased finding)",
+      "finding_paraphrase": "Shortness of breath has many causes including lung problems and heart problems (angina chest pain from poor coronary blood flow, heart attack, heart failure, arrhythmias), allergies and high altitude."
+    },
+    {
+      "evidence_id": "NIMH_DEP",
+      "organisation": "NIMH",
+      "title": "Depression",
+      "url": "https://www.nimh.nih.gov/health/publications/depression",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch snippet and/or WebFetch model-extracted page summary inspected 2026-11-23 (paraphrased finding; verbatim text not retained)",
+      "finding_paraphrase": "Depression results from a combination of genetic, biological, environmental and psychological factors; it can co-occur with diabetes and heart disease; diagnosis requires symptoms most of the day, nearly every day, for at least two weeks."
+    },
+    {
+      "evidence_id": "MEDLINE_DEP",
+      "organisation": "MedlinePlus",
+      "title": "Depression",
+      "url": "https://medlineplus.gov/depression.html",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch snippet and/or WebFetch model-extracted page summary inspected 2026-11-23 (paraphrased finding; verbatim text not retained)",
+      "finding_paraphrase": "Risk factors include having close relatives with depression, trauma and stressful life events, and certain medical conditions."
+    },
+    {
+      "evidence_id": "MEDLINE_DEP_ENCY",
+      "organisation": "MedlinePlus",
+      "title": "Major depression",
+      "url": "https://medlineplus.gov/ency/article/003213.htm",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch snippet and/or WebFetch model-extracted page summary inspected 2026-11-23 (paraphrased finding; verbatim text not retained)",
+      "finding_paraphrase": "Contributors include loneliness/social isolation, an underactive thyroid and sleeping problems."
+    },
+    {
+      "evidence_id": "SOCSUP_GARIEPY",
+      "organisation": "British Journal of Psychiatry (Gariepy et al. 2016, PMID 27445355)",
+      "title": "Social support and protection from depression: systematic review",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27445355/",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch result text inspected 2026-11-23 (paraphrased finding)",
+      "finding_paraphrase": "Social support is associated with protection from depression; effects weaker in cohort studies and reverse-causality bias noted."
+    },
+    {
+      "evidence_id": "PA_DEP",
+      "organisation": "Am J Psychiatry (Schuch et al. 2018, PMID 29690792)",
+      "title": "Physical activity and incident depression: meta-analysis",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29690792/",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch result text inspected 2026-11-23 (paraphrased finding)",
+      "finding_paraphrase": "High vs low physical activity associated with lower odds of incident depression (adjusted OR 0.83, 95% CI 0.79-0.88)."
+    },
+    {
+      "evidence_id": "INSOM_DEP",
+      "organisation": "BMC Psychiatry (Li et al. 2016, PMID 27816065)",
+      "title": "Insomnia and risk of depression: meta-analysis of prospective cohorts",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27816065/",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch snippet and/or WebFetch model-extracted page summary inspected 2026-11-23 (paraphrased finding; verbatim text not retained)",
+      "finding_paraphrase": "Insomnia associated with increased risk of subsequent depression (pooled RR 2.27) with substantial heterogeneity."
+    },
+    {
+      "evidence_id": "NHLBI_INSOMNIA",
+      "organisation": "NHLBI",
+      "title": "Insomnia",
+      "url": "https://www.nhlbi.nih.gov/health/insomnia",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch result text inspected 2026-11-23 (paraphrased finding)",
+      "finding_paraphrase": "Short-term insomnia may be caused by stress or changes in schedule/environment; chronic insomnia raises risk of high blood pressure, coronary heart disease and diabetes."
+    },
+    {
+      "evidence_id": "ANX_WHR",
+      "organisation": "NIH Office of Research on Women's Health",
+      "title": "Anxiety overview",
+      "url": "https://discoverwhr.nih.gov/research/anxiety/",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch result text inspected 2026-11-23 (paraphrased finding)",
+      "finding_paraphrase": "Causes of anxiety disorders are multifactorial (genetics, hormones, brain biology, stress, environment); risk factors include family history of anxiety or other mental illness."
+    },
+    {
+      "evidence_id": "ANX_MAG",
+      "organisation": "NIH MedlinePlus Magazine",
+      "title": "Anxiety: what you need to know",
+      "url": "https://magazine.medlineplus.gov/article/anxiety-what-you-need-to-know",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch result text inspected 2026-11-23 (paraphrased finding)",
+      "finding_paraphrase": "Risk factors for anxiety disorders include family history, experiencing traumatic or stressful events, and underlying medical conditions."
+    },
+    {
+      "evidence_id": "CDC_LC_RF",
+      "organisation": "CDC",
+      "title": "Lung Cancer Risk Factors",
+      "url": "https://www.cdc.gov/lung-cancer/risk-factors/",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch snippet and/or WebFetch model-extracted page summary inspected 2026-11-23 (paraphrased finding; verbatim text not retained)",
+      "finding_paraphrase": "Cigarette smoking is the number one risk factor (15-30 times higher risk); secondhand smoke causes lung cancer; radon is the second leading cause."
+    },
+    {
+      "evidence_id": "CDC_LC_NS",
+      "organisation": "CDC",
+      "title": "Lung Cancer Among People Who Never Smoked",
+      "url": "https://www.cdc.gov/lung-cancer/nonsmokers/",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch snippet and/or WebFetch model-extracted page summary inspected 2026-11-23 (paraphrased finding; verbatim text not retained)",
+      "finding_paraphrase": "In never-smokers lung cancer is linked to radon, secondhand smoke and other exposures."
+    },
+    {
+      "evidence_id": "NCI_TOBACCO",
+      "organisation": "NCI",
+      "title": "Tobacco",
+      "url": "https://www.cancer.gov/tobacco",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch result text inspected 2026-11-23 (paraphrased finding)",
+      "finding_paraphrase": "Tobacco products and secondhand smoke contain many chemicals that damage DNA; tobacco use causes many cancers including lung cancer."
+    },
+    {
+      "evidence_id": "HECHT",
+      "organisation": "Int J Cancer review (Hecht 2012, PMC3479369)",
+      "title": "Lung carcinogenesis by tobacco smoke",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3479369/",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch result text inspected 2026-11-23 (paraphrased finding)",
+      "finding_paraphrase": "Cigarette smoke contains multiple genotoxic lung carcinogens; DNA adduct formation and resulting mutations provide the mechanistic link to lung cancer."
+    },
+    {
+      "evidence_id": "NIDDK_CKD",
+      "organisation": "NIDDK",
+      "title": "Causes of Chronic Kidney Disease",
+      "url": "https://www.niddk.nih.gov/health-information/kidney-disease/chronic-kidney-disease-ckd/causes",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch snippet and/or WebFetch model-extracted page summary inspected 2026-11-23 (paraphrased finding; verbatim text not retained)",
+      "finding_paraphrase": "Diabetes and high blood pressure are the most common causes of CKD; high glucose damages kidney filters/vessels; hypertension damages renal blood vessels and filtering units; other causes include genetic (e.g. polycystic) and glomerular diseases."
+    },
+    {
+      "evidence_id": "NIDDK_DKD",
+      "organisation": "NIDDK",
+      "title": "Diabetic Kidney Disease",
+      "url": "https://www.niddk.nih.gov/health-information/diabetes/overview/preventing-problems/diabetic-kidney-disease",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch snippet and/or WebFetch model-extracted page summary inspected 2026-11-23 (paraphrased finding; verbatim text not retained)",
+      "finding_paraphrase": "High blood glucose can damage blood vessels in the kidneys; damaged kidneys filter less well and can leak protein into urine."
+    },
+    {
+      "evidence_id": "NIDDK_HBP_KID",
+      "organisation": "NIDDK",
+      "title": "High Blood Pressure & Kidney Disease",
+      "url": "https://www.niddk.nih.gov/health-information/kidney-disease/high-blood-pressure",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch snippet and/or WebFetch model-extracted page summary inspected 2026-11-23 (paraphrased finding; verbatim text not retained)",
+      "finding_paraphrase": "High blood pressure narrows, weakens and damages blood vessels including those of the kidneys, reducing blood flow; it is the second leading cause of kidney failure; risk factors listed include diabetes, heart disease and family history of kidney failure."
+    },
+    {
+      "evidence_id": "NIDDK_CKD_TESTS",
+      "organisation": "NIDDK",
+      "title": "Chronic Kidney Disease Tests & Diagnosis",
+      "url": "https://www.niddk.nih.gov/health-information/kidney-disease/chronic-kidney-disease-ckd/tests-diagnosis",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch snippet and/or WebFetch model-extracted page summary inspected 2026-11-23 (paraphrased finding; verbatim text not retained)",
+      "finding_paraphrase": "CKD is assessed with eGFR (below 60 for 3 months indicates CKD) and urine albumin."
+    },
+    {
+      "evidence_id": "CKD_SMOKE_MR",
+      "organisation": "Health Data Science (Zhang et al. 2024, PMC11532587)",
+      "title": "Smoking and CKD stages 3-5: Mendelian randomization study",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11532587/",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch result text inspected 2026-11-23 (paraphrased finding)",
+      "finding_paraphrase": "Observationally, smoking status associated with higher CKD risk (HR 1.26, 95% CI 1.22-1.30); Mendelian randomization did not establish a causal effect."
+    },
+    {
+      "evidence_id": "CKD_DIET",
+      "organisation": "CJASN (Bach et al. 2019, PMID 31551237)",
+      "title": "Healthy dietary patterns and incidence of CKD: meta-analysis",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31551237/",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch result text inspected 2026-11-23 (paraphrased finding)",
+      "finding_paraphrase": "Healthy dietary patterns associated with lower CKD incidence (about 30% lower odds; moderate certainty; observational)."
+    },
+    {
+      "evidence_id": "NIDDK_HYPO",
+      "organisation": "NIDDK",
+      "title": "Hypothyroidism (Underactive Thyroid)",
+      "url": "https://www.niddk.nih.gov/health-information/endocrine-diseases/hypothyroidism",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch snippet and/or WebFetch model-extracted page summary inspected 2026-11-23 (paraphrased finding; verbatim text not retained)",
+      "finding_paraphrase": "Hashimoto's disease is the most common cause; other causes include thyroiditis, thyroid surgery, radiation treatment and iodine imbalance; family history of thyroid disease raises risk; fatigue is a common symptom."
+    },
+    {
+      "evidence_id": "NIDDK_HASHI",
+      "organisation": "NIDDK",
+      "title": "Hashimoto's Disease",
+      "url": "https://www.niddk.nih.gov/health-information/endocrine-diseases/hashimotos-disease",
+      "access_date": "2026-11-23",
+      "access_method": "WebSearch snippet and/or WebFetch model-extracted page summary inspected 2026-11-23 (paraphrased finding; verbatim text not retained)",
+      "finding_paraphrase": "Autoimmune attack inflames and damages the thyroid so it cannot make enough thyroid hormone; hypothyroidism is a common result."
+    }
+  ],
+  "claim_catalogue": {
+    "n_claim_types": 293,
+    "verdict_distribution_contributes_phrasing": {
+      "SUPPORTED": 183,
+      "UNVERIFIABLE": 1,
+      "PARTIALLY_SUPPORTED": 37,
+      "CONTRADICTED": 34,
+      "UNSUPPORTED": 37,
+      "NON_FACTUAL": 1
+    },
+    "entries": [
+      {
+        "key": "AFIB.pumping",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "AHA_AFIB"
+        ],
+        "description": "AFib impairs effective atrial pumping so blood can pool"
+      },
+      {
+        "key": "AMBIG.radon_established",
+        "verdict": "UNVERIFIABLE",
+        "verdict_if_definitive_cause": "UNVERIFIABLE",
+        "confidence": "low",
+        "evidence_ids": [
+          "CDC_LC_RF"
+        ],
+        "description": "Internally contradictory statement about whether radon is an established lung-cancer cause; the answer's net assertion cannot be determined"
+      },
+      {
+        "key": "ANX.shared_stress_sleep",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "ANX_WHR",
+          "NHLBI_INSOMNIA"
+        ],
+        "description": "Depression and anxiety share risk factors such as chronic stress and poor sleep"
+      },
+      {
+        "key": "ANX.socsupport",
+        "verdict": "PARTIALLY_SUPPORTED",
+        "verdict_if_definitive_cause": "PARTIALLY_SUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "ANX_WHR",
+          "SOCSUP_GARIEPY"
+        ],
+        "description": "Lack of social support contributes to anxiety as well as depression"
+      },
+      {
+        "key": "ANX.stress_denied",
+        "verdict": "CONTRADICTED",
+        "verdict_if_definitive_cause": "CONTRADICTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "ANX_WHR",
+          "ANX_MAG"
+        ],
+        "description": "Unqualified denial of causal relationships between stress/poor sleep and anxiety disorders"
+      },
+      {
+        "key": "ANX.trauma",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "ANX_MAG"
+        ],
+        "description": "Traumatic events raise risk of anxiety disorders"
+      },
+      {
+        "key": "ASTH.HTN",
+        "verdict": "UNSUPPORTED",
+        "verdict_if_definitive_cause": "UNSUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_ASTHMA"
+        ],
+        "description": "High blood pressure presented as contributing to asthma"
+      },
+      {
+        "key": "ASTH.HTN_stroke_env",
+        "verdict": "UNSUPPORTED",
+        "verdict_if_definitive_cause": "UNSUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "NHLBI_ASTHMA"
+        ],
+        "description": "Speculative high-blood-pressure/stroke/environment chain presented as relevant to asthma"
+      },
+      {
+        "key": "ASTH.airpoll",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "UNSUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_ASTHMA"
+        ],
+        "description": "Air pollution contributes to asthma onset and flare-ups (definitive-cause phrasing overstates: exact causes unknown)"
+      },
+      {
+        "key": "ASTH.allergens",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_ASTHMA"
+        ],
+        "description": "Inhaled allergens trigger airway inflammation and asthma symptoms"
+      },
+      {
+        "key": "ASTH.allergies",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_ASTHMA"
+        ],
+        "description": "Allergies are an asthma risk factor; asthma is usually a type of allergic reaction"
+      },
+      {
+        "key": "ASTH.envtoxins",
+        "verdict": "PARTIALLY_SUPPORTED",
+        "verdict_if_definitive_cause": "UNSUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "NHLBI_ASTHMA"
+        ],
+        "description": "Environmental toxins/chemicals contribute to asthma (generic wording; definitive-cause phrasing overstates)"
+      },
+      {
+        "key": "ASTH.genetic",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "UNSUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_ASTHMA"
+        ],
+        "description": "Family history/genetics raise asthma risk (definitive-cause phrasing overstates)"
+      },
+      {
+        "key": "ASTH.infections",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "UNSUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_ASTHMA"
+        ],
+        "description": "Viral respiratory infections are asthma risk factors and triggers (definitive-cause phrasing overstates)"
+      },
+      {
+        "key": "ASTH.mech_inflam",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_ASTHMA"
+        ],
+        "description": "Airway inflammation, swelling, mucus and muscle tightening narrow the airways"
+      },
+      {
+        "key": "ASTH.occupational",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_ASTHMA"
+        ],
+        "description": "Workplace chemical/dust exposure is an asthma risk factor"
+      },
+      {
+        "key": "ASTH.pregnancy_env",
+        "verdict": "PARTIALLY_SUPPORTED",
+        "verdict_if_definitive_cause": "PARTIALLY_SUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "ASTHMA_PRENATAL",
+          "ASTHMA_PRENATAL2"
+        ],
+        "description": "Prenatal environmental exposure (e.g. maternal smoking) associated with childhood asthma"
+      },
+      {
+        "key": "ASTH.smoke",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_ASTHMA"
+        ],
+        "description": "Tobacco smoke exposure is an asthma risk factor/trigger"
+      },
+      {
+        "key": "ASTH.trigger_vs_cause_def",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_ASTHMA"
+        ],
+        "description": "Distinguishes triggers that provoke flare-ups from underlying risk factors"
+      },
+      {
+        "key": "CAD.HTN",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_CHD",
+          "CDC_HDS"
+        ],
+        "description": "High blood pressure damages arteries and contributes to coronary artery disease"
+      },
+      {
+        "key": "CAD.LDL",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_CHD",
+          "CDC_HDS"
+        ],
+        "description": "High LDL cholesterol contributes to coronary plaque"
+      },
+      {
+        "key": "CAD.REV_flow",
+        "verdict": "CONTRADICTED",
+        "verdict_if_definitive_cause": "CONTRADICTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_CHD",
+          "NHLBI_HA"
+        ],
+        "description": "Reduced coronary blood flow (a consequence) presented as contributing to CAD: direction reversed"
+      },
+      {
+        "key": "CAD.REV_myodamage",
+        "verdict": "CONTRADICTED",
+        "verdict_if_definitive_cause": "CONTRADICTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_CHD",
+          "NHLBI_HF"
+        ],
+        "description": "Heart-muscle damage/CHD/heart attack (consequences) listed as contributors to CAD: direction reversed"
+      },
+      {
+        "key": "CAD.REV_plaque",
+        "verdict": "CONTRADICTED",
+        "verdict_if_definitive_cause": "CONTRADICTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_CHD"
+        ],
+        "description": "States coronary heart disease causes plaque accumulation: direction reversed"
+      },
+      {
+        "key": "CAD.cholesterol",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_CHD",
+          "CDC_HDS"
+        ],
+        "description": "Cholesterol deposits form coronary plaque"
+      },
+      {
+        "key": "CAD.diabetes",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_CHD",
+          "CDC_HDS"
+        ],
+        "description": "Diabetes damages arteries and contributes to CAD"
+      },
+      {
+        "key": "CAD.diet",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "PARTIALLY_SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "CDC_HDS"
+        ],
+        "description": "Unhealthy diet is a leading heart-disease risk factor (definitive-cause phrasing only partially supported)"
+      },
+      {
+        "key": "CAD.famhx",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_CHD"
+        ],
+        "description": "Family history raises CAD risk"
+      },
+      {
+        "key": "CAD.genetic",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "PARTIALLY_SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_CHD"
+        ],
+        "description": "Genetic factors (e.g. familial hypercholesterolemia) raise CAD risk"
+      },
+      {
+        "key": "CAD.inactivity",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "CDC_HDS"
+        ],
+        "description": "Physical inactivity is a heart-disease risk factor"
+      },
+      {
+        "key": "CAD.plaque",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_CHD",
+          "NHLBI_HA"
+        ],
+        "description": "Atherosclerotic plaque narrowing coronary arteries is the leading cause of CAD/CHD"
+      },
+      {
+        "key": "CAD.rupture_clot",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_HA",
+          "AHA_HA"
+        ],
+        "description": "Plaque rupture leads to a clot that blocks coronary flow (heart attack)"
+      },
+      {
+        "key": "CAD.smoking",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "CDC_SMOKE_CVD",
+          "NHLBI_SMOKE",
+          "CDC_HDS"
+        ],
+        "description": "Smoking contributes to coronary artery disease"
+      },
+      {
+        "key": "CAD.smoking_denied",
+        "verdict": "CONTRADICTED",
+        "verdict_if_definitive_cause": "CONTRADICTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "CDC_SMOKE_CVD",
+          "NHLBI_SMOKE"
+        ],
+        "description": "Unqualified denial of a link between smoking and coronary disease"
+      },
+      {
+        "key": "CAD.smoking_plaque",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "CDC_SMOKE_CVD",
+          "NHLBI_SMOKE"
+        ],
+        "description": "Smoking damages vessel lining and increases plaque buildup"
+      },
+      {
+        "key": "CKD.CVD_intermediate",
+        "verdict": "PARTIALLY_SUPPORTED",
+        "verdict_if_definitive_cause": "PARTIALLY_SUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "NIDDK_CKD",
+          "NIDDK_HBP_KID"
+        ],
+        "description": "Hedged suggestion that cardiovascular disease is an intermediate between hypertension and CKD (the established pathway is direct renal vascular damage)"
+      },
+      {
+        "key": "CKD.HTN",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NIDDK_CKD",
+          "NIDDK_HBP_KID"
+        ],
+        "description": "High blood pressure is one of the most common causes of CKD"
+      },
+      {
+        "key": "CKD.HTN_DKD",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "NIDDK_HBP_KID",
+          "NIDDK_DKD"
+        ],
+        "description": "High blood pressure also contributes to kidney damage alongside diabetes"
+      },
+      {
+        "key": "CKD.HTN_doubt",
+        "verdict": "CONTRADICTED",
+        "verdict_if_definitive_cause": "CONTRADICTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NIDDK_CKD",
+          "NIDDK_HBP_KID"
+        ],
+        "description": "Unqualified statement that it is unclear whether high blood pressure causes kidney damage"
+      },
+      {
+        "key": "CKD.HTN_less_established",
+        "verdict": "CONTRADICTED",
+        "verdict_if_definitive_cause": "CONTRADICTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NIDDK_CKD",
+          "NIDDK_HBP_KID"
+        ],
+        "description": "Concludes hypertension is a less-established kidney cause than diabetes (NIDDK: both most common causes)"
+      },
+      {
+        "key": "CKD.HTN_narrowing",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NIDDK_HBP_KID"
+        ],
+        "description": "High blood pressure narrows/damages renal vessels and reduces kidney blood flow"
+      },
+      {
+        "key": "CKD.IR_via_T2D",
+        "verdict": "PARTIALLY_SUPPORTED",
+        "verdict_if_definitive_cause": "PARTIALLY_SUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "NIDDK_DM_SC",
+          "NIDDK_CKD"
+        ],
+        "description": "Insulin resistance contributes to CKD indirectly through type 2 diabetes"
+      },
+      {
+        "key": "CKD.causal_criteria",
+        "verdict": "NON_FACTUAL",
+        "verdict_if_definitive_cause": "NON_FACTUAL",
+        "confidence": "high",
+        "evidence_ids": [],
+        "description": "States the evidence does not distinguish association from causation (meta statement about the supplied evidence)"
+      },
+      {
+        "key": "CKD.causal_doubt",
+        "verdict": "CONTRADICTED",
+        "verdict_if_definitive_cause": "CONTRADICTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NIDDK_CKD"
+        ],
+        "description": "States the causal relationship of diabetes/high blood pressure with CKD is unclear"
+      },
+      {
+        "key": "CKD.diabetes",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NIDDK_CKD",
+          "NIDDK_DKD"
+        ],
+        "description": "Diabetes is the most common cause of CKD"
+      },
+      {
+        "key": "CKD.diet",
+        "verdict": "PARTIALLY_SUPPORTED",
+        "verdict_if_definitive_cause": "PARTIALLY_SUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "CKD_DIET"
+        ],
+        "description": "Unhealthy diet associated with higher CKD incidence (observational)"
+      },
+      {
+        "key": "CKD.famhx",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NIDDK_HBP_KID"
+        ],
+        "description": "Family history of kidney failure raises CKD risk"
+      },
+      {
+        "key": "CKD.genetic",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "PARTIALLY_SUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "NIDDK_CKD"
+        ],
+        "description": "Inherited/genetic kidney diseases cause some CKD"
+      },
+      {
+        "key": "CKD.glucose_filters",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NIDDK_DKD",
+          "NIDDK_CKD"
+        ],
+        "description": "High blood glucose damages kidney filters"
+      },
+      {
+        "key": "CKD.glucose_vessels",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NIDDK_DKD"
+        ],
+        "description": "High blood glucose damages kidney blood vessels"
+      },
+      {
+        "key": "CKD.heart_indirect",
+        "verdict": "PARTIALLY_SUPPORTED",
+        "verdict_if_definitive_cause": "PARTIALLY_SUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "NIDDK_HBP_KID"
+        ],
+        "description": "Heart disease associated with CKD risk"
+      },
+      {
+        "key": "CKD.inactivity_via_T2D",
+        "verdict": "PARTIALLY_SUPPORTED",
+        "verdict_if_definitive_cause": "PARTIALLY_SUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "NIDDK_T2D_RISK",
+          "NIDDK_CKD"
+        ],
+        "description": "Inactivity contributes to CKD indirectly through type 2 diabetes"
+      },
+      {
+        "key": "CKD.mech_diff_invented",
+        "verdict": "UNSUPPORTED",
+        "verdict_if_definitive_cause": "UNSUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "NIDDK_CKD",
+          "NIDDK_HBP_KID"
+        ],
+        "description": "Invented mechanistic distinctions between diabetic and hypertensive kidney damage"
+      },
+      {
+        "key": "CKD.obesity_via_T2D",
+        "verdict": "PARTIALLY_SUPPORTED",
+        "verdict_if_definitive_cause": "PARTIALLY_SUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "NIDDK_T2D_RISK",
+          "NIDDK_CKD"
+        ],
+        "description": "Obesity contributes to CKD indirectly through type 2 diabetes"
+      },
+      {
+        "key": "CKD.proteinuria",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NIDDK_DKD",
+          "NIDDK_CKD_TESTS"
+        ],
+        "description": "Kidney damage allows protein (albumin) to leak into urine"
+      },
+      {
+        "key": "CKD.renal_vasc",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NIDDK_CKD",
+          "NIDDK_HBP_KID"
+        ],
+        "description": "Damage to renal vessels/filtering units impairs removal of waste and fluid"
+      },
+      {
+        "key": "CKD.smoking",
+        "verdict": "PARTIALLY_SUPPORTED",
+        "verdict_if_definitive_cause": "PARTIALLY_SUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "CKD_SMOKE_MR"
+        ],
+        "description": "Smoking associated with higher CKD risk (observational; causality not established by Mendelian randomization)"
+      },
+      {
+        "key": "CKD.smoking_dna_mech",
+        "verdict": "UNSUPPORTED",
+        "verdict_if_definitive_cause": "UNSUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "CKD_SMOKE_MR",
+          "NIDDK_CKD"
+        ],
+        "description": "DNA-damage mechanism asserted for smoking-related CKD"
+      },
+      {
+        "key": "CKD.smoking_via_CVD",
+        "verdict": "PARTIALLY_SUPPORTED",
+        "verdict_if_definitive_cause": "PARTIALLY_SUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "CKD_SMOKE_MR"
+        ],
+        "description": "Smoking may affect kidneys via vascular damage (hedged)"
+      },
+      {
+        "key": "CKD.staging_GFR",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NIDDK_CKD_TESTS"
+        ],
+        "description": "CKD is assessed/staged by GFR"
+      },
+      {
+        "key": "COPD.TB",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "BOLD_TB",
+          "TB_REMODEL"
+        ],
+        "description": "History of TB is associated with airflow obstruction/COPD"
+      },
+      {
+        "key": "COPD.TB_occupational_spec",
+        "verdict": "UNSUPPORTED",
+        "verdict_if_definitive_cause": "UNSUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "NHLBI_COPD"
+        ],
+        "description": "Speculative link between post-TB remodeling and occupational exposure"
+      },
+      {
+        "key": "COPD.airpoll_primary",
+        "verdict": "CONTRADICTED",
+        "verdict_if_definitive_cause": "CONTRADICTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_COPD"
+        ],
+        "description": "States COPD is primarily caused by air pollution (NHLBI: smoking is the most common cause)"
+      },
+      {
+        "key": "COPD.allergen_trigger",
+        "verdict": "UNSUPPORTED",
+        "verdict_if_definitive_cause": "UNSUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "NHLBI_COPD",
+          "COPD_EXAC"
+        ],
+        "description": "Allergens presented as COPD causes/triggers"
+      },
+      {
+        "key": "COPD.dna_mech",
+        "verdict": "UNSUPPORTED",
+        "verdict_if_definitive_cause": "UNSUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "NHLBI_COPD",
+          "COPD_PATH"
+        ],
+        "description": "DNA-damage mechanism asserted for COPD"
+      },
+      {
+        "key": "COPD.inflam_airflow",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_COPD",
+          "COPD_TRIAD"
+        ],
+        "description": "Inflamed, thickened airways limit airflow"
+      },
+      {
+        "key": "COPD.occupational",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_COPD"
+        ],
+        "description": "Workplace dust, fumes and chemicals raise COPD risk"
+      },
+      {
+        "key": "COPD.oxstress",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "COPD_PATH",
+          "COPD_TRIAD"
+        ],
+        "description": "Smoke-induced oxidative stress contributes to lung inflammation"
+      },
+      {
+        "key": "COPD.pollutants",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_COPD"
+        ],
+        "description": "Long-term pollutant exposure raises COPD risk"
+      },
+      {
+        "key": "COPD.remodel",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "COPD_TRIAD"
+        ],
+        "description": "Chronic inflammation drives mucus hypersecretion, airway remodeling and fibrosis"
+      },
+      {
+        "key": "COPD.smoke_inflam",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "COPD_PATH",
+          "NHLBI_COPD"
+        ],
+        "description": "Cigarette smoke causes airway inflammation and lung damage"
+      },
+      {
+        "key": "COPD.tobacco",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_COPD"
+        ],
+        "description": "Cigarette smoking is the most common cause of COPD"
+      },
+      {
+        "key": "COPD.toxins",
+        "verdict": "PARTIALLY_SUPPORTED",
+        "verdict_if_definitive_cause": "PARTIALLY_SUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "NHLBI_COPD"
+        ],
+        "description": "Toxic chemical/fume exposure contributes to COPD (generic wording)"
+      },
+      {
+        "key": "DEP.HTN_via_HF",
+        "verdict": "UNSUPPORTED",
+        "verdict_if_definitive_cause": "UNSUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "NIMH_DEP"
+        ],
+        "description": "Hedged multi-hop chain high blood pressure -> HFpEF -> depression"
+      },
+      {
+        "key": "DEP.TB_immunity_spec",
+        "verdict": "UNSUPPORTED",
+        "verdict_if_definitive_cause": "UNSUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "NIMH_DEP"
+        ],
+        "description": "Speculative TB/immunity link to depression"
+      },
+      {
+        "key": "DEP.bad_week",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NIMH_DEP"
+        ],
+        "description": "A single bad week does not establish depression"
+      },
+      {
+        "key": "DEP.diabetes_assoc",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NIMH_DEP"
+        ],
+        "description": "Depression co-occurs with diabetes"
+      },
+      {
+        "key": "DEP.famhx",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "MEDLINE_DEP"
+        ],
+        "description": "Close relatives with depression raise risk"
+      },
+      {
+        "key": "DEP.genetic",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "PARTIALLY_SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NIMH_DEP"
+        ],
+        "description": "Genetic factors contribute to depression (multifactorial)"
+      },
+      {
+        "key": "DEP.inactivity",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "PA_DEP"
+        ],
+        "description": "Low physical activity associated with higher incident depression"
+      },
+      {
+        "key": "DEP.insomnia",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "INSOM_DEP"
+        ],
+        "description": "Insomnia increases subsequent depression risk"
+      },
+      {
+        "key": "DEP.insomnia_RR",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "INSOM_DEP"
+        ],
+        "description": "Pooled relative risk about 2.27 for depression after insomnia"
+      },
+      {
+        "key": "DEP.poorsleep",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "PARTIALLY_SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "INSOM_DEP",
+          "MEDLINE_DEP_ENCY"
+        ],
+        "description": "Poor sleep associated with depression"
+      },
+      {
+        "key": "DEP.pregnancy_env",
+        "verdict": "UNSUPPORTED",
+        "verdict_if_definitive_cause": "UNSUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "NIMH_DEP"
+        ],
+        "description": "Prenatal environmental factors presented as depression causes via an invalid graph chain"
+      },
+      {
+        "key": "DEP.sleep_weight_spec",
+        "verdict": "PARTIALLY_SUPPORTED",
+        "verdict_if_definitive_cause": "PARTIALLY_SUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "NIDDK_WEIGHT",
+          "INSOM_DEP"
+        ],
+        "description": "Hedged sleep/weight/mood pathway; components supported, chain not established"
+      },
+      {
+        "key": "DEP.socsupport",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "PARTIALLY_SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "SOCSUP_GARIEPY",
+          "MEDLINE_DEP_ENCY"
+        ],
+        "description": "Lack of social support/isolation associated with depression"
+      },
+      {
+        "key": "DEP.stress",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "PARTIALLY_SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "MEDLINE_DEP",
+          "NIMH_DEP"
+        ],
+        "description": "Stress raises depression risk"
+      },
+      {
+        "key": "DEP.stress_insomnia",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_INSOMNIA"
+        ],
+        "description": "Stress can cause insomnia"
+      },
+      {
+        "key": "DEP.trauma",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "PARTIALLY_SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "MEDLINE_DEP"
+        ],
+        "description": "Trauma raises depression risk"
+      },
+      {
+        "key": "DKD.IR_diet_hedged",
+        "verdict": "PARTIALLY_SUPPORTED",
+        "verdict_if_definitive_cause": "PARTIALLY_SUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "NIDDK_DM_SC",
+          "NIDDK_DKD"
+        ],
+        "description": "Diabetic kidney disease linked indirectly to insulin resistance/poor diet via diabetes (hedged)"
+      },
+      {
+        "key": "DM.HTN_link",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "CDC_STROKE_RF"
+        ],
+        "description": "High blood pressure is common in people with diabetes"
+      },
+      {
+        "key": "DM.IR_HTN",
+        "verdict": "PARTIALLY_SUPPORTED",
+        "verdict_if_definitive_cause": "PARTIALLY_SUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "NHLBI_METSYN"
+        ],
+        "description": "Insulin resistance linked with high blood pressure (metabolic-syndrome cluster)"
+      },
+      {
+        "key": "DM.arterial",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_CHD",
+          "CDC_HDS"
+        ],
+        "description": "Diabetes damages arteries"
+      },
+      {
+        "key": "DM.kidney",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NIDDK_DKD"
+        ],
+        "description": "Diabetes damages kidneys"
+      },
+      {
+        "key": "DM.vascular",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "CDC_HDS",
+          "NIDDK_DKD"
+        ],
+        "description": "High blood sugar damages blood vessels"
+      },
+      {
+        "key": "EPI.braininjury",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NINDS_EPI"
+        ],
+        "description": "Traumatic brain injury/brain damage can cause epilepsy"
+      },
+      {
+        "key": "EPI.famhx",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NINDS_EPI"
+        ],
+        "description": "Family history/genetics raise epilepsy risk"
+      },
+      {
+        "key": "EPI.hyperglycemia_trigger",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NINDS_EPI"
+        ],
+        "description": "Very high blood sugar can provoke seizures (a trigger)"
+      },
+      {
+        "key": "EPI.inherited",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NINDS_EPI"
+        ],
+        "description": "Inherited genetic factors cause some epilepsies"
+      },
+      {
+        "key": "EPI.lesions",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NINDS_EPI",
+          "PTE_MECH"
+        ],
+        "description": "Structural brain lesions/scarring can produce seizures"
+      },
+      {
+        "key": "EPI.pollen_trigger",
+        "verdict": "UNSUPPORTED",
+        "verdict_if_definitive_cause": "UNSUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "NINDS_EPI"
+        ],
+        "description": "Pollen/mold presented as a seizure trigger"
+      },
+      {
+        "key": "EPI.pregnancy_env",
+        "verdict": "PARTIALLY_SUPPORTED",
+        "verdict_if_definitive_cause": "PARTIALLY_SUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "NINDS_EPI"
+        ],
+        "description": "Prenatal factors (prenatal brain injury) can contribute to epilepsy; generic wording only partially supported"
+      },
+      {
+        "key": "EPI.ptemech",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "PTE_MECH"
+        ],
+        "description": "Post-TBI neuroinflammation, barrier dysfunction and circuit reorganisation promote epileptogenesis"
+      },
+      {
+        "key": "EPI.repair_connections",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NINDS_EPI"
+        ],
+        "description": "Repair after brain injury may create abnormal nerve connections"
+      },
+      {
+        "key": "EPI.toxins",
+        "verdict": "PARTIALLY_SUPPORTED",
+        "verdict_if_definitive_cause": "PARTIALLY_SUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "NINDS_EPI"
+        ],
+        "description": "Toxic exposures can injure the brain; NINDS treats toxins chiefly as seizure triggers"
+      },
+      {
+        "key": "EPI.unknown",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NINDS_EPI"
+        ],
+        "description": "Cause of epilepsy is unknown in about half of cases"
+      },
+      {
+        "key": "FLU.droplets",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "CDC_FLU"
+        ],
+        "description": "Influenza spreads by droplets from coughing, sneezing and talking"
+      },
+      {
+        "key": "GEN.famhx_GP",
+        "verdict": "UNSUPPORTED",
+        "verdict_if_definitive_cause": "UNSUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [],
+        "description": "Family history presented as causing genetic predisposition (it is an indicator of shared genes, not a cause)"
+      },
+      {
+        "key": "GEN.famhx_assoc",
+        "verdict": "PARTIALLY_SUPPORTED",
+        "verdict_if_definitive_cause": "PARTIALLY_SUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "NHLBI_METSYN",
+          "CDC_OBESITY"
+        ],
+        "description": "Family history presented as a shared association of obesity and metabolic syndrome"
+      },
+      {
+        "key": "GEN.inherited",
+        "verdict": "PARTIALLY_SUPPORTED",
+        "verdict_if_definitive_cause": "PARTIALLY_SUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "CDC_OBESITY",
+          "NHLBI_METSYN"
+        ],
+        "description": "Inherited traits presented as a shared association of obesity and metabolic syndrome"
+      },
+      {
+        "key": "GEN.pregnancy_env",
+        "verdict": "UNSUPPORTED",
+        "verdict_if_definitive_cause": "UNSUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [],
+        "description": "Environmental factors during pregnancy presented as causing (inherited) genetic predisposition"
+      },
+      {
+        "key": "GEN.random",
+        "verdict": "UNSUPPORTED",
+        "verdict_if_definitive_cause": "UNSUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [],
+        "description": "'Random chance and natural selection' presented as a disease cause"
+      },
+      {
+        "key": "GEN.random_evolution",
+        "verdict": "UNSUPPORTED",
+        "verdict_if_definitive_cause": "UNSUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [],
+        "description": "'Random chance and natural selection' presented as an association of obesity/metabolic syndrome"
+      },
+      {
+        "key": "GEN.toxins",
+        "verdict": "UNSUPPORTED",
+        "verdict_if_definitive_cause": "UNSUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [],
+        "description": "Toxin exposure presented as causing inherited genetic predisposition"
+      },
+      {
+        "key": "HF.CAD",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_HF"
+        ],
+        "description": "Coronary artery disease weakens heart muscle and can lead to heart failure"
+      },
+      {
+        "key": "HF.CAD_HFrEF_denied",
+        "verdict": "CONTRADICTED",
+        "verdict_if_definitive_cause": "CONTRADICTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_HF"
+        ],
+        "description": "States CAD has no direct causal link to HFrEF"
+      },
+      {
+        "key": "HF.CHD_MI",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_HF"
+        ],
+        "description": "CHD and prior heart attack damage heart muscle and cause HFrEF"
+      },
+      {
+        "key": "HF.HFpEF_not_failure",
+        "verdict": "CONTRADICTED",
+        "verdict_if_definitive_cause": "CONTRADICTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_HF"
+        ],
+        "description": "States HFpEF/high-blood-pressure heart disease does not involve inability to meet the body's needs"
+      },
+      {
+        "key": "HF.HTN",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_HF"
+        ],
+        "description": "High blood pressure stiffens/overworks the heart and contributes to HFpEF"
+      },
+      {
+        "key": "HF.HTN_HFrEF_overgen",
+        "verdict": "PARTIALLY_SUPPORTED",
+        "verdict_if_definitive_cause": "PARTIALLY_SUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "NHLBI_HF"
+        ],
+        "description": "Groups high blood pressure with muscle-damaging HFrEF causes (NHLBI links it chiefly to HFpEF)"
+      },
+      {
+        "key": "HF.MI_injury",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_HA",
+          "NHLBI_HF"
+        ],
+        "description": "Heart attack injures heart muscle and can weaken pumping"
+      },
+      {
+        "key": "HF.REV_narrowing",
+        "verdict": "UNSUPPORTED",
+        "verdict_if_definitive_cause": "UNSUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "NHLBI_HF"
+        ],
+        "description": "Suggests heart failure causes narrowed coronary supply (direction not supported)"
+      },
+      {
+        "key": "HF.diabetes",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_HF"
+        ],
+        "description": "Diabetes contributes to heart failure (HFpEF)"
+      },
+      {
+        "key": "HF.diet",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "PARTIALLY_SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_HF"
+        ],
+        "description": "Unhealthy eating is a heart-failure risk factor"
+      },
+      {
+        "key": "HF.genetic",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_HF"
+        ],
+        "description": "Family history/genetics raise heart-failure risk"
+      },
+      {
+        "key": "HF.individual_cause",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_HF"
+        ],
+        "description": "Population risk factors do not establish the cause for an individual patient"
+      },
+      {
+        "key": "HF.myodamage",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_HF"
+        ],
+        "description": "Conditions damaging heart muscle cause HFrEF"
+      },
+      {
+        "key": "HF.obesity",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_HF"
+        ],
+        "description": "Obesity contributes to heart failure (HFpEF)"
+      },
+      {
+        "key": "HF.smoking",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_HF"
+        ],
+        "description": "Smoking is a heart-failure risk factor"
+      },
+      {
+        "key": "HF.smoking_dna_mech",
+        "verdict": "UNSUPPORTED",
+        "verdict_if_definitive_cause": "UNSUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "NHLBI_HF"
+        ],
+        "description": "DNA-damage mechanism asserted for smoking-related heart failure"
+      },
+      {
+        "key": "HF.waist",
+        "verdict": "PARTIALLY_SUPPORTED",
+        "verdict_if_definitive_cause": "PARTIALLY_SUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "NHLBI_HF",
+          "NIDDK_IR"
+        ],
+        "description": "Large waist presented as a heart-failure factor (indirect, via obesity/insulin resistance)"
+      },
+      {
+        "key": "HYPO.autoimmune",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NIDDK_HASHI",
+          "NIDDK_HYPO"
+        ],
+        "description": "Autoimmune attack damages the thyroid"
+      },
+      {
+        "key": "HYPO.genetic",
+        "verdict": "PARTIALLY_SUPPORTED",
+        "verdict_if_definitive_cause": "PARTIALLY_SUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "NIDDK_HYPO"
+        ],
+        "description": "Family history raises hypothyroidism risk ('genetic predisposition causes' only partially supported)"
+      },
+      {
+        "key": "HYPO.hashimoto",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NIDDK_HYPO"
+        ],
+        "description": "Hashimoto's disease is the most common cause of hypothyroidism"
+      },
+      {
+        "key": "HYPO.renal_mech",
+        "verdict": "UNSUPPORTED",
+        "verdict_if_definitive_cause": "UNSUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "NIDDK_HYPO"
+        ],
+        "description": "Renal blood-vessel damage offered as a mechanism of reduced thyroid hormone production"
+      },
+      {
+        "key": "HYPO.surgery",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NIDDK_HYPO"
+        ],
+        "description": "Thyroid surgery can cause hypothyroidism"
+      },
+      {
+        "key": "HYPO.surgery_denied",
+        "verdict": "CONTRADICTED",
+        "verdict_if_definitive_cause": "CONTRADICTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NIDDK_HYPO"
+        ],
+        "description": "States thyroid surgery does not necessarily relate to low hormone production"
+      },
+      {
+        "key": "IND.CAD",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_CHD"
+        ],
+        "description": "Identifies coronary artery disease correctly"
+      },
+      {
+        "key": "IND.CKD",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NIDDK_CKD"
+        ],
+        "description": "Identifies chronic kidney disease correctly"
+      },
+      {
+        "key": "IND.CKD_DKD",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NIDDK_DKD"
+        ],
+        "description": "Identifies CKD/diabetic kidney disease correctly"
+      },
+      {
+        "key": "IND.COPD",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_COPD"
+        ],
+        "description": "Identifies COPD correctly"
+      },
+      {
+        "key": "IND.HF_broad",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "NHLBI_HF"
+        ],
+        "description": "Identifies heart failure (broadly)"
+      },
+      {
+        "key": "IND.HF_subtype",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_HF"
+        ],
+        "description": "Identifies heart-failure subtype correctly"
+      },
+      {
+        "key": "IND.T2D",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NIDDK_DM_SC"
+        ],
+        "description": "Identifies type 2 diabetes correctly"
+      },
+      {
+        "key": "IND.TB",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "CDC_TB_CAUSES"
+        ],
+        "description": "Identifies tuberculosis correctly"
+      },
+      {
+        "key": "IND.asthma",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_ASTHMA"
+        ],
+        "description": "Identifies asthma correctly"
+      },
+      {
+        "key": "IND.depression",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NIMH_DEP"
+        ],
+        "description": "Identifies depression correctly"
+      },
+      {
+        "key": "IND.epilepsy_PTE",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NINDS_EPI"
+        ],
+        "description": "Identifies (post-traumatic) epilepsy correctly"
+      },
+      {
+        "key": "IND.hypo_hashimoto",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NIDDK_HASHI"
+        ],
+        "description": "Identifies hypothyroidism/Hashimoto's correctly"
+      },
+      {
+        "key": "IND.lungcancer",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "CDC_LC_RF"
+        ],
+        "description": "Identifies lung cancer correctly"
+      },
+      {
+        "key": "IND.migraine_hedged",
+        "verdict": "PARTIALLY_SUPPORTED",
+        "verdict_if_definitive_cause": "PARTIALLY_SUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "MEDLINE_MIGRAINE"
+        ],
+        "description": "Hedged identification of migraine"
+      },
+      {
+        "key": "IND.obesity",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "CDC_OBESITY"
+        ],
+        "description": "Identifies obesity correctly"
+      },
+      {
+        "key": "IND.pneumonia",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_PNA"
+        ],
+        "description": "Identifies pneumonia correctly"
+      },
+      {
+        "key": "IND.stroke_ischemic",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_STROKE"
+        ],
+        "description": "Identifies ischemic stroke correctly"
+      },
+      {
+        "key": "IND.wrong_CAD_diabetes",
+        "verdict": "CONTRADICTED",
+        "verdict_if_definitive_cause": "CONTRADICTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_CHD"
+        ],
+        "description": "Names diabetes as the coronary-artery condition to investigate (misidentification)"
+      },
+      {
+        "key": "IND.wrong_asthma_COPD",
+        "verdict": "CONTRADICTED",
+        "verdict_if_definitive_cause": "CONTRADICTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_ASTHMA",
+          "NHLBI_COPD"
+        ],
+        "description": "Identifies COPD for variable airway narrowing with recurrent wheeze (the defining picture of asthma)"
+      },
+      {
+        "key": "IR.heartdisease",
+        "verdict": "PARTIALLY_SUPPORTED",
+        "verdict_if_definitive_cause": "PARTIALLY_SUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "NHLBI_METSYN",
+          "MEDLINE_METSYN"
+        ],
+        "description": "Excess body fat linked to heart disease through insulin resistance"
+      },
+      {
+        "key": "IR.obesity",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NIDDK_IR"
+        ],
+        "description": "Overweight/obesity/large waist increase insulin resistance"
+      },
+      {
+        "key": "LC.COPD",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "COPD_LC"
+        ],
+        "description": "COPD associated with increased lung-cancer risk"
+      },
+      {
+        "key": "LC.dna_mech",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NCI_TOBACCO",
+          "HECHT"
+        ],
+        "description": "Tobacco carcinogens damage DNA and drive lung carcinogenesis"
+      },
+      {
+        "key": "LC.radon",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "CDC_LC_RF",
+          "CDC_LC_NS"
+        ],
+        "description": "Radon causes lung cancer (second leading cause)"
+      },
+      {
+        "key": "LC.radon_doubt",
+        "verdict": "CONTRADICTED",
+        "verdict_if_definitive_cause": "CONTRADICTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "CDC_LC_RF"
+        ],
+        "description": "States radon may not be directly causal"
+      },
+      {
+        "key": "LC.secondhand",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "CDC_LC_RF"
+        ],
+        "description": "Secondhand smoke causes lung cancer"
+      },
+      {
+        "key": "LC.smoker_vs_never",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "CDC_LC_RF",
+          "CDC_LC_NS"
+        ],
+        "description": "Smokers have far higher lung-cancer risk than never-smokers"
+      },
+      {
+        "key": "LC.smoking",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "CDC_LC_RF"
+        ],
+        "description": "Smoking is the leading lung-cancer risk factor"
+      },
+      {
+        "key": "LC.tobacco",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "CDC_LC_RF",
+          "NCI_TOBACCO"
+        ],
+        "description": "Tobacco use causes lung cancer"
+      },
+      {
+        "key": "MIG.envtoxins",
+        "verdict": "PARTIALLY_SUPPORTED",
+        "verdict_if_definitive_cause": "UNSUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "MEDLINE_MIGRAINE",
+          "NINDS_MIGRAINE"
+        ],
+        "description": "Environmental exposures can trigger migraine attacks (generic 'toxins' wording; definitive-cause phrasing unsupported)"
+      },
+      {
+        "key": "MIG.epilepsy_comorbid",
+        "verdict": "PARTIALLY_SUPPORTED",
+        "verdict_if_definitive_cause": "PARTIALLY_SUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "NINDS_HEADACHE",
+          "PTE_MECH"
+        ],
+        "description": "Links between brain-injury/epilepsy mechanisms and headache disorders (hedged)"
+      },
+      {
+        "key": "MIG.famhx",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "MEDLINE_MIGRAINE"
+        ],
+        "description": "Family history raises migraine likelihood"
+      },
+      {
+        "key": "MIG.famhx_as_trigger",
+        "verdict": "CONTRADICTED",
+        "verdict_if_definitive_cause": "CONTRADICTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "MEDLINE_MIGRAINE"
+        ],
+        "description": "Family history presented as a migraine trigger (it is a risk factor, not a trigger)"
+      },
+      {
+        "key": "MIG.food",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "UNSUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "MEDLINE_MIGRAINE"
+        ],
+        "description": "Certain foods can trigger migraine attacks (definitive cause of migraine unsupported)"
+      },
+      {
+        "key": "MIG.hormonal",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "PARTIALLY_SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "MEDLINE_MIGRAINE"
+        ],
+        "description": "Hormonal changes trigger migraine attacks"
+      },
+      {
+        "key": "MIG.pollen",
+        "verdict": "UNSUPPORTED",
+        "verdict_if_definitive_cause": "UNSUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "MEDLINE_MIGRAINE"
+        ],
+        "description": "Pollen/mold presented as migraine triggers by misreading asthma evidence"
+      },
+      {
+        "key": "MIG.sleep",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "UNSUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "MEDLINE_MIGRAINE"
+        ],
+        "description": "Sleep changes trigger migraine attacks (definitive cause unsupported)"
+      },
+      {
+        "key": "MIG.stress",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "UNSUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "MEDLINE_MIGRAINE"
+        ],
+        "description": "Stress triggers migraine attacks (definitive cause unsupported)"
+      },
+      {
+        "key": "OBE.COPD",
+        "verdict": "UNSUPPORTED",
+        "verdict_if_definitive_cause": "UNSUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "CDC_OBESITY"
+        ],
+        "description": "COPD listed as a condition associated with excess body fat/metabolic risk"
+      },
+      {
+        "key": "OBE.T2D_noncausal",
+        "verdict": "CONTRADICTED",
+        "verdict_if_definitive_cause": "CONTRADICTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "NIDDK_T2D_RISK",
+          "NIDDK_IR"
+        ],
+        "description": "Tells reader the obesity-to-type-2-diabetes association should not be interpreted as causal"
+      },
+      {
+        "key": "OBE.calories",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NIDDK_WEIGHT"
+        ],
+        "description": "Sustained excess calories stored as fat produce weight gain"
+      },
+      {
+        "key": "OBE.circular",
+        "verdict": "UNSUPPORTED",
+        "verdict_if_definitive_cause": "UNSUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "CDC_OBESITY",
+          "NIDDK_WEIGHT"
+        ],
+        "description": "Circular: obesity/overweight/large waist listed as factors in developing obesity"
+      },
+      {
+        "key": "OBE.diet_pa_inferred",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "CDC_OBESITY"
+        ],
+        "description": "Diet and physical activity inferred as obesity factors"
+      },
+      {
+        "key": "OBE.famhx",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "CDC_OBESITY",
+          "NIDDK_WEIGHT"
+        ],
+        "description": "Family history/genetics influence obesity"
+      },
+      {
+        "key": "OBE.inactivity",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "CDC_OBESITY"
+        ],
+        "description": "Physical inactivity contributes to obesity"
+      },
+      {
+        "key": "OBE.inherited",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "CDC_OBESITY",
+          "NIDDK_WEIGHT"
+        ],
+        "description": "Inherited genes influence weight"
+      },
+      {
+        "key": "OBE.pollutants",
+        "verdict": "UNSUPPORTED",
+        "verdict_if_definitive_cause": "UNSUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "CDC_OBESITY"
+        ],
+        "description": "COPD-related pollutant/dust/fume exposure suggested as involved in obesity onset via other conditions"
+      },
+      {
+        "key": "OBE.pregnancy_env",
+        "verdict": "PARTIALLY_SUPPORTED",
+        "verdict_if_definitive_cause": "PARTIALLY_SUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "CHILD_OB_A",
+          "CHILD_OB_B"
+        ],
+        "description": "Prenatal factors (maternal smoking, gestational weight gain/diabetes) associated with childhood obesity"
+      },
+      {
+        "key": "OBE.sleep",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NIDDK_WEIGHT"
+        ],
+        "description": "Insufficient sleep linked to weight gain"
+      },
+      {
+        "key": "OBE.sleep_causality",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NIDDK_WEIGHT"
+        ],
+        "description": "Notes the sleep-weight link is an association, not proven causation"
+      },
+      {
+        "key": "OBE.toxins",
+        "verdict": "PARTIALLY_SUPPORTED",
+        "verdict_if_definitive_cause": "PARTIALLY_SUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "CDC_OBESITY"
+        ],
+        "description": "Environmental chemical exposure listed among obesity-related factors (generic wording)"
+      },
+      {
+        "key": "PA.T2D",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NIDDK_T2D_RISK"
+        ],
+        "description": "Physical inactivity raises type 2 diabetes risk"
+      },
+      {
+        "key": "PNA.HTN",
+        "verdict": "UNSUPPORTED",
+        "verdict_if_definitive_cause": "UNSUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_PNA"
+        ],
+        "description": "High blood pressure presented as a pneumonia factor"
+      },
+      {
+        "key": "PNA.REV_symptom",
+        "verdict": "CONTRADICTED",
+        "verdict_if_definitive_cause": "CONTRADICTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_PNA"
+        ],
+        "description": "Decreased lung compliance/dyspnea (consequences) listed as factors in developing pneumonia"
+      },
+      {
+        "key": "PNA.airpoll",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_PNA"
+        ],
+        "description": "Air pollution raises pneumonia risk"
+      },
+      {
+        "key": "PNA.airway_inflam",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_PNA"
+        ],
+        "description": "Infection triggers lung inflammation"
+      },
+      {
+        "key": "PNA.alveolar_fluid",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_PNA"
+        ],
+        "description": "Alveoli fill with fluid or pus"
+      },
+      {
+        "key": "PNA.cough_pathway",
+        "verdict": "PARTIALLY_SUPPORTED",
+        "verdict_if_definitive_cause": "PARTIALLY_SUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "NHLBI_PNA"
+        ],
+        "description": "Inflammatory mediators sensitise cough pathways (detail beyond NHLBI, consistent with cough as a symptom)"
+      },
+      {
+        "key": "PNA.flu_as_bacterial",
+        "verdict": "CONTRADICTED",
+        "verdict_if_definitive_cause": "CONTRADICTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_PNA"
+        ],
+        "description": "Classifies influenza as a bacterial cause"
+      },
+      {
+        "key": "PNA.flu_as_symptom",
+        "verdict": "CONTRADICTED",
+        "verdict_if_definitive_cause": "CONTRADICTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_PNA",
+          "CDC_FLU"
+        ],
+        "description": "Lists influenza virus as a symptom of pneumonia"
+      },
+      {
+        "key": "PNA.genetic_pregnancy",
+        "verdict": "UNSUPPORTED",
+        "verdict_if_definitive_cause": "UNSUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "NHLBI_PNA"
+        ],
+        "description": "Genetic predisposition/pregnancy environment presented as pneumonia factors via invalid chain"
+      },
+      {
+        "key": "PNA.immunity",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_PNA"
+        ],
+        "description": "Weakened immunity raises pneumonia risk"
+      },
+      {
+        "key": "PNA.infection_cause",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_PNA"
+        ],
+        "description": "Bacteria, viruses and fungi cause pneumonia"
+      },
+      {
+        "key": "PNA.influenza",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_PNA"
+        ],
+        "description": "Influenza virus is a common viral cause of pneumonia"
+      },
+      {
+        "key": "PNA.mech",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_PNA"
+        ],
+        "description": "Immune response to germs inflames the alveoli"
+      },
+      {
+        "key": "PNA.other_pathogens",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_PNA"
+        ],
+        "description": "Other bacteria/viruses/fungi cause pneumonia"
+      },
+      {
+        "key": "PNA.plaque_smoking",
+        "verdict": "UNSUPPORTED",
+        "verdict_if_definitive_cause": "UNSUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "NHLBI_PNA"
+        ],
+        "description": "Cardiovascular plaque/smoking chain presented as a pneumonia mechanism"
+      },
+      {
+        "key": "PNA.pneumococcus",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_PNA"
+        ],
+        "description": "Streptococcus pneumoniae is the most common bacterial cause"
+      },
+      {
+        "key": "PNA.smoking",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_PNA"
+        ],
+        "description": "Smoking raises pneumonia risk"
+      },
+      {
+        "key": "PNA.susceptibility",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_PNA"
+        ],
+        "description": "Weakened immunity/underlying conditions increase susceptibility"
+      },
+      {
+        "key": "PNA.symptoms",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_PNA"
+        ],
+        "description": "Cough and trouble breathing are pneumonia symptoms"
+      },
+      {
+        "key": "SH.PTE",
+        "verdict": "PARTIALLY_SUPPORTED",
+        "verdict_if_definitive_cause": "PARTIALLY_SUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "NINDS_HEADACHE"
+        ],
+        "description": "Post-traumatic epilepsy named as a secondary-headache cause (secondary headaches arise from other conditions incl. head injury; partial)"
+      },
+      {
+        "key": "SHARED.diabetes",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "CDC_HDS"
+        ],
+        "description": "Diabetes is a risk factor for both stroke and coronary disease"
+      },
+      {
+        "key": "SHARED.genetic",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "NHLBI_CHD",
+          "NHLBI_STROKE"
+        ],
+        "description": "Family history/genetics are shared risk factors"
+      },
+      {
+        "key": "STR.HTN",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "CDC_STROKE_RF",
+          "CDC_HDS"
+        ],
+        "description": "High blood pressure is a leading cause of stroke"
+      },
+      {
+        "key": "STR.HTN_TBI",
+        "verdict": "CONTRADICTED",
+        "verdict_if_definitive_cause": "CONTRADICTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_STROKE",
+          "CDC_STROKE_RF"
+        ],
+        "description": "States high blood pressure causes traumatic brain injury as the direct cause of hemorrhagic stroke"
+      },
+      {
+        "key": "STR.HTN_artdamage",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "CDC_HDS",
+          "CDC_STROKE_RF"
+        ],
+        "description": "High blood pressure damages arteries, raising blockage/rupture risk"
+      },
+      {
+        "key": "STR.HTN_moreCAD",
+        "verdict": "CONTRADICTED",
+        "verdict_if_definitive_cause": "CONTRADICTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "CDC_STROKE_RF",
+          "CDC_HDS"
+        ],
+        "description": "Claims high-blood-pressure arterial damage relates more directly to CAD than to stroke"
+      },
+      {
+        "key": "STR.TBI",
+        "verdict": "PARTIALLY_SUPPORTED",
+        "verdict_if_definitive_cause": "PARTIALLY_SUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "TBI_STROKE_MA",
+          "TBI_STROKE_COH"
+        ],
+        "description": "TBI associated with increased subsequent stroke risk (observational); not a listed major cause"
+      },
+      {
+        "key": "STR.TBI_acute",
+        "verdict": "PARTIALLY_SUPPORTED",
+        "verdict_if_definitive_cause": "PARTIALLY_SUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "TBI_STROKE_MA"
+        ],
+        "description": "Hedged statement about a TBI-stroke link"
+      },
+      {
+        "key": "STR.TBI_strong",
+        "verdict": "UNSUPPORTED",
+        "verdict_if_definitive_cause": "UNSUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "TBI_STROKE_MA",
+          "CDC_STROKE_RF"
+        ],
+        "description": "TBI called a strong-evidence modifiable stroke risk factor"
+      },
+      {
+        "key": "STR.afib",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "CDC_STROKE_RF",
+          "AHA_AFIB"
+        ],
+        "description": "Atrial fibrillation increases stroke risk"
+      },
+      {
+        "key": "STR.afib_clot",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "AHA_AFIB",
+          "CDC_STROKE_RF"
+        ],
+        "description": "AFib-related clots can travel to the brain"
+      },
+      {
+        "key": "STR.afib_denied",
+        "verdict": "CONTRADICTED",
+        "verdict_if_definitive_cause": "CONTRADICTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "AHA_AFIB",
+          "NHLBI_STROKE"
+        ],
+        "description": "States AFib is not an established cause of ischemic stroke"
+      },
+      {
+        "key": "STR.afib_weak",
+        "verdict": "CONTRADICTED",
+        "verdict_if_definitive_cause": "CONTRADICTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "AHA_AFIB",
+          "NHLBI_STROKE"
+        ],
+        "description": "Classifies AFib as associated but not necessarily causal for stroke"
+      },
+      {
+        "key": "STR.athero",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_STROKE",
+          "CDC_STROKE_RF"
+        ],
+        "description": "Atherosclerotic narrowing contributes to ischemic stroke"
+      },
+      {
+        "key": "STR.athero_clot",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_STROKE"
+        ],
+        "description": "Plaque-related clots block brain arteries"
+      },
+      {
+        "key": "STR.athero_doubt",
+        "verdict": "CONTRADICTED",
+        "verdict_if_definitive_cause": "CONTRADICTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "CDC_STROKE_RF",
+          "NHLBI_STROKE"
+        ],
+        "description": "States it is unclear whether atherosclerosis causes stroke"
+      },
+      {
+        "key": "STR.atrial_thrombus",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "AHA_AFIB"
+        ],
+        "description": "Atrial thrombus can embolise to the brain"
+      },
+      {
+        "key": "STR.bp_control",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "CDC_STROKE_RF"
+        ],
+        "description": "Lowering blood pressure lowers stroke risk"
+      },
+      {
+        "key": "STR.cholesterol",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "CDC_STROKE_RF"
+        ],
+        "description": "Cholesterol buildup narrows arteries including those of the brain"
+      },
+      {
+        "key": "STR.cholesterol_assoc",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "CDC_STROKE_RF"
+        ],
+        "description": "High cholesterol associated with stroke risk"
+      },
+      {
+        "key": "STR.clot",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_STROKE"
+        ],
+        "description": "Clots blocking brain arteries cause ischemic stroke"
+      },
+      {
+        "key": "STR.clot_as_symptom",
+        "verdict": "CONTRADICTED",
+        "verdict_if_definitive_cause": "CONTRADICTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_STROKE"
+        ],
+        "description": "Calls blood clots a symptom/consequence rather than the mechanism of ischemic stroke"
+      },
+      {
+        "key": "STR.clot_both_risk",
+        "verdict": "CONTRADICTED",
+        "verdict_if_definitive_cause": "CONTRADICTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "NHLBI_STROKE"
+        ],
+        "description": "Clots described as contributing to both stroke types and as only a risk factor"
+      },
+      {
+        "key": "STR.depression",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "NHLBI_STROKE"
+        ],
+        "description": "Depression/stress listed among stroke risk factors"
+      },
+      {
+        "key": "STR.diabetes",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "CDC_STROKE_RF",
+          "CDC_HDS"
+        ],
+        "description": "Diabetes increases stroke risk"
+      },
+      {
+        "key": "STR.diabetes_doubt",
+        "verdict": "CONTRADICTED",
+        "verdict_if_definitive_cause": "CONTRADICTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "CDC_STROKE_RF"
+        ],
+        "description": "States the direction of diabetes-stroke causality is unclear"
+      },
+      {
+        "key": "STR.diet_via_DM",
+        "verdict": "PARTIALLY_SUPPORTED",
+        "verdict_if_definitive_cause": "PARTIALLY_SUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "CDC_HDS"
+        ],
+        "description": "Diet affects stroke risk via diabetes (indirect)"
+      },
+      {
+        "key": "STR.famhx_diabetes",
+        "verdict": "UNSUPPORTED",
+        "verdict_if_definitive_cause": "UNSUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "CDC_STROKE_RF"
+        ],
+        "description": "Family history of diabetes presented as a stroke factor via a multi-hop graph chain"
+      },
+      {
+        "key": "STR.heartdisease",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "CDC_STROKE_RF"
+        ],
+        "description": "Heart disease raises stroke risk"
+      },
+      {
+        "key": "STR.hemorrhage_bleeding",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_STROKE"
+        ],
+        "description": "Hemorrhagic stroke is caused by bleeding"
+      },
+      {
+        "key": "STR.inactivity_via_DM",
+        "verdict": "PARTIALLY_SUPPORTED",
+        "verdict_if_definitive_cause": "PARTIALLY_SUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "CDC_STROKE_RF"
+        ],
+        "description": "Inactivity raises stroke risk via diabetes (indirect)"
+      },
+      {
+        "key": "STR.ischemic_rupture",
+        "verdict": "CONTRADICTED",
+        "verdict_if_definitive_cause": "CONTRADICTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_STROKE"
+        ],
+        "description": "States ischemic stroke is caused by vessel rupture (rupture causes hemorrhagic stroke)"
+      },
+      {
+        "key": "STR.nonmodifiable_as_modifiable",
+        "verdict": "CONTRADICTED",
+        "verdict_if_definitive_cause": "CONTRADICTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "CDC_STROKE_RF"
+        ],
+        "description": "Calls family history/inherited traits modifiable risk factors"
+      },
+      {
+        "key": "STR.risk_pregnancy_toxins_random",
+        "verdict": "UNSUPPORTED",
+        "verdict_if_definitive_cause": "UNSUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [],
+        "description": "Pregnancy environment, toxins and random chance presented as stroke risk factors via invalid graph chain"
+      },
+      {
+        "key": "STR.rupture",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_STROKE"
+        ],
+        "description": "Vessel rupture causes hemorrhagic stroke"
+      },
+      {
+        "key": "STR.vessel_block",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NHLBI_STROKE"
+        ],
+        "description": "Vessel blockage causes ischemic stroke"
+      },
+      {
+        "key": "SYM.HF_fatigue",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "MEDLINE_FATIGUE"
+        ],
+        "description": "Heart disease/failure can cause fatigue"
+      },
+      {
+        "key": "SYM.angina",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "MEDLINE_SOB"
+        ],
+        "description": "Chest pain from poor coronary blood flow (angina)"
+      },
+      {
+        "key": "SYM.chest_cardiac_possible",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "MEDLINE_SOB"
+        ],
+        "description": "Chest symptoms may have cardiac causes"
+      },
+      {
+        "key": "SYM.chest_multi",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "MEDLINE_SOB"
+        ],
+        "description": "Chest symptoms have multiple possible causes"
+      },
+      {
+        "key": "SYM.depression_endocrine",
+        "verdict": "CONTRADICTED",
+        "verdict_if_definitive_cause": "CONTRADICTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NIMH_DEP"
+        ],
+        "description": "Calls depression an endocrine disorder"
+      },
+      {
+        "key": "SYM.depression_fatigue",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "MEDLINE_FATIGUE"
+        ],
+        "description": "Depression can cause fatigue"
+      },
+      {
+        "key": "SYM.diabetes_fatigue",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "MEDLINE_FATIGUE",
+          "NIDDK_DM_SC"
+        ],
+        "description": "Diabetes can cause fatigue"
+      },
+      {
+        "key": "SYM.fatigue_multi",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "MEDLINE_FATIGUE"
+        ],
+        "description": "Fatigue has many possible causes"
+      },
+      {
+        "key": "SYM.headache_migraine",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "MEDLINE_MIGRAINE"
+        ],
+        "description": "Headache may be migraine among other causes"
+      },
+      {
+        "key": "SYM.hypothyroid_fatigue",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "MEDLINE_FATIGUE",
+          "NIDDK_HYPO"
+        ],
+        "description": "Hypothyroidism causes fatigue"
+      },
+      {
+        "key": "SYM.insomnia_fatigue",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "MEDLINE_FATIGUE"
+        ],
+        "description": "Insomnia/sleep disorders cause fatigue"
+      },
+      {
+        "key": "SYM.obesity_thirst",
+        "verdict": "UNSUPPORTED",
+        "verdict_if_definitive_cause": "UNSUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "MEDLINE_THIRST"
+        ],
+        "description": "Obesity claimed to cause thirst via increased blood volume and pressure"
+      },
+      {
+        "key": "SYM.sob_multi",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "MEDLINE_SOB"
+        ],
+        "description": "Shortness of breath has many heart and lung causes"
+      },
+      {
+        "key": "SYM.stress_fatigue",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "MEDLINE_FATIGUE"
+        ],
+        "description": "Stress (via sleep disruption) can contribute to fatigue"
+      },
+      {
+        "key": "SYM.thirst_diabetes",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "MEDLINE_THIRST",
+          "NIDDK_DM_SC"
+        ],
+        "description": "Diabetes causes excessive thirst"
+      },
+      {
+        "key": "SYM.thirst_other",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "MEDLINE_THIRST"
+        ],
+        "description": "Thirst has other causes (salty food, fluid loss, diabetes insipidus, medicines)"
+      },
+      {
+        "key": "SYM.thirst_wrong",
+        "verdict": "CONTRADICTED",
+        "verdict_if_definitive_cause": "CONTRADICTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "MEDLINE_THIRST"
+        ],
+        "description": "States thirst is caused by physical inactivity, poor diet and insulin resistance (diabetes risk factors misattributed as thirst causes)"
+      },
+      {
+        "key": "SYM.weight_fatigue_spec",
+        "verdict": "PARTIALLY_SUPPORTED",
+        "verdict_if_definitive_cause": "PARTIALLY_SUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "MEDLINE_FATIGUE",
+          "NIDDK_WEIGHT"
+        ],
+        "description": "Hedged sleep-loss/weight-gain pathway to tiredness"
+      },
+      {
+        "key": "T2D.IR",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NIDDK_DM_SC"
+        ],
+        "description": "Insulin resistance is central to type 2 diabetes"
+      },
+      {
+        "key": "T2D.IR_genetic",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "NIDDK_DM_SC"
+        ],
+        "description": "Insulin resistance may be influenced by genetic factors"
+      },
+      {
+        "key": "T2D.IR_not_sufficient",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NIDDK_DM_SC"
+        ],
+        "description": "Insulin resistance alone is not sufficient; insulin production must also fail"
+      },
+      {
+        "key": "T2D.IR_secretion",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NIDDK_DM_SC"
+        ],
+        "description": "Type 2 diabetes involves insulin resistance plus inadequate insulin secretion"
+      },
+      {
+        "key": "T2D.IR_unchangeable",
+        "verdict": "CONTRADICTED",
+        "verdict_if_definitive_cause": "CONTRADICTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NIDDK_IR"
+        ],
+        "description": "States insulin resistance cannot be changed (NIDDK: it can be reversed)"
+      },
+      {
+        "key": "T2D.betacell",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NIDDK_DM_SC"
+        ],
+        "description": "The pancreas cannot make enough insulin"
+      },
+      {
+        "key": "T2D.diet",
+        "verdict": "PARTIALLY_SUPPORTED",
+        "verdict_if_definitive_cause": "PARTIALLY_SUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "NIDDK_T2D_RISK",
+          "NIDDK_WEIGHT"
+        ],
+        "description": "Diet influences weight and type 2 diabetes risk"
+      },
+      {
+        "key": "T2D.famhx",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "UNSUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NIDDK_T2D_RISK"
+        ],
+        "description": "Family history raises type 2 diabetes risk (a risk marker, not a cause)"
+      },
+      {
+        "key": "T2D.famhx_not_cause",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NIDDK_T2D_RISK"
+        ],
+        "description": "Notes family history/insulin resistance alone are not sufficient causes"
+      },
+      {
+        "key": "T2D.genetic",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "PARTIALLY_SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NIDDK_DM_SC"
+        ],
+        "description": "Genes contribute to type 2 diabetes"
+      },
+      {
+        "key": "T2D.inactivity",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "PARTIALLY_SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NIDDK_T2D_RISK"
+        ],
+        "description": "Physical inactivity raises type 2 diabetes risk"
+      },
+      {
+        "key": "T2D.obesity",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NIDDK_T2D_RISK"
+        ],
+        "description": "Overweight/obesity raises type 2 diabetes risk"
+      },
+      {
+        "key": "TB.PTLD",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "TB_REMODEL",
+          "BOLD_TB"
+        ],
+        "description": "Post-TB lung disease: fibrosis, cavitation, bronchiectasis and impaired lung function"
+      },
+      {
+        "key": "TB.REV_consequence",
+        "verdict": "CONTRADICTED",
+        "verdict_if_definitive_cause": "CONTRADICTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "TB_REMODEL"
+        ],
+        "description": "Post-TB lung damage listed as contributing to TB onset (direction reversed)"
+      },
+      {
+        "key": "TB.afib_spec",
+        "verdict": "UNSUPPORTED",
+        "verdict_if_definitive_cause": "UNSUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "CDC_TB_RISK"
+        ],
+        "description": "Invented AFib -> embolism -> infection -> TB chain"
+      },
+      {
+        "key": "TB.airborne",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "CDC_TB_CAUSES"
+        ],
+        "description": "TB spreads through the air"
+      },
+      {
+        "key": "TB.alveolar_inflam",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "CDC_TB_CLIN",
+          "TB_REMODEL"
+        ],
+        "description": "TB infection begins in the alveoli and provokes inflammation"
+      },
+      {
+        "key": "TB.alveolar_progression",
+        "verdict": "UNSUPPORTED",
+        "verdict_if_definitive_cause": "UNSUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "CDC_TB_RISK"
+        ],
+        "description": "Pneumonia-type alveolar inflammation suggested as driving latent-to-active TB progression"
+      },
+      {
+        "key": "TB.circular",
+        "verdict": "UNSUPPORTED",
+        "verdict_if_definitive_cause": "UNSUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "CDC_TB_CAUSES"
+        ],
+        "description": "Lists TB itself as a factor in developing TB"
+      },
+      {
+        "key": "TB.diabetes",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "CDC_TB_RISK",
+          "WHO_TB"
+        ],
+        "description": "Diabetes raises risk of progression to TB disease"
+      },
+      {
+        "key": "TB.genetic",
+        "verdict": "PARTIALLY_SUPPORTED",
+        "verdict_if_definitive_cause": "PARTIALLY_SUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "TB_HOSTGEN",
+          "TB_TWIN"
+        ],
+        "description": "Host genetic variation influences progression to TB disease (loci inconsistently replicated)"
+      },
+      {
+        "key": "TB.immunity",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "CDC_TB_RISK",
+          "CDC_TB_CAUSES"
+        ],
+        "description": "Weakened immunity increases progression to TB disease"
+      },
+      {
+        "key": "TB.pathology",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "TB_REMODEL"
+        ],
+        "description": "TB destroys lung tissue through caseous necrosis and cavitation"
+      },
+      {
+        "key": "TB.reactivation_pathogens",
+        "verdict": "UNSUPPORTED",
+        "verdict_if_definitive_cause": "UNSUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "CDC_TB_RISK"
+        ],
+        "description": "Respiratory pathogens inferred to reactivate latent TB"
+      },
+      {
+        "key": "TB.smoke_radon_damage",
+        "verdict": "UNSUPPORTED",
+        "verdict_if_definitive_cause": "UNSUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "TB_REMODEL"
+        ],
+        "description": "Post-TB lung damage attributed to smoking or radon"
+      },
+      {
+        "key": "TB.smoking",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "WHO_TB"
+        ],
+        "description": "Tobacco use raises TB risk"
+      },
+      {
+        "key": "TB.smoking_dna_mech",
+        "verdict": "UNSUPPORTED",
+        "verdict_if_definitive_cause": "UNSUPPORTED",
+        "confidence": "medium",
+        "evidence_ids": [
+          "WHO_TB"
+        ],
+        "description": "DNA-damage mechanism asserted for smoking and TB"
+      },
+      {
+        "key": "TB.suspended",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "CDC_TB_CAUSES"
+        ],
+        "description": "TB germs can stay in the air for several hours"
+      },
+      {
+        "key": "TB.toxins",
+        "verdict": "UNSUPPORTED",
+        "verdict_if_definitive_cause": "UNSUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "CDC_TB_CAUSES"
+        ],
+        "description": "Toxin exposure presented as a TB development factor (M. tuberculosis omitted)"
+      },
+      {
+        "key": "TOB.dna",
+        "verdict": "SUPPORTED",
+        "verdict_if_definitive_cause": "SUPPORTED",
+        "confidence": "high",
+        "evidence_ids": [
+          "NCI_TOBACCO",
+          "HECHT"
+        ],
+        "description": "Tobacco smoke chemicals damage DNA"
+      }
+    ]
+  },
+  "counts": {
+    "labels": {
+      "Yes": 120,
+      "No": 935,
+      "Uncertain": 1
+    },
+    "review_status": {
+      "AI_AUTO_ACCEPTED": 1055,
+      "AI_UNRESOLVED": 1
+    },
+    "confidence": {
+      "high": 916,
+      "medium": 139,
+      "low": 1
+    },
+    "grounding_status": {
+      "CITATION_MISMATCH": 78,
+      "FULLY_GROUNDED": 383,
+      "NO_FACTUAL_CLAIMS": 218,
+      "MISREPRESENTS_CONTEXT": 54,
+      "PARTIALLY_GROUNDED": 120,
+      "NOT_GROUNDED": 24,
+      "NOT_APPLICABLE_EMPTY_ANSWER": 174,
+      "FABRICATED_CITATION": 5
+    },
+    "claim_instances_by_verdict": {
+      "SUPPORTED": 1586,
+      "CONTRADICTED": 50,
+      "UNSUPPORTED": 117,
+      "PARTIALLY_SUPPORTED": 138,
+      "NON_FACTUAL": 3,
+      "UNVERIFIABLE": 1
+    },
+    "answer_completeness": {
+      "partial": 282,
+      "full": 193,
+      "insuff_stated": 72,
+      "minimal": 65,
+      "offtarget": 14,
+      "refusal_ok": 132,
+      "abstain_empty": 174,
+      "abstain_msg": 119,
+      "refusal_minimal": 4,
+      "nonresponsive": 1
+    },
+    "per_model": {
+      "B1": {
+        "Yes": 15,
+        "No": 117
+      },
+      "B2": {
+        "Yes": 16,
+        "No": 116
+      },
+      "B3": {
+        "Yes": 14,
+        "No": 118
+      },
+      "B4": {
+        "Yes": 21,
+        "No": 111
+      },
+      "B5": {
+        "No": 130,
+        "Yes": 2
+      },
+      "B6": {
+        "No": 120,
+        "Yes": 12
+      },
+      "B7": {
+        "No": 112,
+        "Yes": 19,
+        "Uncertain": 1
+      },
+      "B8": {
+        "No": 111,
+        "Yes": 21
+      }
+    }
+  },
+  "unresolved_cases": [
+    {
+      "model": "B7",
+      "query_id": "PILOT_084",
+      "issue": "Unverifiable claim(s): AMBIG.radon_established - Internally contradictory statement about whether radon is an established lung-cancer cause; the answer's net assertion cannot be determined. Requires human clinical adjudication of the answer's intended assertion."
+    }
+  ],
+  "integrity_checks": {
+    "row_count_1056": true,
+    "unique_model_query_keys": true,
+    "132_per_model": true,
+    "row_order_matches_worksheet": true,
+    "answers_match_worksheet": true,
+    "no_human_approved_status": true,
+    "no_reviewer_fields_emitted": true,
+    "accepted_labels_binary": true,
+    "unresolved_labels_uncertain": true,
+    "every_label_has_reasoning": true,
+    "every_substantive_record_has_source_url": true,
+    "every_yes_has_evidence_text": true,
+    "detector_flag_consistent_with_csv": true,
+    "all_uncertain_listed_in_C": true,
+    "inputs_unmodified_vs_uploads": true
+  },
+  "output_files": [
+    {
+      "file": "ai_verified_hallucination_labels_1056.csv",
+      "sha256": "74e2f120853daa19fd85f21595447df0fdc3d14fcad2565420512b44836eb923",
+      "bytes": 1538469
+    },
+    {
+      "file": "medical_claim_verification_1056.jsonl",
+      "sha256": "65df849a08d7c820932c847d77a1278eb179809f89ddcbf4656fde0951fbe9b5",
+      "bytes": 3525348
+    },
+    {
+      "file": "ai_label_uncertain_cases.csv",
+      "sha256": "3cce4bcb86063318060f73cba5eda10f1bcb5a26b2ffd4de3e73694731b230b5",
+      "bytes": 1259
+    },
+    {
+      "file": "ai_hallucination_evaluation_summary.csv",
+      "sha256": "897863f1349a1aec0a346ee868f14d5240df0c07e179f3b40750eb6a5ee35514",
+      "bytes": 3298
+    },
+    {
+      "file": "ai_detector_classification_metrics.csv",
+      "sha256": "b9d24582096a8ead89a04cc3a5850947e427c6d2a87b49fde8af45eb6503dd9f",
+      "bytes": 3777
+    }
+  ],
+  "output_files_note": "Hashes cover deliverables A, B, C, D and F. The audit file cannot contain its own hash; its SHA-256 is reported alongside the delivery."
+}

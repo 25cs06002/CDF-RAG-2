@@ -1,0 +1,20 @@
+{
+  "schema": "B9_COMPONENT_COMPARISON_V1",
+  "records": 396,
+  "reference_manifest_sha256": "4eea5fce78929d34342a18077745434df1d6960021d81e459ab19ce81029ce6c",
+  "component_manifest_sha256": {
+    "graph_off": "7746372e7bdfd0246b9ccc0169671dd373c93901920009c9b2914769f11d16ce",
+    "document_off": "3433b9a5f30141aecb89d9a0b8776db10bde297cd8f7b2cbf8720abf80fb35bd"
+  },
+  "limitations": [
+    "Graph-off disables typed evidence, not graph-derived target routing; document-off disables all document retrieval, including comparisons.",
+    "Unchanged scheduled rounds can be empty; policy-level dependency comparison, not optimal standalone graph/document baselines.",
+    "Separate run timing may differ in thermal/model state. Candidate answers are not correctness. No fixed/component AI labels reused."
+  ],
+  "outputs_sha256": {
+    "component_by_query_type_132.csv": "c65b39968df89aeb111fbb3882161110649f798924f2c911260880468c6a2562",
+    "component_per_query_132.csv": "d96f97e6769aff41ee3359a3772ac9517d3bd3d1bf5b0dfeaf4db534437900bd",
+    "component_summary_132.csv": "04f5084e53aaca0051d2b26dddccd3b824015ee51042771edf9162f73ae8de5d",
+    "paired_summary.json": "99b54dd0d3d109a0e2ffaa308dec5fe4bb7535f747917b3bd1ad16b60dbe6907"
+  }
+}

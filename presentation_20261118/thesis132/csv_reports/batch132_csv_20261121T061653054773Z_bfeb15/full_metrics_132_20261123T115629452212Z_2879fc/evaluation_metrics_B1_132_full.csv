@@ -1,0 +1,860 @@
+model,query_id,query,query_type,medical_domain,semantic_group,status,matched_concept,refined_query_text,final_response,retrieval_success,causal_coverage,direct_causes_count,multi_hop_path_count,causal_chain_depth_nodes,answer_length_words,refinement_recorded,refinement_changed_query,SRS_Cosine_Proxy,Context_Relevance_Cosine_Proxy,Groundedness_Cosine_Proxy,context_basis,grounding_basis,hallucination_detector_flag,is_hallucination_gold,validator_passed,latency_seconds,latency_ms,reciprocal_latency_qps_proxy,num_retrieved_documents,answer_present,evidence_present
+B1,PILOT_001,What factors are reported to contribute to the development of coronary artery disease?,direct,cardiovascular,general_factors_coronary artery disease,ok,,,"Based on the provided evidence, the following factors are reported to contribute to the development of coronary artery disease:
+
+1. Atherosclerotic plaque accumulation in the coronary arteries (PHASE2_CAND_0027)
+2. Narrowing of coronary arteries due to plaque accumulation (PHASE2_CAND_0001)
+3. Chronic conditions damaging or weakening heart muscle, such as coronary heart disease and myocardial infarction (PHASE2_CAND_0033)
+
+It is not explicitly stated in the provided evidence what other factors contribute to the development of coronary artery disease beyond these points.",True,False,0,0,,78,False,,,0.632465124130249,0.7263615131378174,retrieved_evidence,final_response,,,,20.42399953189306,20423.99953189306,0.0489620066059271,5,True,True
+B1,PILOT_002,What factors are reported to contribute to the development of stroke?,direct,cardiovascular,general_factors_stroke,ok,stroke,,"Based on the provided evidence, the following factors are reported to contribute to the development of stroke:
+
+1. Hypertension (CDC [PHASE2_CAND_0029] and NHLBI [PHASE2_CAND_0004])
+2. Arterial blockage by a clot (NHLBI [PHASE2_CAND_0002])
+3. High blood pressure-related arterial wall damage (NHLBI [PHASE2_CAND_0004] and [PHASE2_CAND_0028])
+
+Note that the evidence does not independently establish the proposed intermediate relationship Arterial wall damage → Stroke, but rather highlights hypertension as a leading cause of stroke and its complications.",True,False,0,0,,73,False,,,0.47225427627563477,0.8201819658279419,retrieved_evidence,final_response,,,,16.395767388050444,16395.767388050444,0.06099135077561661,5,True,True
+B1,PILOT_003,What factors are reported to contribute to the development of heart failure?,direct,cardiovascular,general_factors_heart failure,ok,,,"Based on the provided evidence, the following factors are reported to contribute to the development of heart failure:
+
+1. Chronic conditions damaging or weakening heart muscle (PHASE2_CAND_0033)
+2. Coronary heart disease and myocardial infarction (PHASE2_CAND_0033)
+3. High blood pressure (PHASE2_CAND_0004), which can stiffen or overwork the heart
+4. Coronary artery disease, specifically:
+ * Atherosclerotic plaque narrowing coronary arteries (PHASE2_CAND_0001)
+ * Narrowing of arteries partially or completely obstructing blood flow (PHASE2_CAND_0031)
+5. Conditions that damage heart muscle, such as:
+ * Coronary heart disease or prior heart attack (PHASE2_CAND_0003)
+
+Note: These factors are reported by the NHLBI and CDC, but it's essential to consult with a healthcare professional for personalized advice on heart health.",True,False,0,0,,112,False,,,0.5361122488975525,0.7090703248977661,retrieved_evidence,final_response,,,,22.131935080047697,22131.935080047697,0.04518357732313775,5,True,True
+B1,PILOT_004,What factors are reported to contribute to the development of type 2 diabetes?,direct,metabolic,general_factors_type 2 diabetes,ok,Diabetes,,"Based on the provided evidence, the following factors are reported to contribute to the development of type 2 diabetes:
+
+1. Limited physical activity (PHASE2_CAND_0006)
+2. Overweight or obesity (PHASE2_CAND_0005)
+3. Family history (PHASE2_CAND_0007)
+
+Additionally, the evidence suggests that insulin resistance plays a crucial role in the development of type 2 diabetes, as it contributes to hyperglycemia and can lead to inadequate insulin secretion.
+
+It is essential to note that these factors are based on unverified G0 graph data or AI-assisted source-candidate summaries, not clinical guidance.",True,False,0,0,,85,False,,,0.6703949570655823,0.748358428478241,retrieved_evidence,final_response,,,,15.345479608979076,15345.479608979076,0.06516577034287489,5,True,True
+B1,PILOT_005,What factors are reported to contribute to the development of obesity?,direct,metabolic,general_factors_obesity,ok,,,"According to the evidence, overweight or obesity is listed among the circumstances associated with a higher likelihood of developing type 2 diabetes (PHASE2_CAND_0005). Additionally, limited physical activity is also reported as a risk factor for type 2 diabetes (PHASE2_CAND_0006).
+
+There is no direct information provided on factors that contribute to the development of obesity itself.",True,False,0,0,,55,False,,,0.3550984263420105,0.5220118761062622,retrieved_evidence,final_response,,,,10.255595164024271,10255.595164024271,0.09750774908782596,5,True,True
+B1,PILOT_006,What factors are reported to contribute to the development of asthma?,direct,respiratory,general_factors_asthma,ok,asthma,,"According to the evidence, the following factor is reported to contribute to the development of asthma:
+
+1. Indoor and outdoor allergens (Evidence ID [PHASE2_CAND_0041])",True,False,0,0,,24,False,,,0.4159725308418274,0.37270188331604004,retrieved_evidence,final_response,,,,13.079529559006914,13079.529559006914,0.07645534921486326,5,True,True
+B1,PILOT_007,What factors are reported to contribute to the development of chronic obstructive pulmonary disease?,direct,respiratory,general_factors_chronic obstructive pulmonary disease,ok,,,"Insufficient evidence. The provided evidence does not directly report on the factors contributing to the development of chronic obstructive pulmonary disease (COPD). However, it mentions associations between structural damage and impairment in lung function after pulmonary TB ([PHASE2_CAND_0059]), and DNA adduct formation in human lung tissue as a contributory mechanism increasing the likelihood of lung cancer development ([PHASE2_CAND_0073]).",True,False,0,0,,58,False,,,0.48502302169799805,0.6957967281341553,retrieved_evidence,final_response,,,,12.911297142971307,12911.297142971307,0.07745155184073686,5,True,True
+B1,PILOT_008,What factors are reported to contribute to the development of chronic kidney disease?,direct,renal,general_factors_chronic kidney disease,ok,,,"According to the evidence, hypertension is identified as a common cause of chronic kidney disease (Cite [PHASE2_CAND_0049]). Additionally, limited physical activity is listed as a reported risk factor for type 2 diabetes, which can also contribute to the development of chronic kidney disease (Cite [PHASE2_CAND_0006]).",True,False,0,0,,45,False,,,0.4981626868247986,0.5653282999992371,retrieved_evidence,final_response,,,,10.121321519021876,10121.321519021876,0.09880132728918979,5,True,True
+B1,PILOT_009,What factors are reported to contribute to the development of migraine?,direct,neurological,general_factors_migraine,ok,migraine,,"According to the evidence, family history is listed among the factors associated with an increased likelihood of migraine. 
+
+Evidence ID: [PHASE2_CAND_0014]",True,False,0,0,,21,False,,,0.45194870233535767,0.43004804849624634,retrieved_evidence,final_response,,,,6.182716300012544,6182.716300012544,0.16174120750097673,5,True,True
+B1,PILOT_010,What factors are reported to contribute to the development of epilepsy?,direct,neurological,general_factors_epilepsy,ok,,,"According to the evidence, brain injury is listed among possible causes of epilepsy (Evidence ID [PHASE2_CAND_0015]). However, it's noted that the cause is often unknown. There is no direct link established between other factors and the development of epilepsy in this evidence.",True,False,0,0,,42,False,,,0.4052198529243469,0.421880304813385,retrieved_evidence,final_response,,,,7.661040033097379,7661.040033097379,0.1305305801405266,5,True,True
+B1,PILOT_011,What factors are reported to contribute to the development of tuberculosis?,direct,infectious_disease,general_factors_tuberculosis,ok,,,"Insufficient evidence is provided to determine what factors contribute to the development of tuberculosis. The given evidence relates to other conditions such as heart failure with reduced ejection fraction (HFrEF), type 2 diabetes, stroke, and chronic obstructive pulmonary disease (COPD). There is no mention of tuberculosis or its contributing factors in the provided evidence IDs ([PHASE2_CAND_0004], [PHASE2_CAND_0029], [PHASE2_CAND_0033], and [PHASE2_CAND_0045]).",True,False,0,0,,60,False,,,0.14247411489486694,0.3820820748806,retrieved_evidence,final_response,,,,20.2293996559456,20229.3996559456,0.0494330042911625,5,True,True
+B1,PILOT_012,What factors are reported to contribute to the development of pneumonia?,direct,infectious_disease,general_factors_pneumonia,ok,,,"According to the evidence, the following factors are reported to contribute to the development of pneumonia:
+
+1. Pneumococcus (as identified by NHLBI in [PHASE2_CAND_0017])
+2. Influenza virus (as listed by NHLBI in [PHASE2_CAND_0018])
+
+Insufficient evidence is provided to identify other contributing factors beyond these two specific causes.",True,False,0,0,,47,False,,,0.5213981866836548,0.5872977375984192,retrieved_evidence,final_response,,,,9.27699780697003,9276.99780697003,0.10779349319762435,5,True,True
+B1,PILOT_013,What factors are reported to contribute to the development of depression?,direct,mental_health,general_factors_depression,ok,depression,,"Based on the provided evidence, the following factors are reported to contribute to the development of depression:
+
+1. Insomnia (Li et al., [PHASE2_CAND_0069]): A prospective cohort study found an increased risk of subsequent depression among individuals with insomnia.
+2. High blood pressure (NHLBI, [PHASE2_CAND_0004]): High blood pressure is identified as a condition that stiffens or overworks the heart and contributes to HFpEF, which may indirectly contribute to depression.
+3. Limited physical activity (NIDDK, [PHASE2_CAND_0006]): Limited physical activity is listed as a reported risk factor for type 2 diabetes, but no direct link to depression is established in this evidence.
+4. Close relatives with depression or another mental health disorder (MedlinePlus, [PHASE2_CAND_0019]): Having close relatives with depression or another mental health disorder may increase the risk of developing depression.
+5. Trauma and stressful life events (MedlinePlus, [PHASE2_CAND_0020]): Traumatic experiences and stressful life events are described as factors that may raise the risk for depression.
+
+Note: The evidence does not provide a comprehensive list of factors contributing to depression, but rather",True,False,0,0,,169,False,,,0.42755764722824097,0.8792228698730469,retrieved_evidence,final_response,,,,26.62945220398251,26629.45220398251,0.03755240597290421,5,True,True
+B1,PILOT_014,What factors are reported to contribute to the development of lung cancer?,direct,oncology,general_factors_lung cancer,ok,lung cancer,,"According to the evidence, the following factors are reported to contribute to the development of lung cancer:
+
+1. Chronic exposure to tobacco carcinogens (Evidence: [PHASE2_CAND_0073])
+2. Tobacco smoking (Evidence: [PHASE2_CAND_0021], [PHASE2_CAND_0070])
+3. Radon exposure (Evidence: [PHASE2_CAND_0022])
+
+Additionally, the evidence suggests that tobacco smoke is a source of environmentally induced DNA alterations and can lead to accumulation of genetic changes that contribute to malignant transformation (Evidence: [PHASE2_CAND_0072]).",True,False,0,0,,66,False,,,0.580620527267456,0.8226554989814758,retrieved_evidence,final_response,,,,14.844086577999406,14844.086577999406,0.067366893526619,5,True,True
+B1,PILOT_015,What factors are reported to contribute to the development of hypothyroidism?,direct,endocrine,general_factors_hypothyroidism,ok,,,"According to the evidence, the following factors are reported to contribute to the development of hypothyroidism:
+
+1. Hashimoto's disease (NIDDK [PHASE2_CAND_0023])
+2. Autoimmune thyroid injury (NIDDK [PHASE2_CAND_0023])
+3. Partial or complete thyroid surgery (NIDDK [PHASE2_CAND_0024])
+
+Note that the evidence does not provide a comprehensive list of factors contributing to hypothyroidism, but rather highlights these specific conditions and medical procedures as possible causes.",True,False,0,0,,62,False,,,0.5238010287284851,0.6274259090423584,retrieved_evidence,final_response,,,,11.752357839955948,11752.357839955948,0.08508930834289065,5,True,True
+B1,PILOT_016,Which underlying conditions or exposures might be involved in the onset of coronary artery disease?,paraphrased,cardiovascular,general_factors_coronary artery disease,ok,,,"Based on the provided evidence, the following underlying conditions or exposures might be involved in the onset of coronary artery disease:
+
+1. Atherosclerotic plaque accumulation in the coronary arteries (PHASE2_CAND_0027)
+2. Chronic exposure to conditions damaging or weakening heart muscle (PHASE2_CAND_0033)
+
+Additionally, the evidence suggests that coronary heart disease can lead to weakened heart muscle and potentially cause heart failure with reduced ejection fraction (HFrEF).
+
+It is not clear from the provided evidence what specific underlying conditions or exposures might be involved in the onset of coronary artery disease beyond atherosclerotic plaque accumulation.",True,False,0,0,,93,False,,,0.6472726464271545,0.7335211038589478,retrieved_evidence,final_response,,,,19.962817584979348,19962.817584979348,0.050093129175935135,5,True,True
+B1,PILOT_017,Which underlying conditions or exposures might be involved in the onset of stroke?,paraphrased,cardiovascular,general_factors_stroke,ok,stroke,,"Based on the provided evidence, the following underlying conditions or exposures might be involved in the onset of stroke:
+
+1. Atrial fibrillation (PHASE2_CAND_0053) - associated with stroke-producing blood clots.
+2. Coronary heart disease or prior heart attack (PHASE2_CAND_0003) - can damage heart muscle and cause HFrEF.
+3. High blood pressure (PHASE2_CAND_0004, PHASE2_CAND_0028) - can stiffen or overwork the heart, contributing to HFpEF, and is associated with hypertension-related arterial wall damage, which can lead to stroke and atherosclerosis.
+
+Note that these conditions/exposures are not explicitly stated as causes of stroke in the provided evidence, but rather as potential risk factors or complications.",True,False,0,0,,101,False,,,0.5195313096046448,0.7259122133255005,retrieved_evidence,final_response,,,,17.121212876052596,17121.212876052596,0.05840707707096487,5,True,True
+B1,PILOT_018,Which underlying conditions or exposures might be involved in the onset of heart failure?,paraphrased,cardiovascular,general_factors_heart failure,ok,,,"Based on the provided evidence, the following underlying conditions or exposures might be involved in the onset of heart failure:
+
+1. Coronary heart disease (PHASE2_CAND_0003) and prior heart attack (PHASE2_CAND_0003)
+2. High blood pressure (PHASE2_CAND_0004), which can stiffen or overwork the heart
+3. Coronary artery disease (PHASE2_CAND_0031), which can weaken heart muscle over time due to atherosclerotic plaque narrowing coronary arteries and partially or completely obstructing blood flow.
+4. Plaque accumulation in major surface coronary arteries (PHASE2_CAND_0001)
+
+These conditions are identified as contributing factors to the development of heart failure, particularly heart failure with reduced ejection fraction (HFrEF).",True,False,0,0,,98,False,,,0.5902992486953735,0.7671231031417847,retrieved_evidence,final_response,,,,17.507039419957437,17507.039419957437,0.05711988052417553,5,True,True
+B1,PILOT_019,Which underlying conditions or exposures might be involved in the onset of type 2 diabetes?,paraphrased,metabolic,general_factors_type 2 diabetes,ok,Diabetes,,"Based on the provided evidence, the following underlying conditions or exposures might be involved in the onset of type 2 diabetes:
+
+1. Overweight or obesity (PHASE2_CAND_0005)
+2. Limited physical activity (PHASE2_CAND_0006)
+3. Family history (PHASE2_CAND_0007)
+
+Additionally, evidence suggests that insulin resistance plays a crucial role in the development of type 2 diabetes, particularly when combined with inadequate insulin secretion (PHASE2_CAND_0036 and PHASE2_CAND_0037). Insulin resistance can lead to hyperglycemia and progression to overt diabetes.
+
+Note: These findings are based on unverified G0 graph data or AI-assisted source-candidate summaries, not clinical guidance.",True,False,0,0,,90,False,,,0.6095913648605347,0.7458974123001099,retrieved_evidence,final_response,,,,16.20440869103186,16204.408691031858,0.061711600778955815,5,True,True
+B1,PILOT_020,Which underlying conditions or exposures might be involved in the onset of obesity?,paraphrased,metabolic,general_factors_obesity,ok,,,"Based on the provided evidence, the following underlying conditions or exposures might be involved in the onset of obesity:
+
+1. Overweight (Evidence [PHASE2_CAND_0005])
+2. Obesity (Evidence [PHASE2_CAND_0005])
+
+Additionally, the review mentions ""dysfunctional adipose tissue"" as a contributor to insulin resistance, which is associated with obesity (Evidence [PHASE2_CAND_0034]). However, it does not explicitly state that these conditions or exposures directly cause obesity.
+
+It's essential to note that this answer is based on unverified G0 graph data and AI-assisted source-candidate summaries, not clinical guidance.",True,False,0,0,,82,False,,,0.41310644149780273,0.5732200145721436,retrieved_evidence,final_response,,,,14.780108131933957,14780.108131933957,0.06765850365055152,5,True,True
+B1,PILOT_021,Which underlying conditions or exposures might be involved in the onset of asthma?,paraphrased,respiratory,general_factors_asthma,ok,asthma,,"Based on the provided evidence, the following underlying conditions or exposures might be involved in the onset of asthma:
+
+1. Exposure to inhaled substances such as pollen and mold (Evidence [PHASE2_CAND_0041])
+2. Indoor and outdoor allergens (Evidence [PHASE2_CAND_0041])
+
+These are identified by NHLBI as common triggers of asthma symptoms, but it is not stated that they cause the onset of asthma.",True,False,0,0,,61,False,,,0.5784521102905273,0.6371617317199707,retrieved_evidence,final_response,,,,16.092274606926367,16092.274606926367,0.062141619157405154,5,True,True
+B1,PILOT_022,Which underlying conditions or exposures might be involved in the onset of chronic obstructive pulmonary disease?,paraphrased,respiratory,general_factors_chronic obstructive pulmonary disease,ok,,,"Based on the provided evidence, the following underlying conditions or exposures are mentioned as being associated with lung impairment:
+
+1. Pulmonary TB (PHASE2_CAND_0059): Persistent obstructive and restrictive lung-function abnormalities after pulmonary TB have been reported.
+2. Cigarette smoking (PHASE2_CAND_0071): Chronic exposure to carcinogens in cigarette smoke produces genetic damage involved in multistep lung carcinogenesis, specifically identified as an association between cigarette smoking and DNA adduct formation in human lung tissue.
+
+No direct evidence is provided linking these conditions or exposures to the onset of chronic obstructive pulmonary disease (COPD). However, it can be inferred that smoking may contribute to COPD development due to its well-established link with lung damage and genetic alterations.",True,False,0,0,,112,False,,,0.4836254119873047,0.7242372035980225,retrieved_evidence,final_response,,,,17.27818636992015,17278.18636992015,0.057876444818358644,5,True,True
+B1,PILOT_023,Which underlying conditions or exposures might be involved in the onset of chronic kidney disease?,paraphrased,renal,general_factors_chronic kidney disease,ok,,,"Based on the provided evidence, hypertension (PHASE2_CAND_0049) is identified as a common cause of chronic kidney disease. Additionally, damage to renal blood vessels and other components of the kidney filtering system can impair the kidneys' ability to remove waste and excess fluid.
+
+There is no direct link established between coronary heart disease/myocardial infarction (PHASE2_CAND_0033) or high blood pressure (PHASE2_CAND_0004) as a primary cause of chronic kidney disease. However, hypertension is mentioned as a common cause of chronic kidney disease.
+
+It's essential to note that the evidence does not provide a comprehensive list of underlying conditions or exposures involved in the onset of chronic kidney disease.",True,False,0,0,,105,False,,,0.48562654852867126,0.5353925228118896,retrieved_evidence,final_response,,,,15.357980099041015,15357.980099041015,0.06511272924897475,5,True,True
+B1,PILOT_024,Which underlying conditions or exposures might be involved in the onset of migraine?,paraphrased,neurological,general_factors_migraine,ok,migraine,,"Based on the provided evidence, family history (Evidence ID [PHASE2_CAND_0014]) is listed as a factor associated with an increased likelihood of migraine. However, this does not necessarily imply that it is directly involved in the onset of migraine.
+
+Insufficient evidence exists to determine other underlying conditions or exposures that might be involved in the onset of migraine.",True,False,0,0,,57,False,,,0.5070294141769409,0.4957808256149292,retrieved_evidence,final_response,,,,8.89227207901422,8892.27207901422,0.11245719779087755,5,True,True
+B1,PILOT_025,Which underlying conditions or exposures might be involved in the onset of epilepsy?,paraphrased,neurological,general_factors_epilepsy,ok,,,"Based on the provided evidence, brain injury is identified as a possible cause of epilepsy (Evidence [PHASE2_CAND_0015]). Additionally, NHLBI mentions that chronic conditions damaging or weakening heart muscle can contribute to various health issues, but it does not directly link these conditions to epilepsy. However, there is no direct evidence linking specific underlying conditions or exposures to the onset of epilepsy.
+
+Insufficient evidence exists to determine which underlying conditions or exposures might be involved in the onset of epilepsy beyond brain injury.",True,False,0,0,,82,False,,,0.4669194519519806,0.6893656253814697,retrieved_evidence,final_response,,,,11.260678226943128,11260.678226943128,0.0888045977201734,5,True,True
+B1,PILOT_026,Which underlying conditions or exposures might be involved in the onset of tuberculosis?,paraphrased,infectious_disease,general_factors_tuberculosis,ok,,,"Based on the provided evidence, the following underlying conditions or exposures might be involved in the onset of tuberculosis:
+
+1. Pulmonary tuberculosis itself (as described by Ravimohan et al.) - The study highlights the destructive lung pathology caused by pulmonary tuberculosis through caseous necrosis, cavitation, and abnormal tissue repair.
+2. Atrial fibrillation (as identified by NHLBI) - Although not a direct cause, atrial fibrillation is associated with stroke-producing blood clots, which could potentially lead to embolism and subsequent infection or inflammation that may contribute to the onset of tuberculosis.
+
+There is no explicit evidence provided in the given sources linking other conditions or exposures directly to the onset of tuberculosis.",True,False,0,0,,110,False,,,0.3871461749076843,0.550390899181366,retrieved_evidence,final_response,,,,21.081502884975635,21081.502884975635,0.04743494832679505,5,True,True
+B1,PILOT_027,Which underlying conditions or exposures might be involved in the onset of pneumonia?,paraphrased,infectious_disease,general_factors_pneumonia,ok,,,"Based on the provided evidence, the following underlying conditions or exposures might be involved in the onset of pneumonia:
+
+1. Pneumococcus (as identified by NHLBI as a common bacterial cause of pneumonia, Evidence ID [PHASE2_CAND_0017])
+2. Influenza virus (as listed by NHLBI among viruses that can cause pneumonia, Evidence ID [PHASE2_CAND_0018])
+
+Note: The evidence does not provide information on other underlying conditions or exposures that might be involved in the onset of pneumonia.",True,False,0,0,,73,False,,,0.5300798416137695,0.6188859939575195,retrieved_evidence,final_response,,,,11.260812271968462,11260.812271968462,0.0888035406192944,5,True,True
+B1,PILOT_028,Which underlying conditions or exposures might be involved in the onset of depression?,paraphrased,mental_health,general_factors_depression,ok,depression,,"Based on the provided evidence, the following underlying conditions or exposures may be involved in the onset of depression:
+
+1. Family history: Having close relatives with depression or another mental health disorder (Evidence [PHASE2_CAND_0019]).
+2. Trauma and stressful life events: Experiencing trauma and stressful life events may raise risk for depression (Evidence [PHASE2_CAND_0020]).
+
+Note that the evidence does not provide a comprehensive list of underlying conditions or exposures involved in the onset of depression, but rather highlights two specific factors that may contribute to its development.",True,False,0,0,,86,False,,,0.3993474245071411,0.35680121183395386,retrieved_evidence,final_response,,,,12.124221460078843,12124.221460078843,0.08247952277122932,5,True,True
+B1,PILOT_029,Which underlying conditions or exposures might be involved in the onset of lung cancer?,paraphrased,oncology,general_factors_lung cancer,ok,lung cancer,,"Based on the provided evidence, the following underlying conditions or exposures might be involved in the onset of lung cancer:
+
+1. Radon exposure (as mentioned in [PHASE2_CAND_0022]), which is associated with a higher incidence of lung cancer.
+2. Tobacco use and secondhand smoke exposure (as mentioned in [PHASE2_CAND_0070, 0071, and 0073]). The evidence suggests that tobacco products contain chemicals capable of damaging DNA, chronic exposure to carcinogens in cigarette smoke produces genetic damage, and DNA adduct formation is a contributing mechanism to lung carcinogenesis.
+
+Note: There is no direct evidence provided for other underlying conditions or exposures that may be involved in the onset of lung cancer.",True,False,0,0,,107,False,,,0.5866426229476929,0.8349950909614563,retrieved_evidence,final_response,,,,16.127385535044596,16127.385535044596,0.062006330649627815,5,True,True
+B1,PILOT_030,Which underlying conditions or exposures might be involved in the onset of hypothyroidism?,paraphrased,endocrine,general_factors_hypothyroidism,ok,,,"Based on the provided evidence, two possible underlying conditions or exposures that might be involved in the onset of hypothyroidism are:
+
+1. Hashimoto's disease (as stated in [PHASE2_CAND_0023] NIDDK): This is identified as the most common cause of hypothyroidism.
+2. Partial or complete thyroid surgery (as mentioned in [PHASE2_CAND_0024] NIDDK): This is listed among possible causes of hypothyroidism.
+
+Note that coronary heart disease and high blood pressure are related to heart conditions, but there is no direct link established between these conditions and the onset of hypothyroidism.",True,False,0,0,,87,False,,,0.5292191505432129,0.6507463455200195,retrieved_evidence,final_response,,,,13.58664271410089,13586.64271410089,0.07360169992268586,5,True,True
+B1,PILOT_031,Which condition affecting the coronary arteries should be investigated when assessing narrowed blood supply to heart muscle?,indirect,cardiovascular,concept_description_coronary artery disease,ok,,,"Based on the provided evidence, it appears that atherosclerotic plaque accumulation in the coronary arteries is the leading cause of coronary heart disease (PHASE2_CAND_0027). This condition can lead to narrowing and hardening of the coronary arteries, potentially reducing or blocking blood flow to the heart muscle.
+
+It is also mentioned that this condition can weaken heart muscle over time and may lead to heart failure (PHASE2_CAND_0031), which could result in a narrowed blood supply to the heart muscle.
+
+Therefore, investigating atherosclerotic plaque accumulation in the coronary arteries should be considered when assessing narrowed blood supply to heart muscle.",True,False,0,0,,98,False,,,0.5924981236457825,0.8460414409637451,retrieved_evidence,final_response,,,,20.617469765013084,20617.469765013084,0.048502556880037476,5,True,True
+B1,PILOT_032,Which cerebrovascular condition is relevant when a question describes sudden interruption of blood flow to part of the brain?,indirect,cardiovascular,concept_description_stroke,ok,,,"Based on the provided evidence, ischemic stroke (PHASE2_CAND_0053) is relevant when a question describes sudden interruption of blood flow to part of the brain. This is because NHLBI explains that ischemic stroke can occur when a blood clot blocks cerebral blood flow.",True,False,0,0,,42,False,,,0.3987851142883301,0.4694502353668213,retrieved_evidence,final_response,,,,9.252084957901388,9252.084957901388,0.10808374593944778,5,True,True
+B1,PILOT_033,Which cardiac condition is being discussed when the heart cannot pump blood effectively enough for the body's needs?,indirect,cardiovascular,concept_description_heart failure,ok,,,"Based on the provided evidence, the cardiac condition being discussed is Heart Failure with Reduced Ejection Fraction (HFrEF). According to [PHASE2_CAND_0033], NHLBI states that chronic conditions damaging or weakening heart muscle are major causes of HFrEF. Specifically, it mentions that coronary heart disease and myocardial infarction can deprive heart muscle of adequate oxygen, contributing to this outcome.
+
+In summary, the evidence suggests that HFrEF occurs when the weakened left ventricle cannot pump sufficient blood, which is a result of conditions such as coronary heart disease and myocardial infarction.",True,False,0,0,,88,False,,,0.46915754675865173,0.7033829689025879,retrieved_evidence,final_response,,,,15.194234386086464,15194.234386086464,0.06581443820003932,5,True,True
+B1,PILOT_034,Which metabolic disorder should be considered when discussing impaired insulin action and persistent high blood glucose?,indirect,metabolic,concept_description_type 2 diabetes,ok,,,"Based on the provided evidence, type 2 diabetes (Evidence [PHASE2_CAND_0036]) should be considered when discussing impaired insulin action and persistent high blood glucose. The NIDDK states that insulin resistance contributes to hyperglycemia and type 2 diabetes in the context of inadequate insulin secretion (Evidence [PHASE2_CAND_0036]).",True,False,0,0,,45,False,,,0.5260884761810303,0.6437802314758301,retrieved_evidence,final_response,,,,10.587497194996104,10587.497194996104,0.09445102856533678,5,True,True
+B1,PILOT_035,Which health condition is relevant to a question about excess body fat and long-term metabolic risk?,indirect,metabolic,concept_description_obesity,ok,,,"Based on the provided evidence, obesity (excess body fat) is relevant to a question about long-term metabolic risk. This is supported by [PHASE2_CAND_0008] NIDDK's explanation of how sustained extra calorie intake can be stored as fat and produce weight gain.
+
+Additionally, there is an indirect connection between excess body fat and long-term metabolic risk through the relationship between obesity and insulin resistance, which is described in [PHASE2_CAND_0034]. This review mentions that dysfunctional adipose tissue in obesity contributes to insulin resistance, which can disrupt insulin signaling and glucose homeostasis.
+
+While the evidence does not directly mention ""long-term metabolic risk,"" it provides a connection through the relationship between excess body fat (obesity) and insulin resistance.",True,False,0,0,,113,False,,,0.5222482681274414,0.5464255809783936,retrieved_evidence,final_response,,,,16.32439737697132,16324.39737697132,0.06125800401126543,5,True,True
+B1,PILOT_036,Which respiratory condition involves variable airway narrowing and recurring episodes of wheeze?,indirect,respiratory,concept_description_asthma,ok,,,"Based on the provided evidence, it appears that asthma is the respiratory condition that involves variable airway narrowing and recurring episodes of wheeze. This is stated in [PHASE2_CAND_0042] as follows:
+
+""NHLBI explains that airway inflammation can accompany airway swelling, narrowing, excess mucus production and tightening of surrounding muscles, making breathing more difficult. Allergens are also identified as triggers that can worsen asthma symptoms.""
+
+There is no direct mention of variable airway narrowing and recurring episodes of wheeze in the other provided evidence. However, it does describe post-tuberculosis lung disease (TB) with persistent respiratory symptoms and impaired lung function, which may be related to airway narrowing and wheezing. But this is not explicitly stated as a characteristic of TB itself.
+
+Therefore, based on the available evidence, asthma appears to be the most likely answer.",True,False,0,0,,133,False,,,0.4553968012332916,0.6809020042419434,retrieved_evidence,final_response,,,,23.954214322031476,23954.214322031476,0.041746307624887,5,True,True
+B1,PILOT_037,Which chronic lung condition is discussed when airflow limitation persists over time?,indirect,respiratory,concept_description_chronic obstructive pulmonary disease,ok,,,"Based on the provided evidence, it appears that Chronic Obstructive Pulmonary Disease (COPD) is the chronic lung condition being discussed. This is evident from PHASE2_CAND_0044, which describes cigarette smoke exposure as an inflammatory trigger in COPD and outlines the mechanisms of airway inflammation.
+
+Additionally, PHASE2_CAND_0059 mentions persistent obstructive and restrictive lung-function abnormalities after pulmonary TB, but it also discusses structural remodeling as a probable contributor to post-TB impairment. While this condition is not explicitly stated as COPD, the mention of airflow limitation in PHASE2_CAND_0060 suggests that it may be related to COPD.
+
+There is no direct evidence provided for other chronic lung conditions, such as pulmonary TB or post-tuberculosis lung disease, being discussed in relation to persistent airflow limitation over time.",True,False,0,0,,121,False,,,0.5271942019462585,0.7373031377792358,retrieved_evidence,final_response,,,,19.823746614041738,19823.74661404174,0.05044455114714142,5,True,True
+B1,PILOT_038,Which kidney condition is characterized by long-lasting reduction in kidney function?,indirect,renal,concept_description_chronic kidney disease,ok,,,"Based on the provided evidence, diabetic kidney disease (as defined by NIDDK) is characterized by progressive damage to renal blood vessels and filters, leading to impaired removal of waste and excess fluid from blood. This can result in a long-lasting reduction in kidney function.
+
+Evidence IDs:
+
+* [PHASE2_CAND_0039]
+* [PHASE2_CAND_0040]
+* [PHASE2_CAND_0048]
+
+Note that the evidence does not specifically mention ""kidney condition"" as characterized by a long-lasting reduction in kidney function, but rather describes diabetic kidney disease as causing such an outcome.",True,False,0,0,,82,False,,,0.4381895959377289,0.7594924569129944,retrieved_evidence,final_response,,,,15.026019301032647,15026.019301032647,0.06655122557517786,5,True,True
+B1,PILOT_039,Which neurological disorder is relevant to recurrent headaches with light sensitivity in some patients?,indirect,neurological,concept_description_migraine,ok,,,"Insufficient evidence. The provided evidence does not directly mention a specific neurological disorder related to recurrent headaches with light sensitivity. However, it mentions epileptogenesis (the process by which seizures are generated) and its association with traumatic injury, neuronal loss, gliosis, neuroinflammation, and abnormal neural circuit reorganization ([PHASE2_CAND_0056]).",True,False,0,0,,47,False,,,0.2673605680465698,0.31384819746017456,retrieved_evidence,final_response,,,,10.838836867944337,10838.836867944337,0.09226082209590973,5,True,True
+B1,PILOT_040,Which neurological condition is defined by a tendency toward recurrent unprovoked seizures?,indirect,neurological,concept_description_epilepsy,ok,,,"Based on the provided evidence, post-traumatic epilepsy is distinguished from acute provoked seizures by delayed unprovoked seizure occurrence and high recurrence risk (PHASE2_CAND_0056). This suggests that post-traumatic epilepsy is characterized by a tendency toward recurrent unprovoked seizures.",True,False,0,0,,37,False,,,0.4995880126953125,0.5730171203613281,retrieved_evidence,final_response,,,,9.596937229973264,9596.937229973264,0.10419991045443004,5,True,True
+B1,PILOT_041,"Which infectious disease is associated with Mycobacterium tuberculosis, and how might it affect the lungs?",indirect,infectious_disease,concept_description_tuberculosis,ok,,,"Based on the provided evidence, Mycobacterium tuberculosis is associated with pulmonary tuberculosis (TB). According to [PHASE2_CAND_0058] Ravimohan et al., pulmonary TB produces destructive lung pathology through caseous necrosis, cavitation, and abnormal tissue repair. Additionally, [PHASE2_CAND_0060] Meghji et al. describe post-tuberculosis lung disease as encompassing residual parenchymal and airway abnormalities, including fibrosis, cavitation, and bronchiectasis.
+
+TB can affect the lungs by causing inflammation of the alveoli, leading to fluid and pus accumulation (as stated in [PHASE2_CAND_0064] NHLBI). This can result in persistent respiratory symptoms and impaired lung function.",True,False,0,0,,87,False,,,0.5818562507629395,0.7485905885696411,retrieved_evidence,final_response,,,,22.20316128397826,22203.16128397826,0.04503863153584337,4,True,True
+B1,PILOT_042,Which respiratory infection is relevant when lung air sacs become inflamed and may contain fluid?,indirect,infectious_disease,concept_description_pneumonia,ok,,,"Based on the provided evidence, pneumonia (Evidence [PHASE2_CAND_0062]) is relevant when lung air sacs become inflamed and may contain fluid.",True,False,0,0,,20,False,,,0.4763282239437103,0.4866105318069458,retrieved_evidence,final_response,,,,8.130166061106138,8130.166061106138,0.12299871767489413,5,True,True
+B1,PILOT_043,"Which mental health condition may involve persistent low mood and reduced interest, and what evidence is relevant to its origins?",indirect,mental_health,concept_description_depression,ok,,,"Based on the provided evidence, the mental health condition that may involve persistent low mood and reduced interest is depression. 
+
+Relevant evidence includes:
+
+* [PHASE2_CAND_0019] MedlinePlus describes higher depression risk when close relatives have depression or another mental health disorder.
+* [PHASE2_CAND_0020] MedlinePlus describes trauma and stressful life events as factors that may raise risk for depression.
+
+These summaries suggest a possible genetic component (family history) and environmental/lifestyle factors (trauma, stressful life events) contributing to the development of depression. However, it is essential to note that these sources are not clinical guidance and do not provide independent medical certainty.",True,False,0,0,,99,False,,,0.31428706645965576,0.616676390171051,retrieved_evidence,final_response,,,,14.838083497947082,14838.083497947082,0.06739414831695445,5,True,True
+B1,PILOT_044,"Which malignancy originates in lung tissue, and what established exposures should be considered?",indirect,oncology,concept_description_lung cancer,ok,,,"Based on the provided evidence, it appears that lung cancer is a malignancy that originates in lung tissue. 
+
+Established exposures that should be considered include:
+
+1. Tobacco smoking (as identified by NCI as the most important risk factor for lung cancer, [PHASE2_CAND_0021])
+2. Radon exposure (as associated with higher lung cancer incidence, [PHASE2_CAND_0022])
+
+Note: The evidence does not provide information on other potential exposures or risk factors for lung cancer.",True,False,0,0,,70,False,,,0.5749536752700806,0.6412171125411987,retrieved_evidence,final_response,,,,13.148289429023862,13148.289429023862,0.0760555207883221,5,True,True
+B1,PILOT_045,Which thyroid disorder is relevant when thyroid hormone production is lower than needed?,indirect,endocrine,concept_description_hypothyroidism,ok,,,"Based on the provided evidence, Hashimoto disease appears to be relevant when thyroid hormone production is lower than needed. This is supported by:
+
+* [PHASE2_CAND_0076] NIDDK identifies Hashimoto disease as the most common cause of hypothyroidism.
+* [PHASE2_CAND_0023] NIDDK states that Hashimoto's disease is the most common cause of hypothyroidism and describes autoimmune thyroid injury.
+
+These sources suggest a link between Hashimoto disease and reduced thyroid hormone production, which is consistent with the question.",True,False,0,0,,74,False,,,0.4950839579105377,0.8285917639732361,retrieved_evidence,final_response,,,,13.439884992083535,13439.884992083535,0.07440539860192463,5,True,True
+B1,PILOT_046,"What evidence, if any, supports a pathway from smoking through atherosclerotic plaque development to coronary artery disease?",multi_hop,cardiovascular,multi_hop_coronary artery disease,ok,Smoking,,"Based on the provided evidence, there is support for a pathway from smoking through atherosclerotic plaque development to coronary artery disease. The relevant evidence includes:
+
+[PHASE2_CAND_0025] Cigarette smoking promotes atherosclerotic plaque buildup by damaging cells lining blood vessels, increasing plaque accumulation, and contributing to arterial thickening and narrowing.
+
+This statement explicitly links cigarette smoking to increased atherosclerotic plaque buildup, which is a known risk factor for coronary artery disease.
+
+Additionally, the evidence from [PHASE2_CAND_0031] states that atherosclerotic plaque can narrow coronary arteries and may lead to heart failure, which further supports the connection between atherosclerotic plaque development and coronary artery disease.
+
+While there is no direct causal link provided in the evidence, these statements collectively suggest a pathway from smoking through atherosclerotic plaque development to coronary artery disease.",True,False,0,0,,128,False,,,0.724240779876709,0.8050761222839355,retrieved_evidence,final_response,,,,25.667991672991775,25667.991672991775,0.03895902775487551,5,True,True
+B1,PILOT_047,"How might persistent high blood pressure affect vascular injury and subsequent stroke risk, and which steps are evidence-supported?",multi_hop,cardiovascular,multi_hop_stroke,ok,High blood pressure,,"Based on the provided evidence, here's a summary of how persistent high blood pressure might affect vascular injury and subsequent stroke risk:
+
+Persistent high blood pressure can damage arterial walls over time (PHASE2_CAND_0028). This damage increases susceptibility to blockage or rupture, which can lead to ischemic stroke (blockage) or hemorrhagic stroke (rupture).
+
+Weakened or blocked cerebral arteries increase stroke risk due to vessel blockage or rupture (PHASE2_CAND_0030). The American Stroke Association explains that high blood pressure damages arteries and increases the risk of these complications.
+
+Furthermore, high blood pressure can constrict and narrow blood vessels throughout the body, including the kidneys, eventually damaging and weakening them (PHASE2_CAND_0047). This renal vascular injury can contribute to diabetic kidney disease as a contributor to diabetic kidney dysfunction (PHASE2_CAND_0039).
+
+Evidence-supported steps include:
+
+1. Managing high blood pressure to prevent arterial wall damage.
+2. Reducing the risk of stroke by controlling high blood pressure and maintaining healthy cerebral arteries.
+
+Note that these steps are not explicitly stated in the provided evidence, but can be inferred as part of managing high blood pressure to mitigate vascular injury and stroke risk.
+
+Evidence IDs:
+
+* PHASE",True,False,0,0,,188,False,,,0.6726480722427368,0.8519852161407471,retrieved_evidence,final_response,,,,25.816718537011184,25816.718537011184,0.03873458970265284,5,True,True
+B1,PILOT_048,What is the evidence for an indirect pathway from coronary artery disease through heart muscle injury to heart failure?,multi_hop,cardiovascular,multi_hop_heart failure,ok,,,"The evidence suggests an indirect pathway from coronary artery disease (CAD) to heart failure through heart muscle injury. The relevant statements are:
+
+[PHASE2_CAND_0027]: Atherosclerotic plaque accumulation in the coronary arteries is the leading cause of coronary heart disease, also known as coronary artery disease. Plaque causes coronary arteries to harden and narrow, potentially reducing or blocking blood flow to the heart muscle.
+
+[PHASE2_CAND_0032]: AHA explains that coronary atherosclerotic plaque can narrow arteries or rupture and produce a clot that blocks myocardial blood flow. Prolonged interruption of blood flow causes heart muscle injury or death. Damaged muscle may heal with scar tissue and leave the heart weakened with reduced pumping function.
+
+[PHASE2_CAND_0033]: NHLBI states that chronic conditions damaging or weakening heart muscle are major causes of heart failure with reduced ejection fraction (HFrEF). In HFrEF, the weakened left ventricle cannot pump sufficient blood. Coronary heart disease and myocardial infarction are identified as conditions that can deprive heart muscle of adequate oxygen and contribute to this outcome.
+
+[PHASE2_CAND_0003]: NHLBI lists coronary heart disease or prior heart",True,False,0,0,,174,False,,,0.6825546622276306,0.9161877632141113,retrieved_evidence,final_response,,,,26.520836296025664,26520.836296025664,0.03770620160080914,5,True,True
+B1,PILOT_049,"Does evidence support a pathway from excess adiposity through insulin resistance to type 2 diabetes, and what are its limitations?",multi_hop,metabolic,multi_hop_obesity_insulin_resistance_t2d,ok,Insulin resistance,,"The evidence suggests that there is a supported pathway from excess adiposity through insulin resistance to type 2 diabetes. 
+
+Specifically:
+
+- [PHASE2_CAND_0036] states that insulin resistance contributes to hyperglycemia and type 2 diabetes in the context of inadequate insulin secretion.
+- [PHASE2_CAND_0005] lists overweight or obesity among circumstances associated with a higher likelihood of developing type 2 diabetes, which implies a link between excess adiposity and increased risk of type 2 diabetes.
+- [PHASE2_CAND_0037] describes insulin resistance in liver and muscle as an important pathogenic feature of type 2 diabetes.
+
+However, the evidence does not provide direct causal links or specify the mechanisms by which excess adiposity leads to insulin resistance. It primarily establishes associations between these factors and type 2 diabetes risk.
+
+Limitations of the evidence include:
+
+- Lack of explicit mechanistic details on how excess adiposity causes insulin resistance.
+- No clear indication of whether other factors, such as genetic predisposition (as mentioned in [PHASE2_CAND_0007]), also play a role in this pathway.
+
+In summary, while there is supporting evidence for the association between excess adiposity and type 2 diabetes through insulin resistance",True,False,0,0,,184,False,,,0.644983172416687,0.7255034446716309,retrieved_evidence,final_response,,,,25.199263841030188,25199.263841030188,0.039683698948846685,5,True,True
+B1,PILOT_050,"How can chronic high blood glucose contribute to vascular changes and kidney complications, according to evidence?",multi_hop,metabolic,multi_hop_hyperglycemia|kidney vascular injury|kidney complications,ok,,,"According to the provided evidence, chronic high blood glucose can contribute to vascular changes and kidney complications through several mechanisms:
+
+1. Damage to renal blood vessels (as explained by [PHASE2_CAND_0038] NIDDK): High blood glucose can damage blood vessels in the kidneys, impairing their function.
+2. Renal vascular injury as a contributor to diabetic kidney dysfunction (as supported by [PHASE2_CAND_0039] NIDDK): High glucose levels can cause renal vascular injury, leading to impaired kidney function and increased risk of complications.
+3. Kidney filter damage from elevated blood glucose (as identified by [PHASE2_CAND_0012] NIDDK): Elevated blood glucose can damage the kidneys' filtering system, impairing its ability to remove waste and excess fluid.
+
+These passages collectively suggest that chronic high blood glucose is a contributing factor to vascular changes in the kidneys, leading to complications such as kidney dysfunction and disease.",True,False,0,0,,137,False,,,0.7086358070373535,0.8445248007774353,retrieved_evidence,final_response,,,,20.385324190952815,20385.324190952815,0.04905489805473924,5,True,True
+B1,PILOT_051,Can environmental exposure contribute to airway inflammation and asthma symptoms through intermediate mechanisms?,multi_hop,respiratory,multi_hop_asthma,ok,asthma,,"Based on the provided evidence, it appears that environmental exposures can contribute to airway inflammation and asthma symptoms. The evidence suggests that inhaled substances such as pollen and mold (Evidence [PHASE2_CAND_0041]) and cigarette smoke exposure (Evidence [PHASE2_CAND_0044]) can provoke a strong immune response and lead to airway inflammation.
+
+Additionally, the CDC's explanation of hypertension as a leading cause of stroke (Evidence [PHASE2_CAND_0029]) suggests that environmental factors can contribute to underlying mechanisms that increase the risk of asthma symptoms. However, it is unclear whether there is a direct intermediate mechanism by which environmental exposures lead to airway inflammation and asthma symptoms.
+
+The evidence does not provide clear information on how environmental exposures directly cause airway inflammation and asthma symptoms through intermediate mechanisms. The Wechsler and Wells description of cigarette smoke exposure as an inflammatory trigger in COPD (Evidence [PHASE2_CAND_0044]) focuses on the specific context of COPD, rather than providing a general explanation for how environmental exposures contribute to airway inflammation and asthma symptoms.
+
+Therefore, while there is evidence suggesting that environmental exposures can contribute to airway inflammation and asthma symptoms, the exact intermediate mechanisms by which this occurs are not clearly established.",True,False,0,0,,191,False,,,0.6260420083999634,0.7799501419067383,retrieved_evidence,final_response,,,,31.484173613018356,31484.173613018356,0.03176198976321586,5,True,True
+B1,PILOT_052,"How does evidence connect tobacco exposure, chronic airway inflammation, and airflow limitation?",multi_hop,respiratory,multi_hop_chronic obstructive pulmonary disease,ok,,,"Based on the provided evidence, here's how it connects tobacco exposure, chronic airway inflammation, and airflow limitation:
+
+1. Tobacco exposure is linked to chronic airway inflammation through the release of cytokines and chemokines from epithelial signaling in response to smoke (PHASE2_CAND_0044).
+2. Chronic smoking increases oxidative stress, which contributes to lung inflammation (PHASE2_CAND_0044).
+3. Cigarette smoke exposure damages the lungs and airways, leading to thickened and inflamed airway walls in COPD (PHASE2_CAND_0046).
+4. The inflammatory response in the airways is sustained by the recruitment of inflammatory cells, including neutrophils and macrophages (PHASE2_CAND_0044).
+
+While there isn't direct evidence connecting tobacco exposure to airflow limitation, we can infer a link through chronic airway inflammation:
+
+5. Chronic airway inflammation, as described in PHASE2_CAND_0044, is likely to lead to airflow limitation due to the sustained inflammatory response and damage to the airways.
+
+However, it's essential to note that this connection is not explicitly stated in the provided evidence. The relationship between tobacco exposure, chronic airway inflammation, and airflow limitation requires further",True,False,0,0,,167,False,,,0.6214110255241394,0.696263313293457,retrieved_evidence,final_response,,,,27.501753003918566,27501.753003918566,0.03636131848968012,5,True,True
+B1,PILOT_053,Which intermediate biological processes might connect longstanding high blood pressure with chronic kidney disease?,multi_hop,renal,multi_hop_chronic kidney disease,ok,High blood pressure,,"Based on the provided evidence, two potential intermediate biological processes that might connect longstanding high blood pressure with chronic kidney disease are:
+
+1. Damage to renal blood vessels (as mentioned in [PHASE2_CAND_0048] and [PHASE2_CAND_0004]): High blood pressure can narrow and damage renal blood vessels, reducing blood flow and impairing the kidneys' ability to remove waste and excess fluid.
+2. Arterial wall damage (as mentioned in [PHASE2_CAND_0028] and [PHASE2_CAND_0030]): Persistent or uncontrolled high blood pressure can cause damage to arterial walls over time, which may lead to complications such as atherosclerosis, stroke, and increased risk of kidney disease.
+
+These processes are not explicitly stated as intermediate steps connecting high blood pressure to chronic kidney disease in the provided evidence. However, they are related biological mechanisms that could potentially contribute to the development of chronic kidney disease in individuals with longstanding high blood pressure.",True,False,0,0,,142,False,,,0.532417356967926,0.7953508496284485,retrieved_evidence,final_response,,,,21.57341275701765,21573.41275701765,0.0463533522147398,5,True,True
+B1,PILOT_054,What evidence supports or contradicts a proposed pathway from atrial fibrillation through clot formation to ischemic stroke?,multi_hop,neurological,multi_hop_stroke,ok,stroke,,"The evidence that supports the proposed pathway from atrial fibrillation through clot formation to ischemic stroke is:
+
+* [PHASE2_CAND_0050] NHLBI explains that atrial fibrillation can impair effective pumping and cause blood to pool inside the heart, directly establishing atrial fibrillation as a contributor to intracardiac thrombus formation.
+* [PHASE2_CAND_0051] The American Heart Association explains that irregular atrial contractions during atrial fibrillation can prevent complete emptying of blood from the atria, increasing the likelihood of atrial thrombus formation.
+
+These two pieces of evidence establish a clear mechanism by which atrial fibrillation can lead to clot formation and ultimately ischemic stroke.
+
+The evidence that contradicts or supports this pathway is:
+
+* [PHASE2_CAND_0053] NHLBI explains that ischemic stroke can occur when a blood clot blocks cerebral blood flow, but it does not specifically mention the role of atrial fibrillation in causing these clots.
+* [PHASE2_CAND_0002] NHLBI describes arterial blockage by a clot as a mechanism for ischemic stroke, but it does not provide information on how this occurs.
+
+However, [PHASE2_CAND_0052]",True,False,0,0,,167,False,,,0.760200023651123,0.8974788188934326,retrieved_evidence,final_response,,,,26.628388964920305,26628.388964920305,0.037553905394629,5,True,True
+B1,PILOT_055,"Could prior brain injury lead to structural changes and later seizure risk, and which links are supported?",multi_hop,neurological,multi_hop_epilepsy,ok,,,"Based on the provided evidence, it appears that prior brain injury can indeed lead to structural changes and an increased risk of later seizures. The following links are supported:
+
+1. TBI (traumatic brain injury) is associated with cerebral contusions, hemorrhage, edema, diffuse axonal injury, and brain scarring, which establish structural brain injury after trauma (Evidence [PHASE2_CAND_0054]).
+2. NINDS states that attempts by the brain to repair itself following head injury may create abnormal nerve connections capable of producing seizures (Evidence [PHASE2_CAND_0057]).
+3. Pease et al. explain that TBI is an initiating insult that can produce structural brain injury and trigger epileptogenesis, with subsequent neuroinflammation, blood-brain barrier dysfunction, neuronal injury, and altered signaling contributing to the formation of epileptogenic networks (Evidence [PHASE2_CAND_0055]).
+4. MedlinePlus notes that brain injury is among possible causes of epilepsy, although the cause is often unknown (Evidence [PHASE2_CAND_0015]).
+
+The evidence suggests a causal link between prior brain injury and an increased risk of later seizures, with structural changes in the brain being a key mechanism. However, it",True,False,0,0,,170,False,,,0.7016656398773193,0.916542649269104,retrieved_evidence,final_response,,,,27.01015909202397,27010.15909202397,0.037023106624177474,5,True,True
+B1,PILOT_056,What evidence describes a possible pathway from tuberculosis infection through lung damage to persistent breathing limitation?,multi_hop,infectious_disease,multi_hop_tuberculosis infection|lung injury|persistent breathing limitation,ok,,,"The evidence that describes a possible pathway from tuberculosis infection through lung damage to persistent breathing limitation is [PHASE2_CAND_0059]. This review reports on the association between structural damage and impairment, specifically stating that extensive fibrosis is proposed as an explanation for restrictive ventilatory defects. Additionally, it mentions structural remodeling as a probable contributor to post-TB impairment.
+
+Evidence ID: [PHASE2_CAND_0059]",True,False,0,0,,59,False,,,0.6215388178825378,0.7260140180587769,retrieved_evidence,final_response,,,,17.56464571505785,17564.64571505785,0.05693254599167453,5,True,True
+B1,PILOT_057,Which intermediate immune responses might connect respiratory infection with the clinical manifestations of pneumonia?,multi_hop,infectious_disease,multi_hop_respiratory infection|immune inflammation|pneumonia symptoms,ok,,,"Based on the provided evidence, two possible intermediate immune responses that might connect respiratory infection with the clinical manifestations of pneumonia are:
+
+1. Inflammatory cytokines increasing leakage across the alveolar-capillary membrane (as mentioned in [PHASE2_CAND_0063]), which can lead to decreased lung compliance and produce dyspnea (shortness of breath).
+2. Immune cells causing inflammation of the alveoli, leading to filling with fluid and pus (as described in [PHASE2_CAND_0064]).
+
+These mechanisms are supported by evidence IDs [PHASE2_CAND_0063] and [PHASE2_CAND_0064].",True,False,0,0,,77,False,,,0.6286102533340454,0.7737362384796143,retrieved_evidence,final_response,,,,14.61055129894521,14610.55129894521,0.06844368699983235,5,True,True
+B1,PILOT_058,"What evidence exists for pathways linking chronic stress, sleep disruption, and depressive symptoms without assuming causality?",multi_hop,mental_health,multi_hop_chronic stress|sleep disruption|depressive symptoms,ok,Chronic stress,,"Based on the provided evidence, there is limited information that suggests potential pathways linking chronic stress, sleep disruption, and depressive symptoms. However, I can identify a few indirect connections:
+
+1. [PHASE2_CAND_0068] Alvaro et al.'s review of longitudinal studies found an association between insomnia or sleep disturbances and later depressive outcomes. While this does not establish causality, it suggests that there may be a relationship between the two.
+2. [NHLBI's statement on stress as an increasing factor for insomnia risk ([PHASE2_CAND_0067])] implies that chronic stress can contribute to sleep disruptions, which in turn may exacerbate depressive symptoms.
+
+However, I must note that:
+
+* There is no direct evidence provided that links chronic stress and depressive symptoms without assuming causality.
+* The relationship between sleep disruption and depressive symptoms is not fully understood and requires further investigation (as suggested by Alvaro et al.'s review).
+* The evidence primarily focuses on the relationship between cigarette smoke exposure, oxidative stress, inflammation, and lung cancer development, which does not directly address the connection between chronic stress, sleep disruption, and depressive symptoms.
+
+In conclusion, while there is some indirect evidence suggesting potential pathways linking chronic stress, sleep disruption, and depressive symptoms",True,False,0,0,,195,False,,,0.5904476642608643,0.7776246070861816,retrieved_evidence,final_response,,,,27.39311985799577,27393.11985799577,0.0365055169029281,5,True,True
+B1,PILOT_059,How might prolonged exposure to tobacco smoke relate to cellular DNA damage and lung cancer development?,multi_hop,oncology,multi_hop_lung cancer,ok,lung cancer,,"Based on the provided evidence, it can be inferred that prolonged exposure to tobacco smoke is associated with cellular DNA damage. This is supported by:
+
+* [PHASE2_CAND_0070]: NCI states that tobacco products and secondhand smoke contain chemicals capable of damaging DNA.
+* [PHASE2_CAND_0071]: Chronic exposure to carcinogens in cigarette smoke produces genetic damage involved in multistep lung carcinogenesis, specifically identifying the association between cigarette smoking and DNA adduct formation in human lung tissue as evidence of tobacco-related genetic damage.
+* [PHASE2_CAND_0073]: Genetic damage from chronic exposure to tobacco carcinogens contributes to lung epithelial carcinogenesis, with DNA adduct formation in human lung tissue serving as evidence of tobacco-related genetic injury.
+
+Furthermore, the NCI explains that accumulation of environmentally induced DNA alterations over time can contribute to malignant transformation ( [PHASE2_CAND_0021] and [PHASE2_CAND_0072]), suggesting a potential link between prolonged exposure to tobacco smoke and increased risk of lung cancer development.
+
+While the exact mechanisms are not fully elucidated, the evidence suggests that prolonged exposure to tobacco smoke is associated with an increased risk of cellular DNA damage and lung cancer development.",True,False,0,0,,179,False,,,0.8223646879196167,0.920275092124939,retrieved_evidence,final_response,,,,25.745776980067603,25745.776980067603,0.03884132146309667,5,True,True
+B1,PILOT_060,Can autoimmune thyroid inflammation lead to reduced thyroid hormone production through intermediate tissue changes?,multi_hop,endocrine,multi_hop_hypothyroidism,ok,,,"Based on the provided evidence, it appears that autoimmune thyroid inflammation can lead to reduced thyroid hormone production. The NIDDK states that Hashimoto's disease is the most common cause of hypothyroidism and describes autoimmune thyroid injury (PHASE2_CAND_0023). This suggests a direct link between autoimmune thyroid inflammation and reduced thyroid hormone production.
+
+Additionally, the mechanism described by the NIDDK for Hashimoto's disease involves the immune system attacking the thyroid, causing it to become inflamed, which in turn prevents it from producing sufficient thyroid hormones (PHASE2_CAND_0076). This supports the idea that autoimmune thyroid inflammation can lead to reduced thyroid hormone production through intermediate tissue changes.
+
+While there is no direct evidence provided for the specific mechanism of how autoimmune thyroid inflammation leads to reduced thyroid hormone production, the descriptions of Hashimoto's disease and its effects on the thyroid gland suggest a plausible link between inflammation and impaired hormone production.",True,False,0,0,,147,False,,,0.5030556917190552,0.7195669412612915,retrieved_evidence,final_response,,,,20.62299850792624,20622.99850792624,0.048489554010085395,5,True,True
+B1,PILOT_061,How do established risk factors for stroke compare with those for coronary artery disease?,comparative,cardiovascular,comparative_stroke|coronary artery disease,ok,stroke,,"Insufficient evidence to directly compare established risk factors for stroke and coronary artery disease. However, some information can be inferred based on the provided evidence:
+
+Risk factors for coronary artery disease (CAD) include atherosclerotic plaque accumulation in the coronary arteries, which can lead to hardening and narrowing of the arteries (PHASE2_CAND_0027, PHASE2_CAND_0001). This process is also mentioned as a leading cause of CAD by the CDC (PHASE2_CAND_0031).
+
+Risk factors for stroke include arterial blockage by a clot, which can lead to ischemic stroke (PHASE2_CAND_0002). Additionally, embolization and cerebral arterial obstruction are established as required events connecting an atrial thrombus with cardioembolic ischemic stroke (PHASE2_CAND_0052).
+
+While there is some overlap between the risk factors for CAD and stroke, such as atherosclerotic plaque accumulation and arterial blockage, the specific risk factors and mechanisms involved in each condition are distinct. Therefore, it is not possible to make a direct comparison of established risk factors for stroke and coronary artery disease based on the provided evidence.
+
+Evidence IDs:
+
+* PHASE2_CAND_0027
+* PHASE2",True,False,0,0,,168,False,,,0.5980216264724731,0.7524813413619995,retrieved_evidence,final_response,,,,30.469780924962834,30469.780924962834,0.03281940236008506,5,True,True
+B1,PILOT_062,How do the mechanisms implicated in heart failure differ from those associated with coronary artery disease?,comparative,cardiovascular,comparative_heart failure|coronary artery disease,ok,,,"Based on the provided evidence, it appears that both heart failure and coronary artery disease share common underlying mechanisms. The key differences lie in the specific ways these conditions affect the heart muscle.
+
+Coronary artery disease (CAD) is characterized by atherosclerotic plaque accumulation in the coronary arteries, which can lead to:
+
+1. Hardening and narrowing of coronary arteries (PHASE2_CAND_0027)
+2. Potential reduction or blockage of blood flow to the heart muscle (PHASE2_CAND_0027)
+
+On the other hand, heart failure with reduced ejection fraction (HFrEF) is caused by chronic conditions that damage or weaken heart muscle, such as coronary heart disease and myocardial infarction (PHASE2_CAND_0033). The weakened left ventricle in HFrEF cannot pump sufficient blood.
+
+The evidence does not explicitly state the mechanisms by which CAD leads to heart failure. However, it can be inferred that the narrowing of coronary arteries due to plaque accumulation may contribute to reduced oxygen delivery to the heart muscle, ultimately leading to damage and weakening of the heart muscle (PHASE2_CAND_0001).
+
+In summary, while both conditions share a common underlying mechanism of damaging or weakening heart muscle, CAD is characterized",True,False,0,0,,183,False,,,0.6987255811691284,0.8323980569839478,retrieved_evidence,final_response,,,,25.738813388044946,25738.813388044946,0.03885182991631136,5,True,True
+B1,PILOT_063,How does the evidence on obesity-related risk differ between type 2 diabetes and coronary artery disease?,comparative,metabolic,comparative_obesity|type 2 diabetes|coronary artery disease,ok,Diabetes,,"The provided evidence does not directly compare the risk of obesity-related type 2 diabetes with that of coronary artery disease. However, it does provide information on the association between obesity and type 2 diabetes.
+
+According to [PHASE2_CAND_0005], the NIDDK lists overweight or obesity among circumstances associated with a higher likelihood of developing type 2 diabetes. This suggests that there is an established link between obesity and increased risk of type 2 diabetes, but it does not provide information on the relationship between obesity and coronary artery disease.
+
+Insufficient evidence exists to compare the risk of obesity-related type 2 diabetes with that of coronary artery disease based on the provided information.",True,False,0,0,,110,False,,,0.5342850089073181,0.7219064235687256,retrieved_evidence,final_response,,,,14.753575386945158,14753.575386945158,0.06778018031377395,5,True,True
+B1,PILOT_064,"Which associations are shared by obesity and metabolic syndrome, and which should not be interpreted as causal?",comparative,metabolic,comparative_obesity|metabolic syndrome,ok,,,"Based on the provided evidence, here's a breakdown of the associations between obesity, metabolic syndrome, and their potential links to stroke:
+
+Shared associations:
+
+1. Obesity is listed among circumstances associated with a higher likelihood of developing type 2 diabetes (Evidence [PHASE2_CAND_0005]).
+2. Not getting enough sleep is linked to weight gain (Evidence [PHASE2_CAND_0009]), which may indirectly contribute to obesity and metabolic syndrome.
+
+Associations that should not be interpreted as causal:
+
+1. Arterial blockage by a clot is described as a mechanism for ischemic stroke (Evidence [PHASE2_CAND_0002]). While there may be an association between obesity, metabolic syndrome, and increased risk of stroke, this evidence does not establish a direct causal link.
+2. Cigarette smoking promotes atherosclerotic plaque buildup, which can contribute to arterial thickening and narrowing (Evidence [PHASE2_CAND_0025]). However, the provided evidence does not explicitly link obesity or metabolic syndrome to cigarette smoking as a primary cause of stroke.
+
+It's essential to note that these associations should be interpreted with caution, and further research is needed to establish causal relationships.",True,False,0,0,,169,False,,,0.44626909494400024,0.8023706078529358,retrieved_evidence,final_response,,,,23.597087937989272,23597.087937989272,0.04237811049515506,5,True,True
+B1,PILOT_065,How do asthma and chronic obstructive pulmonary disease differ in their common triggers and underlying mechanisms?,comparative,respiratory,comparative_asthma|chronic obstructive pulmonary disease,ok,asthma,,"Based on the provided evidence, here's a comparison between asthma and chronic obstructive pulmonary disease (COPD):
+
+Common Triggers:
+
+* Both asthma and COPD can be triggered by allergens, such as pollen and mold. ([PHASE2_CAND_0041] [PHASE2_CAND_0042])
+* Cigarette smoking is the most common cause of COPD in the United States, but there is no direct comparison to asthma triggers in the provided evidence.
+
+Underlying Mechanisms:
+
+* Both conditions involve airway inflammation. ([PHASE2_CAND_0041] [PHASE2_CAND_0042])
+* In asthma, airway inflammation can lead to airway swelling, narrowing, excess mucus production, and tightening of surrounding muscles, making breathing more difficult.
+* COPD is not explicitly described in terms of underlying mechanisms, but the provided evidence mentions structural damage and remodeling as contributors to post-pulmonary TB impairment. ([PHASE2_CAND_0059])
+
+It's essential to note that the provided evidence does not directly compare asthma and COPD in terms of their common triggers and underlying mechanisms. More information would be needed to draw a comprehensive comparison between these two conditions.",True,False,0,0,,160,False,,,0.5130278468132019,0.7283193469047546,retrieved_evidence,final_response,,,,25.497400940046646,25497.400940046646,0.039219683698403285,5,True,True
+B1,PILOT_066,How do the causes and contributing factors of pneumonia differ from those of asthma?,comparative,respiratory,comparative_pneumonia|asthma,ok,asthma,,"Based on the provided evidence, here's a comparison of the causes and contributing factors of pneumonia and asthma:
+
+**Asthma:**
+
+* Contributing mechanism: Inflammatory airway swelling that narrows the airways and makes breathing more difficult.
+* Symptoms: Coughing, chest tightness, wheezing, and breathing difficulty.
+* Causes: Not explicitly stated in the provided evidence.
+
+**Pneumonia:**
+
+* Common bacterial causes:
+ + Pneumococcus (PHASE2_CAND_0017)
+ + Influenza virus (PHASE2_CAND_0025)
+* Contributing factors:
+ + Weakened immunity, which increases the risk of progression to active TB disease among those already infected (PHASE2_CAND_0016).
+ + Cigarette smoking promotes atherosclerotic plaque buildup, which can contribute to pneumonia (PHASE2_CAND_0018 and CDC-identified effect of smoking).
+
+Note that the provided evidence does not explicitly state the causes of asthma. However, it highlights the contributing mechanisms and factors associated with asthma flare-ups.",True,False,0,0,,128,False,,,0.6524475812911987,0.8471392393112183,retrieved_evidence,final_response,,,,26.65623827301897,26656.23827301897,0.03751467066574748,5,True,True
+B1,PILOT_067,How does the relationship between diabetes and chronic kidney disease compare with that between hypertension and kidney disease?,comparative,renal,comparative_diabetes|hypertension|chronic kidney disease,ok,Diabetes,,"Based on the provided evidence, both diabetes and hypertension are associated with renal vascular injury, which can contribute to kidney disease. 
+
+The NIDDK states that high blood glucose (diabetes) can damage renal blood vessels and impair their function, while also stating that damaged vessels do not function as well (PHASE2_CAND_0038). Additionally, the NIDDK defines diabetic kidney disease as kidney disease caused by diabetes, explaining that high glucose can damage renal blood vessels and impair their function (PHASE2_CAND_0039).
+
+In contrast, the relationship between hypertension and kidney disease is not directly established. The CDC identifies hypertension as a leading cause of stroke, but does not independently establish the proposed intermediate relationship Arterial wall damage → Stroke (PHASE2_CAND_0029). However, the NIDDK states that hypertension can damage renal blood vessels and other components of the kidney filtering system, impairing the kidneys' ability to remove waste and excess fluid (PHASE2_CAND_0049).
+
+It appears that diabetes has a more direct and established relationship with renal vascular injury and chronic kidney disease compared to hypertension.",True,False,0,0,,167,False,,,0.6492069959640503,0.9075073599815369,retrieved_evidence,final_response,,,,24.071979964966886,24071.979964966886,0.04154207512034109,5,True,True
+B1,PILOT_068,How do common migraine triggers differ from established causes of secondary headaches?,comparative,neurological,comparative_migraine|secondary headache,ok,migraine,,"Insufficient evidence. The provided information does not directly address the question about how common migraine triggers differ from established causes of secondary headaches. While it mentions that family history is a factor associated with an increased likelihood of migraine (Evidence [PHASE2_CAND_0014]), it does not provide information on common migraine triggers or their comparison to established causes of secondary headaches.
+
+The provided evidence primarily discusses the causes of asthma, COPD, CKD, and diabetes, as well as the relationship between cigarette smoking and COPD. It also mentions indoor and outdoor allergens as common triggers of asthma symptoms (Evidence [PHASE2_CAND_0041]), but this information does not directly relate to migraine or secondary headaches.
+
+Therefore, without additional evidence that specifically addresses the question, it is impossible to provide a definitive answer.",True,False,0,0,,126,False,,,0.2830425500869751,0.5049234628677368,retrieved_evidence,final_response,,,,16.481787282973528,16481.787282973528,0.06067303156090648,5,True,True
+B1,PILOT_069,How do factors associated with epilepsy differ from triggers of an individual seizure?,comparative,neurological,comparative_epilepsy|seizure triggers,ok,,,"The provided evidence does not explicitly state how factors associated with epilepsy differ from triggers of an individual seizure. However, it does provide information on the causes and risk factors for epilepsy.
+
+Epilepsy is linked to traumatic injury-associated neuronal loss, gliosis, neuroinflammation, and abnormal neural circuit reorganization (Evidence [PHASE2_CAND_0056]). This suggests that certain types of injuries or brain damage may increase the risk of developing epilepsy.
+
+In contrast, triggers of an individual seizure are not explicitly defined in the provided evidence. However, it does mention that airway inflammation can accompany airway swelling, narrowing, excess mucus production, and tightening of surrounding muscles, making breathing more difficult (Evidence [PHASE2_CAND_0042]). This information is related to asthma symptoms, but it does not directly address seizure triggers.
+
+It's also worth noting that the evidence mentions brain injury as a possible cause of epilepsy, but notes that the cause is often unknown (Evidence [PHASE2_CAND_0015]). This suggests that while certain factors may increase the risk of developing epilepsy, the exact mechanisms or causes are not always clear.",True,False,0,0,,170,False,,,0.4563422203063965,0.7744172811508179,retrieved_evidence,final_response,,,,24.128127579926513,24128.127579926513,0.04144540419422988,5,True,True
+B1,PILOT_070,How do transmission mechanisms of tuberculosis compare with those of influenza?,comparative,infectious_disease,comparative_tuberculosis|influenza,ok,,,"Insufficient evidence to directly compare the transmission mechanisms of tuberculosis (TB) and influenza. However, we can make some indirect inferences based on available information.
+
+TB is primarily spread through the air when an infected person coughs, sneezes, or talks, releasing droplets that contain TB bacteria (Mycobacterium tuberculosis). These droplets can remain suspended in the air for a long time and can be inhaled by others, leading to infection. [PHASE2_CAND_0016]
+
+Influenza, on the other hand, is also spread through the air when an infected person coughs or sneezes, releasing droplets that contain influenza virus. These droplets can also remain suspended in the air for a short time before being inhaled by others. [PHASE2_CAND_0018]
+
+There is no direct evidence provided to compare the transmission mechanisms of TB and influenza. However, it's worth noting that both diseases are contagious respiratory illnesses that can be spread through close contact with an infected person.
+
+Evidence IDs:
+
+[PHASE2_CAND_0016]
+[PHASE2_CAND_0018]",True,False,0,0,,153,False,,,0.5371588468551636,0.5789492130279541,retrieved_evidence,final_response,,,,23.529140054015443,23529.140054015443,0.04250049078310202,5,True,True
+B1,PILOT_071,How do risk factors for depression compare with those for anxiety disorders?,comparative,mental_health,comparative_depression|anxiety disorders,ok,depression,,"Insufficient evidence is provided to directly compare risk factors for depression with those for anxiety disorders. The available evidence includes:
+
+* [PHASE2_CAND_0068] Alvaro et al.'s review of sleep disturbances and depression or anxiety, which found a longitudinal association between insomnia or sleep disruption and later depressive outcomes.
+* [PHASE2_CAND_0019] MedlinePlus describes higher depression risk when close relatives have depression or another mental health disorder. (No direct comparison to anxiety disorders)
+* [PHASE2_CAND_0020] MedlinePlus describes trauma and stressful life events as factors that may raise risk for depression. (No direct comparison to anxiety disorders)
+
+There is no evidence provided that directly compares the risk factors for depression with those for anxiety disorders.",True,False,0,0,,111,False,,,0.4950113296508789,0.7661157846450806,retrieved_evidence,final_response,,,,21.399020183016546,21399.020183016546,0.04673111158583119,5,True,True
+B1,PILOT_072,How do established lung cancer risk factors compare between people who smoke and people who have never smoked?,comparative,oncology,comparative_lung cancer|people who smoke|people who never smoked,ok,lung cancer,,"Based on the provided evidence, we can make some comparisons between people who smoke and those who have never smoked regarding established lung cancer risk factors. However, it's essential to note that this information is based on unverified G0 graph data or AI-assisted source-candidate summaries, not clinical guidance.
+
+From [PHASE2_CAND_0021], we know that tobacco smoking is the most important risk factor for lung cancer. This suggests a significantly higher risk of developing lung cancer in people who smoke compared to those who have never smoked.
+
+In contrast, there is no direct evidence provided about the relative risks associated with radon exposure and non-smoking status. While [PHASE2_CAND_0022] mentions that radon exposure is associated with a higher incidence of lung cancer, it does not provide a comparison between people who smoke and those who have never smoked.
+
+It's also worth noting that while cigarette smoking is linked to DNA damage (as mentioned in [PHASE2_CAND_0070] and [PHASE2_CAND_0071]), the evidence does not directly compare the risk of lung cancer between smokers and non-smokers. However, it does establish a clear link between smoking and genetic damage.
+
+In summary, while we can say that tobacco smoking",True,False,0,0,,190,False,,,0.5635677576065063,0.7334269285202026,retrieved_evidence,final_response,,,,25.28967792610638,25289.67792610638,0.03954182425422295,5,True,True
+B1,PILOT_073,"Which modifiable risk factors for stroke have strong evidence, and which are only associated with risk?",risk_factor,cardiovascular,risk_factor_stroke,ok,stroke,,"Based on the provided evidence, here's a breakdown of the modifiable risk factors for stroke:
+
+**Strong Evidence:**
+
+1. High Blood Pressure (Hypertension): 
+   - NHLBI describes hypertension-related arterial wall damage.
+   - CDC identifies hypertension as a leading cause of stroke.
+   - American Stroke Association explains that high blood pressure damages arteries and increases susceptibility to blockage or rupture.
+
+These sources provide direct evidence linking hypertension to the development of stroke, including descriptions of how it can lead to arterial wall damage and increase the risk of blockage or rupture.
+
+**Associated with Risk:**
+
+1. Depression:
+   - MedlinePlus mentions a higher depression risk when close relatives have depression or another mental health disorder.
+   However, there is no direct evidence provided in this source linking depression to stroke. The relationship between depression and stroke may be indirect or require further investigation.
+
+2. Cholesterol Accumulation:
+   - CDC identifies cholesterol accumulation as contributing to the narrowing of arteries (atherosclerosis), which can increase stroke risk.
+   However, like depression, there is no direct evidence provided in this source linking cholesterol accumulation directly to stroke.
+
+3. Arterial Wall Damage:
+   - NHLBI describes arterial blockage by a clot as a mechanism for ischemic stroke.
+",True,False,0,0,,194,False,,,0.5033895969390869,0.7962611317634583,retrieved_evidence,final_response,,,,25.255702867056243,25255.702867056243,0.0395950176189477,5,True,True
+B1,PILOT_074,What evidence supports elevated blood pressure as a risk factor for coronary artery disease?,risk_factor,cardiovascular,risk_factor_coronary artery disease,ok,,,"The evidence that supports elevated blood pressure as a risk factor for coronary artery disease is:
+
+[PHASE2_CAND_0028] Persistent or uncontrolled high blood pressure can damage arterial walls over time. NHLBI explicitly describes hypertension-related arterial wall damage and identifies stroke and atherosclerosis among the serious complications of uncontrolled high blood pressure.
+
+Additionally, [PHASE2_CAND_0004] mentions that high blood pressure contributes to HFpEF (heart failure with preserved ejection fraction), which is related to coronary artery disease. However, this connection is indirect.
+
+There is no direct statement in the provided evidence that explicitly links elevated blood pressure as a cause of coronary artery disease.",True,False,0,0,,100,False,,,0.598675549030304,0.7353098392486572,retrieved_evidence,final_response,,,,15.340419278945774,15340.419278945774,0.06518726651575081,5,True,True
+B1,PILOT_075,Which factors increase the likelihood of developing heart failure in adults?,risk_factor,cardiovascular,risk_factor_heart failure,ok,,,"Based on the provided evidence, the following factors increase the likelihood of developing heart failure in adults:
+
+1. Coronary artery disease (PHASE2_CAND_0031)
+2. Chronic conditions damaging or weakening heart muscle (PHASE2_CAND_0033)
+3. Overweight or obesity (PHASE2_CAND_0005 and PHASE2_CAND_0035)
+4. Large waist size (PHASE2_CAND_0035)
+
+Note that the evidence does not provide a comprehensive list of all factors that increase the likelihood of developing heart failure, but rather highlights specific conditions and risk factors mentioned in the provided sources.",True,False,0,0,,77,False,,,0.5206118822097778,0.5578123331069946,retrieved_evidence,final_response,,,,14.831347848987207,14831.347848987207,0.0674247553345792,5,True,True
+B1,PILOT_076,Which lifestyle and inherited factors are associated with future type 2 diabetes risk?,risk_factor,metabolic,risk_factor_type 2 diabetes,ok,Diabetes,,"Based on the provided evidence, the following lifestyle and inherited factors are associated with an increased risk of developing type 2 diabetes:
+
+1. Overweight or obesity (PHASE2_CAND_0005)
+2. Limited physical activity (PHASE2_CAND_0006)
+3. Family history (PHASE2_CAND_0007)
+
+Additionally, the evidence suggests that insulin resistance is a key pathogenic feature of type 2 diabetes, which can be influenced by:
+
+1. Inadequate insulin secretion
+2. Insulin resistance in liver and muscle (PHASE2_CAND_0036 and PHASE2_CAND_0037)
+
+Note: The provided evidence does not explicitly list all the lifestyle and inherited factors associated with type 2 diabetes risk, but rather highlights some of the key associations mentioned by the NIDDK and Endotext.",True,False,0,0,,105,False,,,0.6388440728187561,0.8082261085510254,retrieved_evidence,final_response,,,,23.04073652299121,23040.73652299121,0.0434013903592947,5,True,True
+B1,PILOT_077,Which environmental and behavioral factors are associated with obesity risk at a population level?,risk_factor,metabolic,risk_factor_obesity,ok,,,"Based on the provided evidence, the following environmental and behavioral factors are associated with obesity risk at a population level:
+
+1. Overweight (Evidence: [PHASE2_CAND_0005])
+2. Obesity (Evidence: [PHASE2_CAND_0005], [PHASE2_CAND_0034], [PHASE2_CAND_0035])
+
+Note that the evidence does not provide specific information on environmental and behavioral factors associated with obesity risk at a population level. The provided evidence focuses on the association between overweight, obesity, and type 2 diabetes, rather than identifying specific environmental and behavioral factors.
+
+However, it can be inferred that lifestyle factors such as diet and physical activity are likely to play a role in obesity risk, given the association between adipose tissue dysfunction and insulin resistance (Evidence: [PHASE2_CAND_0034]).",True,False,0,0,,109,False,,,0.4022129774093628,0.6171401739120483,retrieved_evidence,final_response,,,,15.993178620003164,15993.178620003164,0.06252665738062033,3,True,True
+B1,PILOT_078,"Which environmental exposures are associated with asthma onset, and how certain is the evidence?",risk_factor,respiratory,risk_factor_asthma,ok,asthma,,"Based on the provided evidence, it appears that certain environmental exposures may be associated with asthma onset. The evidence suggests that:
+
+1. Inhaled substances such as pollen and mold can provoke a strong immune response in some people, producing airway inflammation (PHASE2_CAND_0041).
+2. Allergens are identified as common triggers of asthma symptoms (PHASE2_CAND_0041 and PHASE2_CAND_0042).
+
+However, the evidence does not explicitly state that these environmental exposures directly cause asthma onset. Instead, it suggests that they can trigger asthma symptoms in people who already have airway inflammation.
+
+The strongest evidence comes from PHASE2_CAND_0043, which explains that inflammatory airway swelling is a contributing mechanism of asthma exacerbations, but it does not establish a direct causal link between environmental exposures and asthma onset.
+
+Therefore, the evidence suggests an association between certain environmental exposures (e.g., allergens) and asthma symptoms, but the strength of this association is limited by the lack of explicit causality.",True,False,0,0,,149,False,,,0.5258792638778687,0.6451022028923035,retrieved_evidence,final_response,,,,22.80986795097124,22809.86795097124,0.04384067466543226,5,True,True
+B1,PILOT_079,What is known about occupational exposure as a risk factor for chronic obstructive pulmonary disease?,risk_factor,respiratory,risk_factor_chronic obstructive pulmonary disease,ok,,,"Based on the provided evidence, it can be inferred that occupational exposure to certain pollutants, such as cigarette smoke (PHASE2_CAND_0044), may increase the risk of developing Chronic Obstructive Pulmonary Disease (COPD). The review mentions that chronic smoking increases oxidative stress and recruits inflammatory cells, contributing to lung inflammation and airway responses.
+
+Additionally, the NHLBI lists long-term exposure to pollutants, dust, and fumes as a factor that raises COPD risk (PHASE2_CAND_0011), suggesting that occupational exposure may also be a risk factor for COPD.
+
+However, it is essential to note that this information is based on unverified G0 graph data or AI-assisted source-candidate summaries and not clinical guidance. Therefore, I do not claim independent medical certainty, and further research is necessary to confirm these findings.",True,False,0,0,,123,False,,,0.4647046625614166,0.6642475128173828,retrieved_evidence,final_response,,,,19.983247238909826,19983.247238909826,0.050041917014011505,5,True,True
+B1,PILOT_080,How do hypertension and diabetes relate to risk of chronic kidney disease?,risk_factor,renal,risk_factor_chronic kidney disease,ok,Diabetes,,"Based on the provided evidence, hypertension (PHASE2_CAND_0049) and diabetes (PHASE2_CAND_0012, PHASE2_CAND_0038, PHASE2_CAND_0039) are both identified as common causes of chronic kidney disease (CKD). Specifically, NIDDK states that:
+
+* High blood glucose from diabetes can damage renal blood vessels and impair their function (PHASE2_CAND_0038, PHASE2_CAND_0039).
+* Hypertension can damage renal blood vessels and other components of the kidney filtering system, leading to impaired filtration and accumulation of waste (PHASE2_CAND_0049).
+
+The evidence suggests that both hypertension and diabetes increase the risk of CKD by damaging different structures within the kidneys. However, it does not provide a direct causal relationship between the two conditions.",True,False,0,0,,101,False,,,0.7083978652954102,0.8402508497238159,retrieved_evidence,final_response,,,,18.600285762920976,18600.285762920976,0.05376261487301799,5,True,True
+B1,PILOT_081,"Which factors are linked to developing migraine, as distinct from provoking an attack?",risk_factor,neurological,risk_factor_migraine,ok,migraine,,"Based on the provided evidence, family history is listed as a factor associated with an increased likelihood of developing migraine. 
+
+Evidence ID: [PHASE2_CAND_0014]",True,False,0,0,,23,False,,,0.4640776515007019,0.4389301538467407,retrieved_evidence,final_response,,,,10.611350602936,10611.350602936,0.09423871073709648,5,True,True
+B1,PILOT_082,Which conditions increase the likelihood of progression from latent tuberculosis infection to active disease?,risk_factor,infectious_disease,risk_factor_tuberculosis,ok,,,"Insufficient evidence. The provided evidence IDs ([PHASE2_CAND_0016]) mention weakened immunity as a risk factor for progression to active TB disease, but it does not explicitly state which conditions increase the likelihood of progression from latent tuberculosis infection to active disease.",True,False,0,0,,40,False,,,0.3705981373786926,0.43166929483413696,retrieved_evidence,final_response,,,,8.338795204064809,8338.795204064809,0.11992140057745301,5,True,True
+B1,PILOT_083,"Which social or biological factors are associated with depression risk, and what causal claims are justified?",risk_factor,mental_health,risk_factor_depression,ok,depression,,"Based on the provided evidence, the following social and biological factors are associated with an increased risk of depression:
+
+1. Having close relatives with depression or another mental health disorder (Evidence ID: [PHASE2_CAND_0019])
+2. Trauma and stressful life events (Evidence ID: [PHASE2_CAND_0020])
+
+Causal claims justified for these factors include:
+
+* Having close relatives with depression or another mental health disorder may increase an individual's risk of developing depression.
+* Trauma and stressful life events may contribute to the development of depression.
+
+However, it is essential to note that the evidence does not provide direct causal links between these factors and depression. The review by Alvaro et al. (Evidence ID: [PHASE2_CAND_0068]) suggests a longitudinal association between insomnia or sleep disruption and later depressive outcomes, but it does not establish causality.
+
+Insomnia is identified as a prospective predictor of subsequent depressive outcomes in the study by Li et al. (Evidence ID: [PHASE2_CAND_0069]), but the causal relationship between insomnia and depression is not explicitly stated. The pooled relative risk of 2.27 suggests an increased risk, but it does not imply causation.
+
+In summary, while there is",True,False,0,0,,183,False,,,0.4791639447212219,0.8169633150100708,retrieved_evidence,final_response,,,,25.160143052926287,25160.143052926287,0.039745401999361586,4,True,True
+B1,PILOT_084,How does evidence distinguish established lung cancer risk factors from uncertain associations?,risk_factor,oncology,risk_factor_lung cancer,ok,lung cancer,,"The provided evidence does not explicitly distinguish between established lung cancer risk factors and uncertain associations. However, it can be inferred that the following are established risk factors based on the evidence:
+
+* Tobacco smoking (PHASE2_CAND_0021): The NCI calls tobacco smoking the most important risk factor for lung cancer.
+* Radon exposure (PHASE2_CAND_0022): The NCI describes higher lung cancer incidence associated with radon exposure.
+
+The other pieces of evidence, such as DNA adduct formation and cellular DNA damage from tobacco products (PHASE2_CAND_0070), suggest a mechanism by which these risk factors contribute to lung cancer development, but they do not provide direct evidence for the association between these factors and lung cancer incidence. 
+
+Therefore, it is uncertain whether structural remodeling after pulmonary TB (PHASE2_CAND_0059) or DNA adduct formation in human lung tissue (PHASE2_CAND_0073) are established risk factors for lung cancer or merely contributing mechanisms.
+
+Evidence IDs: PHASE2_CAND_0021, PHASE2_CAND_0022, PHASE2_CAND_0070, PHASE2_CAND_0059, PHASE2_CAND_0073.",True,False,0,0,,150,False,,,0.49234116077423096,0.8390605449676514,retrieved_evidence,final_response,,,,25.593203247059137,25593.203247059137,0.039072873776161955,5,True,True
+B1,PILOT_085,I often feel tired; which disease is responsible for it?,ambiguous,general_medicine,individual_diagnosis_with_inadequate_evidence,ok,,,"Insufficient evidence to determine a specific disease responsible for fatigue. The provided information does not provide enough context or details to make an accurate diagnosis. 
+
+However, MedlinePlus notes that brain injury can be associated with epilepsy, and fatigue is a common symptom of various conditions, including neurological disorders. Further evaluation by a medical professional is necessary to determine the underlying cause of fatigue.
+
+No specific evidence ID available for this response.",True,False,0,0,,71,False,,,0.25080406665802,0.5636382102966309,retrieved_evidence,final_response,,,,7.615571737056598,7615.571737056598,0.13130990482751304,1,True,True
+B1,PILOT_086,My chest feels strange sometimes; is heart disease the cause?,ambiguous,cardiovascular,individual_diagnosis_with_inadequate_evidence,ok,heart disease,,"I can't provide a definitive diagnosis, but based on the evidence, it's possible that your symptoms could be related to heart disease. The NHLBI describes narrowing of arteries as a leading cause of coronary heart disease (PHASE2_CAND_0001 and PHASE2_CAND_0027), and coronary artery disease is known to potentially reduce or block blood flow to the heart muscle.
+
+However, it's essential to note that the evidence does not directly link your specific symptoms (""my chest feels strange sometimes"") to heart disease. The conditions listed by the NHLBI (PHASE2_CAND_0003 and PHASE2_CAND_0031) are more related to coronary heart disease or heart failure caused by other factors.
+
+To determine the cause of your symptoms, it's crucial to consult a healthcare professional for a proper evaluation and diagnosis. They will assess your individual situation and provide guidance tailored to your specific needs.
+
+Evidence IDs:
+
+* PHASE2_CAND_0001
+* PHASE2_CAND_0027
+* PHASE2_CAND_0003
+* PHASE2_CAND_0031",True,False,0,0,,146,False,,,0.4267807900905609,0.5849525928497314,retrieved_evidence,final_response,,,,27.660733391996473,27660.733391996473,0.036152331387183906,5,True,True
+B1,PILOT_087,I get short of breath at times; does that mean I have asthma?,ambiguous,respiratory,individual_diagnosis_with_inadequate_evidence,ok,asthma,,"Based on the provided evidence, it is not possible to definitively determine whether you have asthma. The evidence only explains that airway inflammation, swelling, narrowing, excess mucus production, and tightening of surrounding muscles can make breathing more difficult (PHASE2_CAND_0042), but it does not provide a clear indication for diagnosing asthma specifically.
+
+The evidence also mentions that symptoms such as shortness of breath are common in bacterial pneumonia (PHASE2_CAND_0063), which could be a possible alternative explanation for your symptoms. Additionally, the NHLBI lists coronary heart disease or prior heart attack among conditions that can damage heart muscle and cause breathing difficulties (PHASE2_CAND_0003).
+
+To determine whether you have asthma, it is recommended to consult with a healthcare professional who can evaluate your symptoms, medical history, and perform any necessary tests to make an accurate diagnosis.",True,False,0,0,,133,False,,,0.5784492492675781,0.7215021252632141,retrieved_evidence,final_response,,,,19.482134446967393,19482.134446967393,0.05132907807007055,5,True,True
+B1,PILOT_088,My head hurts occasionally; what exact neurological disorder do I have?,ambiguous,neurological,occasional_headache_no_diagnosis,ok,,,"I can't provide a diagnosis or identify an exact neurological disorder based on your symptoms. The provided evidence discusses potential causes and risk factors for various conditions, but it does not contain specific information about individual symptoms or diagnoses.
+
+The relevant evidence is:
+
+[PHASE2_CAND_0057] NINDS identifies traumatic brain injury and brain damage as possible causes of epilepsy. However, this evidence does not provide a direct link between occasional headaches and a specific neurological disorder.
+
+Without more specific information about your symptoms, medical history, and other factors, it's impossible to determine the exact cause of your headache or identify an underlying neurological disorder. If you're concerned about your symptoms, I recommend consulting a qualified healthcare professional for personalized guidance and diagnosis.",True,False,0,0,,120,False,,,0.44771280884742737,0.42020753026008606,retrieved_evidence,final_response,,,,15.70683633594308,15706.83633594308,0.0636665448478398,4,True,True
+B1,PILOT_089,Someone feels thirsty frequently; is diabetes necessarily responsible?,ambiguous,metabolic,individual_diagnosis_with_inadequate_evidence,ok,Diabetes,,"Insufficient evidence to determine that someone feeling thirsty frequently is necessarily due to diabetes. While thirst can be a symptom of diabetes (due to high blood glucose levels), it can also be caused by other factors such as dehydration, certain medications, or underlying medical conditions.
+
+The provided evidence does not explicitly state that frequent thirst is a direct indicator of type 2 diabetes. However, it does mention that the body has difficulty using insulin and the pancreas does not make enough insulin to maintain glucose balance (Evidence [PHASE2_CAND_0036]), which can lead to hyperglycemia and potentially cause symptoms like thirst.
+
+More evidence is needed to confirm a direct link between frequent thirst and diabetes.",True,False,0,0,,113,False,,,0.4085668921470642,0.5355976223945618,retrieved_evidence,final_response,,,,14.475296073942445,14475.296073942445,0.06908321563108748,5,True,True
+B1,PILOT_090,A person has had a bad week; does this establish depression?,ambiguous,mental_health,individual_diagnosis_with_inadequate_evidence,ok,depression,,"Insufficient evidence. The provided evidence only mentions that close relatives having depression or another mental health disorder (PHASE2_CAND_0019) and trauma and stressful life events (PHASE2_CAND_0020) may raise the risk for depression, but it does not establish a direct link between a bad week and depression.",True,False,0,0,,45,False,,,0.4269944131374359,0.49376681447029114,retrieved_evidence,final_response,,,,10.147485654917546,10147.485654917546,0.09854657932089736,5,True,True
+B1,PILOT_091,A blood test is described as abnormal without values; what kidney disease is present?,ambiguous,renal,individual_diagnosis_with_inadequate_evidence,ok,,,"Insufficient evidence to determine the specific type of kidney disease present based on an abnormal blood test result without provided values. The provided evidence does not specify which kidney disease would be indicated by an abnormal blood test result, only that elevated blood glucose can damage kidney filters and lead to diabetic kidney disease (PHASE2_CAND_0040).",True,False,0,0,,55,False,,,0.3964529037475586,0.5695120692253113,retrieved_evidence,final_response,,,,14.469367046025582,14469.367046025582,0.06911152345635452,5,True,True
+B1,PILOT_092,A person coughs occasionally; can the exact infection be identified from this alone?,ambiguous,infectious_disease,individual_diagnosis_with_inadequate_evidence,ok,,,"Insufficient evidence. The provided evidence (PHASE2_CAND_0062) mentions that coughing is a possible symptom of pneumonia, but it does not provide enough information to identify the exact infection from a single cough. It only lists coughing as one of the possible symptoms, without specifying which type of infection might cause this symptom.",True,False,0,0,,51,False,,,0.3094686269760132,0.48252278566360474,retrieved_evidence,final_response,,,,10.49138982500881,10491.38982500881,0.095316256156668,5,True,True
+B1,PILOT_093,"Without any symptoms, records, or measurements, what exact disease will this unnamed person develop next year?",unsupported,general_medicine,exact_future_disease_no_data,ok,,,"I cannot provide a diagnosis or predict the development of a specific disease. If you have concerns about your health, I recommend consulting a qualified healthcare professional. Is there anything else I can help you with?",True,False,0,0,,36,False,,,0.198592409491539,0.23763404786586761,retrieved_evidence,final_response,,,,8.46474326995667,8464.74326995667,0.1181370737549987,5,True,True
+B1,PILOT_094,"Using only the phrase 'family history', can you identify the exact date this person will develop lung cancer?",unsupported,oncology,exact_individual_prediction_without_data,ok,lung cancer,,"Insufficient evidence to determine an exact date for developing lung cancer based on family history alone. The provided evidence only mentions that:
+
+* NCI describes higher lung cancer incidence associated with radon exposure (no specific date mentioned)
+* NCI states that tobacco products and secondhand smoke contain chemicals capable of damaging DNA, identifying tobacco use as a cause of several cancers, including lung cancer (no specific date mentioned)
+
+There is no direct link between family history and an exact date for developing lung cancer. The evidence only mentions the association between radon exposure and higher lung cancer incidence, and tobacco use with cellular DNA damage, but does not provide information on when someone with a family history of lung cancer will develop it.",True,False,0,0,,123,False,,,0.43284958600997925,0.6467568874359131,retrieved_evidence,final_response,,,,14.385983487940393,14385.983487940393,0.06951210536549612,5,True,True
+B1,PILOT_095,"Without imaging, examination, or history, determine the exact artery responsible for an unspecified person's possible stroke.",unsupported,cardiovascular,exact_individual_prediction_without_data,ok,stroke,,"Insufficient evidence to determine the exact artery responsible for a stroke without imaging, examination, or history. The provided evidence only mentions the general mechanisms of ischemic stroke (PHASE2_CAND_0002) and does not specify which arteries are involved.
+
+The American Heart Association explains that a clot formed in the atria may be carried to the brain and cause an embolic stroke (PHASE2_CAND_0052), but it does not identify the specific artery obstructed. Similarly, NHLBI describes arterial blockage by a clot as a mechanism for ischemic stroke (PHASE2_CAND_0002), but does not specify which arteries are involved.
+
+Therefore, without additional information or evidence, it is impossible to determine the exact artery responsible for an unspecified person's possible stroke.",True,False,0,0,,113,False,,,0.4535232186317444,0.663116455078125,retrieved_evidence,final_response,,,,16.52792348107323,16527.92348107323,0.06050366830080857,5,True,True
+B1,PILOT_096,"Without laboratory values or medical history, identify the precise stage of kidney disease in an anonymous patient.",unsupported,renal,exact_individual_prediction_without_data,ok,,,"Insufficient evidence to determine the precise stage of kidney disease without laboratory values or medical history. The provided evidence only mentions that high blood glucose can damage blood vessels in the kidneys (NIDDK [PHASE2_CAND_0013] and [PHASE2_CAND_0038]) and that diabetes is a common cause of CKD (NIDDK [PHASE2_CAND_0012]), but it does not provide specific information on staging kidney disease.
+
+The evidence also mentions damage to kidney blood vessels and filtering structures due to hypertension (NIDDK [PHASE2_CAND_0013]) and high blood glucose, but it does not specify the stage of kidney disease. Therefore, without additional clinical information or laboratory values, it is impossible to determine the precise stage of kidney disease in an anonymous patient.",True,False,0,0,,112,False,,,0.2626257836818695,0.66647869348526,retrieved_evidence,final_response,,,,21.583586001070216,21583.586001070216,0.046331503947046396,5,True,True
+B1,PILOT_097,"Given no clinical description, identify the specific biological cause of an anonymous person's single episode of shaking.",unsupported,neurological,exact_individual_prediction_without_data,ok,,,"Insufficient evidence to determine the specific biological cause of an anonymous person's single episode of shaking. The provided evidence does not mention any condition or symptom related to shaking, such as hypothyroidism or kidney disease, which are mentioned in other contexts.
+
+The closest relevant information is [PHASE2_CAND_0023] NIDDK states that Hashimoto's disease is the most common cause of hypothyroidism and describes autoimmune thyroid injury. However, there is no direct connection between Hashimoto's disease and shaking.
+
+Therefore, without additional information or evidence, it is impossible to determine the specific biological cause of an anonymous person's single episode of shaking.",True,False,0,0,,98,False,,,0.25845128297805786,0.4295441508293152,retrieved_evidence,final_response,,,,15.655483548995107,15655.483548995107,0.06387538250546007,5,True,True
+B1,PILOT_098,"Without test results or exposure history, determine with certainty whether an unknown person has active tuberculosis.",unsupported,infectious_disease,exact_individual_prediction_without_data,ok,,,"Insufficient evidence. The provided evidence only mentions that weakened immunity is a factor in increasing the risk of progression to active TB disease (Evidence [PHASE2_CAND_0016]), but it does not provide information on how to diagnose or determine with certainty whether someone has active tuberculosis without test results or exposure history.",True,False,0,0,,50,False,,,0.2644803822040558,0.3808317184448242,retrieved_evidence,final_response,,,,7.7122135440586135,7712.2135440586135,0.1296644594041858,5,True,True
+B1,PILOT_099,"From the statement 'someone is quiet today' alone, infer that person's exact psychiatric diagnosis.",unsupported,mental_health,quiet_person_no_psychiatric_diagnosis,ok,,,"Insufficient evidence. The statement ""someone is quiet today"" does not provide enough information to determine their exact psychiatric diagnosis. This phrase can be a general observation about someone's behavior and does not necessarily imply a specific mental health condition. (No cited evidence ID)",True,False,0,0,,43,False,,,0.13546401262283325,0.16250447928905487,retrieved_evidence,final_response,,,,7.038130139000714,7038.130139000714,0.1420831925881356,5,True,True
+B1,PILOT_100,"Without any health records, predict the exact blood glucose level an anonymous individual will have tomorrow.",unsupported,metabolic,exact_individual_prediction_without_data,ok,,,I cannot provide a prediction of a specific blood glucose level without any health records or medical information. Can I help you with something else?,True,False,0,0,,25,False,,,0.25611042976379395,0.35923871397972107,retrieved_evidence,final_response,,,,6.348134424071759,6348.134424071759,0.1575265949328448,5,True,True
+B1,EXTQ_001,Which plaque-related processes contribute to the development of coronary artery disease?,direct,cardiovascular,general_factors_coronary artery disease,ok,,,"Based on the provided evidence, the following plaque-related processes contribute to the development of coronary artery disease:
+
+1. Atherosclerotic plaque accumulation in the coronary arteries (PHASE2_CAND_0027)
+2. Narrowing of coronary arteries due to plaque accumulation (NHLBI, PHASE2_CAND_0001)
+3. Rupture and production of a clot that blocks myocardial blood flow (AHA, PHASE2_CAND_0032)
+4. Chronic conditions damaging or weakening heart muscle, including coronary heart disease and myocardial infarction (NHLBI, PHASE2_CAND_0033)
+
+These processes are all mentioned as contributing factors to the development of coronary artery disease in the provided evidence.",True,False,0,0,,87,False,,,0.6197817325592041,0.7679941654205322,retrieved_evidence,final_response,,,,22.081943913944997,22081.943913944997,0.04528586812361609,5,True,True
+B1,EXTQ_002,Which conditions can damage cardiac muscle and contribute to heart failure?,direct,cardiovascular,general_factors_heart failure,ok,,,"Based on the provided evidence, the following conditions can damage cardiac muscle and contribute to heart failure:
+
+1. Coronary heart disease (PHASE2_CAND_0003)
+2. Prior heart attack (PHASE2_CAND_0003)
+3. High blood pressure (PHASE2_CAND_0004) - specifically, high blood pressure that stiffens or overworks the heart
+4. Coronary artery disease (PHASE2_CAND_0027)
+
+These conditions can deprive heart muscle of adequate oxygen and contribute to heart failure with reduced ejection fraction (HFrEF), as stated by NHLBI in PHASE2_CAND_0033.",True,False,0,0,,73,False,,,0.6525167226791382,0.7275040745735168,retrieved_evidence,final_response,,,,15.387512282002717,15387.512282002717,0.0649877629127616,5,True,True
+B1,EXTQ_003,"What conditions are associated with developing chronic kidney disease, distinguishing risk factors from causes?",direct,renal,general_factors_chronic kidney disease,ok,,,"Based on the provided evidence, the following conditions are associated with developing chronic kidney disease:
+
+1. Hypertension (PHASE2_CAND_0049) - identified as a common cause of chronic kidney disease.
+2. Overweight or obesity (PHASE2_CAND_0005) - listed among circumstances associated with a higher likelihood of developing type 2 diabetes, which is a risk factor for chronic kidney disease.
+
+It is unclear whether these conditions are direct causes of chronic kidney disease or merely risk factors. The evidence does not provide sufficient information to distinguish between the two.",True,False,0,0,,85,False,,,0.580563485622406,0.6158467531204224,retrieved_evidence,final_response,,,,12.401290104957297,12401.290104957297,0.08063677178233734,5,True,True
+B1,EXTQ_004,What mechanisms may reduce thyroid hormone production in hypothyroidism?,direct,endocrine,general_factors_hypothyroidism,ok,,,"Based on the provided evidence, two possible mechanisms that may reduce thyroid hormone production in hypothyroidism are:
+
+1. Inflammation of the thyroid gland (as described in [PHASE2_CAND_0076] and [PHASE2_CAND_0023]), which can lead to reduced thyroid hormone production.
+2. Damage to the renal blood vessels, potentially impairing the kidneys' ability to remove waste and excess fluid, although this is not directly stated as a mechanism for reducing thyroid hormone production.
+
+It's essential to note that these mechanisms are inferred from the provided evidence and may not be exhaustive or definitive.",True,False,0,0,,89,False,,,0.5387561321258545,0.6061558723449707,retrieved_evidence,final_response,,,,14.94505347206723,14945.05347206723,0.06691177130072042,5,True,True
+B1,EXTQ_005,What evidence explains how fatty deposits narrow coronary vessels?,paraphrased,cardiovascular,general_factors_coronary artery disease,ok,,,"There is insufficient evidence to explain how fatty deposits specifically narrow coronary vessels. The provided evidence mentions atherosclerosis (PHASE2_CAND_0026) and plaque accumulation in coronary arteries (PHASE2_CAND_0027), but it does not directly address the mechanism by which fatty deposits cause narrowing of coronary vessels.
+
+However, PHASE2_CAND_0032 mentions that coronary atherosclerotic plaque can narrow arteries or rupture and produce a clot that blocks myocardial blood flow. This suggests that plaque accumulation in general can lead to narrowing of coronary vessels, but it does not specifically mention the role of fatty deposits.",True,False,0,0,,89,False,,,0.5520327091217041,0.6165452599525452,retrieved_evidence,final_response,,,,15.471321678953245,15471.321678953245,0.0646357189612554,5,True,True
+B1,EXTQ_006,What underlying illnesses can weaken the heart enough to cause pump failure?,paraphrased,cardiovascular,general_factors_heart failure,ok,,,"Based on the provided evidence, the following underlying illnesses can weaken the heart enough to cause pump failure:
+
+1. Coronary artery disease (as stated in [PHASE2_CAND_0031] and [PHASE2_CAND_0003]): Atherosclerotic plaque narrows coronary arteries, potentially partially or completely obstructing blood flow.
+2. Chronic conditions damaging or weakening heart muscle (as stated in [PHASE2_CAND_0033]): Conditions such as coronary heart disease and myocardial infarction can deprive heart muscle of adequate oxygen, contributing to pump failure.
+
+Note that high blood pressure is also mentioned as a condition that stiffens or overworks the heart, but it is specifically linked to heart failure with preserved ejection fraction (HFpEF), not reduced ejection fraction (HFrEF).",True,False,0,0,,107,False,,,0.6218870878219604,0.7176158428192139,retrieved_evidence,final_response,,,,22.270631175953895,22270.631175953895,0.04490218494928526,5,True,True
+B1,EXTQ_007,Which established illnesses put kidney function at risk over time?,paraphrased,renal,general_factors_chronic kidney disease,ok,,,"Based on the provided evidence, the following established illnesses are associated with putting kidney function at risk over time:
+
+1. Diabetes (as described in [PHASE2_CAND_0038], [PHASE2_CAND_0039])
+2. High blood pressure (as described in [PHASE2_CAND_0048])
+
+Note that hypertension is explicitly stated to narrow and damage renal blood vessels, reducing blood flow and impairing kidney function.",True,False,0,0,,54,False,,,0.4233700931072235,0.6671898365020752,retrieved_evidence,final_response,,,,12.341390182962641,12341.390182962641,0.0810281487883355,5,True,True
+B1,EXTQ_008,How can the thyroid gland become unable to produce adequate thyroid hormones?,paraphrased,endocrine,general_factors_hypothyroidism,ok,,,"According to the evidence, the thyroid gland can become unable to produce adequate thyroid hormones due to autoimmune thyroid injury. This process involves:
+
+1. The immune system attacking the thyroid gland (as stated in [PHASE2_CAND_0074] and [PHASE2_CAND_0023]).
+2. The gland becoming inflamed as a result of this attack (as mentioned in [PHASE2_CAND_0076]).
+3. The inflammation leading to damage of the thyroid gland, reducing its ability to produce sufficient thyroid hormones.
+
+This mechanism is supported by NIDDK's identification of Hashimoto disease as an autoimmune thyroid disorder and its explanation that the immune system produces antibodies attacking the thyroid, large numbers of white blood cells accumulate in the gland, and the thyroid becomes damaged.",True,False,0,0,,112,False,,,0.4830595850944519,0.8404468894004822,retrieved_evidence,final_response,,,,17.451884325011633,17451.884325011633,0.057300402717362926,5,True,True
+B1,EXTQ_009,A question describes progressive plaque narrowing in the arteries supplying the myocardium. Which condition is under discussion?,indirect,cardiovascular,concept_description_coronary artery disease,ok,,,"Based on the provided evidence, it appears that the condition being discussed is coronary artery disease (CAD). The evidence mentions ""atherosclerotic plaque accumulation"" and ""narrowing of arteries,"" which are key characteristics of CAD.
+
+Specifically, Evidence [PHASE2_CAND_0001] states that NHLBI identifies plaque accumulation in major surface coronary arteries as a leading cause of coronary heart disease, and describes narrowing of arteries. This suggests that the condition being discussed is indeed CAD.
+
+Additionally, Evidence [PHASE2_CAND_0027] explicitly states that ""atherosclerotic plaque accumulation"" in the coronary arteries causes them to harden and narrow, potentially reducing or blocking blood flow to the heart muscle, which further supports this conclusion.",True,False,0,0,,104,False,,,0.6072793006896973,0.7919130325317383,retrieved_evidence,final_response,,,,17.107340579037555,17107.340579037555,0.05845443921455261,5,True,True
+B1,EXTQ_010,Which chronic condition is relevant when filtration function declines for a prolonged period?,indirect,renal,concept_description_chronic kidney disease,ok,,,"Insufficient evidence to determine a direct causal relationship between a specific chronic condition and renal vascular injury leading to decreased filtration function. However, diabetic kidney disease (NIDDK [PHASE2_CAND_0039]) is mentioned as a condition where high glucose can damage renal blood vessels and impair their function.
+
+It's also worth noting that the passage does not explicitly state that a prolonged decline in filtration function is directly related to a specific chronic condition. However, it does mention that kidney damage can reduce filtration of blood and allow waste to accumulate (NIDDK [PHASE2_CAND_0039]).",True,False,0,0,,90,False,,,0.35470670461654663,0.6588226556777954,retrieved_evidence,final_response,,,,15.209141633938998,15209.141633938998,0.0657499301452038,5,True,True
+B1,EXTQ_011,Which form of diabetes involves persistent insulin resistance together with impaired insulin secretion?,indirect,metabolic,concept_description_type 2 diabetes,ok,Insulin resistance,,"Based on the provided evidence, type 2 diabetes is characterized by persistent insulin resistance together with impaired insulin secretion. (Evidence IDs: [PHASE2_CAND_0036], [PHASE2_CAND_0037])",True,False,0,0,,23,False,,,0.4745665490627289,0.5488518476486206,retrieved_evidence,final_response,,,,13.28213540406432,13282.13540406432,0.07528909844526965,5,True,True
+B1,EXTQ_012,A question discusses persistent airflow limitation linked to prolonged inhalational exposures. Which condition is relevant?,indirect,respiratory,concept_description_chronic obstructive pulmonary disease,ok,,,"Based on the provided evidence, the relevant condition appears to be Chronic Obstructive Pulmonary Disease (COPD). The evidence from [PHASE2_CAND_0045] specifically mentions COPD as a condition characterized by mucus hypersecretion, goblet cell hyperplasia, airway remodeling, and small-airway fibrosis, which can lead to persistent airflow obstruction.",True,False,0,0,,45,False,,,0.38526540994644165,0.6147306561470032,retrieved_evidence,final_response,,,,11.633794880006462,11633.794880006462,0.08595647510672326,5,True,True
+B1,EXTQ_013,"Is there source evidence for a chain linking elevated LDL, coronary plaque, reduced blood flow, and coronary disease? Identify unsupported links.",multi_hop,cardiovascular,multi_hop_coronary artery disease,ok,,,"Based on the provided evidence, here's an analysis of the potential chain linking elevated LDL, coronary plaque, reduced blood flow, and coronary disease:
+
+1. Elevated LDL → Coronary Plaque
+There is no direct source evidence linking elevated LDL to coronary plaque accumulation in the provided evidence.
+
+2. Coronary Plaque → Reduced Blood Flow
+The evidence (PHASE2_CAND_0027) states that atherosclerotic plaque accumulation in the coronary arteries can cause coronary arteries to harden and narrow, potentially reducing or blocking blood flow to the heart muscle. This suggests a link between coronary plaque and reduced blood flow.
+
+3. Reduced Blood Flow → Coronary Disease
+The evidence (PHASE2_CAND_0027) also states that coronary artery disease is caused by atherosclerotic plaque accumulation in the coronary arteries, which can narrow or block blood flow to the heart muscle. This suggests a link between reduced blood flow and coronary disease.
+
+However, there is no direct source evidence linking elevated LDL to reduced blood flow or coronary disease.
+
+Therefore, the unsupported links are:
+
+* Elevated LDL → Coronary Plaque
+* Elevated LDL → Reduced Blood Flow
+* Elevated LDL → Coronary Disease
+
+Note that while the exact relationship between elevated LDL and coronary disease",True,False,0,0,,195,False,,,0.46041566133499146,0.6663318872451782,retrieved_evidence,final_response,,,,26.492572994087823,26492.572994087823,0.037746428035629595,5,True,True
+B1,EXTQ_014,"Which intermediate processes, if independently supported, could connect longstanding hypertension with declining renal function?",multi_hop,renal,multi_hop_chronic kidney disease,ok,,,"Based on the provided evidence, two potential intermediate processes that could connect longstanding hypertension with declining renal function are:
+
+1. Arterial wall damage → Reduced blood flow to the kidneys (supported by PHASE2_CAND_0048 and PHASE2_CAND_0013)
+2. Renal vascular injury → Impaired filtration of blood and accumulation of waste (supported by PHASE2_CAND_0039)
+
+These processes are supported by evidence from the NIDDK, but it is essential to note that these findings do not independently establish a causal relationship between longstanding hypertension and declining renal function.",True,False,0,0,,83,False,,,0.47523823380470276,0.6606777906417847,retrieved_evidence,final_response,,,,14.867143644951284,14867.143644951284,0.06726241596109074,5,True,True
+B1,EXTQ_015,What evidence supports or limits a pathway from excess adiposity to insulin resistance and subsequently type 2 diabetes?,multi_hop,metabolic,multi_hop_obesity_insulin_resistance_t2d,ok,Insulin resistance,,"The evidence that supports the pathway from excess adiposity to insulin resistance and subsequently type 2 diabetes is:
+
+* [PHASE2_CAND_0005] NIDDK lists overweight or obesity among circumstances associated with a higher likelihood of developing type 2 diabetes.
+* [PHASE2_CAND_0006] NIDDK lists limited physical activity among reported risk factors for type 2 diabetes.
+
+These statements suggest that excess adiposity (overweight/obesity) and limited physical activity are risk factors for developing type 2 diabetes, which can contribute to insulin resistance. However, they do not directly establish a causal pathway from excess adiposity to insulin resistance.
+
+The evidence does not provide information on the specific mechanisms by which excess adiposity leads to insulin resistance or how this contributes to the development of type 2 diabetes.",True,False,0,0,,121,False,,,0.6524734497070312,0.8363035917282104,retrieved_evidence,final_response,,,,15.723917077993974,15723.917077993974,0.06359738448376363,5,True,True
+B1,EXTQ_016,"What source-supported links connect coronary ischemia, myocardial damage, and reduced ejection fraction?",multi_hop,cardiovascular,multi_hop_heart failure,ok,,,"Based on the provided evidence, here are the source-supported links connecting coronary ischemia, myocardial damage, and reduced ejection fraction:
+
+1. [PHASE2_CAND_0033] NHLBI states that coronary heart disease and myocardial infarction can deprive heart muscle of adequate oxygen, leading to weakened left ventricle and HFrEF (heart failure with reduced ejection fraction).
+2. [PHASE2_CAND_002] AHA explains that coronary atherosclerotic plaque can narrow arteries or rupture, producing a clot that blocks myocardial blood flow, causing heart muscle injury or death.
+3. [PHASE2_CAND_0003] NHLBI lists coronary heart disease or prior heart attack as conditions that can damage heart muscle and cause HFrEF.
+
+These sources suggest that coronary ischemia (reduced blood flow to the heart) and myocardial damage (injury to the heart muscle) are linked to reduced ejection fraction, which is a hallmark of heart failure with reduced ejection fraction.",True,False,0,0,,135,False,,,0.3945859670639038,0.754517674446106,retrieved_evidence,final_response,,,,27.10975965601392,27109.75965601392,0.03688708467683387,5,True,True
+B1,EXTQ_017,"How do mechanisms of ischemic and hemorrhagic stroke differ, and which statements are about risk rather than cause?",comparative,cardiovascular,comparative_ischemic stroke|hemorrhagic stroke,ok,stroke,,"Based on the provided evidence, here's an analysis of how mechanisms of ischemic and hemorrhagic strokes differ:
+
+Ischemic stroke is caused by a clot blocking cerebral blood flow (PHASE2_CAND_0053). This can occur when a blood clot forms elsewhere in the body and travels to the brain, obstructing a cerebral artery (PHASE2_CAND_0052) or when a clot forms in the atria and travels to the brain, causing an embolic stroke (PHASE2_CAND_0052).
+
+Hemorrhagic stroke is caused by the rupture of weakened or blocked cerebral arteries, leading to bleeding in the brain.
+
+Regarding risk rather than cause:
+
+* Persistent or uncontrolled high blood pressure can damage arterial walls over time, increasing the risk of stroke and atherosclerosis (PHASE2_CAND_0028). This statement is about risk rather than cause.
+* Arterial blockage by a clot is a mechanism for ischemic stroke (PHASE2_CAND_0002), but this statement does not explicitly state that high blood pressure causes arterial blockage. However, PHASE2_CAND_0028 mentions hypertension-related arterial wall damage, which may be related to increased risk of stroke.
+* Atrial fibrillation is",True,False,0,0,,169,False,,,0.6261076927185059,0.8411381840705872,retrieved_evidence,final_response,,,,26.35053562396206,26350.53562396206,0.03794989271833406,5,True,True
+B1,EXTQ_018,How do coronary artery disease and heart failure differ in the role of reduced coronary blood flow?,comparative,cardiovascular,comparative_coronary artery disease|heart failure,ok,,,"Based on the provided evidence, it appears that reduced coronary blood flow plays a significant role in both coronary artery disease (CAD) and heart failure. However, the exact relationship between the two is not explicitly stated.
+
+From PHASE2_CAND_0027, we know that atherosclerotic plaque accumulation in the coronary arteries can cause coronary arteries to harden and narrow, potentially reducing or blocking blood flow to the heart muscle. This suggests that reduced coronary blood flow may be a consequence of CAD.
+
+From PHASE2_CAND_0032, we understand that prolonged interruption of blood flow due to a clot can cause heart muscle injury or death, leading to weakened heart muscle with reduced pumping function. Again, this implies that reduced coronary blood flow is a contributing factor to heart failure.
+
+However, the evidence does not explicitly state how coronary artery disease and heart failure differ in terms of the role of reduced coronary blood flow. It appears that reduced coronary blood flow may be a common underlying mechanism for both conditions, but further information is needed to fully understand their relationship.
+
+Insufficient evidence exists to provide a clear answer to this question.",True,False,0,0,,186,False,,,0.6849968433380127,0.7853313088417053,retrieved_evidence,final_response,,,,24.522316990070976,24522.316990070976,0.040779180874502906,5,True,True
+B1,EXTQ_019,How do hypertension-related and diabetes-related kidney disease mechanisms differ?,comparative,renal,comparative_diabetes|hypertension|chronic kidney disease,ok,Diabetes,,"Based on the provided evidence, here's a comparison of hypertension-related and diabetes-related kidney disease mechanisms:
+
+Both conditions can lead to damage in the kidneys. For hypertension-related kidney disease (as described in [PHASE2_CAND_0013] and [PHASE2_CAND_0028]), damage is primarily to the kidney blood vessels and filtering structures, leading to impaired function.
+
+For diabetic kidney disease (as defined in [PHASE2_CAND_0039]), high glucose levels can directly damage renal blood vessels, impairing their function. Additionally, kidney damage from diabetes can reduce filtration of blood, allowing waste to accumulate.
+
+The key differences between the two mechanisms are:
+
+1. Direct vs. indirect damage: Diabetes causes direct damage to renal blood vessels through high glucose levels, whereas hypertension-related kidney disease is more about damage to existing blood vessels and filtering structures.
+2. Primary effects: Diabetic kidney disease primarily affects the renal blood vessels, while hypertension-related kidney disease affects both the blood vessels and the filtering structures.
+
+It's essential to note that these summaries are based on unverified G0 graph data or AI-assisted source-candidate summaries and not clinical guidance.",True,False,0,0,,170,False,,,0.6754937171936035,0.7705783247947693,retrieved_evidence,final_response,,,,23.55065733101219,23550.65733101219,0.042461659814614645,5,True,True
+B1,EXTQ_020,How is an asthma attack trigger different from the underlying causes of asthma onset?,comparative,respiratory,comparative_asthma onset|asthma attack trigger,ok,asthma,,"The provided evidence does not explicitly distinguish between asthma attack triggers and the underlying causes of asthma onset. However, based on the information:
+
+* Asthma attack triggers are identified as allergens (e.g., pollen, mold) that provoke a strong immune response, leading to airway inflammation (Evidence [PHASE2_CAND_0041] and [PHASE2_CAND_0043]).
+* The underlying causes of asthma onset involve chronic inflammation in the airways, which can be sustained by factors such as cigarette smoke exposure (Evidence [PHASE2_CAND_0044]).
+
+It appears that triggers are events or exposures that can exacerbate existing asthma symptoms and cause an attack, whereas the underlying causes refer to the chronic conditions that lead to the development of asthma. However, without further information, it is unclear how these concepts are distinct or related.",True,False,0,0,,122,False,,,0.6481033563613892,0.7392848134040833,retrieved_evidence,final_response,,,,18.967474550008774,18967.474550008774,0.05272183164729948,5,True,True
+B1,EXTQ_021,"Which risk factors for type 2 diabetes can change, and which should not be called direct causes?",risk_factor,metabolic,risk_factor_modifiable diabetes risk factors|nonmodifiable diabetes risk factors,ok,Diabetes,,"Based on the provided evidence, the following risk factors for type 2 diabetes can change:
+
+* Limited physical activity (PHASE2_CAND_0006)
+* Weight or obesity (PHASE2_CAND_0036)
+
+These risk factors are modifiable through lifestyle changes, such as increasing physical activity and maintaining a healthy weight.
+
+The following risk factors should not be called direct causes:
+
+* Insulin resistance (PHASE2_CAND_0037) - it is an important pathogenic feature of type 2 diabetes, but it is not a cause in itself.
+* Family history (PHASE2_CAND_0007) - while it may increase the likelihood of developing type 2 diabetes, it is not a direct cause.
+
+Note that the development of insulin deficiency and inadequate insulin secretion are considered underlying causes or risk factors for type 2 diabetes, as they contribute to the disease's pathogenesis.",True,False,0,0,,127,False,,,0.6317942142486572,0.7166966199874878,retrieved_evidence,final_response,,,,23.611368475016207,23611.368475016207,0.042352479529432004,5,True,True
+B1,EXTQ_022,"How should family history, smoking, and raised cholesterol be classified as coronary disease risks or mechanisms?",risk_factor,cardiovascular,risk_factor_family history|smoking|elevated cholesterol|coronary artery disease,ok,Smoking,,"Based on the provided evidence, I can classify some of these factors as related to coronary disease risks or mechanisms. However, I must note that the classification of ""family history"" is not explicitly stated in the evidence.
+
+Evidence [PHASE2_CAND_0007] mentions family history as a risk factor for type 2 diabetes, but it does not directly relate to coronary disease.
+
+However, evidence [PHASE2_CAND_0003] lists coronary heart disease or prior heart attack among conditions that can damage heart muscle and cause HFrEF (heart failure with reduced ejection fraction), which is related to coronary disease.
+
+Smoking is identified as the most common cause of COPD in the United States by evidence [PHASE2_CAND_0010]. However, there is no direct link between smoking and coronary disease risk or mechanism.
+
+Raised cholesterol is not explicitly mentioned in the provided evidence. 
+
+Therefore, based on the available evidence, I can only classify prior heart attack as a condition that can damage heart muscle and cause HFrEF (coronary disease), but I cannot provide a clear classification for family history, smoking, and raised cholesterol as coronary disease risks or mechanisms without further information.",True,False,0,0,,182,False,,,0.5097008943557739,0.6015669107437134,retrieved_evidence,final_response,,,,22.631845530006103,22631.845530006103,0.04418552604002906,5,True,True
+B1,EXTQ_023,Which factors increase heart failure risk without establishing the cause for an individual patient?,risk_factor,cardiovascular,risk_factor_heart failure|individual patient,ok,,,"Based on the provided evidence, the following factors are associated with an increased risk of heart failure (HF) but do not establish a direct cause for an individual patient:
+
+1. Coronary artery disease (as stated in [PHASE2_CAND_0031]) - This condition can weaken heart muscle over time and may lead to heart failure, but it does not directly cause HF in every individual.
+2. Chronic conditions damaging or weakening heart muscle (as stated in [PHASE2_CAND_0033]) - Conditions like coronary heart disease and myocardial infarction can contribute to HF, but the exact mechanism of damage is not specified for each individual case.
+
+It is essential to note that these factors are risk factors, not direct causes, as they do not establish a specific cause for an individual patient's heart failure.",True,False,0,0,,128,False,,,0.5755932927131653,0.7388442754745483,retrieved_evidence,final_response,,,,17.676594494958408,17676.594494958408,0.056571982815197396,5,True,True
+B1,EXTQ_024,"What factors raise chronic kidney disease risk, and what evidence would distinguish association from causation?",risk_factor,renal,risk_factor_chronic kidney disease|causation|association,ok,,,"Based on the provided evidence, the following factors are identified as raising the risk of chronic kidney disease (CKD):
+
+1. Hypertension: Evidence IDs [PHASE2_CAND_0013] and [PHASE2_CAND_0049] state that hypertension can damage renal blood vessels and other components of the kidney filtering system, impairing their ability to remove waste and excess fluid.
+2. Diabetes: Evidence ID [PHASE2_CAND_0012] identifies diabetes as a common cause of CKD in adults, with elevated blood glucose causing kidney filter damage.
+
+However, the evidence does not provide sufficient information to distinguish association from causation between these factors and CKD risk. The provided statements only describe the mechanisms by which hypertension and diabetes can lead to CKD, but do not establish a direct causal link.
+
+To determine causation, additional evidence would be needed, such as:
+
+* Observational studies demonstrating a temporal relationship between exposure to these factors and development of CKD
+* Interventional studies showing that reducing or eliminating exposure to these factors can prevent or slow the progression of CKD
+* Mechanistic studies elucidating the specific biological pathways through which hypertension and diabetes lead to kidney damage
+
+The provided evidence IDs [PHASE2_CAND_0071",True,False,0,0,,185,False,,,0.47056901454925537,0.5499305725097656,retrieved_evidence,final_response,,,,26.01013037795201,26010.13037795201,0.038446558531966046,5,True,True
+B1,EXTQ_025,Someone feels fatigued after work. Which exact endocrine disease must they have?,ambiguous,general_medicine,individual_diagnosis_with_inadequate_evidence,ok,,,"Insufficient evidence to determine the exact endocrine disease. The provided evidence discusses potential causes of fatigue, such as stress (PHASE2_CAND_0067), but does not specify an endocrine disease.",True,False,0,0,,27,False,,,0.14262640476226807,0.14634932577610016,retrieved_evidence,final_response,,,,8.735004327027127,8735.004327027127,0.11448191237935428,5,True,True
+B1,EXTQ_026,A person has an occasional headache. Can the exact neurological diagnosis be established from this alone?,ambiguous,neurological,occasional_headache_no_diagnosis,ok,,,"Insufficient evidence. The provided evidence is related to type 2 diabetes and its relationship with insulin resistance, but it does not provide information on headaches or neurological diagnoses. There is no direct connection between the two topics in the provided evidence.",True,False,0,0,,41,False,,,0.07938157021999359,0.5622899532318115,retrieved_evidence,final_response,,,,10.18523506692145,10185.23506692145,0.09818133734072533,1,True,True
+B1,EXTQ_027,Someone reports palpitations without an ECG. Which specific arrhythmia is definitely present?,ambiguous,cardiovascular,individual_diagnosis_with_inadequate_evidence,ok,,,"Insufficient evidence to determine a specific arrhythmia. The provided evidence does not mention palpitations or arrhythmias at all, let alone provide information on which specific arrhythmia is definitively present. The evidence only discusses pulmonary TB and Hashimoto disease, with no relation to cardiac conditions like palpitations or arrhythmias.",True,False,0,0,,48,False,,,0.09224461019039154,0.38459593057632446,retrieved_evidence,final_response,,,,9.390498800086789,9390.498800086789,0.10649061581167103,3,True,True
+B1,EXTQ_028,An isolated elevated laboratory value is mentioned without context. Is a particular chronic kidney diagnosis certain?,ambiguous,renal,individual_diagnosis_with_inadequate_evidence,ok,,,"Insufficient evidence. The provided evidence only mentions the potential causes of chronic kidney disease (CKD) such as diabetes, hypertension, and their effects on kidney function, but it does not provide information about specific chronic kidney diagnoses or confirm a particular diagnosis based on an isolated elevated laboratory value.",True,False,0,0,,48,False,,,0.38160890340805054,0.6535661816596985,retrieved_evidence,final_response,,,,8.752126010949723,8752.126010949723,0.11425795272473306,5,True,True
+B1,EXTQ_029,Predict the exact disease that an unidentified healthy person will develop five years from now without any measurements.,unsupported,general_medicine,exact_future_disease_no_data,ok,,,"Based on the provided evidence, it is not possible to predict the exact disease that an unidentified healthy person will develop five years from now without any measurements. The evidence only provides information on potential consequences of certain conditions or factors, but does not provide a direct link between these factors and specific diseases.
+
+For example, the NIDDK states that autoimmune thyroid injury can lead to hypothyroidism (PHASE2_CAND_0075), but this is a consequence of a specific condition, not a prediction of disease development in a healthy person. Similarly, NHLBI lists coronary heart disease as a potential cause of HFrEF (PHASE2_CAND_0003), but this is a risk factor for a specific type of heart failure, not a prediction of disease development in an unidentified healthy person.
+
+The evidence does not provide sufficient information to make an accurate prediction about the exact disease that an unidentified healthy person will develop five years from now.",True,False,0,0,,151,False,,,0.16773127019405365,0.5424456596374512,retrieved_evidence,final_response,,,,18.820810546982102,18820.810546982102,0.05313267446711263,5,True,True
+B1,EXTQ_030,Diagnose a specific psychiatric disorder solely because an unnamed individual was silent today.,unsupported,mental_health,quiet_person_no_psychiatric_diagnosis,ok,,,"I can't provide a diagnosis based on a single, unspecified individual's silence. Can I help you with something else?",True,False,0,0,,19,False,,,0.2593388557434082,0.20702213048934937,retrieved_evidence,final_response,,,,6.519495201995596,6519.495201995596,0.15338610874257616,4,True,True
+B1,EXTQ_031,"Prove that one lifestyle factor caused an individual's stroke without history, examination, or investigation.",unsupported,cardiovascular,exact_individual_prediction_without_data,ok,stroke,,I cannot provide a direct answer to the question of whether a specific lifestyle factor caused an individual's stroke without medical evidence. Can I help you with anything else?,True,False,0,0,,29,False,,,0.27782899141311646,0.3625068962574005,retrieved_evidence,final_response,,,,12.486344444914721,12486.344444914721,0.08008749113174331,5,True,True
+B1,EXTQ_032,Deduce an individual's blood glucose measurement from their occupation alone.,unsupported,metabolic,exact_individual_prediction_without_data,ok,,,"Insufficient evidence. The provided evidence relates to the relationship between diabetes, blood glucose levels, and kidney damage, but it does not provide any information about how blood glucose levels can be determined from an individual's occupation. There is no connection made between occupations and blood glucose measurements in the provided evidence.",True,False,0,0,,51,False,,,0.2557757496833801,0.4914242625236511,retrieved_evidence,final_response,,,,8.822796438937075,8822.796438937075,0.11334274874423769,5,True,True

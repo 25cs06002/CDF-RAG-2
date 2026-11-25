@@ -1,0 +1,2 @@
+model,query_id,query_type,medical_domain,semantic_group,pipeline_status,label,confidence,substantive,grounding,answer_completeness,fabricated_citation,detector_flag,evidence_returned,latency_ms,SUPPORTED,PARTIALLY_SUPPORTED,CONTRADICTED,UNSUPPORTED,UNVERIFIABLE,NON_FACTUAL,claims_without_evidence_ids
+B7,PILOT_084,risk_factor,oncology,risk_factor_lung cancer,ok,Uncertain,low,True,MISREPRESENTS_CONTEXT,minimal,False,True,True,69984.35444792267,1,0,0,0,1,0,0

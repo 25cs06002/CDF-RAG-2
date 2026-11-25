@@ -1,0 +1,19 @@
+{
+  "pairs": 132,
+  "transitions": {
+    "ok_to_ok": 54,
+    "abstained_to_ok": 45,
+    "abstained_to_abstained": 33
+  },
+  "v2_partial_path": 11,
+  "v2_nonnegative_candidate_answers": 99,
+  "v2_negative_answered": 0,
+  "v1_mean_latency_ms": 2008.7576416364313,
+  "v2_mean_latency_ms": 5330.699525477416,
+  "v1_qps": 0.4974571062937393,
+  "v2_qps": 0.18758435672732054,
+  "v1_manifest_sha256": "2a90a8bcf30cf92b7cbd6bbcac41cfec1f86d5e91b81e5ed840e3a9146f856f1",
+  "v2_manifest_sha256": "4eea5fce78929d34342a18077745434df1d6960021d81e459ab19ce81029ce6c",
+  "medical_accuracy": null,
+  "warning": "Candidate availability and abstention behavior only. Partial evidence is not complete answer correctness. Development-exposed 132."
+}

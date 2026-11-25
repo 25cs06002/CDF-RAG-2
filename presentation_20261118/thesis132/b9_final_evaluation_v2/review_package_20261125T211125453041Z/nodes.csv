@@ -1,0 +1,79 @@
+node_id,name
+4:f21e9107-5996-47c4-a4d9-d203faf78f21:22,Air pollution
+4:f21e9107-5996-47c4-a4d9-d203faf78f21:24,Allergies
+4:f21e9107-5996-47c4-a4d9-d203faf78f21:27,Atherosclerosis
+4:f21e9107-5996-47c4-a4d9-d203faf78f21:28,Blood clots
+4:f21e9107-5996-47c4-a4d9-d203faf78f21:33,Chronic stress
+4:f21e9107-5996-47c4-a4d9-d203faf78f21:3,Diabetes
+4:f21e9107-5996-47c4-a4d9-d203faf78f21:19,Environmental factors during pregnancy
+4:f21e9107-5996-47c4-a4d9-d203faf78f21:13,Environmental toxins
+4:f21e9107-5996-47c4-a4d9-d203faf78f21:20,Exposure to certain toxins
+4:f21e9107-5996-47c4-a4d9-d203faf78f21:14,Family history of diabetes
+4:f21e9107-5996-47c4-a4d9-d203faf78f21:17,Family history of disease
+4:f21e9107-5996-47c4-a4d9-d203faf78f21:12,Food sensitivities
+4:f21e9107-5996-47c4-a4d9-d203faf78f21:5,Genetic predisposition
+4:f21e9107-5996-47c4-a4d9-d203faf78f21:2,High blood pressure
+4:f21e9107-5996-47c4-a4d9-d203faf78f21:11,Hormonal changes
+4:f21e9107-5996-47c4-a4d9-d203faf78f21:18,Inherited traits from parents
+4:f21e9107-5996-47c4-a4d9-d203faf78f21:16,Insulin resistance
+4:f21e9107-5996-47c4-a4d9-d203faf78f21:15,Lack of physical activity
+4:f21e9107-5996-47c4-a4d9-d203faf78f21:30,Lack of social support
+4:f21e9107-5996-47c4-a4d9-d203faf78f21:4,Poor diet
+4:f21e9107-5996-47c4-a4d9-d203faf78f21:34,Poor sleep habits
+4:f21e9107-5996-47c4-a4d9-d203faf78f21:7,Radon exposure
+4:f21e9107-5996-47c4-a4d9-d203faf78f21:21,Random chance and natural selection
+4:f21e9107-5996-47c4-a4d9-d203faf78f21:25,Respiratory infections
+4:f21e9107-5996-47c4-a4d9-d203faf78f21:10,Sleep deprivation
+4:f21e9107-5996-47c4-a4d9-d203faf78f21:0,Smoking
+4:f21e9107-5996-47c4-a4d9-d203faf78f21:8,Stress
+4:f21e9107-5996-47c4-a4d9-d203faf78f21:29,Traumatic brain injury
+4:f21e9107-5996-47c4-a4d9-d203faf78f21:32,Traumatic event
+4:f21e9107-5996-47c4-a4d9-d203faf78f21:23,asthma
+4:f21e9107-5996-47c4-a4d9-d203faf78f21:31,depression
+4:f21e9107-5996-47c4-a4d9-d203faf78f21:1,heart disease
+4:f21e9107-5996-47c4-a4d9-d203faf78f21:6,lung cancer
+4:f21e9107-5996-47c4-a4d9-d203faf78f21:9,migraine
+4:f21e9107-5996-47c4-a4d9-d203faf78f21:26,stroke
+G1N_5d6308ddf61518ad,chronic kidney disease
+G1N_cdb1e0b04ff4078b,chronic obstructive pulmonary disease
+G1N_1fbdec82ad4ec1e1,coronary artery disease
+G1N_0f647821be81480c,epilepsy
+G1N_671d63b4d61ba496,heart failure
+G1N_6a61b0e512718405,hypothyroidism
+G1N_d8118a0caa5642c6,kidney disease
+G1N_a3cca0ced5ece765,obesity
+G1N_72a8df6694d5ca04,pneumonia
+G1N_2b2dde3ad0e1f7ba,tuberculosis
+G1N_949d7dc420db0a74,type 2 diabetes
+G1N_b0f31813fcf42f5b,Cigarette smoking
+G1N_c97f813b4b1cb70f,Atherosclerotic plaque buildup in arteries
+G1N_8eafcf1f86af515a,Lung tissue injury and scarring
+G1N_684d08aec842802f,Persistent respiratory limitation after tuberculosis
+G1N_c6e84dd4b147b5c6,Persistent high blood pressure
+G1N_5f11738f8b3a6798,Arterial wall damage
+G1N_512682d7816eaacc,Heart muscle damage or weakening
+G1N_8f05a3135ecee4ac,Excess adiposity
+G1N_7ebb17e1cb269a59,Type 2 diabetes mellitus
+G1N_92138c2653a5cf1f,Chronic high blood glucose
+G1N_429e41e16b66dcec,Damage to kidney blood vessels
+G1N_794750f19fc9d054,Inhaled allergens in susceptible individuals
+G1N_4c3fdf5d7ca7641d,Airway inflammation
+G1N_3ccf883d4dedc014,Asthma exacerbations
+G1N_aeefc7e85bff1829,Longstanding high blood pressure
+G1N_5f9386ba11ebb58e,Damage and narrowing of kidney blood vessels
+G1N_353076c8e91a0e53,Impaired kidney filtration
+G1N_09417dacb7279d00,Atrial fibrillation
+G1N_db2949b9ca9df1c8,Atrial thrombus formation
+G1N_1a79084389317aa9,Cardioembolic ischemic stroke
+G1N_b9d6333e1b590583,Structural brain injury and epileptogenic remodeling
+G1N_2ea3fb13f1506116,Post-traumatic epilepsy
+G1N_7c8f97001924448d,Respiratory pathogen infection of the alveoli
+G1N_c944373938741c96,Alveolar immune inflammation with fluid or pus
+G1N_93948d0372f1455e,Chronic psychological stress
+G1N_75eb93fd0de5cc35,Insomnia
+G1N_345a2e6509d2e894,Later depressive symptoms
+G1N_e1b410345c116510,Prolonged tobacco smoke exposure
+G1N_4343b044ce70d8d9,DNA damage in lung cells
+G1N_cd16a63aaa6e0aae,Autoimmune attack on the thyroid in Hashimoto disease
+G1N_87bb5f644af07634,Inflammation and damage to thyroid tissue
+G1N_3ce4222249e73c58,Reduced thyroid hormone production (hypothyroidism)

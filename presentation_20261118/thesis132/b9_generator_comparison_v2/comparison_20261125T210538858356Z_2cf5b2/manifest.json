@@ -1,0 +1,21 @@
+{
+  "schema": "B9_GENERATOR_COMPARISON_V1",
+  "records": 396,
+  "run_manifest_sha256": {
+    "llama3b": "c1dc73fdcaa3349b38ece07370bd2ec4fe6a784e83e1aea52c099d6eaaf7c03a",
+    "llama1b": "8d6496a3cf5cb68a5394da8cbb0ccaf5bdb78d1e47672c9b323617e4250e3597",
+    "qwen15b": "2f723e507412c5cb347d0301f27dc283c4fc30dbc0777f32ed752f361185d2c0"
+  },
+  "limitations": [
+    "Same controller, compact IDs and evidence snapshot; model-driven feedback can change later evidence sets.",
+    "Token counts depend on model tokenizer; not identical token units across families.",
+    "Separate single-run measurements, no controlled OS memory/thermal state. System RAM and CPU include unrelated processes; RSS sum can miss restricted processes or double count shared pages.",
+    "All quality metrics require fresh answer-specific review; no gold or clinical accuracy claimed."
+  ],
+  "outputs_sha256": {
+    "generator_by_query_type_132.csv": "139c2d104292832046df79d3b95bbc62a4d85e4362157588cc8aa2c765fc1c10",
+    "generator_per_query_132.csv": "c29faeeb967882da683eeb8665b47f1a977e2afc933e47927476dcda38b54724",
+    "generator_summary_132.csv": "b37d404410f5d9501389a394e6656614f4dd471fe06e7ba46857c32483f10d23",
+    "paired_summary.json": "3d6d3df660c0178095659e772f7e9828e0f4d18ddbfaf7fd4136633ea1cf65c1"
+  }
+}

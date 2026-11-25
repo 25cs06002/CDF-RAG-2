@@ -1,0 +1,46 @@
+{
+  "model": "B9",
+  "variant": "B9_v2",
+  "policy": "adaptive",
+  "questions": 132,
+  "ok": 99,
+  "abstained": 33,
+  "errors": 0,
+  "candidate_evidence_count": 100,
+  "answer_present_count": 99,
+  "mean_latency_ms": 5330.699525477416,
+  "median_latency_ms": 5825.5157620005775,
+  "p95_latency_ms": 10687.554574599744,
+  "mean_latency_ok_ms": 6975.118350626394,
+  "wall_time_seconds": 703.6834110419986,
+  "actual_run_throughput_qps": 0.18758435672732054,
+  "mean_rounds": 1.2803030303030303,
+  "total_selector_calls": 100,
+  "retrieval_cache_hits": 1,
+  "stop_reasons": {
+    "selected_candidate_evidence": 99,
+    "insufficient_candidate_evidence": 1,
+    "unsupported_comparison_scope": 7,
+    "individual_or_underdetermined_inference": 24,
+    "invalid_selector_output": 1
+  },
+  "answer_scopes": {
+    "candidate_answer": 79,
+    "partial_path_evidence": 11,
+    "strict_typed_path": 1,
+    "none": 33,
+    "comparison_evidence": 8
+  },
+  "route_counts": {
+    "targeted": 56,
+    "descriptive": 23,
+    "pathway": 13,
+    "comparison": 8,
+    "unsupported_comparison": 7,
+    "multi_concept_document": 1,
+    "guard": 24
+  },
+  "medical_accuracy": null,
+  "ai_hallucination_rate": null,
+  "clinical_groundedness": null
+}

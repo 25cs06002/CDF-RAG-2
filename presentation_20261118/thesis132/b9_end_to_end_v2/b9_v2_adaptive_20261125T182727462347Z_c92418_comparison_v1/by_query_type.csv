@@ -1,0 +1,9 @@
+query_type,queries,v1_ok,v2_ok,v2_partial_path
+ambiguous,12,0,0,0
+comparative,16,1,9,0
+direct,19,19,19,0
+indirect,19,2,19,0
+multi_hop,19,4,17,11
+paraphrased,19,15,19,0
+risk_factor,16,13,16,0
+unsupported,12,0,0,0

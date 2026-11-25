@@ -1,0 +1,24 @@
+{
+  "schema": "THESIS132_B9_ROUND_ABLATION_V1",
+  "records": 396,
+  "run_manifest_sha256": {
+    "fixed1": "68b504e18e3b94a0446d72983df2250378718f253cca0c7ab5ff439b6af515a2",
+    "fixed3": "fc1397efd0e7ae02b7731d3de1a03d0d0d9865db7003cce3b4d4336d26ce31c7",
+    "adaptive": "4eea5fce78929d34342a18077745434df1d6960021d81e459ab19ce81029ce6c"
+  },
+  "adaptive_review_audit_sha256": "6087f8bafa431c6c833bc645d9e74bfae0aadca745d91be8a922d17c4ce3ab7f",
+  "limitations": [
+    "Fixed1 uses the first scheduled action, which may be typed retrieval with no evidence; fixed3 runs all scheduled actions before selection. Adaptive selects during retrieval and may retry; this is a policy-level comparison, not an isolated round-count effect.",
+    "Guarded queries have zero rounds in every policy. Same inputs and settings do not guarantee identical thermal/model-cache conditions across separate runs.",
+    "Candidate answers and partial pathways are not verified medical correctness.",
+    "AI quality unavailable for fixed policies pending answer-specific review; no human gold; fixed development cohort."
+  ],
+  "outputs_sha256": {
+    "ablation_by_query_type_132.csv": "3fd8856b73c054455dd46e857209a99022a6bf987cedd7b76d49c30f6a55750c",
+    "ablation_by_route_132.csv": "90f65b2f5024d07b3f560be28318c8c7924c57904319599ec7cb63d923b73a2e",
+    "ablation_paired_132.csv": "3b90b90ea5fb78042c2eadd3e8739467d55c15b02191df1dbc60277784354d48",
+    "ablation_per_query_132.csv": "f6bc26cf112e9f74b334b2df033a58119f9704753f3e25657cf23cb11975c7e6",
+    "ablation_summary_132.csv": "144ca5b8a6d61f8dbf62921cca292ff9dd0e809a33d6301b0358c2fea77b5de3",
+    "paired_summary.json": "8f749fff86b90092bd02741f79ab7b64a44c25589a79801852006995835c2e28"
+  }
+}

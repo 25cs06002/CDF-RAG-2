@@ -1,0 +1,9 @@
+model,classification_support,detector_observations,uncertain_with_detector,tp,tn,fp,fn,accuracy_vs_ai,precision_vs_ai,recall_vs_ai,f1_vs_ai,provenance
+B1,0,0,0,,,,,,,,,AI judge reference only; no independent human clinical adjudication
+B2,0,0,0,,,,,,,,,AI judge reference only; no independent human clinical adjudication
+B3,0,0,0,,,,,,,,,AI judge reference only; no independent human clinical adjudication
+B4,0,0,0,,,,,,,,,AI judge reference only; no independent human clinical adjudication
+B5,0,0,0,,,,,,,,,AI judge reference only; no independent human clinical adjudication
+B6,0,0,0,,,,,,,,,AI judge reference only; no independent human clinical adjudication
+B7,131,132,1,11,91,21,8,0.7786259541984732,0.34375,0.5789473684210527,0.43137254901960786,AI judge reference only; no independent human clinical adjudication
+B8,132,132,0,14,82,29,7,0.7272727272727273,0.32558139534883723,0.6666666666666666,0.4375,AI judge reference only; no independent human clinical adjudication

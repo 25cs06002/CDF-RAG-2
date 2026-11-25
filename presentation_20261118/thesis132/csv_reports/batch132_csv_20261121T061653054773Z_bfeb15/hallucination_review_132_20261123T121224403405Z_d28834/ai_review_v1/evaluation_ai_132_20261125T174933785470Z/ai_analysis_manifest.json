@@ -1,0 +1,40 @@
+{
+  "schema": "THESIS132_AI_REFERENCE_V1",
+  "provenance": "AI judge reference only; no independent human clinical adjudication",
+  "records": 1056,
+  "source_manifest_sha256": "4c1c8b62f886457af846bb4d636ef06c3506f4afa69d858b191cbb5fcb98c174",
+  "review_inputs_sha256": {
+    "ai_evaluation_audit.json": "82b02bf34ffaf3927b17256caab89c21ab82bde8e8430e148c007fbe4411da98",
+    "ai_verified_hallucination_labels_1056.csv": "74e2f120853daa19fd85f21595447df0fdc3d14fcad2565420512b44836eb923",
+    "medical_claim_verification_1056.jsonl": "65df849a08d7c820932c847d77a1278eb179809f89ddcbf4656fde0951fbe9b5",
+    "ai_hallucination_evaluation_summary.csv": "897863f1349a1aec0a346ee868f14d5240df0c07e179f3b40750eb6a5ee35514"
+  },
+  "evaluator_reported": {
+    "model": "Claude Opus 5.5",
+    "model_id": "claude-opus-5-5",
+    "role": "single AI judge (no human adjudication)"
+  },
+  "limitations": [
+    "Shell network access was disabled; sources were inspected only through the WebSearch and WebFetch tools on 2026-11-23.",
+    "WebFetch returns a model-extracted summary of a page rather than raw page text; some sources were checked from search-result snippets only. Evidence entries are therefore paraphrased findings, not verbatim excerpts.",
+    "Evidence gathering began before a context compaction in this session; verbatim text from earlier inspections was not retained, only the recorded findings and URLs.",
+    "Paywalled full texts were not accessed; journal evidence relies on abstracts/PMC pages.",
+    "Single AI judge; no inter-rater agreement and no human clinical adjudication.",
+    "The benchmark questions and the evaluation protocol were developed with exposure to the same systems' outputs, so these labels are not a blinded test-set evaluation.",
+    "Claim-type catalogue mapping is an AI judgement; equivalent claims share one verdict so errors in a catalogue entry propagate to every answer using it.",
+    "Checks establish structural consistency and original-answer alignment, not medical correctness.",
+    "Unsupported claims without evidence IDs are retained under the original AI protocol.",
+    "Missing detector predictions are never imputed; classification is agreement with AI reference.",
+    "Non-substantive responses counted as No by original protocol; separate substantive rates reported."
+  ],
+  "output_sha256": {
+    "ai_comparison_by_medical_domain_132.csv": "99d7b1984a36ec5eb6b6970d1f9d89a1b9a226a4cd5ba88cb77fffc36bb45f3a",
+    "ai_comparison_by_query_type_132.csv": "8f9faf408dc91d433dd88f78c2904c084c90734416415884fdd651a7c37ea8a4",
+    "ai_detector_classification_B1_B8_132.csv": "4f9f13393de26ff702ed67b9c5b013eb10c017b8120323807049df3da5634882",
+    "ai_paired_B7_B8_132.csv": "b970787dbcd3ccea8275a00b35a0449004a3e559677c53cdc1b848aad29b1d54",
+    "ai_per_query_metrics_132.csv": "e0babb4dd61bd8e48197abccfb63267e062606243918d366fc40e34ed2c9b9e2",
+    "ai_quality_comparison_B1_B8_132.csv": "cd8753f2056164fd194e201da9d2bc0913baeaf3708dcd5e34616c5684371e8c",
+    "ai_quality_performance_comparison_132.csv": "3522c9b0157872acbb6bff66a3cfa03f0c3576cd471f4468c498830bbb48ead6",
+    "ai_unresolved_cases_132.csv": "e59de79b9aa1039773f78773548a721dd999fc9569de02cfea456e8ff76ce966"
+  }
+}

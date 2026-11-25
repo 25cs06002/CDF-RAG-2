@@ -1,0 +1,1057 @@
+model,query_id,query_type,medical_domain,semantic_group,pipeline_status,label,confidence,substantive,grounding,answer_completeness,fabricated_citation,detector_flag,evidence_returned,latency_ms,SUPPORTED,PARTIALLY_SUPPORTED,CONTRADICTED,UNSUPPORTED,UNVERIFIABLE,NON_FACTUAL,claims_without_evidence_ids
+B1,PILOT_001,direct,cardiovascular,general_factors_coronary artery disease,ok,Yes,high,True,CITATION_MISMATCH,partial,False,,True,20423.99953189306,1,0,1,0,0,0,0
+B1,PILOT_002,direct,cardiovascular,general_factors_stroke,ok,No,high,True,CITATION_MISMATCH,partial,False,,True,16395.767388050444,3,0,0,0,0,0,0
+B1,PILOT_003,direct,cardiovascular,general_factors_heart failure,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,22131.935080047697,4,0,0,0,0,0,0
+B1,PILOT_004,direct,metabolic,general_factors_type 2 diabetes,ok,No,high,True,FULLY_GROUNDED,full,False,,True,15345.479608979076,5,0,0,0,0,0,0
+B1,PILOT_005,direct,metabolic,general_factors_obesity,ok,No,high,True,FULLY_GROUNDED,insuff_stated,False,,True,10255.595164024271,2,0,0,0,0,0,0
+B1,PILOT_006,direct,respiratory,general_factors_asthma,ok,No,high,True,FULLY_GROUNDED,minimal,False,,True,13079.529559006914,1,0,0,0,0,0,0
+B1,PILOT_007,direct,respiratory,general_factors_chronic obstructive pulmonary disease,ok,No,high,False,NO_FACTUAL_CLAIMS,insuff_stated,False,,True,12911.297142971307,0,0,0,0,0,0,0
+B1,PILOT_008,direct,renal,general_factors_chronic kidney disease,ok,No,high,True,CITATION_MISMATCH,partial,False,,True,10121.321519021876,3,0,0,0,0,0,0
+B1,PILOT_009,direct,neurological,general_factors_migraine,ok,No,high,True,FULLY_GROUNDED,minimal,False,,True,6182.716300012544,1,0,0,0,0,0,0
+B1,PILOT_010,direct,neurological,general_factors_epilepsy,ok,No,high,True,FULLY_GROUNDED,minimal,False,,True,7661.040033097379,2,0,0,0,0,0,0
+B1,PILOT_011,direct,infectious_disease,general_factors_tuberculosis,ok,No,high,False,NO_FACTUAL_CLAIMS,insuff_stated,False,,True,20229.3996559456,0,0,0,0,0,0,0
+B1,PILOT_012,direct,infectious_disease,general_factors_pneumonia,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,9276.99780697003,2,0,0,0,0,0,0
+B1,PILOT_013,direct,mental_health,general_factors_depression,ok,Yes,medium,True,CITATION_MISMATCH,partial,False,,True,26629.45220398251,4,0,0,1,0,0,0
+B1,PILOT_014,direct,oncology,general_factors_lung cancer,ok,No,high,True,FULLY_GROUNDED,full,False,,True,14844.086577999406,4,0,0,0,0,0,0
+B1,PILOT_015,direct,endocrine,general_factors_hypothyroidism,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,11752.357839955948,3,0,0,0,0,0,0
+B1,PILOT_016,paraphrased,cardiovascular,general_factors_coronary artery disease,ok,Yes,high,True,CITATION_MISMATCH,partial,False,,True,19962.817584979348,2,0,1,0,0,0,0
+B1,PILOT_017,paraphrased,cardiovascular,general_factors_stroke,ok,No,high,True,CITATION_MISMATCH,partial,False,,True,17121.212876052596,4,0,0,0,0,0,0
+B1,PILOT_018,paraphrased,cardiovascular,general_factors_heart failure,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,17507.039419957437,3,0,0,0,0,0,0
+B1,PILOT_019,paraphrased,metabolic,general_factors_type 2 diabetes,ok,No,high,True,FULLY_GROUNDED,full,False,,True,16204.408691031858,5,0,0,0,0,0,0
+B1,PILOT_020,paraphrased,metabolic,general_factors_obesity,ok,Yes,high,True,MISREPRESENTS_CONTEXT,minimal,False,,True,14780.108131933957,1,0,0,1,0,0,0
+B1,PILOT_021,paraphrased,respiratory,general_factors_asthma,ok,No,high,True,FULLY_GROUNDED,minimal,False,,True,16092.274606926367,1,0,0,0,0,0,0
+B1,PILOT_022,paraphrased,respiratory,general_factors_chronic obstructive pulmonary disease,ok,No,high,True,PARTIALLY_GROUNDED,partial,False,,True,17278.18636992015,3,0,0,0,0,0,0
+B1,PILOT_023,paraphrased,renal,general_factors_chronic kidney disease,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,15357.980099041015,2,0,0,0,0,0,0
+B1,PILOT_024,paraphrased,neurological,general_factors_migraine,ok,No,high,True,FULLY_GROUNDED,minimal,False,,True,8892.27207901422,1,0,0,0,0,0,0
+B1,PILOT_025,paraphrased,neurological,general_factors_epilepsy,ok,No,high,True,FULLY_GROUNDED,minimal,False,,True,11260.678226943128,1,0,0,0,0,0,0
+B1,PILOT_026,paraphrased,infectious_disease,general_factors_tuberculosis,ok,Yes,high,True,NOT_GROUNDED,offtarget,False,,True,21081.502884975635,0,0,0,2,0,0,0
+B1,PILOT_027,paraphrased,infectious_disease,general_factors_pneumonia,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,11260.812271968462,2,0,0,0,0,0,0
+B1,PILOT_028,paraphrased,mental_health,general_factors_depression,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,12124.221460078843,2,0,0,0,0,0,0
+B1,PILOT_029,paraphrased,oncology,general_factors_lung cancer,ok,No,high,True,PARTIALLY_GROUNDED,full,False,,True,16127.385535044596,4,0,0,0,0,0,0
+B1,PILOT_030,paraphrased,endocrine,general_factors_hypothyroidism,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,13586.64271410089,2,0,0,0,0,0,0
+B1,PILOT_031,indirect,cardiovascular,concept_description_coronary artery disease,ok,Yes,medium,True,PARTIALLY_GROUNDED,full,False,,True,20617.469765013084,2,0,0,1,0,0,0
+B1,PILOT_032,indirect,cardiovascular,concept_description_stroke,ok,No,high,True,PARTIALLY_GROUNDED,full,False,,True,9252.084957901388,2,0,0,0,0,0,0
+B1,PILOT_033,indirect,cardiovascular,concept_description_heart failure,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,15194.234386086464,2,0,0,0,0,0,0
+B1,PILOT_034,indirect,metabolic,concept_description_type 2 diabetes,ok,No,high,True,PARTIALLY_GROUNDED,full,False,,True,10587.497194996104,3,0,0,0,0,0,0
+B1,PILOT_035,indirect,metabolic,concept_description_obesity,ok,No,high,True,PARTIALLY_GROUNDED,full,False,,True,16324.39737697132,3,0,0,0,0,0,0
+B1,PILOT_036,indirect,respiratory,concept_description_asthma,ok,No,high,True,PARTIALLY_GROUNDED,full,False,,True,23954.214322031476,2,0,0,0,0,0,0
+B1,PILOT_037,indirect,respiratory,concept_description_chronic obstructive pulmonary disease,ok,No,high,True,PARTIALLY_GROUNDED,full,False,,True,19823.74661404174,2,0,0,0,0,0,0
+B1,PILOT_038,indirect,renal,concept_description_chronic kidney disease,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,15026.019301032647,1,0,0,0,0,0,0
+B1,PILOT_039,indirect,neurological,concept_description_migraine,ok,No,high,True,FULLY_GROUNDED,insuff_stated,False,,True,10838.836867944337,1,0,0,0,0,0,0
+B1,PILOT_040,indirect,neurological,concept_description_epilepsy,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,9596.937229973264,1,0,0,0,0,0,0
+B1,PILOT_041,indirect,infectious_disease,concept_description_tuberculosis,ok,No,medium,True,CITATION_MISMATCH,full,False,,True,22203.16128397826,3,0,0,0,0,0,0
+B1,PILOT_042,indirect,infectious_disease,concept_description_pneumonia,ok,No,high,True,FULLY_GROUNDED,full,False,,True,8130.166061106138,1,0,0,0,0,0,0
+B1,PILOT_043,indirect,mental_health,concept_description_depression,ok,No,high,True,PARTIALLY_GROUNDED,full,False,,True,14838.083497947082,3,0,0,0,0,0,0
+B1,PILOT_044,indirect,oncology,concept_description_lung cancer,ok,No,high,True,FULLY_GROUNDED,full,False,,True,13148.289429023862,3,0,0,0,0,0,0
+B1,PILOT_045,indirect,endocrine,concept_description_hypothyroidism,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,13439.884992083535,2,0,0,0,0,0,0
+B1,PILOT_046,multi_hop,cardiovascular,multi_hop_coronary artery disease,ok,No,high,True,FULLY_GROUNDED,full,False,,True,25667.991672991775,3,0,0,0,0,0,0
+B1,PILOT_047,multi_hop,cardiovascular,multi_hop_stroke,ok,No,medium,True,PARTIALLY_GROUNDED,full,False,,True,25816.718537011184,6,0,0,0,0,0,0
+B1,PILOT_048,multi_hop,cardiovascular,multi_hop_heart failure,ok,No,high,True,FULLY_GROUNDED,full,False,,True,26520.836296025664,5,0,0,0,0,0,0
+B1,PILOT_049,multi_hop,metabolic,multi_hop_obesity_insulin_resistance_t2d,ok,No,high,True,FULLY_GROUNDED,full,False,,True,25199.263841030188,3,0,0,0,0,0,0
+B1,PILOT_050,multi_hop,metabolic,multi_hop_hyperglycemia|kidney vascular injury|kidney complications,ok,No,high,True,FULLY_GROUNDED,full,False,,True,20385.324190952815,2,0,0,0,0,0,0
+B1,PILOT_051,multi_hop,respiratory,multi_hop_asthma,ok,Yes,medium,True,CITATION_MISMATCH,partial,False,,True,31484.173613018356,2,0,0,1,0,0,0
+B1,PILOT_052,multi_hop,respiratory,multi_hop_chronic obstructive pulmonary disease,ok,No,high,True,FULLY_GROUNDED,full,False,,True,27501.753003918566,3,0,0,0,0,0,0
+B1,PILOT_053,multi_hop,renal,multi_hop_chronic kidney disease,ok,No,high,True,CITATION_MISMATCH,full,False,,True,21573.41275701765,2,0,0,0,0,0,0
+B1,PILOT_054,multi_hop,neurological,multi_hop_stroke,ok,No,high,True,MISREPRESENTS_CONTEXT,full,False,,True,26628.388964920305,2,0,0,0,0,0,0
+B1,PILOT_055,multi_hop,neurological,multi_hop_epilepsy,ok,No,high,True,FULLY_GROUNDED,full,False,,True,27010.15909202397,4,0,0,0,0,0,0
+B1,PILOT_056,multi_hop,infectious_disease,multi_hop_tuberculosis infection|lung injury|persistent breathing limitation,ok,No,high,True,PARTIALLY_GROUNDED,full,False,,True,17564.64571505785,2,0,0,0,0,0,0
+B1,PILOT_057,multi_hop,infectious_disease,multi_hop_respiratory infection|immune inflammation|pneumonia symptoms,ok,No,high,True,FULLY_GROUNDED,full,False,,True,14610.55129894521,2,0,0,0,0,0,0
+B1,PILOT_058,multi_hop,mental_health,multi_hop_chronic stress|sleep disruption|depressive symptoms,ok,No,high,True,FULLY_GROUNDED,full,False,,True,27393.11985799577,2,0,0,0,0,0,0
+B1,PILOT_059,multi_hop,oncology,multi_hop_lung cancer,ok,No,high,True,CITATION_MISMATCH,full,False,,True,25745.776980067603,3,0,0,0,0,0,0
+B1,PILOT_060,multi_hop,endocrine,multi_hop_hypothyroidism,ok,No,high,True,FULLY_GROUNDED,full,False,,True,20622.99850792624,2,0,0,0,0,0,0
+B1,PILOT_061,comparative,cardiovascular,comparative_stroke|coronary artery disease,ok,No,high,True,FULLY_GROUNDED,insuff_stated,False,,True,30469.780924962834,3,0,0,0,0,0,0
+B1,PILOT_062,comparative,cardiovascular,comparative_heart failure|coronary artery disease,ok,No,high,True,FULLY_GROUNDED,full,False,,True,25738.813388044946,3,0,0,0,0,0,0
+B1,PILOT_063,comparative,metabolic,comparative_obesity|type 2 diabetes|coronary artery disease,ok,No,high,True,FULLY_GROUNDED,insuff_stated,False,,True,14753.575386945158,1,0,0,0,0,0,0
+B1,PILOT_064,comparative,metabolic,comparative_obesity|metabolic syndrome,ok,No,high,True,FULLY_GROUNDED,offtarget,False,,True,23597.087937989272,2,0,0,0,0,0,0
+B1,PILOT_065,comparative,respiratory,comparative_asthma|chronic obstructive pulmonary disease,ok,Yes,medium,True,PARTIALLY_GROUNDED,partial,False,,True,25497.400940046646,2,0,0,1,0,0,0
+B1,PILOT_066,comparative,respiratory,comparative_pneumonia|asthma,ok,Yes,high,True,CITATION_MISMATCH,partial,False,,True,26656.23827301897,2,0,1,1,0,0,0
+B1,PILOT_067,comparative,renal,comparative_diabetes|hypertension|chronic kidney disease,ok,Yes,high,True,CITATION_MISMATCH,partial,False,,True,24071.979964966886,2,0,1,0,0,0,0
+B1,PILOT_068,comparative,neurological,comparative_migraine|secondary headache,ok,No,high,True,FULLY_GROUNDED,insuff_stated,False,,True,16481.787282973528,1,0,0,0,0,0,0
+B1,PILOT_069,comparative,neurological,comparative_epilepsy|seizure triggers,ok,No,high,True,FULLY_GROUNDED,insuff_stated,False,,True,24128.127579926513,2,0,0,0,0,0,0
+B1,PILOT_070,comparative,infectious_disease,comparative_tuberculosis|influenza,ok,No,high,True,CITATION_MISMATCH,full,False,,True,23529.140054015443,3,0,0,0,0,0,0
+B1,PILOT_071,comparative,mental_health,comparative_depression|anxiety disorders,ok,No,high,True,FULLY_GROUNDED,insuff_stated,False,,True,21399.020183016546,3,0,0,0,0,0,0
+B1,PILOT_072,comparative,oncology,comparative_lung cancer|people who smoke|people who never smoked,ok,No,high,True,PARTIALLY_GROUNDED,partial,False,,True,25289.67792610638,4,0,0,0,0,0,0
+B1,PILOT_073,risk_factor,cardiovascular,risk_factor_stroke,ok,No,medium,True,PARTIALLY_GROUNDED,partial,False,,True,25255.702867056243,4,0,0,0,0,0,0
+B1,PILOT_074,risk_factor,cardiovascular,risk_factor_coronary artery disease,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,15340.419278945774,2,0,0,0,0,0,0
+B1,PILOT_075,risk_factor,cardiovascular,risk_factor_heart failure,ok,No,medium,True,CITATION_MISMATCH,partial,False,,True,14831.347848987207,3,1,0,0,0,0,0
+B1,PILOT_076,risk_factor,metabolic,risk_factor_type 2 diabetes,ok,No,high,True,FULLY_GROUNDED,full,False,,True,23040.73652299121,5,0,0,0,0,0,0
+B1,PILOT_077,risk_factor,metabolic,risk_factor_obesity,ok,Yes,high,True,PARTIALLY_GROUNDED,minimal,False,,True,15993.178620003164,1,0,0,1,0,0,0
+B1,PILOT_078,risk_factor,respiratory,risk_factor_asthma,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,22809.86795097124,2,0,0,0,0,0,0
+B1,PILOT_079,risk_factor,respiratory,risk_factor_chronic obstructive pulmonary disease,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,19983.247238909826,3,0,0,0,0,0,0
+B1,PILOT_080,risk_factor,renal,risk_factor_chronic kidney disease,ok,No,high,True,FULLY_GROUNDED,full,False,,True,18600.285762920976,3,0,0,0,0,0,0
+B1,PILOT_081,risk_factor,neurological,risk_factor_migraine,ok,No,high,True,FULLY_GROUNDED,minimal,False,,True,10611.350602936,1,0,0,0,0,0,0
+B1,PILOT_082,risk_factor,infectious_disease,risk_factor_tuberculosis,ok,No,high,True,FULLY_GROUNDED,minimal,False,,True,8338.795204064809,1,0,0,0,0,0,0
+B1,PILOT_083,risk_factor,mental_health,risk_factor_depression,ok,No,high,True,FULLY_GROUNDED,full,False,,True,25160.143052926287,4,0,0,0,0,0,0
+B1,PILOT_084,risk_factor,oncology,risk_factor_lung cancer,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,25593.203247059137,3,0,0,0,0,0,0
+B1,PILOT_085,ambiguous,general_medicine,individual_diagnosis_with_inadequate_evidence,ok,No,high,True,PARTIALLY_GROUNDED,refusal_ok,False,,True,7615.571737056598,2,0,0,0,0,0,0
+B1,PILOT_086,ambiguous,cardiovascular,individual_diagnosis_with_inadequate_evidence,ok,No,high,True,PARTIALLY_GROUNDED,refusal_ok,False,,True,27660.733391996473,2,0,0,0,0,0,0
+B1,PILOT_087,ambiguous,respiratory,individual_diagnosis_with_inadequate_evidence,ok,No,high,True,PARTIALLY_GROUNDED,refusal_ok,False,,True,19482.134446967393,2,0,0,0,0,0,0
+B1,PILOT_088,ambiguous,neurological,occasional_headache_no_diagnosis,ok,No,high,True,FULLY_GROUNDED,refusal_ok,False,,True,15706.83633594308,1,0,0,0,0,0,0
+B1,PILOT_089,ambiguous,metabolic,individual_diagnosis_with_inadequate_evidence,ok,No,high,True,PARTIALLY_GROUNDED,refusal_ok,False,,True,14475.296073942445,3,0,0,0,0,0,0
+B1,PILOT_090,ambiguous,mental_health,individual_diagnosis_with_inadequate_evidence,ok,No,high,True,FULLY_GROUNDED,refusal_ok,False,,True,10147.485654917546,2,0,0,0,0,0,0
+B1,PILOT_091,ambiguous,renal,individual_diagnosis_with_inadequate_evidence,ok,No,high,True,FULLY_GROUNDED,refusal_ok,False,,True,14469.367046025582,1,0,0,0,0,0,0
+B1,PILOT_092,ambiguous,infectious_disease,individual_diagnosis_with_inadequate_evidence,ok,No,high,True,FULLY_GROUNDED,refusal_ok,False,,True,10491.38982500881,1,0,0,0,0,0,0
+B1,PILOT_093,unsupported,general_medicine,exact_future_disease_no_data,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,8464.74326995667,0,0,0,0,0,0,0
+B1,PILOT_094,unsupported,oncology,exact_individual_prediction_without_data,ok,No,high,True,FULLY_GROUNDED,refusal_ok,False,,True,14385.983487940393,2,0,0,0,0,0,0
+B1,PILOT_095,unsupported,cardiovascular,exact_individual_prediction_without_data,ok,No,high,True,FULLY_GROUNDED,refusal_ok,False,,True,16527.92348107323,2,0,0,0,0,0,0
+B1,PILOT_096,unsupported,renal,exact_individual_prediction_without_data,ok,No,high,True,CITATION_MISMATCH,refusal_ok,False,,True,21583.586001070216,3,0,0,0,0,0,0
+B1,PILOT_097,unsupported,neurological,exact_individual_prediction_without_data,ok,No,high,True,FULLY_GROUNDED,refusal_ok,False,,True,15655.483548995107,1,0,0,0,0,0,0
+B1,PILOT_098,unsupported,infectious_disease,exact_individual_prediction_without_data,ok,No,high,True,FULLY_GROUNDED,refusal_ok,False,,True,7712.2135440586135,1,0,0,0,0,0,0
+B1,PILOT_099,unsupported,mental_health,quiet_person_no_psychiatric_diagnosis,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,7038.130139000714,0,0,0,0,0,0,0
+B1,PILOT_100,unsupported,metabolic,exact_individual_prediction_without_data,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,6348.134424071759,0,0,0,0,0,0,0
+B1,EXTQ_001,direct,cardiovascular,general_factors_coronary artery disease,ok,Yes,high,True,CITATION_MISMATCH,partial,False,,True,22081.943913944997,2,0,1,0,0,0,0
+B1,EXTQ_002,direct,cardiovascular,general_factors_heart failure,ok,No,medium,True,FULLY_GROUNDED,full,False,,True,15387.512282002717,3,1,0,0,0,0,0
+B1,EXTQ_003,direct,renal,general_factors_chronic kidney disease,ok,No,medium,True,FULLY_GROUNDED,partial,False,,True,12401.290104957297,1,1,0,0,0,0,0
+B1,EXTQ_004,direct,endocrine,general_factors_hypothyroidism,ok,Yes,medium,True,PARTIALLY_GROUNDED,partial,False,,True,14945.05347206723,1,0,0,1,0,0,0
+B1,EXTQ_005,paraphrased,cardiovascular,general_factors_coronary artery disease,ok,No,high,True,FULLY_GROUNDED,insuff_stated,False,,True,15471.321678953245,2,0,0,0,0,0,0
+B1,EXTQ_006,paraphrased,cardiovascular,general_factors_heart failure,ok,No,high,True,FULLY_GROUNDED,full,False,,True,22270.631175953895,4,0,0,0,0,0,0
+B1,EXTQ_007,paraphrased,renal,general_factors_chronic kidney disease,ok,No,high,True,FULLY_GROUNDED,full,False,,True,12341.390182962641,2,0,0,0,0,0,0
+B1,EXTQ_008,paraphrased,endocrine,general_factors_hypothyroidism,ok,No,high,True,FULLY_GROUNDED,full,False,,True,17451.884325011633,2,0,0,0,0,0,0
+B1,EXTQ_009,indirect,cardiovascular,concept_description_coronary artery disease,ok,No,high,True,FULLY_GROUNDED,full,False,,True,17107.340579037555,2,0,0,0,0,0,0
+B1,EXTQ_010,indirect,renal,concept_description_chronic kidney disease,ok,No,high,True,FULLY_GROUNDED,insuff_stated,False,,True,15209.141633938998,1,0,0,0,0,0,0
+B1,EXTQ_011,indirect,metabolic,concept_description_type 2 diabetes,ok,No,high,True,PARTIALLY_GROUNDED,full,False,,True,13282.13540406432,3,0,0,0,0,0,0
+B1,EXTQ_012,indirect,respiratory,concept_description_chronic obstructive pulmonary disease,ok,No,high,True,PARTIALLY_GROUNDED,full,False,,True,11633.794880006462,2,0,0,0,0,0,0
+B1,EXTQ_013,multi_hop,cardiovascular,multi_hop_coronary artery disease,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,26492.572994087823,1,0,0,0,0,0,0
+B1,EXTQ_014,multi_hop,renal,multi_hop_chronic kidney disease,ok,No,high,True,FULLY_GROUNDED,full,False,,True,14867.143644951284,2,0,0,0,0,0,0
+B1,EXTQ_015,multi_hop,metabolic,multi_hop_obesity_insulin_resistance_t2d,ok,No,high,True,PARTIALLY_GROUNDED,partial,False,,True,15723.917077993974,3,0,0,0,0,0,0
+B1,EXTQ_016,multi_hop,cardiovascular,multi_hop_heart failure,ok,No,high,True,CITATION_MISMATCH,full,False,,True,27109.75965601392,2,0,0,0,0,0,0
+B1,EXTQ_017,comparative,cardiovascular,comparative_ischemic stroke|hemorrhagic stroke,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,26350.53562396206,4,0,0,0,0,0,0
+B1,EXTQ_018,comparative,cardiovascular,comparative_coronary artery disease|heart failure,ok,No,high,True,FULLY_GROUNDED,insuff_stated,False,,True,24522.316990070976,2,0,0,0,0,0,0
+B1,EXTQ_019,comparative,renal,comparative_diabetes|hypertension|chronic kidney disease,ok,Yes,medium,True,PARTIALLY_GROUNDED,partial,False,,True,23550.65733101219,2,0,0,1,0,0,0
+B1,EXTQ_020,comparative,respiratory,comparative_asthma onset|asthma attack trigger,ok,No,high,True,PARTIALLY_GROUNDED,partial,False,,True,18967.474550008774,3,0,0,0,0,0,0
+B1,EXTQ_021,risk_factor,metabolic,risk_factor_modifiable diabetes risk factors|nonmodifiable diabetes risk factors,ok,No,high,True,FULLY_GROUNDED,full,False,,True,23611.368475016207,5,0,0,0,0,0,0
+B1,EXTQ_022,risk_factor,cardiovascular,risk_factor_family history|smoking|elevated cholesterol|coronary artery disease,ok,Yes,high,True,PARTIALLY_GROUNDED,insuff_stated,False,,True,22631.845530006103,2,0,1,0,0,0,0
+B1,EXTQ_023,risk_factor,cardiovascular,risk_factor_heart failure|individual patient,ok,No,high,True,PARTIALLY_GROUNDED,partial,False,,True,17676.594494958408,3,0,0,0,0,0,0
+B1,EXTQ_024,risk_factor,renal,risk_factor_chronic kidney disease|causation|association,ok,No,high,True,FULLY_GROUNDED,full,False,,True,26010.13037795201,2,0,0,0,0,1,0
+B1,EXTQ_025,ambiguous,general_medicine,individual_diagnosis_with_inadequate_evidence,ok,No,medium,True,FULLY_GROUNDED,refusal_ok,False,,True,8735.004327027127,1,0,0,0,0,0,0
+B1,EXTQ_026,ambiguous,neurological,occasional_headache_no_diagnosis,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,10185.23506692145,0,0,0,0,0,0,0
+B1,EXTQ_027,ambiguous,cardiovascular,individual_diagnosis_with_inadequate_evidence,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,9390.498800086789,0,0,0,0,0,0,0
+B1,EXTQ_028,ambiguous,renal,individual_diagnosis_with_inadequate_evidence,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,8752.126010949723,0,0,0,0,0,0,0
+B1,EXTQ_029,unsupported,general_medicine,exact_future_disease_no_data,ok,No,high,True,FULLY_GROUNDED,refusal_ok,False,,True,18820.810546982102,2,0,0,0,0,0,0
+B1,EXTQ_030,unsupported,mental_health,quiet_person_no_psychiatric_diagnosis,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,6519.495201995596,0,0,0,0,0,0,0
+B1,EXTQ_031,unsupported,cardiovascular,exact_individual_prediction_without_data,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,12486.344444914721,0,0,0,0,0,0,0
+B1,EXTQ_032,unsupported,metabolic,exact_individual_prediction_without_data,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,8822.796438937075,0,0,0,0,0,0,0
+B2,PILOT_001,direct,cardiovascular,general_factors_coronary artery disease,ok,Yes,high,True,CITATION_MISMATCH,partial,False,,True,13581.89605991356,2,0,1,0,0,0,0
+B2,PILOT_002,direct,cardiovascular,general_factors_stroke,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,19997.440478997305,4,0,0,0,0,0,0
+B2,PILOT_003,direct,cardiovascular,general_factors_heart failure,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,23068.961402052082,6,0,0,0,0,0,0
+B2,PILOT_004,direct,metabolic,general_factors_type 2 diabetes,ok,No,high,True,FULLY_GROUNDED,full,False,,True,14099.79270293843,4,0,0,0,0,0,0
+B2,PILOT_005,direct,metabolic,general_factors_obesity,ok,Yes,high,True,MISREPRESENTS_CONTEXT,minimal,False,,True,13230.604488984682,1,0,0,1,0,0,0
+B2,PILOT_006,direct,respiratory,general_factors_asthma,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,21128.44420899637,2,0,0,0,0,0,0
+B2,PILOT_007,direct,respiratory,general_factors_chronic obstructive pulmonary disease,ok,No,high,True,CITATION_MISMATCH,partial,False,,True,14062.892653048038,3,0,0,0,0,0,0
+B2,PILOT_008,direct,renal,general_factors_chronic kidney disease,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,10535.990835982375,2,0,0,0,0,0,0
+B2,PILOT_009,direct,neurological,general_factors_migraine,ok,No,high,True,FULLY_GROUNDED,minimal,False,,True,7060.458477935754,1,0,0,0,0,0,0
+B2,PILOT_010,direct,neurological,general_factors_epilepsy,ok,No,high,True,FULLY_GROUNDED,minimal,False,,True,12010.014326893725,1,0,0,0,0,0,0
+B2,PILOT_011,direct,infectious_disease,general_factors_tuberculosis,ok,No,high,True,FULLY_GROUNDED,offtarget,False,,True,17502.009207033552,1,0,0,0,0,0,0
+B2,PILOT_012,direct,infectious_disease,general_factors_pneumonia,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,12390.309271984734,3,0,0,0,0,0,0
+B2,PILOT_013,direct,mental_health,general_factors_depression,ok,No,medium,True,CITATION_MISMATCH,partial,False,,True,19042.142547899857,4,0,0,0,0,0,0
+B2,PILOT_014,direct,oncology,general_factors_lung cancer,ok,No,high,True,FULLY_GROUNDED,full,False,,True,14624.64161508251,4,0,0,0,0,0,0
+B2,PILOT_015,direct,endocrine,general_factors_hypothyroidism,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,12353.546808008105,3,0,0,0,0,0,0
+B2,PILOT_016,paraphrased,cardiovascular,general_factors_coronary artery disease,ok,Yes,high,True,CITATION_MISMATCH,partial,False,,True,19679.373524035327,1,0,1,0,0,0,0
+B2,PILOT_017,paraphrased,cardiovascular,general_factors_stroke,ok,No,high,True,CITATION_MISMATCH,partial,False,,True,22075.1743610017,5,0,0,0,0,0,0
+B2,PILOT_018,paraphrased,cardiovascular,general_factors_heart failure,ok,Yes,medium,True,CITATION_MISMATCH,partial,False,,True,22347.036901977845,5,0,0,1,0,0,0
+B2,PILOT_019,paraphrased,metabolic,general_factors_type 2 diabetes,ok,No,high,True,FULLY_GROUNDED,full,False,,True,18637.62837194372,5,0,0,0,0,0,0
+B2,PILOT_020,paraphrased,metabolic,general_factors_obesity,ok,No,high,True,FULLY_GROUNDED,insuff_stated,False,,True,14012.407724978402,2,0,0,0,0,0,0
+B2,PILOT_021,paraphrased,respiratory,general_factors_asthma,ok,No,high,True,CITATION_MISMATCH,minimal,False,,True,20137.30115594808,2,0,0,0,0,0,0
+B2,PILOT_022,paraphrased,respiratory,general_factors_chronic obstructive pulmonary disease,ok,No,high,True,PARTIALLY_GROUNDED,partial,False,,True,19310.412243008614,2,0,0,0,0,0,0
+B2,PILOT_023,paraphrased,renal,general_factors_chronic kidney disease,ok,No,medium,True,PARTIALLY_GROUNDED,partial,False,,True,22409.86051002983,3,1,0,0,0,0,0
+B2,PILOT_024,paraphrased,neurological,general_factors_migraine,ok,No,high,True,FULLY_GROUNDED,minimal,False,,True,12145.3052329598,1,0,0,0,0,0,0
+B2,PILOT_025,paraphrased,neurological,general_factors_epilepsy,ok,No,high,True,FULLY_GROUNDED,minimal,False,,True,10565.53454103414,2,0,0,0,0,0,0
+B2,PILOT_026,paraphrased,infectious_disease,general_factors_tuberculosis,ok,No,high,True,PARTIALLY_GROUNDED,insuff_stated,False,,True,24129.4715879485,2,0,0,0,0,0,0
+B2,PILOT_027,paraphrased,infectious_disease,general_factors_pneumonia,ok,Yes,high,True,CITATION_MISMATCH,partial,False,,True,16575.92773193028,3,0,0,1,0,0,0
+B2,PILOT_028,paraphrased,mental_health,general_factors_depression,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,15627.0776350284,3,0,0,0,0,0,0
+B2,PILOT_029,paraphrased,oncology,general_factors_lung cancer,ok,No,high,True,FULLY_GROUNDED,full,False,,True,21693.12567997258,4,0,0,0,0,0,0
+B2,PILOT_030,paraphrased,endocrine,general_factors_hypothyroidism,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,12900.479380972683,3,0,0,0,0,0,0
+B2,PILOT_031,indirect,cardiovascular,concept_description_coronary artery disease,ok,No,high,True,CITATION_MISMATCH,full,False,,True,23063.33877297584,3,0,0,0,0,0,0
+B2,PILOT_032,indirect,cardiovascular,concept_description_stroke,ok,No,high,True,PARTIALLY_GROUNDED,full,False,,True,11056.632173014805,2,0,0,0,0,0,0
+B2,PILOT_033,indirect,cardiovascular,concept_description_heart failure,ok,No,high,True,PARTIALLY_GROUNDED,partial,False,,True,11567.728420021012,2,0,0,0,0,0,0
+B2,PILOT_034,indirect,metabolic,concept_description_type 2 diabetes,ok,No,high,True,PARTIALLY_GROUNDED,full,False,,True,12700.988619006239,4,0,0,0,0,0,0
+B2,PILOT_035,indirect,metabolic,concept_description_obesity,ok,No,high,True,FULLY_GROUNDED,insuff_stated,False,,True,15867.344793048687,1,0,0,0,0,0,0
+B2,PILOT_036,indirect,respiratory,concept_description_asthma,ok,Yes,high,True,NOT_GROUNDED,offtarget,False,,True,21909.971050918102,0,0,1,0,0,0,0
+B2,PILOT_037,indirect,respiratory,concept_description_chronic obstructive pulmonary disease,ok,No,high,True,FULLY_GROUNDED,offtarget,False,,True,11955.565315904096,1,0,0,0,0,0,0
+B2,PILOT_038,indirect,renal,concept_description_chronic kidney disease,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,20517.074974020943,2,0,0,0,0,0,0
+B2,PILOT_039,indirect,neurological,concept_description_migraine,ok,No,high,False,NO_FACTUAL_CLAIMS,insuff_stated,False,,True,8590.725688030943,0,0,0,0,0,0,0
+B2,PILOT_040,indirect,neurological,concept_description_epilepsy,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,9760.40908403229,1,0,0,0,0,0,0
+B2,PILOT_041,indirect,infectious_disease,concept_description_tuberculosis,ok,No,medium,True,CITATION_MISMATCH,full,False,,True,23794.10702898167,4,0,0,0,0,0,0
+B2,PILOT_042,indirect,infectious_disease,concept_description_pneumonia,ok,No,high,True,FULLY_GROUNDED,full,False,,True,20348.772682948038,2,0,0,0,0,0,0
+B2,PILOT_043,indirect,mental_health,concept_description_depression,ok,No,high,True,PARTIALLY_GROUNDED,partial,False,,True,11709.583860007115,2,0,0,0,0,0,0
+B2,PILOT_044,indirect,oncology,concept_description_lung cancer,ok,No,high,True,PARTIALLY_GROUNDED,partial,False,,True,17613.434589933604,3,0,0,0,0,0,0
+B2,PILOT_045,indirect,endocrine,concept_description_hypothyroidism,ok,No,high,True,FULLY_GROUNDED,full,False,,True,16630.13319601305,3,0,0,0,0,0,0
+B2,PILOT_046,multi_hop,cardiovascular,multi_hop_coronary artery disease,ok,No,high,True,FULLY_GROUNDED,full,False,,True,28727.43443294894,2,0,0,0,0,0,0
+B2,PILOT_047,multi_hop,cardiovascular,multi_hop_stroke,ok,No,medium,True,PARTIALLY_GROUNDED,full,False,,True,25781.535440008156,6,0,0,0,0,0,0
+B2,PILOT_048,multi_hop,cardiovascular,multi_hop_heart failure,ok,No,high,True,FULLY_GROUNDED,full,False,,True,24546.268215053715,3,0,0,0,0,0,0
+B2,PILOT_049,multi_hop,metabolic,multi_hop_obesity_insulin_resistance_t2d,ok,No,high,True,FULLY_GROUNDED,full,False,,True,23530.30405694153,3,0,0,0,0,0,0
+B2,PILOT_050,multi_hop,metabolic,multi_hop_hyperglycemia|kidney vascular injury|kidney complications,ok,No,high,True,CITATION_MISMATCH,full,False,,True,20905.87696095463,3,0,0,0,0,0,0
+B2,PILOT_051,multi_hop,respiratory,multi_hop_asthma,ok,No,high,True,PARTIALLY_GROUNDED,partial,False,,True,31248.47844906617,3,0,0,0,0,0,0
+B2,PILOT_052,multi_hop,respiratory,multi_hop_chronic obstructive pulmonary disease,ok,No,high,True,CITATION_MISMATCH,full,False,,True,26642.13197794743,4,0,0,0,0,0,0
+B2,PILOT_053,multi_hop,renal,multi_hop_chronic kidney disease,ok,No,high,True,FULLY_GROUNDED,full,False,,True,18402.42566296365,2,0,0,0,0,0,0
+B2,PILOT_054,multi_hop,neurological,multi_hop_stroke,ok,No,high,True,MISREPRESENTS_CONTEXT,full,False,,True,26713.150040013716,2,0,0,0,0,0,0
+B2,PILOT_055,multi_hop,neurological,multi_hop_epilepsy,ok,No,high,True,FULLY_GROUNDED,full,False,,True,27457.534688990563,2,0,0,0,0,0,0
+B2,PILOT_056,multi_hop,infectious_disease,multi_hop_tuberculosis infection|lung injury|persistent breathing limitation,ok,No,high,True,CITATION_MISMATCH,full,False,,True,19362.638792023063,2,0,0,0,0,0,0
+B2,PILOT_057,multi_hop,infectious_disease,multi_hop_respiratory infection|immune inflammation|pneumonia symptoms,ok,No,high,True,FULLY_GROUNDED,full,False,,True,16967.35626703594,2,0,0,0,0,0,0
+B2,PILOT_058,multi_hop,mental_health,multi_hop_chronic stress|sleep disruption|depressive symptoms,ok,No,high,True,FULLY_GROUNDED,full,False,,True,21879.644930944778,2,0,0,0,0,0,0
+B2,PILOT_059,multi_hop,oncology,multi_hop_lung cancer,ok,No,high,True,FULLY_GROUNDED,full,False,,True,22672.41435009055,4,0,0,0,0,0,0
+B2,PILOT_060,multi_hop,endocrine,multi_hop_hypothyroidism,ok,No,high,True,FULLY_GROUNDED,full,False,,True,20835.51628398709,2,0,0,0,0,0,0
+B2,PILOT_061,comparative,cardiovascular,comparative_stroke|coronary artery disease,ok,No,high,True,PARTIALLY_GROUNDED,partial,False,,True,30647.864277940243,2,0,0,0,0,0,0
+B2,PILOT_062,comparative,cardiovascular,comparative_heart failure|coronary artery disease,ok,No,high,True,FULLY_GROUNDED,full,False,,True,25721.376250963658,3,0,0,0,0,0,0
+B2,PILOT_063,comparative,metabolic,comparative_obesity|type 2 diabetes|coronary artery disease,ok,No,high,True,FULLY_GROUNDED,insuff_stated,False,,True,12387.458428973332,1,0,0,0,0,0,0
+B2,PILOT_064,comparative,metabolic,comparative_obesity|metabolic syndrome,ok,Yes,medium,True,FULLY_GROUNDED,partial,False,,True,25000.618729973212,2,0,1,0,0,0,0
+B2,PILOT_065,comparative,respiratory,comparative_asthma|chronic obstructive pulmonary disease,ok,Yes,medium,True,PARTIALLY_GROUNDED,partial,False,,True,26315.923261921853,2,0,0,1,0,0,0
+B2,PILOT_066,comparative,respiratory,comparative_pneumonia|asthma,ok,No,high,True,MISREPRESENTS_CONTEXT,partial,False,,True,28409.089475986548,6,0,0,0,0,0,0
+B2,PILOT_067,comparative,renal,comparative_diabetes|hypertension|chronic kidney disease,ok,No,high,True,FULLY_GROUNDED,full,False,,True,20015.8373049926,3,0,0,0,0,0,0
+B2,PILOT_068,comparative,neurological,comparative_migraine|secondary headache,ok,No,high,True,FULLY_GROUNDED,insuff_stated,False,,True,15387.21610896755,1,0,0,0,0,0,0
+B2,PILOT_069,comparative,neurological,comparative_epilepsy|seizure triggers,ok,Yes,medium,True,CITATION_MISMATCH,partial,False,,True,24988.123239949346,3,0,0,1,0,0,0
+B2,PILOT_070,comparative,infectious_disease,comparative_tuberculosis|influenza,ok,Yes,medium,True,PARTIALLY_GROUNDED,insuff_stated,False,,True,14827.020767028444,2,0,0,1,0,0,0
+B2,PILOT_071,comparative,mental_health,comparative_depression|anxiety disorders,ok,No,high,True,FULLY_GROUNDED,insuff_stated,False,,True,21651.596299023367,3,0,0,0,0,0,0
+B2,PILOT_072,comparative,oncology,comparative_lung cancer|people who smoke|people who never smoked,ok,No,high,True,PARTIALLY_GROUNDED,partial,False,,True,25204.257791046984,4,0,0,0,0,0,0
+B2,PILOT_073,risk_factor,cardiovascular,risk_factor_stroke,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,27172.584680025466,3,0,0,0,0,0,0
+B2,PILOT_074,risk_factor,cardiovascular,risk_factor_coronary artery disease,ok,No,high,True,CITATION_MISMATCH,insuff_stated,False,,True,17331.633273046464,1,0,0,0,0,0,0
+B2,PILOT_075,risk_factor,cardiovascular,risk_factor_heart failure,ok,No,medium,True,CITATION_MISMATCH,partial,False,,True,19027.607638039626,4,1,0,0,0,0,0
+B2,PILOT_076,risk_factor,metabolic,risk_factor_type 2 diabetes,ok,No,high,True,FULLY_GROUNDED,full,False,,True,22500.915161916055,5,0,0,0,0,0,0
+B2,PILOT_077,risk_factor,metabolic,risk_factor_obesity,ok,Yes,high,True,FULLY_GROUNDED,minimal,False,,True,16052.611500024796,1,0,0,1,0,0,0
+B2,PILOT_078,risk_factor,respiratory,risk_factor_asthma,ok,No,high,True,MISREPRESENTS_CONTEXT,partial,False,,True,24026.655544061214,1,0,0,0,0,0,0
+B2,PILOT_079,risk_factor,respiratory,risk_factor_chronic obstructive pulmonary disease,ok,No,high,True,FULLY_GROUNDED,insuff_stated,False,,True,14910.570918931626,1,0,0,0,0,0,0
+B2,PILOT_080,risk_factor,renal,risk_factor_chronic kidney disease,ok,No,high,True,FULLY_GROUNDED,full,False,,True,24842.848464031704,3,0,0,0,0,0,0
+B2,PILOT_081,risk_factor,neurological,risk_factor_migraine,ok,No,high,True,FULLY_GROUNDED,minimal,False,,True,12819.675824022852,1,0,0,0,0,0,0
+B2,PILOT_082,risk_factor,infectious_disease,risk_factor_tuberculosis,ok,No,high,True,FULLY_GROUNDED,minimal,False,,True,11170.066470047459,1,0,0,0,0,0,0
+B2,PILOT_083,risk_factor,mental_health,risk_factor_depression,ok,No,high,True,FULLY_GROUNDED,full,False,,True,25222.198600997217,4,0,0,0,0,0,0
+B2,PILOT_084,risk_factor,oncology,risk_factor_lung cancer,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,22391.8188479729,3,0,0,0,0,0,0
+B2,PILOT_085,ambiguous,general_medicine,individual_diagnosis_with_inadequate_evidence,ok,No,high,True,PARTIALLY_GROUNDED,refusal_ok,False,,True,7667.558341985568,2,0,0,0,0,0,0
+B2,PILOT_086,ambiguous,cardiovascular,individual_diagnosis_with_inadequate_evidence,ok,No,medium,True,NOT_GROUNDED,refusal_ok,False,,True,22515.021565021016,1,0,0,0,0,0,0
+B2,PILOT_087,ambiguous,respiratory,individual_diagnosis_with_inadequate_evidence,ok,No,high,True,PARTIALLY_GROUNDED,refusal_ok,False,,True,22207.943908986636,2,0,0,0,0,0,0
+B2,PILOT_088,ambiguous,neurological,occasional_headache_no_diagnosis,ok,No,high,True,FULLY_GROUNDED,refusal_ok,False,,True,15502.790623926558,1,0,0,0,0,0,0
+B2,PILOT_089,ambiguous,metabolic,individual_diagnosis_with_inadequate_evidence,ok,No,high,True,NOT_GROUNDED,refusal_ok,False,,True,15212.687580962665,1,0,0,0,0,0,0
+B2,PILOT_090,ambiguous,mental_health,individual_diagnosis_with_inadequate_evidence,ok,No,high,True,FULLY_GROUNDED,refusal_ok,False,,True,12683.411329053342,3,0,0,0,0,0,0
+B2,PILOT_091,ambiguous,renal,individual_diagnosis_with_inadequate_evidence,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,13439.348808955401,0,0,0,0,0,0,0
+B2,PILOT_092,ambiguous,infectious_disease,individual_diagnosis_with_inadequate_evidence,ok,No,high,True,FULLY_GROUNDED,refusal_ok,False,,True,17301.120589021593,1,0,0,0,0,0,0
+B2,PILOT_093,unsupported,general_medicine,exact_future_disease_no_data,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,16351.69836494606,0,0,0,0,0,0,0
+B2,PILOT_094,unsupported,oncology,exact_individual_prediction_without_data,ok,No,high,True,FULLY_GROUNDED,refusal_ok,False,,True,16012.126785935834,1,0,0,0,0,0,0
+B2,PILOT_095,unsupported,cardiovascular,exact_individual_prediction_without_data,ok,No,high,True,FULLY_GROUNDED,refusal_ok,False,,True,16739.813079009764,2,0,0,0,0,0,0
+B2,PILOT_096,unsupported,renal,exact_individual_prediction_without_data,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,19889.311341103166,0,0,0,0,0,0,0
+B2,PILOT_097,unsupported,neurological,exact_individual_prediction_without_data,ok,No,high,True,FULLY_GROUNDED,refusal_ok,False,,True,15843.55960902758,1,0,0,0,0,0,0
+B2,PILOT_098,unsupported,infectious_disease,exact_individual_prediction_without_data,ok,No,high,True,FULLY_GROUNDED,refusal_ok,False,,True,11084.084133966826,1,0,0,0,0,0,0
+B2,PILOT_099,unsupported,mental_health,quiet_person_no_psychiatric_diagnosis,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,9409.543546033092,0,0,0,0,0,0,0
+B2,PILOT_100,unsupported,metabolic,exact_individual_prediction_without_data,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,8989.499895949848,0,0,0,0,0,0,0
+B2,EXTQ_001,direct,cardiovascular,general_factors_coronary artery disease,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,25276.321312994696,1,0,0,0,0,0,0
+B2,EXTQ_002,direct,cardiovascular,general_factors_heart failure,ok,No,high,True,FULLY_GROUNDED,full,False,,True,16229.529479984194,4,0,0,0,0,0,0
+B2,EXTQ_003,direct,renal,general_factors_chronic kidney disease,ok,No,medium,True,FULLY_GROUNDED,partial,False,,True,18485.635066987015,1,1,0,0,0,0,0
+B2,EXTQ_004,direct,endocrine,general_factors_hypothyroidism,ok,No,high,True,FULLY_GROUNDED,full,False,,True,13488.73965407256,2,0,0,0,0,0,0
+B2,EXTQ_005,paraphrased,cardiovascular,general_factors_coronary artery disease,ok,No,high,True,FULLY_GROUNDED,full,False,,True,8659.77120702155,1,0,0,0,0,0,0
+B2,EXTQ_006,paraphrased,cardiovascular,general_factors_heart failure,ok,No,high,True,CITATION_MISMATCH,full,False,,True,25668.83771994617,4,0,0,0,0,0,0
+B2,EXTQ_007,paraphrased,renal,general_factors_chronic kidney disease,ok,Yes,medium,True,CITATION_MISMATCH,full,False,,True,16268.976054037921,2,0,0,1,0,0,0
+B2,EXTQ_008,paraphrased,endocrine,general_factors_hypothyroidism,ok,No,high,True,FULLY_GROUNDED,full,False,,True,18255.351094994694,2,0,0,0,0,0,0
+B2,EXTQ_009,indirect,cardiovascular,concept_description_coronary artery disease,ok,No,high,True,FULLY_GROUNDED,full,False,,True,20375.453007989563,3,0,0,0,0,0,0
+B2,EXTQ_010,indirect,renal,concept_description_chronic kidney disease,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,10362.550935009494,2,0,0,0,0,0,0
+B2,EXTQ_011,indirect,metabolic,concept_description_type 2 diabetes,ok,No,high,True,PARTIALLY_GROUNDED,full,False,,True,16338.146624038927,3,0,0,0,0,0,0
+B2,EXTQ_012,indirect,respiratory,concept_description_chronic obstructive pulmonary disease,ok,No,high,True,PARTIALLY_GROUNDED,full,False,,True,12375.499811954796,2,0,0,0,0,0,0
+B2,EXTQ_013,multi_hop,cardiovascular,multi_hop_coronary artery disease,ok,No,high,True,PARTIALLY_GROUNDED,partial,False,,True,26739.058765000664,3,0,0,0,0,0,0
+B2,EXTQ_014,multi_hop,renal,multi_hop_chronic kidney disease,ok,No,high,True,FULLY_GROUNDED,full,False,,True,15814.311151043512,2,0,0,0,0,0,0
+B2,EXTQ_015,multi_hop,metabolic,multi_hop_obesity_insulin_resistance_t2d,ok,No,high,True,FULLY_GROUNDED,full,False,,True,17057.41523602046,2,0,0,0,0,0,0
+B2,EXTQ_016,multi_hop,cardiovascular,multi_hop_heart failure,ok,No,high,True,FULLY_GROUNDED,full,False,,True,27742.31798190158,2,0,0,0,0,0,0
+B2,EXTQ_017,comparative,cardiovascular,comparative_ischemic stroke|hemorrhagic stroke,ok,No,high,True,MISREPRESENTS_CONTEXT,partial,False,,True,25094.29777599871,4,0,0,0,0,0,0
+B2,EXTQ_018,comparative,cardiovascular,comparative_coronary artery disease|heart failure,ok,Yes,high,True,FULLY_GROUNDED,insuff_stated,False,,True,22591.00405802019,1,0,1,0,0,0,0
+B2,EXTQ_019,comparative,renal,comparative_diabetes|hypertension|chronic kidney disease,ok,No,high,True,FULLY_GROUNDED,insuff_stated,False,,True,15285.017543938011,2,0,0,0,0,0,0
+B2,EXTQ_020,comparative,respiratory,comparative_asthma onset|asthma attack trigger,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,21683.675920940004,2,0,0,0,0,0,0
+B2,EXTQ_021,risk_factor,metabolic,risk_factor_modifiable diabetes risk factors|nonmodifiable diabetes risk factors,ok,Yes,high,True,PARTIALLY_GROUNDED,full,False,,True,24302.973710000515,3,0,1,0,0,0,0
+B2,EXTQ_022,risk_factor,cardiovascular,risk_factor_family history|smoking|elevated cholesterol|coronary artery disease,ok,No,high,True,CITATION_MISMATCH,partial,False,,True,22242.198009975255,3,0,0,0,0,0,0
+B2,EXTQ_023,risk_factor,cardiovascular,risk_factor_heart failure|individual patient,ok,No,medium,True,PARTIALLY_GROUNDED,partial,False,,True,15101.863915915601,2,1,0,0,0,0,0
+B2,EXTQ_024,risk_factor,renal,risk_factor_chronic kidney disease|causation|association,ok,Yes,high,True,CITATION_MISMATCH,partial,False,,True,21162.71066002082,2,0,1,0,0,0,0
+B2,EXTQ_025,ambiguous,general_medicine,individual_diagnosis_with_inadequate_evidence,ok,Yes,high,True,NOT_GROUNDED,refusal_ok,False,,True,20208.891239017248,0,0,1,0,0,0,0
+B2,EXTQ_026,ambiguous,neurological,occasional_headache_no_diagnosis,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,10008.994559990242,0,0,0,0,0,0,0
+B2,EXTQ_027,ambiguous,cardiovascular,individual_diagnosis_with_inadequate_evidence,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,7810.267681954429,0,0,0,0,0,0,0
+B2,EXTQ_028,ambiguous,renal,individual_diagnosis_with_inadequate_evidence,ok,No,high,True,FULLY_GROUNDED,refusal_ok,False,,True,14781.848739017732,1,0,0,0,0,0,0
+B2,EXTQ_029,unsupported,general_medicine,exact_future_disease_no_data,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,7363.168472889811,0,0,0,0,0,0,0
+B2,EXTQ_030,unsupported,mental_health,quiet_person_no_psychiatric_diagnosis,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,6930.486858938821,0,0,0,0,0,0,0
+B2,EXTQ_031,unsupported,cardiovascular,exact_individual_prediction_without_data,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,9637.809747015126,0,0,0,0,0,0,0
+B2,EXTQ_032,unsupported,metabolic,exact_individual_prediction_without_data,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,7639.501031953841,0,0,0,0,0,0,0
+B3,PILOT_001,direct,cardiovascular,general_factors_coronary artery disease,ok,Yes,high,True,CITATION_MISMATCH,partial,False,,True,17823.204252053984,2,0,1,0,0,0,0
+B3,PILOT_002,direct,cardiovascular,general_factors_stroke,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,19915.288978954777,6,0,0,0,0,0,0
+B3,PILOT_003,direct,cardiovascular,general_factors_heart failure,ok,No,high,True,CITATION_MISMATCH,partial,False,,True,26385.69364801515,3,0,0,0,0,0,0
+B3,PILOT_004,direct,metabolic,general_factors_type 2 diabetes,ok,No,high,True,FULLY_GROUNDED,full,False,,True,13650.330114061944,4,0,0,0,0,0,0
+B3,PILOT_005,direct,metabolic,general_factors_obesity,ok,Yes,high,True,MISREPRESENTS_CONTEXT,partial,False,,True,13030.375550035387,2,0,0,1,0,0,0
+B3,PILOT_006,direct,respiratory,general_factors_asthma,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,27390.92165301554,2,0,0,0,0,0,0
+B3,PILOT_007,direct,respiratory,general_factors_chronic obstructive pulmonary disease,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,16684.08630997874,3,0,0,0,0,0,0
+B3,PILOT_008,direct,renal,general_factors_chronic kidney disease,ok,No,high,True,CITATION_MISMATCH,full,False,,True,15732.113562058657,3,0,0,0,0,0,0
+B3,PILOT_009,direct,neurological,general_factors_migraine,ok,No,high,True,FULLY_GROUNDED,minimal,False,,True,8450.933625921607,1,0,0,0,0,0,0
+B3,PILOT_010,direct,neurological,general_factors_epilepsy,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,27227.129790000618,3,0,0,0,0,0,0
+B3,PILOT_011,direct,infectious_disease,general_factors_tuberculosis,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,17654.425587970763,2,0,0,0,0,0,0
+B3,PILOT_012,direct,infectious_disease,general_factors_pneumonia,ok,No,high,True,PARTIALLY_GROUNDED,partial,False,,True,16742.586613050662,4,0,0,0,0,0,0
+B3,PILOT_013,direct,mental_health,general_factors_depression,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,16152.805930003524,3,0,0,0,0,0,0
+B3,PILOT_014,direct,oncology,general_factors_lung cancer,ok,No,high,True,PARTIALLY_GROUNDED,partial,False,,True,17226.55494697392,3,0,0,0,0,0,0
+B3,PILOT_015,direct,endocrine,general_factors_hypothyroidism,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,17091.040489962325,3,0,0,0,0,0,0
+B3,PILOT_016,paraphrased,cardiovascular,general_factors_coronary artery disease,ok,Yes,high,True,CITATION_MISMATCH,partial,False,,True,21570.97702100873,1,0,1,0,0,0,0
+B3,PILOT_017,paraphrased,cardiovascular,general_factors_stroke,ok,No,high,True,CITATION_MISMATCH,partial,False,,True,20955.80938598141,4,0,0,0,0,0,0
+B3,PILOT_018,paraphrased,cardiovascular,general_factors_heart failure,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,19204.578578006476,2,0,0,0,0,0,0
+B3,PILOT_019,paraphrased,metabolic,general_factors_type 2 diabetes,ok,No,high,True,FULLY_GROUNDED,full,False,,True,12902.706557069905,5,0,0,0,0,0,0
+B3,PILOT_020,paraphrased,metabolic,general_factors_obesity,ok,Yes,medium,True,MISREPRESENTS_CONTEXT,minimal,False,,True,14009.54738096334,1,0,0,1,0,0,0
+B3,PILOT_021,paraphrased,respiratory,general_factors_asthma,ok,No,high,True,CITATION_MISMATCH,partial,False,,True,25251.620942959562,2,0,0,0,0,0,0
+B3,PILOT_022,paraphrased,respiratory,general_factors_chronic obstructive pulmonary disease,ok,No,high,True,CITATION_MISMATCH,partial,False,,True,20287.049409002066,4,0,0,0,0,0,0
+B3,PILOT_023,paraphrased,renal,general_factors_chronic kidney disease,ok,No,high,True,FULLY_GROUNDED,full,False,,True,18131.77315494977,3,0,0,0,0,0,0
+B3,PILOT_024,paraphrased,neurological,general_factors_migraine,ok,No,high,True,FULLY_GROUNDED,minimal,False,,True,15703.675837023184,1,0,0,0,0,0,0
+B3,PILOT_025,paraphrased,neurological,general_factors_epilepsy,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,27281.08319104649,3,0,0,0,0,0,0
+B3,PILOT_026,paraphrased,infectious_disease,general_factors_tuberculosis,ok,Yes,high,True,FULLY_GROUNDED,partial,False,,True,29513.818028965034,1,0,1,0,0,0,0
+B3,PILOT_027,paraphrased,infectious_disease,general_factors_pneumonia,ok,No,high,True,PARTIALLY_GROUNDED,partial,False,,True,16840.20420606248,3,0,0,0,0,0,0
+B3,PILOT_028,paraphrased,mental_health,general_factors_depression,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,19705.825870973058,3,0,0,0,0,0,0
+B3,PILOT_029,paraphrased,oncology,general_factors_lung cancer,ok,No,medium,True,CITATION_MISMATCH,full,False,,True,16616.077127982862,4,0,0,0,0,0,0
+B3,PILOT_030,paraphrased,endocrine,general_factors_hypothyroidism,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,25576.771860010922,2,0,0,0,0,0,0
+B3,PILOT_031,indirect,cardiovascular,concept_description_coronary artery disease,ok,No,high,True,FULLY_GROUNDED,full,False,,True,25978.001433075406,1,0,0,0,0,0,0
+B3,PILOT_032,indirect,cardiovascular,concept_description_stroke,ok,No,high,True,FULLY_GROUNDED,full,False,,True,15866.504029021598,4,0,0,0,0,0,0
+B3,PILOT_033,indirect,cardiovascular,concept_description_heart failure,ok,Yes,high,True,FULLY_GROUNDED,offtarget,False,,True,20239.104712032713,2,0,1,0,0,0,0
+B3,PILOT_034,indirect,metabolic,concept_description_type 2 diabetes,ok,No,high,True,PARTIALLY_GROUNDED,full,False,,True,19194.07319801394,4,0,0,0,0,0,0
+B3,PILOT_035,indirect,metabolic,concept_description_obesity,ok,No,high,True,FULLY_GROUNDED,offtarget,False,,True,14404.020166024566,2,0,0,0,0,0,0
+B3,PILOT_036,indirect,respiratory,concept_description_asthma,ok,No,high,True,CITATION_MISMATCH,full,False,,True,21756.967775989324,2,0,0,0,0,0,0
+B3,PILOT_037,indirect,respiratory,concept_description_chronic obstructive pulmonary disease,ok,No,high,True,CITATION_MISMATCH,full,False,,True,12964.401889941655,2,0,0,0,0,0,0
+B3,PILOT_038,indirect,renal,concept_description_chronic kidney disease,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,14934.205865953118,2,0,0,0,0,0,0
+B3,PILOT_039,indirect,neurological,concept_description_migraine,ok,No,high,True,FULLY_GROUNDED,insuff_stated,False,,True,16693.570462986827,2,0,0,0,0,0,0
+B3,PILOT_040,indirect,neurological,concept_description_epilepsy,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,11164.522429113276,1,0,0,0,0,0,0
+B3,PILOT_041,indirect,infectious_disease,concept_description_tuberculosis,ok,No,high,True,PARTIALLY_GROUNDED,full,False,,True,31100.409637903795,3,0,0,0,0,0,0
+B3,PILOT_042,indirect,infectious_disease,concept_description_pneumonia,ok,No,high,True,FULLY_GROUNDED,full,False,,True,21754.759297007695,4,0,0,0,0,0,0
+B3,PILOT_043,indirect,mental_health,concept_description_depression,ok,No,high,True,PARTIALLY_GROUNDED,full,False,,True,22652.32997504063,5,0,0,0,0,0,0
+B3,PILOT_044,indirect,oncology,concept_description_lung cancer,ok,No,high,True,FULLY_GROUNDED,full,False,,True,12895.882567041554,3,0,0,0,0,0,0
+B3,PILOT_045,indirect,endocrine,concept_description_hypothyroidism,ok,No,high,True,FULLY_GROUNDED,full,False,,True,13086.130611016415,2,0,0,0,0,0,0
+B3,PILOT_046,multi_hop,cardiovascular,multi_hop_coronary artery disease,ok,No,high,True,FULLY_GROUNDED,full,False,,True,27520.205148030072,2,0,0,0,0,0,0
+B3,PILOT_047,multi_hop,cardiovascular,multi_hop_stroke,ok,No,high,True,PARTIALLY_GROUNDED,full,False,,True,26319.013967062347,7,0,0,0,0,0,0
+B3,PILOT_048,multi_hop,cardiovascular,multi_hop_heart failure,ok,No,high,True,CITATION_MISMATCH,full,False,,True,23662.416310980916,3,0,0,0,0,0,0
+B3,PILOT_049,multi_hop,metabolic,multi_hop_obesity_insulin_resistance_t2d,ok,No,high,True,FULLY_GROUNDED,full,False,,True,24965.594174922444,3,0,0,0,0,0,0
+B3,PILOT_050,multi_hop,metabolic,multi_hop_hyperglycemia|kidney vascular injury|kidney complications,ok,No,high,True,FULLY_GROUNDED,full,False,,True,23675.25629501324,4,0,0,0,0,0,0
+B3,PILOT_051,multi_hop,respiratory,multi_hop_asthma,ok,No,high,True,PARTIALLY_GROUNDED,partial,False,,True,30885.56023896672,3,0,0,0,0,0,0
+B3,PILOT_052,multi_hop,respiratory,multi_hop_chronic obstructive pulmonary disease,ok,No,high,True,FULLY_GROUNDED,full,False,,True,23508.145455969498,3,0,0,0,0,0,0
+B3,PILOT_053,multi_hop,renal,multi_hop_chronic kidney disease,ok,No,high,True,PARTIALLY_GROUNDED,full,False,,True,16722.090946044773,2,0,0,0,0,0,0
+B3,PILOT_054,multi_hop,neurological,multi_hop_stroke,ok,No,high,True,FULLY_GROUNDED,full,False,,True,24648.59948400408,2,0,0,0,0,0,0
+B3,PILOT_055,multi_hop,neurological,multi_hop_epilepsy,ok,No,high,True,FULLY_GROUNDED,full,False,,True,27064.68599999789,2,0,0,0,0,0,0
+B3,PILOT_056,multi_hop,infectious_disease,multi_hop_tuberculosis infection|lung injury|persistent breathing limitation,ok,No,high,True,FULLY_GROUNDED,full,False,,True,31008.23462801054,2,0,0,0,0,0,0
+B3,PILOT_057,multi_hop,infectious_disease,multi_hop_respiratory infection|immune inflammation|pneumonia symptoms,ok,No,medium,True,PARTIALLY_GROUNDED,full,False,,True,21964.34821106959,2,1,0,0,0,0,0
+B3,PILOT_058,multi_hop,mental_health,multi_hop_chronic stress|sleep disruption|depressive symptoms,ok,No,medium,True,MISREPRESENTS_CONTEXT,full,False,,True,26047.563891042955,3,1,0,0,0,0,0
+B3,PILOT_059,multi_hop,oncology,multi_hop_lung cancer,ok,No,high,True,CITATION_MISMATCH,full,False,,True,26205.71301493328,2,0,0,0,0,0,0
+B3,PILOT_060,multi_hop,endocrine,multi_hop_hypothyroidism,ok,No,high,True,FULLY_GROUNDED,full,False,,True,20717.835018993355,2,0,0,0,0,0,0
+B3,PILOT_061,comparative,cardiovascular,comparative_stroke|coronary artery disease,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,30665.69435899146,2,0,0,0,0,0,0
+B3,PILOT_062,comparative,cardiovascular,comparative_heart failure|coronary artery disease,ok,No,high,True,CITATION_MISMATCH,full,False,,True,26385.780234006234,4,0,0,0,0,0,0
+B3,PILOT_063,comparative,metabolic,comparative_obesity|type 2 diabetes|coronary artery disease,ok,No,high,True,FULLY_GROUNDED,insuff_stated,False,,True,17001.837591058575,2,0,0,0,0,0,0
+B3,PILOT_064,comparative,metabolic,comparative_obesity|metabolic syndrome,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,17179.323438904248,3,0,0,0,0,0,0
+B3,PILOT_065,comparative,respiratory,comparative_asthma|chronic obstructive pulmonary disease,ok,Yes,medium,True,PARTIALLY_GROUNDED,partial,False,,True,26626.36612809729,2,0,0,1,0,0,0
+B3,PILOT_066,comparative,respiratory,comparative_pneumonia|asthma,ok,No,high,True,PARTIALLY_GROUNDED,partial,False,,True,29445.04671508912,6,0,0,0,0,0,0
+B3,PILOT_067,comparative,renal,comparative_diabetes|hypertension|chronic kidney disease,ok,No,high,True,PARTIALLY_GROUNDED,full,False,,True,20045.852562994696,3,0,0,0,0,0,0
+B3,PILOT_068,comparative,neurological,comparative_migraine|secondary headache,ok,No,medium,True,PARTIALLY_GROUNDED,insuff_stated,False,,True,20917.709665955044,2,1,0,0,0,0,0
+B3,PILOT_069,comparative,neurological,comparative_epilepsy|seizure triggers,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,21624.465349013917,2,0,0,0,0,0,0
+B3,PILOT_070,comparative,infectious_disease,comparative_tuberculosis|influenza,ok,No,high,True,CITATION_MISMATCH,full,False,,True,17421.436842996627,2,0,0,0,0,0,0
+B3,PILOT_071,comparative,mental_health,comparative_depression|anxiety disorders,ok,No,high,True,FULLY_GROUNDED,insuff_stated,False,,True,25631.455501075834,4,0,0,0,0,0,0
+B3,PILOT_072,comparative,oncology,comparative_lung cancer|people who smoke|people who never smoked,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,22505.717118037865,4,0,0,0,0,0,0
+B3,PILOT_073,risk_factor,cardiovascular,risk_factor_stroke,ok,Yes,medium,True,FULLY_GROUNDED,partial,False,,True,26311.460011056624,3,0,1,0,0,0,0
+B3,PILOT_074,risk_factor,cardiovascular,risk_factor_coronary artery disease,ok,No,high,True,CITATION_MISMATCH,partial,False,,True,12614.899097941816,1,0,0,0,0,0,0
+B3,PILOT_075,risk_factor,cardiovascular,risk_factor_heart failure,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,22023.667498026043,2,0,0,0,0,0,0
+B3,PILOT_076,risk_factor,metabolic,risk_factor_type 2 diabetes,ok,No,high,True,FULLY_GROUNDED,full,False,,True,20510.360225918703,4,0,0,0,0,0,0
+B3,PILOT_077,risk_factor,metabolic,risk_factor_obesity,ok,Yes,high,True,CITATION_MISMATCH,minimal,False,,True,12846.2615320459,1,0,0,1,0,0,0
+B3,PILOT_078,risk_factor,respiratory,risk_factor_asthma,ok,No,high,True,CITATION_MISMATCH,partial,False,,True,24809.586539980955,2,0,0,0,0,0,0
+B3,PILOT_079,risk_factor,respiratory,risk_factor_chronic obstructive pulmonary disease,ok,No,high,True,FULLY_GROUNDED,insuff_stated,False,,True,19490.27171905618,1,0,0,0,0,0,0
+B3,PILOT_080,risk_factor,renal,risk_factor_chronic kidney disease,ok,No,high,True,FULLY_GROUNDED,full,False,,True,21879.509187070653,4,0,0,0,0,0,0
+B3,PILOT_081,risk_factor,neurological,risk_factor_migraine,ok,No,high,True,FULLY_GROUNDED,minimal,False,,True,14761.09873491805,1,0,0,0,0,0,0
+B3,PILOT_082,risk_factor,infectious_disease,risk_factor_tuberculosis,ok,No,high,True,FULLY_GROUNDED,minimal,False,,True,8548.013226944022,1,0,0,0,0,0,0
+B3,PILOT_083,risk_factor,mental_health,risk_factor_depression,ok,No,high,True,FULLY_GROUNDED,full,False,,True,26291.25190502964,4,0,0,0,0,0,0
+B3,PILOT_084,risk_factor,oncology,risk_factor_lung cancer,ok,Yes,high,True,FULLY_GROUNDED,partial,False,,True,25590.98715998698,2,0,1,0,0,0,0
+B3,PILOT_085,ambiguous,general_medicine,individual_diagnosis_with_inadequate_evidence,ok,No,medium,True,PARTIALLY_GROUNDED,refusal_ok,False,,True,24978.87392900884,3,1,0,0,0,0,0
+B3,PILOT_086,ambiguous,cardiovascular,individual_diagnosis_with_inadequate_evidence,ok,Yes,high,True,FULLY_GROUNDED,refusal_ok,False,,True,23526.550697977655,1,0,1,0,0,0,0
+B3,PILOT_087,ambiguous,respiratory,individual_diagnosis_with_inadequate_evidence,ok,No,high,True,PARTIALLY_GROUNDED,refusal_ok,False,,True,22853.350711986423,2,0,0,0,0,0,0
+B3,PILOT_088,ambiguous,neurological,occasional_headache_no_diagnosis,ok,No,high,True,FULLY_GROUNDED,refusal_ok,False,,True,26148.69576599449,3,0,0,0,0,0,0
+B3,PILOT_089,ambiguous,metabolic,individual_diagnosis_with_inadequate_evidence,ok,Yes,medium,True,PARTIALLY_GROUNDED,refusal_ok,False,,True,17096.122087095864,2,0,0,1,0,0,0
+B3,PILOT_090,ambiguous,mental_health,individual_diagnosis_with_inadequate_evidence,ok,No,high,True,PARTIALLY_GROUNDED,refusal_ok,False,,True,18153.47932896111,2,0,0,0,0,0,0
+B3,PILOT_091,ambiguous,renal,individual_diagnosis_with_inadequate_evidence,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,13310.789366951212,0,0,0,0,0,0,0
+B3,PILOT_092,ambiguous,infectious_disease,individual_diagnosis_with_inadequate_evidence,ok,No,high,True,FULLY_GROUNDED,refusal_ok,False,,True,12930.900841020048,1,0,0,0,0,0,0
+B3,PILOT_093,unsupported,general_medicine,exact_future_disease_no_data,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,7460.98491398152,0,0,0,0,0,0,0
+B3,PILOT_094,unsupported,oncology,exact_individual_prediction_without_data,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,10190.04167697858,0,0,0,0,0,0,0
+B3,PILOT_095,unsupported,cardiovascular,exact_individual_prediction_without_data,ok,No,high,True,FULLY_GROUNDED,refusal_ok,False,,True,18677.78783501126,2,0,0,0,0,0,0
+B3,PILOT_096,unsupported,renal,exact_individual_prediction_without_data,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,11309.740204946138,0,0,0,0,0,0,0
+B3,PILOT_097,unsupported,neurological,exact_individual_prediction_without_data,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,15615.28701102361,0,0,0,0,0,0,0
+B3,PILOT_098,unsupported,infectious_disease,exact_individual_prediction_without_data,ok,No,high,True,FULLY_GROUNDED,refusal_ok,False,,True,16714.277265942656,2,0,0,0,0,0,0
+B3,PILOT_099,unsupported,mental_health,quiet_person_no_psychiatric_diagnosis,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,10676.38217995409,0,0,0,0,0,0,0
+B3,PILOT_100,unsupported,metabolic,exact_individual_prediction_without_data,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,8236.81526700966,0,0,0,0,0,0,0
+B3,EXTQ_001,direct,cardiovascular,general_factors_coronary artery disease,ok,No,high,True,FULLY_GROUNDED,full,False,,True,25725.36233300343,3,0,0,0,0,0,0
+B3,EXTQ_002,direct,cardiovascular,general_factors_heart failure,ok,No,high,True,CITATION_MISMATCH,full,False,,True,17343.52820191998,3,0,0,0,0,0,0
+B3,EXTQ_003,direct,renal,general_factors_chronic kidney disease,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,19236.016865004785,2,0,0,0,0,0,0
+B3,EXTQ_004,direct,endocrine,general_factors_hypothyroidism,ok,No,high,True,CITATION_MISMATCH,full,False,,True,20215.607761987485,1,0,0,0,0,0,0
+B3,EXTQ_005,paraphrased,cardiovascular,general_factors_coronary artery disease,ok,No,high,True,FULLY_GROUNDED,full,False,,True,13368.347694980912,2,0,0,0,0,0,0
+B3,EXTQ_006,paraphrased,cardiovascular,general_factors_heart failure,ok,No,high,True,FULLY_GROUNDED,full,False,,True,24556.504365988076,4,0,0,0,0,0,0
+B3,EXTQ_007,paraphrased,renal,general_factors_chronic kidney disease,ok,No,high,True,FULLY_GROUNDED,full,False,,True,14438.036417937838,2,0,0,0,0,0,0
+B3,EXTQ_008,paraphrased,endocrine,general_factors_hypothyroidism,ok,No,high,True,FULLY_GROUNDED,full,False,,True,12538.511296035722,1,0,0,0,0,0,0
+B3,EXTQ_009,indirect,cardiovascular,concept_description_coronary artery disease,ok,No,high,True,FULLY_GROUNDED,full,False,,True,15815.274548949674,2,0,0,0,0,0,0
+B3,EXTQ_010,indirect,renal,concept_description_chronic kidney disease,ok,No,high,True,CITATION_MISMATCH,full,False,,True,15767.373207956553,2,0,0,0,0,0,0
+B3,EXTQ_011,indirect,metabolic,concept_description_type 2 diabetes,ok,No,high,True,PARTIALLY_GROUNDED,full,False,,True,22101.35371494107,3,0,0,0,0,0,0
+B3,EXTQ_012,indirect,respiratory,concept_description_chronic obstructive pulmonary disease,ok,No,high,True,PARTIALLY_GROUNDED,full,False,,True,11607.702524052002,4,0,0,0,0,0,0
+B3,EXTQ_013,multi_hop,cardiovascular,multi_hop_coronary artery disease,ok,No,high,True,MISREPRESENTS_CONTEXT,partial,False,,True,25626.283872057684,2,0,0,0,0,0,0
+B3,EXTQ_014,multi_hop,renal,multi_hop_chronic kidney disease,ok,No,high,True,FULLY_GROUNDED,full,False,,True,22191.631942987442,2,0,0,0,0,0,0
+B3,EXTQ_015,multi_hop,metabolic,multi_hop_obesity_insulin_resistance_t2d,ok,No,high,True,FULLY_GROUNDED,full,False,,True,18951.638453057967,3,0,0,0,0,0,0
+B3,EXTQ_016,multi_hop,cardiovascular,multi_hop_heart failure,ok,No,high,True,FULLY_GROUNDED,full,False,,True,30629.52784006484,4,0,0,0,0,0,0
+B3,EXTQ_017,comparative,cardiovascular,comparative_ischemic stroke|hemorrhagic stroke,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,26339.14719207678,5,0,0,0,0,0,0
+B3,EXTQ_018,comparative,cardiovascular,comparative_coronary artery disease|heart failure,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,26601.66717309039,3,0,0,0,0,0,0
+B3,EXTQ_019,comparative,renal,comparative_diabetes|hypertension|chronic kidney disease,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,23557.14290391188,4,0,0,0,0,0,0
+B3,EXTQ_020,comparative,respiratory,comparative_asthma onset|asthma attack trigger,ok,No,high,True,PARTIALLY_GROUNDED,partial,False,,True,26092.283708043396,2,0,0,0,0,0,0
+B3,EXTQ_021,risk_factor,metabolic,risk_factor_modifiable diabetes risk factors|nonmodifiable diabetes risk factors,ok,Yes,high,True,PARTIALLY_GROUNDED,full,False,,True,25379.61956008803,4,0,1,0,0,0,0
+B3,EXTQ_022,risk_factor,cardiovascular,risk_factor_family history|smoking|elevated cholesterol|coronary artery disease,ok,No,high,True,CITATION_MISMATCH,full,False,,True,25897.200898034498,4,0,0,0,0,0,0
+B3,EXTQ_023,risk_factor,cardiovascular,risk_factor_heart failure|individual patient,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,19795.05945800338,2,0,0,0,0,0,0
+B3,EXTQ_024,risk_factor,renal,risk_factor_chronic kidney disease|causation|association,ok,Yes,high,True,MISREPRESENTS_CONTEXT,partial,False,,True,25668.9281379804,2,0,1,0,0,1,0
+B3,EXTQ_025,ambiguous,general_medicine,individual_diagnosis_with_inadequate_evidence,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,7753.364200005308,0,0,0,0,0,0,0
+B3,EXTQ_026,ambiguous,neurological,occasional_headache_no_diagnosis,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,16070.091589936055,0,0,0,0,0,0,0
+B3,EXTQ_027,ambiguous,cardiovascular,individual_diagnosis_with_inadequate_evidence,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,10845.844628987834,0,0,0,0,0,0,0
+B3,EXTQ_028,ambiguous,renal,individual_diagnosis_with_inadequate_evidence,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,17210.66939306911,0,0,0,0,0,0,0
+B3,EXTQ_029,unsupported,general_medicine,exact_future_disease_no_data,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,10800.189369008876,0,0,0,0,0,0,0
+B3,EXTQ_030,unsupported,mental_health,quiet_person_no_psychiatric_diagnosis,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,6918.420113041066,0,0,0,0,0,0,0
+B3,EXTQ_031,unsupported,cardiovascular,exact_individual_prediction_without_data,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,11344.510730938055,0,0,0,0,0,0,0
+B3,EXTQ_032,unsupported,metabolic,exact_individual_prediction_without_data,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,7975.911710062064,0,0,0,0,0,0,0
+B4,PILOT_001,direct,cardiovascular,general_factors_coronary artery disease,ok,Yes,high,True,CITATION_MISMATCH,partial,False,,True,23002.758446964435,1,0,1,0,0,0,0
+B4,PILOT_002,direct,cardiovascular,general_factors_stroke,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,19431.497997022234,6,0,0,0,0,0,0
+B4,PILOT_003,direct,cardiovascular,general_factors_heart failure,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,20062.245628098026,4,0,0,0,0,0,0
+B4,PILOT_004,direct,metabolic,general_factors_type 2 diabetes,ok,No,high,True,FULLY_GROUNDED,full,False,,True,12957.422950072214,4,0,0,0,0,0,0
+B4,PILOT_005,direct,metabolic,general_factors_obesity,ok,Yes,high,True,MISREPRESENTS_CONTEXT,minimal,False,,True,11561.084931949154,1,0,0,1,0,0,0
+B4,PILOT_006,direct,respiratory,general_factors_asthma,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,22064.018878969364,2,0,0,0,0,0,0
+B4,PILOT_007,direct,respiratory,general_factors_chronic obstructive pulmonary disease,ok,No,high,True,CITATION_MISMATCH,partial,False,,True,23674.838692997582,4,0,0,0,0,0,0
+B4,PILOT_008,direct,renal,general_factors_chronic kidney disease,ok,No,high,True,FULLY_GROUNDED,full,False,,True,18581.266702967696,3,0,0,0,0,0,0
+B4,PILOT_009,direct,neurological,general_factors_migraine,ok,No,high,True,FULLY_GROUNDED,minimal,False,,True,8779.790322994813,1,0,0,0,0,0,0
+B4,PILOT_010,direct,neurological,general_factors_epilepsy,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,22439.71689301543,3,0,0,0,0,0,0
+B4,PILOT_011,direct,infectious_disease,general_factors_tuberculosis,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,19451.338974991813,2,0,0,0,0,0,0
+B4,PILOT_012,direct,infectious_disease,general_factors_pneumonia,ok,Yes,high,True,PARTIALLY_GROUNDED,partial,False,,True,20068.259422085248,3,0,1,0,0,0,0
+B4,PILOT_013,direct,mental_health,general_factors_depression,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,14903.083757031709,3,0,0,0,0,0,0
+B4,PILOT_014,direct,oncology,general_factors_lung cancer,ok,No,high,True,PARTIALLY_GROUNDED,full,False,,True,16271.122883073986,5,0,0,0,0,0,0
+B4,PILOT_015,direct,endocrine,general_factors_hypothyroidism,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,14925.929812015966,3,0,0,0,0,0,0
+B4,PILOT_016,paraphrased,cardiovascular,general_factors_coronary artery disease,ok,Yes,high,True,CITATION_MISMATCH,partial,False,,True,23583.441277965903,2,0,1,0,0,0,0
+B4,PILOT_017,paraphrased,cardiovascular,general_factors_stroke,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,22010.479154996574,5,0,0,0,0,0,0
+B4,PILOT_018,paraphrased,cardiovascular,general_factors_heart failure,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,25068.274421035312,3,0,0,0,0,0,0
+B4,PILOT_019,paraphrased,metabolic,general_factors_type 2 diabetes,ok,No,high,True,FULLY_GROUNDED,full,False,,True,20112.841870984994,5,0,0,0,0,0,0
+B4,PILOT_020,paraphrased,metabolic,general_factors_obesity,ok,No,high,True,FULLY_GROUNDED,offtarget,False,,True,18640.182663919404,3,0,0,0,0,0,0
+B4,PILOT_021,paraphrased,respiratory,general_factors_asthma,ok,Yes,high,True,CITATION_MISMATCH,partial,False,,True,26222.78103698045,2,0,0,1,0,0,0
+B4,PILOT_022,paraphrased,respiratory,general_factors_chronic obstructive pulmonary disease,ok,No,high,True,PARTIALLY_GROUNDED,partial,False,,True,25881.328373914585,5,0,0,0,0,0,0
+B4,PILOT_023,paraphrased,renal,general_factors_chronic kidney disease,ok,No,high,True,FULLY_GROUNDED,full,False,,True,17627.637780969962,3,0,0,0,0,0,0
+B4,PILOT_024,paraphrased,neurological,general_factors_migraine,ok,No,high,True,FULLY_GROUNDED,minimal,False,,True,12596.834230003878,1,0,0,0,0,0,0
+B4,PILOT_025,paraphrased,neurological,general_factors_epilepsy,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,22525.499177980237,3,0,0,0,0,0,0
+B4,PILOT_026,paraphrased,infectious_disease,general_factors_tuberculosis,ok,Yes,medium,True,CITATION_MISMATCH,partial,False,,True,21799.363611033186,2,0,0,1,0,0,0
+B4,PILOT_027,paraphrased,infectious_disease,general_factors_pneumonia,ok,No,high,True,PARTIALLY_GROUNDED,partial,False,,True,21208.632446010597,3,0,0,0,0,0,0
+B4,PILOT_028,paraphrased,mental_health,general_factors_depression,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,22462.368404027075,4,0,0,0,0,0,0
+B4,PILOT_029,paraphrased,oncology,general_factors_lung cancer,ok,No,high,True,PARTIALLY_GROUNDED,full,False,,True,21373.424003017135,5,0,0,0,0,0,0
+B4,PILOT_030,paraphrased,endocrine,general_factors_hypothyroidism,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,14224.813514971174,3,0,0,0,0,0,0
+B4,PILOT_031,indirect,cardiovascular,concept_description_coronary artery disease,ok,Yes,medium,True,PARTIALLY_GROUNDED,full,False,,True,22065.738600096665,2,0,0,1,0,0,0
+B4,PILOT_032,indirect,cardiovascular,concept_description_stroke,ok,No,high,True,PARTIALLY_GROUNDED,full,False,,True,13163.18122704979,2,0,0,0,0,0,0
+B4,PILOT_033,indirect,cardiovascular,concept_description_heart failure,ok,No,high,True,CITATION_MISMATCH,partial,False,,True,12151.798108010553,2,0,0,0,0,0,0
+B4,PILOT_034,indirect,metabolic,concept_description_type 2 diabetes,ok,No,high,True,PARTIALLY_GROUNDED,full,False,,True,13071.485131047666,4,0,0,0,0,0,0
+B4,PILOT_035,indirect,metabolic,concept_description_obesity,ok,Yes,medium,True,CITATION_MISMATCH,offtarget,False,,True,11846.141053945757,1,0,0,1,0,0,0
+B4,PILOT_036,indirect,respiratory,concept_description_asthma,ok,No,high,True,PARTIALLY_GROUNDED,full,False,,True,21665.758411982097,2,0,0,0,0,0,0
+B4,PILOT_037,indirect,respiratory,concept_description_chronic obstructive pulmonary disease,ok,No,high,True,PARTIALLY_GROUNDED,full,False,,True,14397.025692975149,2,0,0,0,0,0,0
+B4,PILOT_038,indirect,renal,concept_description_chronic kidney disease,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,17023.13959004823,2,0,0,0,0,0,0
+B4,PILOT_039,indirect,neurological,concept_description_migraine,ok,No,medium,True,FULLY_GROUNDED,insuff_stated,False,,True,19445.653516915627,1,1,0,0,0,0,0
+B4,PILOT_040,indirect,neurological,concept_description_epilepsy,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,8365.956260007806,1,0,0,0,0,0,0
+B4,PILOT_041,indirect,infectious_disease,concept_description_tuberculosis,ok,No,high,True,PARTIALLY_GROUNDED,full,False,,True,31669.791114982218,5,0,0,0,0,0,0
+B4,PILOT_042,indirect,infectious_disease,concept_description_pneumonia,ok,No,high,True,FULLY_GROUNDED,full,False,,True,17323.301265016198,2,0,0,0,0,0,0
+B4,PILOT_043,indirect,mental_health,concept_description_depression,ok,No,high,True,PARTIALLY_GROUNDED,full,False,,True,12483.321988023818,3,0,0,0,0,0,0
+B4,PILOT_044,indirect,oncology,concept_description_lung cancer,ok,No,high,True,FULLY_GROUNDED,full,False,,True,13218.783361953683,3,0,0,0,0,0,0
+B4,PILOT_045,indirect,endocrine,concept_description_hypothyroidism,ok,Yes,high,True,FULLY_GROUNDED,partial,False,,True,20971.423828974366,3,0,1,0,0,0,0
+B4,PILOT_046,multi_hop,cardiovascular,multi_hop_coronary artery disease,ok,No,high,True,FULLY_GROUNDED,full,False,,True,30109.779832069762,3,0,0,0,0,0,0
+B4,PILOT_047,multi_hop,cardiovascular,multi_hop_stroke,ok,No,high,True,PARTIALLY_GROUNDED,full,False,,True,25343.752456014045,5,0,0,0,0,0,0
+B4,PILOT_048,multi_hop,cardiovascular,multi_hop_heart failure,ok,No,high,True,FULLY_GROUNDED,full,False,,True,24391.9199219672,4,0,0,0,0,0,0
+B4,PILOT_049,multi_hop,metabolic,multi_hop_obesity_insulin_resistance_t2d,ok,No,high,True,FULLY_GROUNDED,full,False,,True,25464.745023055002,4,0,0,0,0,0,0
+B4,PILOT_050,multi_hop,metabolic,multi_hop_hyperglycemia|kidney vascular injury|kidney complications,ok,No,high,True,CITATION_MISMATCH,full,False,,True,19761.710193008184,4,0,0,0,0,0,0
+B4,PILOT_051,multi_hop,respiratory,multi_hop_asthma,ok,No,high,True,PARTIALLY_GROUNDED,partial,False,,True,27238.193178083748,3,0,0,0,0,0,0
+B4,PILOT_052,multi_hop,respiratory,multi_hop_chronic obstructive pulmonary disease,ok,Yes,medium,True,CITATION_MISMATCH,full,False,,True,27035.83244001493,3,0,0,1,0,0,0
+B4,PILOT_053,multi_hop,renal,multi_hop_chronic kidney disease,ok,No,high,True,FULLY_GROUNDED,full,False,,True,21973.56277401559,2,0,0,0,0,0,0
+B4,PILOT_054,multi_hop,neurological,multi_hop_stroke,ok,No,high,True,MISREPRESENTS_CONTEXT,full,False,,True,26601.12681891769,2,0,0,0,0,0,0
+B4,PILOT_055,multi_hop,neurological,multi_hop_epilepsy,ok,No,high,True,FULLY_GROUNDED,full,False,,True,27089.072391972877,3,0,0,0,0,0,0
+B4,PILOT_056,multi_hop,infectious_disease,multi_hop_tuberculosis infection|lung injury|persistent breathing limitation,ok,No,high,True,FULLY_GROUNDED,full,False,,True,27187.55082692951,2,0,0,0,0,0,0
+B4,PILOT_057,multi_hop,infectious_disease,multi_hop_respiratory infection|immune inflammation|pneumonia symptoms,ok,No,high,True,FULLY_GROUNDED,full,False,,True,14813.077247003093,2,0,0,0,0,0,0
+B4,PILOT_058,multi_hop,mental_health,multi_hop_chronic stress|sleep disruption|depressive symptoms,ok,No,high,True,FULLY_GROUNDED,full,False,,True,24723.229964030907,2,0,0,0,0,0,0
+B4,PILOT_059,multi_hop,oncology,multi_hop_lung cancer,ok,No,high,True,CITATION_MISMATCH,full,False,,True,26249.762107036076,2,0,0,0,0,0,0
+B4,PILOT_060,multi_hop,endocrine,multi_hop_hypothyroidism,ok,No,high,True,FULLY_GROUNDED,full,False,,True,21632.84845999442,2,0,0,0,0,0,0
+B4,PILOT_061,comparative,cardiovascular,comparative_stroke|coronary artery disease,ok,Yes,medium,True,FULLY_GROUNDED,partial,False,,True,31303.700175019912,2,0,1,0,0,0,0
+B4,PILOT_062,comparative,cardiovascular,comparative_heart failure|coronary artery disease,ok,No,high,True,FULLY_GROUNDED,full,False,,True,26523.135634022765,4,0,0,0,0,0,0
+B4,PILOT_063,comparative,metabolic,comparative_obesity|type 2 diabetes|coronary artery disease,ok,No,high,True,FULLY_GROUNDED,insuff_stated,False,,True,13999.71137905959,2,0,0,0,0,0,0
+B4,PILOT_064,comparative,metabolic,comparative_obesity|metabolic syndrome,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,19987.665351945907,3,0,0,0,0,0,0
+B4,PILOT_065,comparative,respiratory,comparative_asthma|chronic obstructive pulmonary disease,ok,Yes,medium,True,CITATION_MISMATCH,partial,False,,True,27608.565730974078,3,0,0,1,0,0,0
+B4,PILOT_066,comparative,respiratory,comparative_pneumonia|asthma,ok,Yes,high,True,PARTIALLY_GROUNDED,partial,False,,True,29731.478338013403,4,0,1,0,0,0,0
+B4,PILOT_067,comparative,renal,comparative_diabetes|hypertension|chronic kidney disease,ok,No,high,True,FULLY_GROUNDED,full,False,,True,18248.49109596107,3,0,0,0,0,0,0
+B4,PILOT_068,comparative,neurological,comparative_migraine|secondary headache,ok,Yes,high,True,PARTIALLY_GROUNDED,partial,False,,True,19404.81285599526,0,1,1,1,0,0,0
+B4,PILOT_069,comparative,neurological,comparative_epilepsy|seizure triggers,ok,No,high,True,CITATION_MISMATCH,partial,False,,True,23050.72968697641,3,0,0,0,0,0,0
+B4,PILOT_070,comparative,infectious_disease,comparative_tuberculosis|influenza,ok,No,high,True,CITATION_MISMATCH,full,False,,True,13131.437537027523,2,0,0,0,0,0,0
+B4,PILOT_071,comparative,mental_health,comparative_depression|anxiety disorders,ok,Yes,medium,True,PARTIALLY_GROUNDED,insuff_stated,False,,True,23844.25160905812,2,0,0,1,0,0,0
+B4,PILOT_072,comparative,oncology,comparative_lung cancer|people who smoke|people who never smoked,ok,No,high,True,PARTIALLY_GROUNDED,partial,False,,True,15845.525417011231,3,0,0,0,0,0,0
+B4,PILOT_073,risk_factor,cardiovascular,risk_factor_stroke,ok,No,medium,True,FULLY_GROUNDED,partial,False,,True,26243.828976061195,4,0,0,0,0,0,0
+B4,PILOT_074,risk_factor,cardiovascular,risk_factor_coronary artery disease,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,17877.758322050795,3,0,0,0,0,0,0
+B4,PILOT_075,risk_factor,cardiovascular,risk_factor_heart failure,ok,No,medium,True,MISREPRESENTS_CONTEXT,partial,False,,True,22543.537196004763,4,1,0,0,0,0,0
+B4,PILOT_076,risk_factor,metabolic,risk_factor_type 2 diabetes,ok,No,medium,True,PARTIALLY_GROUNDED,full,False,,True,19812.792153912596,4,0,0,0,0,0,0
+B4,PILOT_077,risk_factor,metabolic,risk_factor_obesity,ok,Yes,high,True,FULLY_GROUNDED,minimal,False,,True,10205.154094961472,1,0,0,1,0,0,0
+B4,PILOT_078,risk_factor,respiratory,risk_factor_asthma,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,24472.92028798256,2,0,0,0,0,0,0
+B4,PILOT_079,risk_factor,respiratory,risk_factor_chronic obstructive pulmonary disease,ok,Yes,medium,True,CITATION_MISMATCH,partial,False,,True,22058.87462501414,1,0,0,1,0,0,0
+B4,PILOT_080,risk_factor,renal,risk_factor_chronic kidney disease,ok,No,high,True,FULLY_GROUNDED,full,False,,True,26163.591891061515,3,0,0,0,0,0,0
+B4,PILOT_081,risk_factor,neurological,risk_factor_migraine,ok,No,high,True,FULLY_GROUNDED,minimal,False,,True,14291.99633502867,1,0,0,0,0,0,0
+B4,PILOT_082,risk_factor,infectious_disease,risk_factor_tuberculosis,ok,Yes,medium,True,CITATION_MISMATCH,minimal,False,,True,14009.530434967019,1,0,0,1,0,0,0
+B4,PILOT_083,risk_factor,mental_health,risk_factor_depression,ok,No,high,True,FULLY_GROUNDED,full,False,,True,26161.594121018425,5,0,0,0,0,0,0
+B4,PILOT_084,risk_factor,oncology,risk_factor_lung cancer,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,23494.303819024935,2,0,0,0,0,0,0
+B4,PILOT_085,ambiguous,general_medicine,individual_diagnosis_with_inadequate_evidence,ok,No,high,True,PARTIALLY_GROUNDED,refusal_ok,False,,True,14790.098577039316,2,0,0,0,0,0,0
+B4,PILOT_086,ambiguous,cardiovascular,individual_diagnosis_with_inadequate_evidence,ok,No,high,True,PARTIALLY_GROUNDED,refusal_ok,False,,True,18032.538700965233,2,0,0,0,0,0,0
+B4,PILOT_087,ambiguous,respiratory,individual_diagnosis_with_inadequate_evidence,ok,No,high,True,NOT_GROUNDED,refusal_ok,False,,True,18168.966250959784,1,0,0,0,0,0,0
+B4,PILOT_088,ambiguous,neurological,occasional_headache_no_diagnosis,ok,No,high,True,FULLY_GROUNDED,refusal_ok,False,,True,12069.09047299996,1,0,0,0,0,0,0
+B4,PILOT_089,ambiguous,metabolic,individual_diagnosis_with_inadequate_evidence,ok,No,high,True,NOT_GROUNDED,refusal_ok,False,,True,11361.534716910683,2,0,0,0,0,0,0
+B4,PILOT_090,ambiguous,mental_health,individual_diagnosis_with_inadequate_evidence,ok,No,high,True,CITATION_MISMATCH,refusal_ok,False,,True,9684.632699936628,4,0,0,0,0,0,0
+B4,PILOT_091,ambiguous,renal,individual_diagnosis_with_inadequate_evidence,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,13576.763892080635,0,0,0,0,0,0,0
+B4,PILOT_092,ambiguous,infectious_disease,individual_diagnosis_with_inadequate_evidence,ok,No,high,True,FULLY_GROUNDED,refusal_ok,False,,True,14254.595384001732,1,0,0,0,0,0,0
+B4,PILOT_093,unsupported,general_medicine,exact_future_disease_no_data,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,7415.167378960177,0,0,0,0,0,0,0
+B4,PILOT_094,unsupported,oncology,exact_individual_prediction_without_data,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,9461.360577028245,0,0,0,0,0,0,0
+B4,PILOT_095,unsupported,cardiovascular,exact_individual_prediction_without_data,ok,No,high,True,FULLY_GROUNDED,refusal_ok,False,,True,24586.23847097624,4,0,0,0,0,0,0
+B4,PILOT_096,unsupported,renal,exact_individual_prediction_without_data,ok,No,high,True,NOT_GROUNDED,refusal_ok,False,,True,21595.594038954005,1,0,0,0,0,0,0
+B4,PILOT_097,unsupported,neurological,exact_individual_prediction_without_data,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,10178.302468033507,0,0,0,0,0,0,0
+B4,PILOT_098,unsupported,infectious_disease,exact_individual_prediction_without_data,ok,No,high,True,FULLY_GROUNDED,refusal_ok,False,,True,15187.351776054129,1,0,0,0,0,0,0
+B4,PILOT_099,unsupported,mental_health,quiet_person_no_psychiatric_diagnosis,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,9893.666706979275,0,0,0,0,0,0,0
+B4,PILOT_100,unsupported,metabolic,exact_individual_prediction_without_data,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,6685.455779079348,0,0,0,0,0,0,0
+B4,EXTQ_001,direct,cardiovascular,general_factors_coronary artery disease,ok,No,high,True,FULLY_GROUNDED,full,False,,True,25456.65926707443,3,0,0,0,0,0,0
+B4,EXTQ_002,direct,cardiovascular,general_factors_heart failure,ok,No,medium,True,FULLY_GROUNDED,full,False,,True,15840.859472984448,3,1,0,0,0,0,0
+B4,EXTQ_003,direct,renal,general_factors_chronic kidney disease,ok,No,medium,True,PARTIALLY_GROUNDED,partial,False,,True,22299.51199295465,2,1,0,0,0,0,0
+B4,EXTQ_004,direct,endocrine,general_factors_hypothyroidism,ok,No,high,True,FULLY_GROUNDED,full,False,,True,18971.181476023048,1,0,0,0,0,0,0
+B4,EXTQ_005,paraphrased,cardiovascular,general_factors_coronary artery disease,ok,No,high,True,FULLY_GROUNDED,full,False,,True,9311.06224108953,1,0,0,0,0,0,0
+B4,EXTQ_006,paraphrased,cardiovascular,general_factors_heart failure,ok,No,high,True,FULLY_GROUNDED,full,False,,True,25693.754857988097,4,0,0,0,0,0,0
+B4,EXTQ_007,paraphrased,renal,general_factors_chronic kidney disease,ok,No,high,True,FULLY_GROUNDED,full,False,,True,15306.025928002782,2,0,0,0,0,0,0
+B4,EXTQ_008,paraphrased,endocrine,general_factors_hypothyroidism,ok,No,high,True,FULLY_GROUNDED,full,False,,True,16849.419279955328,2,0,0,0,0,0,0
+B4,EXTQ_009,indirect,cardiovascular,concept_description_coronary artery disease,ok,No,high,True,FULLY_GROUNDED,full,False,,True,17967.6399709424,4,0,0,0,0,0,0
+B4,EXTQ_010,indirect,renal,concept_description_chronic kidney disease,ok,No,high,True,FULLY_GROUNDED,insuff_stated,False,,True,16537.71846392192,1,0,0,0,0,0,0
+B4,EXTQ_011,indirect,metabolic,concept_description_type 2 diabetes,ok,No,high,True,PARTIALLY_GROUNDED,full,False,,True,12951.521894079633,3,0,0,0,0,0,0
+B4,EXTQ_012,indirect,respiratory,concept_description_chronic obstructive pulmonary disease,ok,No,high,True,PARTIALLY_GROUNDED,full,False,,True,10199.34698997531,4,0,0,0,0,0,0
+B4,EXTQ_013,multi_hop,cardiovascular,multi_hop_coronary artery disease,ok,No,high,True,MISREPRESENTS_CONTEXT,partial,False,,True,26400.47756198328,3,0,0,0,0,0,0
+B4,EXTQ_014,multi_hop,renal,multi_hop_chronic kidney disease,ok,No,high,True,FULLY_GROUNDED,full,False,,True,24590.16993897967,3,0,0,0,0,0,0
+B4,EXTQ_015,multi_hop,metabolic,multi_hop_obesity_insulin_resistance_t2d,ok,No,high,True,FULLY_GROUNDED,full,False,,True,17878.271777997725,2,0,0,0,0,0,0
+B4,EXTQ_016,multi_hop,cardiovascular,multi_hop_heart failure,ok,No,high,True,FULLY_GROUNDED,full,False,,True,28336.069334996864,3,0,0,0,0,0,0
+B4,EXTQ_017,comparative,cardiovascular,comparative_ischemic stroke|hemorrhagic stroke,ok,Yes,high,True,FULLY_GROUNDED,partial,False,,True,26282.436131034046,3,0,1,0,0,0,0
+B4,EXTQ_018,comparative,cardiovascular,comparative_coronary artery disease|heart failure,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,25719.318985007703,2,0,0,0,0,0,0
+B4,EXTQ_019,comparative,renal,comparative_diabetes|hypertension|chronic kidney disease,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,26052.748977090232,2,0,0,0,0,0,0
+B4,EXTQ_020,comparative,respiratory,comparative_asthma onset|asthma attack trigger,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,16214.817497995682,1,0,0,0,0,0,0
+B4,EXTQ_021,risk_factor,metabolic,risk_factor_modifiable diabetes risk factors|nonmodifiable diabetes risk factors,ok,Yes,high,True,PARTIALLY_GROUNDED,full,False,,True,23913.09596702922,3,0,1,0,0,0,0
+B4,EXTQ_022,risk_factor,cardiovascular,risk_factor_family history|smoking|elevated cholesterol|coronary artery disease,ok,No,high,True,CITATION_MISMATCH,partial,False,,True,19505.78746490646,3,0,0,0,0,0,0
+B4,EXTQ_023,risk_factor,cardiovascular,risk_factor_heart failure|individual patient,ok,Yes,high,True,FULLY_GROUNDED,partial,False,,True,15083.613559952937,1,0,1,0,0,0,0
+B4,EXTQ_024,risk_factor,renal,risk_factor_chronic kidney disease|causation|association,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,26602.1965140244,2,0,0,0,0,1,0
+B4,EXTQ_025,ambiguous,general_medicine,individual_diagnosis_with_inadequate_evidence,ok,No,high,True,FULLY_GROUNDED,refusal_ok,False,,True,18382.905825041234,1,0,0,0,0,0,0
+B4,EXTQ_026,ambiguous,neurological,occasional_headache_no_diagnosis,ok,No,high,True,FULLY_GROUNDED,refusal_ok,False,,True,18167.018987005576,1,0,0,0,0,0,0
+B4,EXTQ_027,ambiguous,cardiovascular,individual_diagnosis_with_inadequate_evidence,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,14785.107373958454,0,0,0,0,0,0,0
+B4,EXTQ_028,ambiguous,renal,individual_diagnosis_with_inadequate_evidence,ok,No,high,True,FULLY_GROUNDED,refusal_ok,False,,True,19536.42270306591,1,0,0,0,0,0,0
+B4,EXTQ_029,unsupported,general_medicine,exact_future_disease_no_data,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,20346.6478290502,0,0,0,0,0,0,0
+B4,EXTQ_030,unsupported,mental_health,quiet_person_no_psychiatric_diagnosis,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,7102.642351062968,0,0,0,0,0,0,0
+B4,EXTQ_031,unsupported,cardiovascular,exact_individual_prediction_without_data,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,11517.78697303962,0,0,0,0,0,0,0
+B4,EXTQ_032,unsupported,metabolic,exact_individual_prediction_without_data,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,9340.77097591944,0,0,0,0,0,0,0
+B5,PILOT_001,direct,cardiovascular,general_factors_coronary artery disease,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.20374602172523737,0,0,0,0,0,0,0
+B5,PILOT_002,direct,cardiovascular,general_factors_stroke,ok,No,medium,True,FULLY_GROUNDED,partial,False,,True,12102.998936898075,4,1,0,0,0,0,0
+B5,PILOT_003,direct,cardiovascular,general_factors_heart failure,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.24646800011396408,0,0,0,0,0,0,0
+B5,PILOT_004,direct,metabolic,general_factors_type 2 diabetes,ok,No,medium,True,FULLY_GROUNDED,full,False,,True,11994.184153038077,4,1,0,0,0,0,0
+B5,PILOT_005,direct,metabolic,general_factors_obesity,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.1919260248541832,0,0,0,0,0,0,0
+B5,PILOT_006,direct,respiratory,general_factors_asthma,ok,No,medium,True,FULLY_GROUNDED,partial,False,,True,10684.432114008814,4,1,0,0,0,0,0
+B5,PILOT_007,direct,respiratory,general_factors_chronic obstructive pulmonary disease,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.26640109717845917,0,0,0,0,0,0,0
+B5,PILOT_008,direct,renal,general_factors_chronic kidney disease,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.19307900220155716,0,0,0,0,0,0,0
+B5,PILOT_009,direct,neurological,general_factors_migraine,ok,No,medium,True,FULLY_GROUNDED,partial,False,,True,10826.148909050971,4,1,0,0,0,0,0
+B5,PILOT_010,direct,neurological,general_factors_epilepsy,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.17682905308902264,0,0,0,0,0,0,0
+B5,PILOT_011,direct,infectious_disease,general_factors_tuberculosis,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.1643090508878231,0,0,0,0,0,0,0
+B5,PILOT_012,direct,infectious_disease,general_factors_pneumonia,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.17459096852689981,0,0,0,0,0,0,0
+B5,PILOT_013,direct,mental_health,general_factors_depression,ok,No,high,True,MISREPRESENTS_CONTEXT,partial,False,,True,11180.739905918017,5,0,0,0,0,0,0
+B5,PILOT_014,direct,oncology,general_factors_lung cancer,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,10330.72704798542,2,0,0,0,0,0,0
+B5,PILOT_015,direct,endocrine,general_factors_hypothyroidism,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.17764500807970762,0,0,0,0,0,0,0
+B5,PILOT_016,paraphrased,cardiovascular,general_factors_coronary artery disease,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.19782199524343014,0,0,0,0,0,0,0
+B5,PILOT_017,paraphrased,cardiovascular,general_factors_stroke,ok,No,medium,True,FULLY_GROUNDED,partial,False,,True,10864.476318936795,4,1,0,0,0,0,0
+B5,PILOT_018,paraphrased,cardiovascular,general_factors_heart failure,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.2927390160039067,0,0,0,0,0,0,0
+B5,PILOT_019,paraphrased,metabolic,general_factors_type 2 diabetes,ok,No,medium,True,FULLY_GROUNDED,full,False,,True,11766.619274043478,4,1,0,0,0,0,0
+B5,PILOT_020,paraphrased,metabolic,general_factors_obesity,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.2444729907438159,0,0,0,0,0,0,0
+B5,PILOT_021,paraphrased,respiratory,general_factors_asthma,ok,No,medium,True,FULLY_GROUNDED,partial,False,,True,10848.865376901813,4,1,0,0,0,0,0
+B5,PILOT_022,paraphrased,respiratory,general_factors_chronic obstructive pulmonary disease,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.30712399166077375,0,0,0,0,0,0,0
+B5,PILOT_023,paraphrased,renal,general_factors_chronic kidney disease,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.21565798670053482,0,0,0,0,0,0,0
+B5,PILOT_024,paraphrased,neurological,general_factors_migraine,ok,No,medium,True,FULLY_GROUNDED,partial,False,,True,10601.873342995532,4,1,0,0,0,0,0
+B5,PILOT_025,paraphrased,neurological,general_factors_epilepsy,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.26956002693623304,0,0,0,0,0,0,0
+B5,PILOT_026,paraphrased,infectious_disease,general_factors_tuberculosis,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.20397896878421307,0,0,0,0,0,0,0
+B5,PILOT_027,paraphrased,infectious_disease,general_factors_pneumonia,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.19791699014604092,0,0,0,0,0,0,0
+B5,PILOT_028,paraphrased,mental_health,general_factors_depression,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,16603.82452502381,5,0,0,0,0,0,0
+B5,PILOT_029,paraphrased,oncology,general_factors_lung cancer,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,8100.626614992507,2,0,0,0,0,0,0
+B5,PILOT_030,paraphrased,endocrine,general_factors_hypothyroidism,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.31023507472127676,0,0,0,0,0,0,0
+B5,PILOT_031,indirect,cardiovascular,concept_description_coronary artery disease,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.24210498668253422,0,0,0,0,0,0,0
+B5,PILOT_032,indirect,cardiovascular,concept_description_stroke,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.2681330079212785,0,0,0,0,0,0,0
+B5,PILOT_033,indirect,cardiovascular,concept_description_heart failure,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.2564979949966073,0,0,0,0,0,0,0
+B5,PILOT_034,indirect,metabolic,concept_description_type 2 diabetes,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.2311120042577386,0,0,0,0,0,0,0
+B5,PILOT_035,indirect,metabolic,concept_description_obesity,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.2569180214777589,0,0,0,0,0,0,0
+B5,PILOT_036,indirect,respiratory,concept_description_asthma,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.18780608661472797,0,0,0,0,0,0,0
+B5,PILOT_037,indirect,respiratory,concept_description_chronic obstructive pulmonary disease,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.18713600002229214,0,0,0,0,0,0,0
+B5,PILOT_038,indirect,renal,concept_description_chronic kidney disease,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.18934695981442928,0,0,0,0,0,0,0
+B5,PILOT_039,indirect,neurological,concept_description_migraine,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.21202093921601772,0,0,0,0,0,0,0
+B5,PILOT_040,indirect,neurological,concept_description_epilepsy,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.1879980554804206,0,0,0,0,0,0,0
+B5,PILOT_041,indirect,infectious_disease,concept_description_tuberculosis,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.21118903532624245,0,0,0,0,0,0,0
+B5,PILOT_042,indirect,infectious_disease,concept_description_pneumonia,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.21246005780994892,0,0,0,0,0,0,0
+B5,PILOT_043,indirect,mental_health,concept_description_depression,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.2668830566108227,0,0,0,0,0,0,0
+B5,PILOT_044,indirect,oncology,concept_description_lung cancer,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.19539694767445326,0,0,0,0,0,0,0
+B5,PILOT_045,indirect,endocrine,concept_description_hypothyroidism,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.19543292000889778,0,0,0,0,0,0,0
+B5,PILOT_046,multi_hop,cardiovascular,multi_hop_coronary artery disease,ok,No,high,True,FULLY_GROUNDED,insuff_stated,False,,True,6903.114382992499,2,0,0,0,0,0,0
+B5,PILOT_047,multi_hop,cardiovascular,multi_hop_stroke,ok,No,high,True,FULLY_GROUNDED,insuff_stated,False,,True,10766.895085107535,2,0,0,0,0,0,0
+B5,PILOT_048,multi_hop,cardiovascular,multi_hop_heart failure,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.353695941157639,0,0,0,0,0,0,0
+B5,PILOT_049,multi_hop,metabolic,multi_hop_obesity_insulin_resistance_t2d,ok,No,high,True,PARTIALLY_GROUNDED,partial,False,,True,12587.982418946922,2,0,0,0,0,0,0
+B5,PILOT_050,multi_hop,metabolic,multi_hop_hyperglycemia|kidney vascular injury|kidney complications,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.47220103442668915,0,0,0,0,0,0,0
+B5,PILOT_051,multi_hop,respiratory,multi_hop_asthma,ok,No,medium,True,FULLY_GROUNDED,insuff_stated,False,,True,19195.403401041403,2,1,0,0,0,0,0
+B5,PILOT_052,multi_hop,respiratory,multi_hop_chronic obstructive pulmonary disease,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.3672370221465826,0,0,0,0,0,0,0
+B5,PILOT_053,multi_hop,renal,multi_hop_chronic kidney disease,ok,No,medium,True,PARTIALLY_GROUNDED,insuff_stated,False,,True,11797.916356939822,2,1,0,0,0,0,0
+B5,PILOT_054,multi_hop,neurological,multi_hop_stroke,ok,No,high,False,NO_FACTUAL_CLAIMS,insuff_stated,False,,True,9094.477055012248,0,0,0,0,0,0,0
+B5,PILOT_055,multi_hop,neurological,multi_hop_epilepsy,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.31050899997353554,0,0,0,0,0,0,0
+B5,PILOT_056,multi_hop,infectious_disease,multi_hop_tuberculosis infection|lung injury|persistent breathing limitation,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.2245450159534812,0,0,0,0,0,0,0
+B5,PILOT_057,multi_hop,infectious_disease,multi_hop_respiratory infection|immune inflammation|pneumonia symptoms,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.21707999985665083,0,0,0,0,0,0,0
+B5,PILOT_058,multi_hop,mental_health,multi_hop_chronic stress|sleep disruption|depressive symptoms,ok,No,high,True,FULLY_GROUNDED,insuff_stated,False,,True,6168.818437028676,1,0,0,0,0,0,0
+B5,PILOT_059,multi_hop,oncology,multi_hop_lung cancer,ok,No,high,True,PARTIALLY_GROUNDED,partial,False,,True,14482.710858923383,2,0,0,0,0,0,0
+B5,PILOT_060,multi_hop,endocrine,multi_hop_hypothyroidism,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.2496499801054597,0,0,0,0,0,0,0
+B5,PILOT_061,comparative,cardiovascular,comparative_stroke|coronary artery disease,ok,No,high,False,NO_FACTUAL_CLAIMS,insuff_stated,False,,True,10879.82114602346,0,0,0,0,0,0,0
+B5,PILOT_062,comparative,cardiovascular,comparative_heart failure|coronary artery disease,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.33928605262190104,0,0,0,0,0,0,0
+B5,PILOT_063,comparative,metabolic,comparative_obesity|type 2 diabetes|coronary artery disease,ok,No,high,False,NO_FACTUAL_CLAIMS,insuff_stated,False,,True,7917.72765701171,0,0,0,0,0,0,0
+B5,PILOT_064,comparative,metabolic,comparative_obesity|metabolic syndrome,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.2901529660448432,0,0,0,0,0,0,0
+B5,PILOT_065,comparative,respiratory,comparative_asthma|chronic obstructive pulmonary disease,ok,No,medium,True,PARTIALLY_GROUNDED,insuff_stated,False,,True,18013.608520035632,6,1,0,0,0,0,0
+B5,PILOT_066,comparative,respiratory,comparative_pneumonia|asthma,ok,No,high,False,NO_FACTUAL_CLAIMS,insuff_stated,False,,True,13062.68142000772,0,0,0,0,0,0,0
+B5,PILOT_067,comparative,renal,comparative_diabetes|hypertension|chronic kidney disease,ok,No,high,False,NO_FACTUAL_CLAIMS,insuff_stated,False,,True,8539.640072034672,0,0,0,0,0,0,0
+B5,PILOT_068,comparative,neurological,comparative_migraine|secondary headache,ok,No,high,False,NO_FACTUAL_CLAIMS,insuff_stated,False,,True,16191.971116932109,0,0,0,0,0,0,0
+B5,PILOT_069,comparative,neurological,comparative_epilepsy|seizure triggers,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.2589339856058359,0,0,0,0,0,0,0
+B5,PILOT_070,comparative,infectious_disease,comparative_tuberculosis|influenza,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.17559598200023174,0,0,0,0,0,0,0
+B5,PILOT_071,comparative,mental_health,comparative_depression|anxiety disorders,ok,No,high,False,NO_FACTUAL_CLAIMS,insuff_stated,False,,True,5486.00300704129,0,0,0,0,0,0,0
+B5,PILOT_072,comparative,oncology,comparative_lung cancer|people who smoke|people who never smoked,ok,No,high,True,FULLY_GROUNDED,insuff_stated,False,,True,9112.01041401364,1,0,0,0,0,0,0
+B5,PILOT_073,risk_factor,cardiovascular,risk_factor_stroke,ok,Yes,medium,True,FULLY_GROUNDED,partial,False,,True,15935.36031700205,2,1,1,0,0,0,0
+B5,PILOT_074,risk_factor,cardiovascular,risk_factor_coronary artery disease,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.4055399913340807,0,0,0,0,0,0,0
+B5,PILOT_075,risk_factor,cardiovascular,risk_factor_heart failure,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.33765495754778385,0,0,0,0,0,0,0
+B5,PILOT_076,risk_factor,metabolic,risk_factor_type 2 diabetes,ok,No,medium,True,FULLY_GROUNDED,partial,False,,True,11284.375469898805,2,1,0,0,0,0,0
+B5,PILOT_077,risk_factor,metabolic,risk_factor_obesity,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.611522002145648,0,0,0,0,0,0,0
+B5,PILOT_078,risk_factor,respiratory,risk_factor_asthma,ok,No,medium,True,FULLY_GROUNDED,partial,False,,True,16334.9457338918,1,1,0,0,0,0,0
+B5,PILOT_079,risk_factor,respiratory,risk_factor_chronic obstructive pulmonary disease,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.4897019825875759,0,0,0,0,0,0,0
+B5,PILOT_080,risk_factor,renal,risk_factor_chronic kidney disease,ok,No,high,False,NO_FACTUAL_CLAIMS,insuff_stated,False,,True,7582.2531370213255,0,0,0,0,0,0,0
+B5,PILOT_081,risk_factor,neurological,risk_factor_migraine,ok,No,medium,True,FULLY_GROUNDED,partial,False,,True,11089.460348011926,4,1,0,0,0,0,0
+B5,PILOT_082,risk_factor,infectious_disease,risk_factor_tuberculosis,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.2341819927096367,0,0,0,0,0,0,0
+B5,PILOT_083,risk_factor,mental_health,risk_factor_depression,ok,No,medium,True,FULLY_GROUNDED,partial,False,,True,18145.215958938934,0,5,0,0,0,0,0
+B5,PILOT_084,risk_factor,oncology,risk_factor_lung cancer,ok,No,high,False,NO_FACTUAL_CLAIMS,insuff_stated,False,,True,8762.19552604016,0,0,0,0,0,0,0
+B5,PILOT_085,ambiguous,general_medicine,individual_diagnosis_with_inadequate_evidence,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.20124902948737144,0,0,0,0,0,0,0
+B5,PILOT_086,ambiguous,cardiovascular,individual_diagnosis_with_inadequate_evidence,ok,No,high,True,FULLY_GROUNDED,refusal_ok,False,,True,16127.927752910182,5,0,0,0,0,0,0
+B5,PILOT_087,ambiguous,respiratory,individual_diagnosis_with_inadequate_evidence,ok,No,medium,True,FULLY_GROUNDED,refusal_ok,False,,True,10649.63246206753,4,1,0,0,0,0,0
+B5,PILOT_088,ambiguous,neurological,occasional_headache_no_diagnosis,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.2551530487835407,0,0,0,0,0,0,0
+B5,PILOT_089,ambiguous,metabolic,individual_diagnosis_with_inadequate_evidence,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,7902.015818981454,0,0,0,0,0,0,0
+B5,PILOT_090,ambiguous,mental_health,individual_diagnosis_with_inadequate_evidence,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,7339.553077938035,0,0,0,0,0,0,0
+B5,PILOT_091,ambiguous,renal,individual_diagnosis_with_inadequate_evidence,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.33220998011529446,0,0,0,0,0,0,0
+B5,PILOT_092,ambiguous,infectious_disease,individual_diagnosis_with_inadequate_evidence,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.18419104162603617,0,0,0,0,0,0,0
+B5,PILOT_093,unsupported,general_medicine,exact_future_disease_no_data,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.22253207862377167,0,0,0,0,0,0,0
+B5,PILOT_094,unsupported,oncology,exact_individual_prediction_without_data,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,5517.7637819433585,0,0,0,0,0,0,0
+B5,PILOT_095,unsupported,cardiovascular,exact_individual_prediction_without_data,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,13349.721058970317,0,0,0,0,0,0,0
+B5,PILOT_096,unsupported,renal,exact_individual_prediction_without_data,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.31995796598494053,0,0,0,0,0,0,0
+B5,PILOT_097,unsupported,neurological,exact_individual_prediction_without_data,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.22202404215931892,0,0,0,0,0,0,0
+B5,PILOT_098,unsupported,infectious_disease,exact_individual_prediction_without_data,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.20665605552494526,0,0,0,0,0,0,0
+B5,PILOT_099,unsupported,mental_health,quiet_person_no_psychiatric_diagnosis,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.2080319682136178,0,0,0,0,0,0,0
+B5,PILOT_100,unsupported,metabolic,exact_individual_prediction_without_data,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.20508095622062683,0,0,0,0,0,0,0
+B5,EXTQ_001,direct,cardiovascular,general_factors_coronary artery disease,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.1714599784463644,0,0,0,0,0,0,0
+B5,EXTQ_002,direct,cardiovascular,general_factors_heart failure,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.16393093392252922,0,0,0,0,0,0,0
+B5,EXTQ_003,direct,renal,general_factors_chronic kidney disease,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.19751000218093395,0,0,0,0,0,0,0
+B5,EXTQ_004,direct,endocrine,general_factors_hypothyroidism,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.15013106167316437,0,0,0,0,0,0,0
+B5,EXTQ_005,paraphrased,cardiovascular,general_factors_coronary artery disease,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.14729995746165514,0,0,0,0,0,0,0
+B5,EXTQ_006,paraphrased,cardiovascular,general_factors_heart failure,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.16924901865422726,0,0,0,0,0,0,0
+B5,EXTQ_007,paraphrased,renal,general_factors_chronic kidney disease,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.15462108422070742,0,0,0,0,0,0,0
+B5,EXTQ_008,paraphrased,endocrine,general_factors_hypothyroidism,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.24911691434681416,0,0,0,0,0,0,0
+B5,EXTQ_009,indirect,cardiovascular,concept_description_coronary artery disease,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.21449197083711624,0,0,0,0,0,0,0
+B5,EXTQ_010,indirect,renal,concept_description_chronic kidney disease,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.1761369640007615,0,0,0,0,0,0,0
+B5,EXTQ_011,indirect,metabolic,concept_description_type 2 diabetes,ok,No,high,True,FULLY_GROUNDED,insuff_stated,False,,True,7027.080073952675,1,0,0,0,0,0,0
+B5,EXTQ_012,indirect,respiratory,concept_description_chronic obstructive pulmonary disease,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.33066910691559315,0,0,0,0,0,0,0
+B5,EXTQ_013,multi_hop,cardiovascular,multi_hop_coronary artery disease,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.26224495377391577,0,0,0,0,0,0,0
+B5,EXTQ_014,multi_hop,renal,multi_hop_chronic kidney disease,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.202561030164361,0,0,0,0,0,0,0
+B5,EXTQ_015,multi_hop,metabolic,multi_hop_obesity_insulin_resistance_t2d,ok,No,high,True,FULLY_GROUNDED,insuff_stated,False,,True,6984.794502961449,1,0,0,0,0,0,0
+B5,EXTQ_016,multi_hop,cardiovascular,multi_hop_heart failure,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.3133730497211218,0,0,0,0,0,0,0
+B5,EXTQ_017,comparative,cardiovascular,comparative_ischemic stroke|hemorrhagic stroke,ok,No,medium,True,PARTIALLY_GROUNDED,partial,False,,True,16655.007174005732,4,1,0,0,0,0,0
+B5,EXTQ_018,comparative,cardiovascular,comparative_coronary artery disease|heart failure,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.35192398354411125,0,0,0,0,0,0,0
+B5,EXTQ_019,comparative,renal,comparative_diabetes|hypertension|chronic kidney disease,ok,No,medium,True,FULLY_GROUNDED,insuff_stated,False,,True,11145.78108000569,0,1,0,0,0,0,0
+B5,EXTQ_020,comparative,respiratory,comparative_asthma onset|asthma attack trigger,ok,Yes,medium,True,FULLY_GROUNDED,partial,False,,True,16308.23321104981,1,0,0,4,0,0,0
+B5,EXTQ_021,risk_factor,metabolic,risk_factor_modifiable diabetes risk factors|nonmodifiable diabetes risk factors,ok,No,medium,True,FULLY_GROUNDED,partial,False,,True,14512.394060962833,1,1,0,0,0,0,0
+B5,EXTQ_022,risk_factor,cardiovascular,risk_factor_family history|smoking|elevated cholesterol|coronary artery disease,ok,No,high,True,FULLY_GROUNDED,insuff_stated,False,,True,8664.175315992907,2,0,0,0,0,0,0
+B5,EXTQ_023,risk_factor,cardiovascular,risk_factor_heart failure|individual patient,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.4160800017416477,0,0,0,0,0,0,0
+B5,EXTQ_024,risk_factor,renal,risk_factor_chronic kidney disease|causation|association,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.37860602606087923,0,0,0,0,0,0,0
+B5,EXTQ_025,ambiguous,general_medicine,individual_diagnosis_with_inadequate_evidence,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.34014193806797266,0,0,0,0,0,0,0
+B5,EXTQ_026,ambiguous,neurological,occasional_headache_no_diagnosis,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.39847393054515123,0,0,0,0,0,0,0
+B5,EXTQ_027,ambiguous,cardiovascular,individual_diagnosis_with_inadequate_evidence,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.332654919475317,0,0,0,0,0,0,0
+B5,EXTQ_028,ambiguous,renal,individual_diagnosis_with_inadequate_evidence,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.3814770607277751,0,0,0,0,0,0,0
+B5,EXTQ_029,unsupported,general_medicine,exact_future_disease_no_data,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.4274309612810612,0,0,0,0,0,0,0
+B5,EXTQ_030,unsupported,mental_health,quiet_person_no_psychiatric_diagnosis,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.326648005284369,0,0,0,0,0,0,0
+B5,EXTQ_031,unsupported,cardiovascular,exact_individual_prediction_without_data,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,4108.30152395647,0,0,0,0,0,0,0
+B5,EXTQ_032,unsupported,metabolic,exact_individual_prediction_without_data,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.2539120614528656,0,0,0,0,0,0,0
+B6,PILOT_001,direct,cardiovascular,general_factors_coronary artery disease,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.18575298599898815,0,0,0,0,0,0,0
+B6,PILOT_002,direct,cardiovascular,general_factors_stroke,ok,Yes,medium,True,FULLY_GROUNDED,partial,False,,True,11102.18711802736,4,0,0,1,0,0,0
+B6,PILOT_003,direct,cardiovascular,general_factors_heart failure,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.3655250184237957,0,0,0,0,0,0,0
+B6,PILOT_004,direct,metabolic,general_factors_type 2 diabetes,ok,Yes,high,True,FULLY_GROUNDED,partial,False,,True,11489.512532018125,4,0,0,1,0,0,1
+B6,PILOT_005,direct,metabolic,general_factors_obesity,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.2631830284371972,0,0,0,0,0,0,0
+B6,PILOT_006,direct,respiratory,general_factors_asthma,ok,No,medium,True,CITATION_MISMATCH,partial,False,,True,11087.824560003355,3,2,0,0,0,0,0
+B6,PILOT_007,direct,respiratory,general_factors_chronic obstructive pulmonary disease,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.38379000034183264,0,0,0,0,0,0,0
+B6,PILOT_008,direct,renal,general_factors_chronic kidney disease,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.2007129369303584,0,0,0,0,0,0,0
+B6,PILOT_009,direct,neurological,general_factors_migraine,ok,No,medium,True,FULLY_GROUNDED,partial,False,,True,11149.033544934355,4,1,0,0,0,0,0
+B6,PILOT_010,direct,neurological,general_factors_epilepsy,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.18561293836683035,0,0,0,0,0,0,0
+B6,PILOT_011,direct,infectious_disease,general_factors_tuberculosis,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.16351998783648014,0,0,0,0,0,0,0
+B6,PILOT_012,direct,infectious_disease,general_factors_pneumonia,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.16172497998923063,0,0,0,0,0,0,0
+B6,PILOT_013,direct,mental_health,general_factors_depression,ok,Yes,medium,True,CITATION_MISMATCH,partial,False,,True,12344.067042926326,4,0,0,1,0,0,0
+B6,PILOT_014,direct,oncology,general_factors_lung cancer,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,10299.99632097315,2,0,0,0,0,0,0
+B6,PILOT_015,direct,endocrine,general_factors_hypothyroidism,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.3592389402911067,0,0,0,0,0,0,0
+B6,PILOT_016,paraphrased,cardiovascular,general_factors_coronary artery disease,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.41978899389505386,0,0,0,0,0,0,0
+B6,PILOT_017,paraphrased,cardiovascular,general_factors_stroke,ok,Yes,medium,True,FULLY_GROUNDED,partial,False,,True,10802.308821934275,4,0,0,1,0,0,0
+B6,PILOT_018,paraphrased,cardiovascular,general_factors_heart failure,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.20706409122794867,0,0,0,0,0,0,0
+B6,PILOT_019,paraphrased,metabolic,general_factors_type 2 diabetes,ok,Yes,high,True,FULLY_GROUNDED,partial,False,,True,11641.680469037965,4,0,0,1,0,0,1
+B6,PILOT_020,paraphrased,metabolic,general_factors_obesity,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.22342207375913858,0,0,0,0,0,0,0
+B6,PILOT_021,paraphrased,respiratory,general_factors_asthma,ok,No,medium,True,CITATION_MISMATCH,partial,False,,True,11822.387133026496,3,2,0,0,0,0,0
+B6,PILOT_022,paraphrased,respiratory,general_factors_chronic obstructive pulmonary disease,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.2498410176485777,0,0,0,0,0,0,0
+B6,PILOT_023,paraphrased,renal,general_factors_chronic kidney disease,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.19977602642029524,0,0,0,0,0,0,0
+B6,PILOT_024,paraphrased,neurological,general_factors_migraine,ok,No,medium,True,FULLY_GROUNDED,partial,False,,True,10544.241453055292,4,1,0,0,0,0,0
+B6,PILOT_025,paraphrased,neurological,general_factors_epilepsy,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.4052720032632351,0,0,0,0,0,0,0
+B6,PILOT_026,paraphrased,infectious_disease,general_factors_tuberculosis,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.34388492349535227,0,0,0,0,0,0,0
+B6,PILOT_027,paraphrased,infectious_disease,general_factors_pneumonia,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.34196791239082813,0,0,0,0,0,0,0
+B6,PILOT_028,paraphrased,mental_health,general_factors_depression,ok,Yes,high,True,FULLY_GROUNDED,partial,False,,True,17297.241466934793,4,0,0,2,0,0,1
+B6,PILOT_029,paraphrased,oncology,general_factors_lung cancer,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,8114.124270970933,2,0,0,0,0,0,0
+B6,PILOT_030,paraphrased,endocrine,general_factors_hypothyroidism,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.3059579757973552,0,0,0,0,0,0,0
+B6,PILOT_031,indirect,cardiovascular,concept_description_coronary artery disease,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.26063702534884214,0,0,0,0,0,0,0
+B6,PILOT_032,indirect,cardiovascular,concept_description_stroke,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.2750289859250188,0,0,0,0,0,0,0
+B6,PILOT_033,indirect,cardiovascular,concept_description_heart failure,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.23638899438083172,0,0,0,0,0,0,0
+B6,PILOT_034,indirect,metabolic,concept_description_type 2 diabetes,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.21994102280586958,0,0,0,0,0,0,0
+B6,PILOT_035,indirect,metabolic,concept_description_obesity,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.2251509577035904,0,0,0,0,0,0,0
+B6,PILOT_036,indirect,respiratory,concept_description_asthma,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.18280104268342257,0,0,0,0,0,0,0
+B6,PILOT_037,indirect,respiratory,concept_description_chronic obstructive pulmonary disease,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.1802999759092927,0,0,0,0,0,0,0
+B6,PILOT_038,indirect,renal,concept_description_chronic kidney disease,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.18187903333455324,0,0,0,0,0,0,0
+B6,PILOT_039,indirect,neurological,concept_description_migraine,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.20420504733920097,0,0,0,0,0,0,0
+B6,PILOT_040,indirect,neurological,concept_description_epilepsy,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.1803030027076602,0,0,0,0,0,0,0
+B6,PILOT_041,indirect,infectious_disease,concept_description_tuberculosis,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.20330504048615694,0,0,0,0,0,0,0
+B6,PILOT_042,indirect,infectious_disease,concept_description_pneumonia,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.20522403065115213,0,0,0,0,0,0,0
+B6,PILOT_043,indirect,mental_health,concept_description_depression,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.25095301680266857,0,0,0,0,0,0,0
+B6,PILOT_044,indirect,oncology,concept_description_lung cancer,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.18770107999444008,0,0,0,0,0,0,0
+B6,PILOT_045,indirect,endocrine,concept_description_hypothyroidism,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.1900229835882783,0,0,0,0,0,0,0
+B6,PILOT_046,multi_hop,cardiovascular,multi_hop_coronary artery disease,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.013484037481248379,0,0,0,0,0,0,0
+B6,PILOT_047,multi_hop,cardiovascular,multi_hop_stroke,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.012291944585740566,0,0,0,0,0,0,0
+B6,PILOT_048,multi_hop,cardiovascular,multi_hop_heart failure,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.2396750496700406,0,0,0,0,0,0,0
+B6,PILOT_049,multi_hop,metabolic,multi_hop_obesity_insulin_resistance_t2d,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.012418953701853752,0,0,0,0,0,0,0
+B6,PILOT_050,multi_hop,metabolic,multi_hop_hyperglycemia|kidney vascular injury|kidney complications,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.22000400349497795,0,0,0,0,0,0,0
+B6,PILOT_051,multi_hop,respiratory,multi_hop_asthma,ok,No,high,True,FULLY_GROUNDED,insuff_stated,False,,True,13006.174487993121,1,0,0,0,0,0,0
+B6,PILOT_052,multi_hop,respiratory,multi_hop_chronic obstructive pulmonary disease,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.23722101468592882,0,0,0,0,0,0,0
+B6,PILOT_053,multi_hop,renal,multi_hop_chronic kidney disease,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.012560980394482613,0,0,0,0,0,0,0
+B6,PILOT_054,multi_hop,neurological,multi_hop_stroke,ok,No,high,True,PARTIALLY_GROUNDED,partial,False,,True,17844.382215989754,4,0,0,0,0,0,0
+B6,PILOT_055,multi_hop,neurological,multi_hop_epilepsy,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.21016597747802734,0,0,0,0,0,0,0
+B6,PILOT_056,multi_hop,infectious_disease,multi_hop_tuberculosis infection|lung injury|persistent breathing limitation,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.23142504505813122,0,0,0,0,0,0,0
+B6,PILOT_057,multi_hop,infectious_disease,multi_hop_respiratory infection|immune inflammation|pneumonia symptoms,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.22402708418667316,0,0,0,0,0,0,0
+B6,PILOT_058,multi_hop,mental_health,multi_hop_chronic stress|sleep disruption|depressive symptoms,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.012704986147582531,0,0,0,0,0,0,0
+B6,PILOT_059,multi_hop,oncology,multi_hop_lung cancer,ok,No,high,True,PARTIALLY_GROUNDED,partial,False,,True,13725.696802022867,2,0,0,0,0,0,0
+B6,PILOT_060,multi_hop,endocrine,multi_hop_hypothyroidism,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.26144704315811396,0,0,0,0,0,0,0
+B6,PILOT_061,comparative,cardiovascular,comparative_stroke|coronary artery disease,ok,No,high,False,NO_FACTUAL_CLAIMS,insuff_stated,False,,True,14973.7289120676,0,0,0,0,0,0,0
+B6,PILOT_062,comparative,cardiovascular,comparative_heart failure|coronary artery disease,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.24776498321443796,0,0,0,0,0,0,0
+B6,PILOT_063,comparative,metabolic,comparative_obesity|type 2 diabetes|coronary artery disease,ok,No,high,False,NO_FACTUAL_CLAIMS,insuff_stated,False,,True,8865.79879396595,0,0,0,0,0,0,0
+B6,PILOT_064,comparative,metabolic,comparative_obesity|metabolic syndrome,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.4911860451102257,0,0,0,0,0,0,0
+B6,PILOT_065,comparative,respiratory,comparative_asthma|chronic obstructive pulmonary disease,ok,No,medium,True,PARTIALLY_GROUNDED,partial,False,,True,15251.273126108572,3,2,0,0,0,0,0
+B6,PILOT_066,comparative,respiratory,comparative_pneumonia|asthma,ok,Yes,medium,True,MISREPRESENTS_CONTEXT,partial,False,,True,16477.004015934654,1,0,0,1,0,0,0
+B6,PILOT_067,comparative,renal,comparative_diabetes|hypertension|chronic kidney disease,ok,No,high,False,NO_FACTUAL_CLAIMS,insuff_stated,False,,True,7828.43417103868,0,0,0,0,0,0,0
+B6,PILOT_068,comparative,neurological,comparative_migraine|secondary headache,ok,No,high,False,NO_FACTUAL_CLAIMS,insuff_stated,False,,True,16129.213787964545,0,0,0,0,0,0,0
+B6,PILOT_069,comparative,neurological,comparative_epilepsy|seizure triggers,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.4092099843546748,0,0,0,0,0,0,0
+B6,PILOT_070,comparative,infectious_disease,comparative_tuberculosis|influenza,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.36268902476876974,0,0,0,0,0,0,0
+B6,PILOT_071,comparative,mental_health,comparative_depression|anxiety disorders,ok,No,high,False,NO_FACTUAL_CLAIMS,insuff_stated,False,,True,7728.781825047918,0,0,0,0,0,0,0
+B6,PILOT_072,comparative,oncology,comparative_lung cancer|people who smoke|people who never smoked,ok,No,high,True,FULLY_GROUNDED,insuff_stated,False,,True,9275.036285980605,1,0,0,0,0,0,0
+B6,PILOT_073,risk_factor,cardiovascular,risk_factor_stroke,ok,Yes,high,True,FULLY_GROUNDED,partial,False,,True,17809.600509004667,2,0,2,0,0,0,0
+B6,PILOT_074,risk_factor,cardiovascular,risk_factor_coronary artery disease,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.23216498084366322,0,0,0,0,0,0,0
+B6,PILOT_075,risk_factor,cardiovascular,risk_factor_heart failure,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.17286103684455156,0,0,0,0,0,0,0
+B6,PILOT_076,risk_factor,metabolic,risk_factor_type 2 diabetes,ok,No,high,True,FULLY_GROUNDED,partial,False,,True,12304.646895965561,2,0,0,0,0,0,0
+B6,PILOT_077,risk_factor,metabolic,risk_factor_obesity,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.4114919574931264,0,0,0,0,0,0,0
+B6,PILOT_078,risk_factor,respiratory,risk_factor_asthma,ok,No,medium,True,FULLY_GROUNDED,partial,False,,True,16558.758888044395,1,1,0,0,0,0,0
+B6,PILOT_079,risk_factor,respiratory,risk_factor_chronic obstructive pulmonary disease,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.4770510131493211,0,0,0,0,0,0,0
+B6,PILOT_080,risk_factor,renal,risk_factor_chronic kidney disease,ok,No,medium,True,NOT_GROUNDED,insuff_stated,False,,True,15106.920873979107,0,1,0,0,0,0,0
+B6,PILOT_081,risk_factor,neurological,risk_factor_migraine,ok,No,medium,True,FULLY_GROUNDED,partial,False,,True,10959.787313011475,4,1,0,0,0,0,0
+B6,PILOT_082,risk_factor,infectious_disease,risk_factor_tuberculosis,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.2625329652801156,0,0,0,0,0,0,0
+B6,PILOT_083,risk_factor,mental_health,risk_factor_depression,ok,Yes,high,True,FULLY_GROUNDED,partial,False,,True,16676.86666699592,0,4,0,1,0,0,1
+B6,PILOT_084,risk_factor,oncology,risk_factor_lung cancer,ok,No,high,False,NO_FACTUAL_CLAIMS,insuff_stated,False,,True,8693.269393988885,0,0,0,0,0,0,0
+B6,PILOT_085,ambiguous,general_medicine,individual_diagnosis_with_inadequate_evidence,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.2217619912698865,0,0,0,0,0,0,0
+B6,PILOT_086,ambiguous,cardiovascular,individual_diagnosis_with_inadequate_evidence,ok,No,high,True,FULLY_GROUNDED,refusal_ok,False,,True,17940.86952903308,4,0,0,0,0,0,0
+B6,PILOT_087,ambiguous,respiratory,individual_diagnosis_with_inadequate_evidence,ok,No,medium,True,PARTIALLY_GROUNDED,refusal_ok,False,,True,11881.550812046044,3,2,0,0,0,0,0
+B6,PILOT_088,ambiguous,neurological,occasional_headache_no_diagnosis,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.2141239820048213,0,0,0,0,0,0,0
+B6,PILOT_089,ambiguous,metabolic,individual_diagnosis_with_inadequate_evidence,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,8947.044614003971,0,0,0,0,0,0,0
+B6,PILOT_090,ambiguous,mental_health,individual_diagnosis_with_inadequate_evidence,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,7552.024833043106,0,0,0,0,0,0,0
+B6,PILOT_091,ambiguous,renal,individual_diagnosis_with_inadequate_evidence,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.31294499058276415,0,0,0,0,0,0,0
+B6,PILOT_092,ambiguous,infectious_disease,individual_diagnosis_with_inadequate_evidence,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.41325297206640244,0,0,0,0,0,0,0
+B6,PILOT_093,unsupported,general_medicine,exact_future_disease_no_data,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.32095599453896284,0,0,0,0,0,0,0
+B6,PILOT_094,unsupported,oncology,exact_individual_prediction_without_data,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,5544.746203930117,0,0,0,0,0,0,0
+B6,PILOT_095,unsupported,cardiovascular,exact_individual_prediction_without_data,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,,True,12731.044969987124,0,0,0,0,0,0,0
+B6,PILOT_096,unsupported,renal,exact_individual_prediction_without_data,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.3171829739585519,0,0,0,0,0,0,0
+B6,PILOT_097,unsupported,neurological,exact_individual_prediction_without_data,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.4318250576034188,0,0,0,0,0,0,0
+B6,PILOT_098,unsupported,infectious_disease,exact_individual_prediction_without_data,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.2090290654450655,0,0,0,0,0,0,0
+B6,PILOT_099,unsupported,mental_health,quiet_person_no_psychiatric_diagnosis,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.4466450773179531,0,0,0,0,0,0,0
+B6,PILOT_100,unsupported,metabolic,exact_individual_prediction_without_data,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.25584595277905464,0,0,0,0,0,0,0
+B6,EXTQ_001,direct,cardiovascular,general_factors_coronary artery disease,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.17052306793630123,0,0,0,0,0,0,0
+B6,EXTQ_002,direct,cardiovascular,general_factors_heart failure,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.16477296594530344,0,0,0,0,0,0,0
+B6,EXTQ_003,direct,renal,general_factors_chronic kidney disease,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.1871540443971753,0,0,0,0,0,0,0
+B6,EXTQ_004,direct,endocrine,general_factors_hypothyroidism,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.19091705325990915,0,0,0,0,0,0,0
+B6,EXTQ_005,paraphrased,cardiovascular,general_factors_coronary artery disease,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.14694395940750837,0,0,0,0,0,0,0
+B6,EXTQ_006,paraphrased,cardiovascular,general_factors_heart failure,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.16837602015584707,0,0,0,0,0,0,0
+B6,EXTQ_007,paraphrased,renal,general_factors_chronic kidney disease,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.15586998779326677,0,0,0,0,0,0,0
+B6,EXTQ_008,paraphrased,endocrine,general_factors_hypothyroidism,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.2774900058284402,0,0,0,0,0,0,0
+B6,EXTQ_009,indirect,cardiovascular,concept_description_coronary artery disease,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.21343701519072056,0,0,0,0,0,0,0
+B6,EXTQ_010,indirect,renal,concept_description_chronic kidney disease,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.1766339410096407,0,0,0,0,0,0,0
+B6,EXTQ_011,indirect,metabolic,concept_description_type 2 diabetes,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.012177042663097382,0,0,0,0,0,0,0
+B6,EXTQ_012,indirect,respiratory,concept_description_chronic obstructive pulmonary disease,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.19910105038434267,0,0,0,0,0,0,0
+B6,EXTQ_013,multi_hop,cardiovascular,multi_hop_coronary artery disease,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.26021094527095556,0,0,0,0,0,0,0
+B6,EXTQ_014,multi_hop,renal,multi_hop_chronic kidney disease,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.19282393623143435,0,0,0,0,0,0,0
+B6,EXTQ_015,multi_hop,metabolic,multi_hop_obesity_insulin_resistance_t2d,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.015594996511936188,0,0,0,0,0,0,0
+B6,EXTQ_016,multi_hop,cardiovascular,multi_hop_heart failure,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.39889791514724493,0,0,0,0,0,0,0
+B6,EXTQ_017,comparative,cardiovascular,comparative_ischemic stroke|hemorrhagic stroke,ok,Yes,medium,True,PARTIALLY_GROUNDED,partial,False,,True,21803.036088007502,3,0,1,0,0,0,0
+B6,EXTQ_018,comparative,cardiovascular,comparative_coronary artery disease|heart failure,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.3355139633640647,0,0,0,0,0,0,0
+B6,EXTQ_019,comparative,renal,comparative_diabetes|hypertension|chronic kidney disease,ok,No,medium,True,NOT_GROUNDED,insuff_stated,False,,True,8072.58618902415,1,0,0,0,0,0,0
+B6,EXTQ_020,comparative,respiratory,comparative_asthma onset|asthma attack trigger,ok,Yes,medium,True,PARTIALLY_GROUNDED,partial,False,,True,21624.064231989905,4,0,0,1,0,0,0
+B6,EXTQ_021,risk_factor,metabolic,risk_factor_modifiable diabetes risk factors|nonmodifiable diabetes risk factors,ok,Yes,high,True,FULLY_GROUNDED,partial,False,,True,15216.87350596767,1,0,0,1,0,0,1
+B6,EXTQ_022,risk_factor,cardiovascular,risk_factor_family history|smoking|elevated cholesterol|coronary artery disease,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.021070009097456932,0,0,0,0,0,0,0
+B6,EXTQ_023,risk_factor,cardiovascular,risk_factor_heart failure|individual patient,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.38211001083254814,0,0,0,0,0,0,0
+B6,EXTQ_024,risk_factor,renal,risk_factor_chronic kidney disease|causation|association,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.20600599236786366,0,0,0,0,0,0,0
+B6,EXTQ_025,ambiguous,general_medicine,individual_diagnosis_with_inadequate_evidence,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.369500950910151,0,0,0,0,0,0,0
+B6,EXTQ_026,ambiguous,neurological,occasional_headache_no_diagnosis,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.28237001970410347,0,0,0,0,0,0,0
+B6,EXTQ_027,ambiguous,cardiovascular,individual_diagnosis_with_inadequate_evidence,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.18091301899403334,0,0,0,0,0,0,0
+B6,EXTQ_028,ambiguous,renal,individual_diagnosis_with_inadequate_evidence,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.21352292969822884,0,0,0,0,0,0,0
+B6,EXTQ_029,unsupported,general_medicine,exact_future_disease_no_data,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.2258300082758069,0,0,0,0,0,0,0
+B6,EXTQ_030,unsupported,mental_health,quiet_person_no_psychiatric_diagnosis,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.2021630061790347,0,0,0,0,0,0,0
+B6,EXTQ_031,unsupported,cardiovascular,exact_individual_prediction_without_data,ok,No,high,True,FULLY_GROUNDED,refusal_ok,False,,True,14683.677462046035,1,0,0,0,0,0,0
+B6,EXTQ_032,unsupported,metabolic,exact_individual_prediction_without_data,abstained,No,high,False,NOT_APPLICABLE_EMPTY_ANSWER,abstain_empty,False,,False,0.19498297479003668,0,0,0,0,0,0,0
+B7,PILOT_001,direct,cardiovascular,general_factors_coronary artery disease,ok,No,medium,True,MISREPRESENTS_CONTEXT,partial,False,True,True,108153.24818098452,3,2,0,0,0,0,0
+B7,PILOT_002,direct,cardiovascular,general_factors_stroke,ok,No,medium,True,FULLY_GROUNDED,partial,False,False,True,61712.21205999609,4,1,0,0,0,0,0
+B7,PILOT_003,direct,cardiovascular,general_factors_heart failure,ok,No,high,True,MISREPRESENTS_CONTEXT,minimal,False,False,True,63407.864233944565,2,0,0,0,0,0,0
+B7,PILOT_004,direct,metabolic,general_factors_type 2 diabetes,ok,Yes,medium,True,FULLY_GROUNDED,partial,False,True,True,61331.71483594924,1,3,0,1,0,0,0
+B7,PILOT_005,direct,metabolic,general_factors_obesity,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,7208.825050038286,0,0,0,0,0,0,0
+B7,PILOT_006,direct,respiratory,general_factors_asthma,ok,Yes,medium,True,FULLY_GROUNDED,partial,False,False,True,39065.68642705679,1,0,0,2,0,0,0
+B7,PILOT_007,direct,respiratory,general_factors_chronic obstructive pulmonary disease,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,2703.896830091253,0,0,0,0,0,0,0
+B7,PILOT_008,direct,renal,general_factors_chronic kidney disease,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,1457.1447500493377,0,0,0,0,0,0,0
+B7,PILOT_009,direct,neurological,general_factors_migraine,ok,Yes,medium,True,FULLY_GROUNDED,partial,False,False,True,37707.3289079126,0,1,0,4,0,0,0
+B7,PILOT_010,direct,neurological,general_factors_epilepsy,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,2716.0293830092996,0,0,0,0,0,0,0
+B7,PILOT_011,direct,infectious_disease,general_factors_tuberculosis,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,1454.546774039045,0,0,0,0,0,0,0
+B7,PILOT_012,direct,infectious_disease,general_factors_pneumonia,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,1477.3863500449806,0,0,0,0,0,0,0
+B7,PILOT_013,direct,mental_health,general_factors_depression,ok,No,high,True,FULLY_GROUNDED,partial,False,True,True,52486.285120015964,5,0,0,0,0,0,0
+B7,PILOT_014,direct,oncology,general_factors_lung cancer,ok,No,high,True,FULLY_GROUNDED,partial,False,True,True,41256.430152920075,2,0,0,0,0,0,0
+B7,PILOT_015,direct,endocrine,general_factors_hypothyroidism,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,6928.852112032473,0,0,0,0,0,0,0
+B7,PILOT_016,paraphrased,cardiovascular,general_factors_coronary artery disease,ok,No,high,True,FULLY_GROUNDED,partial,False,True,True,54119.90810802672,5,0,0,0,0,0,0
+B7,PILOT_017,paraphrased,cardiovascular,general_factors_stroke,ok,No,high,True,FULLY_GROUNDED,partial,False,True,True,61154.2904949747,4,0,0,0,0,0,0
+B7,PILOT_018,paraphrased,cardiovascular,general_factors_heart failure,ok,No,medium,True,MISREPRESENTS_CONTEXT,partial,False,False,True,39008.134778938256,2,1,0,0,0,0,0
+B7,PILOT_019,paraphrased,metabolic,general_factors_type 2 diabetes,ok,No,medium,True,FULLY_GROUNDED,full,False,True,True,55902.42125408258,4,1,0,0,0,0,0
+B7,PILOT_020,paraphrased,metabolic,general_factors_obesity,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,7185.045753023587,0,0,0,0,0,0,0
+B7,PILOT_021,paraphrased,respiratory,general_factors_asthma,ok,Yes,medium,True,FULLY_GROUNDED,partial,False,True,True,46514.71459097229,1,0,0,3,0,0,0
+B7,PILOT_022,paraphrased,respiratory,general_factors_chronic obstructive pulmonary disease,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,7454.871509922668,0,0,0,0,0,0,0
+B7,PILOT_023,paraphrased,renal,general_factors_chronic kidney disease,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,1469.9557980056852,0,0,0,0,0,0,0
+B7,PILOT_024,paraphrased,neurological,general_factors_migraine,ok,Yes,medium,True,FULLY_GROUNDED,partial,False,False,True,39194.32785897516,0,1,0,4,0,0,0
+B7,PILOT_025,paraphrased,neurological,general_factors_epilepsy,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,2737.6389800338075,0,0,0,0,0,0,0
+B7,PILOT_026,paraphrased,infectious_disease,general_factors_tuberculosis,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,1499.0641640033573,0,0,0,0,0,0,0
+B7,PILOT_027,paraphrased,infectious_disease,general_factors_pneumonia,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,1525.0089280307293,0,0,0,0,0,0,0
+B7,PILOT_028,paraphrased,mental_health,general_factors_depression,ok,No,medium,True,FULLY_GROUNDED,partial,False,True,True,51478.34085195791,0,5,0,0,0,0,0
+B7,PILOT_029,paraphrased,oncology,general_factors_lung cancer,ok,No,high,True,FULLY_GROUNDED,partial,False,False,True,27780.58081504423,2,0,0,0,0,0,0
+B7,PILOT_030,paraphrased,endocrine,general_factors_hypothyroidism,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,2661.5291129564866,0,0,0,0,0,0,0
+B7,PILOT_031,indirect,cardiovascular,concept_description_coronary artery disease,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,1480.8737930143252,0,0,0,0,0,0,0
+B7,PILOT_032,indirect,cardiovascular,concept_description_stroke,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,1471.9664589501917,0,0,0,0,0,0,0
+B7,PILOT_033,indirect,cardiovascular,concept_description_heart failure,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,1477.3645520908758,0,0,0,0,0,0,0
+B7,PILOT_034,indirect,metabolic,concept_description_type 2 diabetes,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,1473.2812370639294,0,0,0,0,0,0,0
+B7,PILOT_035,indirect,metabolic,concept_description_obesity,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,1444.9503290234134,0,0,0,0,0,0,0
+B7,PILOT_036,indirect,respiratory,concept_description_asthma,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,1471.9598430674523,0,0,0,0,0,0,0
+B7,PILOT_037,indirect,respiratory,concept_description_chronic obstructive pulmonary disease,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,1469.8583181016147,0,0,0,0,0,0,0
+B7,PILOT_038,indirect,renal,concept_description_chronic kidney disease,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,1463.0913089495152,0,0,0,0,0,0,0
+B7,PILOT_039,indirect,neurological,concept_description_migraine,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,1475.510835996829,0,0,0,0,0,0,0
+B7,PILOT_040,indirect,neurological,concept_description_epilepsy,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,1458.6753639159724,0,0,0,0,0,0,0
+B7,PILOT_041,indirect,infectious_disease,concept_description_tuberculosis,ok,No,high,True,NOT_GROUNDED,minimal,False,False,True,38310.788210015744,1,0,0,0,0,0,0
+B7,PILOT_042,indirect,infectious_disease,concept_description_pneumonia,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,2684.869345044717,0,0,0,0,0,0,0
+B7,PILOT_043,indirect,mental_health,concept_description_depression,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,1465.2202640427276,0,0,0,0,0,0,0
+B7,PILOT_044,indirect,oncology,concept_description_lung cancer,ok,No,high,True,PARTIALLY_GROUNDED,full,False,False,True,33852.97080501914,3,0,0,0,0,0,0
+B7,PILOT_045,indirect,endocrine,concept_description_hypothyroidism,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,2680.0868730060756,0,0,0,0,0,0,0
+B7,PILOT_046,multi_hop,cardiovascular,multi_hop_coronary artery disease,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,1468.28746504616,0,0,0,0,0,0,0
+B7,PILOT_047,multi_hop,cardiovascular,multi_hop_stroke,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,1468.578382045962,0,0,0,0,0,0,0
+B7,PILOT_048,multi_hop,cardiovascular,multi_hop_heart failure,ok,No,high,True,MISREPRESENTS_CONTEXT,minimal,False,True,True,77256.30907702725,1,0,0,0,0,0,0
+B7,PILOT_049,multi_hop,metabolic,multi_hop_obesity_insulin_resistance_t2d,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,6891.354281106032,0,0,0,0,0,0,0
+B7,PILOT_050,multi_hop,metabolic,multi_hop_hyperglycemia|kidney vascular injury|kidney complications,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,1463.0866519873962,0,0,0,0,0,0,0
+B7,PILOT_051,multi_hop,respiratory,multi_hop_asthma,ok,Yes,medium,True,FULLY_GROUNDED,partial,False,True,True,68002.5774439564,2,0,0,1,0,0,1
+B7,PILOT_052,multi_hop,respiratory,multi_hop_chronic obstructive pulmonary disease,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,7046.2299541104585,0,0,0,0,0,0,0
+B7,PILOT_053,multi_hop,renal,multi_hop_chronic kidney disease,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,1461.9522410212085,0,0,0,0,0,0,0
+B7,PILOT_054,multi_hop,neurological,multi_hop_stroke,ok,Yes,high,True,PARTIALLY_GROUNDED,minimal,False,False,True,67423.60109090805,2,0,1,0,0,0,0
+B7,PILOT_055,multi_hop,neurological,multi_hop_epilepsy,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,2741.033454076387,0,0,0,0,0,0,0
+B7,PILOT_056,multi_hop,infectious_disease,multi_hop_tuberculosis infection|lung injury|persistent breathing limitation,ok,Yes,medium,True,MISREPRESENTS_CONTEXT,minimal,False,True,True,49553.399309981614,0,0,0,1,0,0,0
+B7,PILOT_057,multi_hop,infectious_disease,multi_hop_respiratory infection|immune inflammation|pneumonia symptoms,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,7334.197476040572,0,0,0,0,0,0,0
+B7,PILOT_058,multi_hop,mental_health,multi_hop_chronic stress|sleep disruption|depressive symptoms,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,1452.9205159051344,0,0,0,0,0,0,0
+B7,PILOT_059,multi_hop,oncology,multi_hop_lung cancer,ok,No,high,True,FULLY_GROUNDED,minimal,False,False,True,27030.932108988054,1,0,0,0,0,0,0
+B7,PILOT_060,multi_hop,endocrine,multi_hop_hypothyroidism,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,2628.352253930643,0,0,0,0,0,0,0
+B7,PILOT_061,comparative,cardiovascular,comparative_stroke|coronary artery disease,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,True,True,54307.44520109147,0,0,0,0,0,0,0
+B7,PILOT_062,comparative,cardiovascular,comparative_heart failure|coronary artery disease,ok,No,high,True,MISREPRESENTS_CONTEXT,offtarget,False,True,True,76377.780132927,4,0,0,0,0,0,0
+B7,PILOT_063,comparative,metabolic,comparative_obesity|type 2 diabetes|coronary artery disease,ok,No,high,False,NO_FACTUAL_CLAIMS,insuff_stated,False,False,True,61645.619949907996,0,0,0,0,0,0,0
+B7,PILOT_064,comparative,metabolic,comparative_obesity|metabolic syndrome,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,2649.108976009302,0,0,0,0,0,0,0
+B7,PILOT_065,comparative,respiratory,comparative_asthma|chronic obstructive pulmonary disease,ok,Yes,high,True,PARTIALLY_GROUNDED,partial,False,False,True,36513.14915495459,1,0,1,2,0,0,0
+B7,PILOT_066,comparative,respiratory,comparative_pneumonia|asthma,ok,Yes,medium,True,PARTIALLY_GROUNDED,partial,False,True,True,43861.18723603431,2,0,0,2,0,0,0
+B7,PILOT_067,comparative,renal,comparative_diabetes|hypertension|chronic kidney disease,ok,Yes,high,True,FABRICATED_CITATION,partial,True,True,True,69808.77487105317,2,0,0,0,0,0,0
+B7,PILOT_068,comparative,neurological,comparative_migraine|secondary headache,ok,Yes,medium,True,FULLY_GROUNDED,partial,False,True,True,72068.0596610764,0,1,0,4,0,0,0
+B7,PILOT_069,comparative,neurological,comparative_epilepsy|seizure triggers,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,7308.508132002316,0,0,0,0,0,0,0
+B7,PILOT_070,comparative,infectious_disease,comparative_tuberculosis|influenza,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,1470.6680499948561,0,0,0,0,0,0,0
+B7,PILOT_071,comparative,mental_health,comparative_depression|anxiety disorders,ok,Yes,high,True,PARTIALLY_GROUNDED,partial,False,True,True,88069.69332706649,2,1,1,0,0,0,0
+B7,PILOT_072,comparative,oncology,comparative_lung cancer|people who smoke|people who never smoked,ok,No,high,True,FULLY_GROUNDED,minimal,False,True,True,53809.8629550077,1,0,0,0,0,0,0
+B7,PILOT_073,risk_factor,cardiovascular,risk_factor_stroke,ok,Yes,high,True,PARTIALLY_GROUNDED,partial,False,True,True,107531.72895801254,4,2,1,2,0,0,1
+B7,PILOT_074,risk_factor,cardiovascular,risk_factor_coronary artery disease,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,7220.092686940916,0,0,0,0,0,0,0
+B7,PILOT_075,risk_factor,cardiovascular,risk_factor_heart failure,ok,No,high,True,MISREPRESENTS_CONTEXT,minimal,False,False,True,40436.3800319843,2,0,0,0,0,0,0
+B7,PILOT_076,risk_factor,metabolic,risk_factor_type 2 diabetes,ok,No,medium,True,FULLY_GROUNDED,partial,False,True,True,45843.00997201353,1,1,0,0,0,0,0
+B7,PILOT_077,risk_factor,metabolic,risk_factor_obesity,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,6910.674197017215,0,0,0,0,0,0,0
+B7,PILOT_078,risk_factor,respiratory,risk_factor_asthma,ok,Yes,medium,True,FULLY_GROUNDED,minimal,False,False,True,41401.431483915076,1,0,0,2,0,0,0
+B7,PILOT_079,risk_factor,respiratory,risk_factor_chronic obstructive pulmonary disease,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,2656.48514800705,0,0,0,0,0,0,0
+B7,PILOT_080,risk_factor,renal,risk_factor_chronic kidney disease,ok,No,high,True,MISREPRESENTS_CONTEXT,partial,False,False,True,53839.398380951025,1,0,0,0,0,0,0
+B7,PILOT_081,risk_factor,neurological,risk_factor_migraine,ok,Yes,medium,True,FULLY_GROUNDED,partial,False,True,True,51046.38072405942,0,1,0,2,0,0,0
+B7,PILOT_082,risk_factor,infectious_disease,risk_factor_tuberculosis,ok,No,medium,True,MISREPRESENTS_CONTEXT,minimal,False,False,True,42958.473153063096,1,1,0,0,0,0,0
+B7,PILOT_083,risk_factor,mental_health,risk_factor_depression,ok,No,medium,True,FULLY_GROUNDED,partial,False,False,True,48296.844788012095,0,5,0,0,0,0,0
+B7,PILOT_084,risk_factor,oncology,risk_factor_lung cancer,ok,Uncertain,low,True,MISREPRESENTS_CONTEXT,minimal,False,True,True,69984.35444792267,1,0,0,0,1,0,0
+B7,PILOT_085,ambiguous,general_medicine,individual_diagnosis_with_inadequate_evidence,ok,Yes,high,True,FABRICATED_CITATION,refusal_ok,True,False,True,35457.60931097902,1,0,0,0,0,0,0
+B7,PILOT_086,ambiguous,cardiovascular,individual_diagnosis_with_inadequate_evidence,ok,No,high,True,FULLY_GROUNDED,refusal_ok,False,True,True,78154.3224779889,3,0,0,0,0,0,0
+B7,PILOT_087,ambiguous,respiratory,individual_diagnosis_with_inadequate_evidence,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_minimal,False,False,True,48105.297762085684,0,0,0,0,0,0,0
+B7,PILOT_088,ambiguous,neurological,occasional_headache_no_diagnosis,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,2807.4036040343344,0,0,0,0,0,0,0
+B7,PILOT_089,ambiguous,metabolic,individual_diagnosis_with_inadequate_evidence,ok,Yes,high,True,NOT_GROUNDED,minimal,False,False,True,48364.48214505799,0,0,1,0,0,0,0
+B7,PILOT_090,ambiguous,mental_health,individual_diagnosis_with_inadequate_evidence,ok,No,high,True,NOT_GROUNDED,refusal_ok,False,False,True,32440.369887044653,1,0,0,0,0,0,0
+B7,PILOT_091,ambiguous,renal,individual_diagnosis_with_inadequate_evidence,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,2656.4314890420064,0,0,0,0,0,0,0
+B7,PILOT_092,ambiguous,infectious_disease,individual_diagnosis_with_inadequate_evidence,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,1444.713058997877,0,0,0,0,0,0,0
+B7,PILOT_093,unsupported,general_medicine,exact_future_disease_no_data,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,True,True,55211.57938498072,0,0,0,0,0,0,0
+B7,PILOT_094,unsupported,oncology,exact_individual_prediction_without_data,ok,No,high,True,FULLY_GROUNDED,refusal_ok,False,True,True,51413.58047607355,2,0,0,0,0,0,0
+B7,PILOT_095,unsupported,cardiovascular,exact_individual_prediction_without_data,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,True,True,59327.82012003008,0,0,0,0,0,0,0
+B7,PILOT_096,unsupported,renal,exact_individual_prediction_without_data,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,7142.273505101912,0,0,0,0,0,0,0
+B7,PILOT_097,unsupported,neurological,exact_individual_prediction_without_data,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,1452.7622390305623,0,0,0,0,0,0,0
+B7,PILOT_098,unsupported,infectious_disease,exact_individual_prediction_without_data,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,1458.1524230306968,0,0,0,0,0,0,0
+B7,PILOT_099,unsupported,mental_health,quiet_person_no_psychiatric_diagnosis,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,1473.396684974432,0,0,0,0,0,0,0
+B7,PILOT_100,unsupported,metabolic,exact_individual_prediction_without_data,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,1466.3288780720904,0,0,0,0,0,0,0
+B7,EXTQ_001,direct,cardiovascular,general_factors_coronary artery disease,ok,No,high,True,FULLY_GROUNDED,offtarget,False,True,True,59084.30028904695,2,0,0,0,0,0,0
+B7,EXTQ_002,direct,cardiovascular,general_factors_heart failure,ok,No,high,True,MISREPRESENTS_CONTEXT,minimal,False,False,True,45010.219266987406,2,0,0,0,0,0,0
+B7,EXTQ_003,direct,renal,general_factors_chronic kidney disease,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,2690.5733620515093,0,0,0,0,0,0,0
+B7,EXTQ_004,direct,endocrine,general_factors_hypothyroidism,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,1458.5256379796192,0,0,0,0,0,0,0
+B7,EXTQ_005,paraphrased,cardiovascular,general_factors_coronary artery disease,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,1447.871036012657,0,0,0,0,0,0,0
+B7,EXTQ_006,paraphrased,cardiovascular,general_factors_heart failure,ok,No,high,True,MISREPRESENTS_CONTEXT,minimal,False,False,True,32484.086010954343,1,0,0,0,0,0,0
+B7,EXTQ_007,paraphrased,renal,general_factors_chronic kidney disease,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,2661.7434580111876,0,0,0,0,0,0,0
+B7,EXTQ_008,paraphrased,endocrine,general_factors_hypothyroidism,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,1434.2364070471376,0,0,0,0,0,0,0
+B7,EXTQ_009,indirect,cardiovascular,concept_description_coronary artery disease,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,1479.333279072307,0,0,0,0,0,0,0
+B7,EXTQ_010,indirect,renal,concept_description_chronic kidney disease,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,1517.777483095415,0,0,0,0,0,0,0
+B7,EXTQ_011,indirect,metabolic,concept_description_type 2 diabetes,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,1521.0775699233636,0,0,0,0,0,0,0
+B7,EXTQ_012,indirect,respiratory,concept_description_chronic obstructive pulmonary disease,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,1459.8294999450445,0,0,0,0,0,0,0
+B7,EXTQ_013,multi_hop,cardiovascular,multi_hop_coronary artery disease,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,1467.3853230196983,0,0,0,0,0,0,0
+B7,EXTQ_014,multi_hop,renal,multi_hop_chronic kidney disease,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,1449.9087579315528,0,0,0,0,0,0,0
+B7,EXTQ_015,multi_hop,metabolic,multi_hop_obesity_insulin_resistance_t2d,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,1443.2777110487223,0,0,0,0,0,0,0
+B7,EXTQ_016,multi_hop,cardiovascular,multi_hop_heart failure,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,1465.0678100297228,0,0,0,0,0,0,0
+B7,EXTQ_017,comparative,cardiovascular,comparative_ischemic stroke|hemorrhagic stroke,ok,Yes,high,True,FULLY_GROUNDED,partial,False,True,True,134741.45936302375,1,0,1,2,0,0,2
+B7,EXTQ_018,comparative,cardiovascular,comparative_coronary artery disease|heart failure,ok,No,high,False,NO_FACTUAL_CLAIMS,insuff_stated,False,False,True,64690.82790799439,0,0,0,0,0,0,0
+B7,EXTQ_019,comparative,renal,comparative_diabetes|hypertension|chronic kidney disease,ok,No,high,False,NO_FACTUAL_CLAIMS,insuff_stated,False,True,True,63886.76251808647,0,0,0,0,0,0,0
+B7,EXTQ_020,comparative,respiratory,comparative_asthma onset|asthma attack trigger,ok,No,high,True,PARTIALLY_GROUNDED,partial,False,True,True,84977.06583491527,5,0,0,0,0,0,0
+B7,EXTQ_021,risk_factor,metabolic,risk_factor_modifiable diabetes risk factors|nonmodifiable diabetes risk factors,ok,No,medium,True,MISREPRESENTS_CONTEXT,partial,False,True,True,86861.03850998916,1,2,0,0,0,0,0
+B7,EXTQ_022,risk_factor,cardiovascular,risk_factor_family history|smoking|elevated cholesterol|coronary artery disease,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,7182.617043959908,0,0,0,0,0,0,0
+B7,EXTQ_023,risk_factor,cardiovascular,risk_factor_heart failure|individual patient,ok,No,high,True,NOT_GROUNDED,partial,False,True,True,62221.46829206031,5,0,0,0,0,0,0
+B7,EXTQ_024,risk_factor,renal,risk_factor_chronic kidney disease|causation|association,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,7195.518972002901,0,0,0,0,0,0,0
+B7,EXTQ_025,ambiguous,general_medicine,individual_diagnosis_with_inadequate_evidence,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_minimal,False,False,True,31638.571016024798,0,0,0,0,0,0,0
+B7,EXTQ_026,ambiguous,neurological,occasional_headache_no_diagnosis,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,2569.963491987437,0,0,0,0,0,0,0
+B7,EXTQ_027,ambiguous,cardiovascular,individual_diagnosis_with_inadequate_evidence,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,1456.608637003228,0,0,0,0,0,0,0
+B7,EXTQ_028,ambiguous,renal,individual_diagnosis_with_inadequate_evidence,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,1470.1244470197707,0,0,0,0,0,0,0
+B7,EXTQ_029,unsupported,general_medicine,exact_future_disease_no_data,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,False,True,38133.031905046664,0,0,0,0,0,0,0
+B7,EXTQ_030,unsupported,mental_health,quiet_person_no_psychiatric_diagnosis,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,2773.589503020048,0,0,0,0,0,0,0
+B7,EXTQ_031,unsupported,cardiovascular,exact_individual_prediction_without_data,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,False,True,45958.432140992954,0,0,0,0,0,0,0
+B7,EXTQ_032,unsupported,metabolic,exact_individual_prediction_without_data,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,2708.871476002969,0,0,0,0,0,0,0
+B8,PILOT_001,direct,cardiovascular,general_factors_coronary artery disease,ok,No,medium,True,MISREPRESENTS_CONTEXT,partial,False,True,True,117780.61793907546,3,2,0,0,0,0,0
+B8,PILOT_002,direct,cardiovascular,general_factors_stroke,ok,No,medium,True,FULLY_GROUNDED,partial,False,False,True,69937.44904291816,4,1,0,0,0,0,0
+B8,PILOT_003,direct,cardiovascular,general_factors_heart failure,ok,No,high,True,MISREPRESENTS_CONTEXT,minimal,False,False,True,75422.3430911079,2,0,0,0,0,0,0
+B8,PILOT_004,direct,metabolic,general_factors_type 2 diabetes,ok,Yes,medium,True,FULLY_GROUNDED,partial,False,True,True,75845.4240290448,1,3,0,1,0,0,0
+B8,PILOT_005,direct,metabolic,general_factors_obesity,ok,No,medium,True,MISREPRESENTS_CONTEXT,partial,False,True,True,62392.10389100481,2,2,0,0,0,0,0
+B8,PILOT_006,direct,respiratory,general_factors_asthma,ok,Yes,medium,True,FULLY_GROUNDED,partial,False,False,True,52244.8626619298,1,0,0,2,0,0,0
+B8,PILOT_007,direct,respiratory,general_factors_chronic obstructive pulmonary disease,ok,No,medium,True,MISREPRESENTS_CONTEXT,minimal,False,False,True,42995.66590297036,0,1,0,0,0,0,0
+B8,PILOT_008,direct,renal,general_factors_chronic kidney disease,ok,No,medium,True,MISREPRESENTS_CONTEXT,partial,False,True,True,71941.33827695623,3,1,0,0,0,0,0
+B8,PILOT_009,direct,neurological,general_factors_migraine,ok,Yes,medium,True,FULLY_GROUNDED,partial,False,False,True,50577.76541495696,0,1,0,4,0,0,0
+B8,PILOT_010,direct,neurological,general_factors_epilepsy,ok,No,medium,True,MISREPRESENTS_CONTEXT,partial,False,True,True,64506.85952301137,2,2,0,0,0,0,0
+B8,PILOT_011,direct,infectious_disease,general_factors_tuberculosis,ok,Yes,high,True,MISREPRESENTS_CONTEXT,minimal,False,True,True,48503.04793997202,0,0,0,1,0,0,0
+B8,PILOT_012,direct,infectious_disease,general_factors_pneumonia,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,15332.212536013685,0,0,0,0,0,0,0
+B8,PILOT_013,direct,mental_health,general_factors_depression,ok,No,high,True,FULLY_GROUNDED,partial,False,True,True,64779.83954397496,5,0,0,0,0,0,0
+B8,PILOT_014,direct,oncology,general_factors_lung cancer,ok,No,high,True,FULLY_GROUNDED,partial,False,True,True,50011.99996296782,2,0,0,0,0,0,0
+B8,PILOT_015,direct,endocrine,general_factors_hypothyroidism,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,15309.675359050743,0,0,0,0,0,0,0
+B8,PILOT_016,paraphrased,cardiovascular,general_factors_coronary artery disease,ok,No,high,True,FULLY_GROUNDED,partial,False,True,True,66342.4011610914,5,0,0,0,0,0,0
+B8,PILOT_017,paraphrased,cardiovascular,general_factors_stroke,ok,No,high,True,FULLY_GROUNDED,partial,False,True,True,69129.72004909534,4,0,0,0,0,0,0
+B8,PILOT_018,paraphrased,cardiovascular,general_factors_heart failure,ok,No,medium,True,MISREPRESENTS_CONTEXT,partial,False,False,True,46488.473562989384,2,1,0,0,0,0,0
+B8,PILOT_019,paraphrased,metabolic,general_factors_type 2 diabetes,ok,No,medium,True,FULLY_GROUNDED,full,False,True,True,69126.16517802235,4,1,0,0,0,0,0
+B8,PILOT_020,paraphrased,metabolic,general_factors_obesity,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,15503.126272931695,0,0,0,0,0,0,0
+B8,PILOT_021,paraphrased,respiratory,general_factors_asthma,ok,Yes,medium,True,FULLY_GROUNDED,partial,False,True,True,58753.76549293287,1,0,0,3,0,0,0
+B8,PILOT_022,paraphrased,respiratory,general_factors_chronic obstructive pulmonary disease,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,15847.954995930195,0,0,0,0,0,0,0
+B8,PILOT_023,paraphrased,renal,general_factors_chronic kidney disease,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,15595.193602028303,0,0,0,0,0,0,0
+B8,PILOT_024,paraphrased,neurological,general_factors_migraine,ok,Yes,medium,True,FULLY_GROUNDED,partial,False,False,True,51642.514219041914,0,1,0,4,0,0,0
+B8,PILOT_025,paraphrased,neurological,general_factors_epilepsy,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,15636.658948031254,0,0,0,0,0,0,0
+B8,PILOT_026,paraphrased,infectious_disease,general_factors_tuberculosis,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,15525.633945013396,0,0,0,0,0,0,0
+B8,PILOT_027,paraphrased,infectious_disease,general_factors_pneumonia,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,16193.887002998963,0,0,0,0,0,0,0
+B8,PILOT_028,paraphrased,mental_health,general_factors_depression,ok,No,medium,True,FULLY_GROUNDED,partial,False,True,True,65752.06619908568,0,5,0,0,0,0,0
+B8,PILOT_029,paraphrased,oncology,general_factors_lung cancer,ok,No,high,True,FULLY_GROUNDED,partial,False,False,True,37607.216867036186,2,0,0,0,0,0,0
+B8,PILOT_030,paraphrased,endocrine,general_factors_hypothyroidism,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,15680.070524918847,0,0,0,0,0,0,0
+B8,PILOT_031,indirect,cardiovascular,concept_description_coronary artery disease,ok,Yes,high,True,MISREPRESENTS_CONTEXT,minimal,False,False,True,49243.15106600989,0,0,1,0,0,0,0
+B8,PILOT_032,indirect,cardiovascular,concept_description_stroke,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,16412.665628944524,0,0,0,0,0,0,0
+B8,PILOT_033,indirect,cardiovascular,concept_description_heart failure,ok,No,medium,True,NOT_GROUNDED,minimal,False,False,True,51610.84733100142,1,0,0,0,0,0,0
+B8,PILOT_034,indirect,metabolic,concept_description_type 2 diabetes,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,16068.28750204295,0,0,0,0,0,0,0
+B8,PILOT_035,indirect,metabolic,concept_description_obesity,ok,No,medium,True,NOT_GROUNDED,minimal,False,False,True,54269.521828973666,1,1,0,0,0,0,0
+B8,PILOT_036,indirect,respiratory,concept_description_asthma,ok,No,high,True,NOT_GROUNDED,minimal,False,True,True,61902.16214105021,1,0,0,0,0,0,0
+B8,PILOT_037,indirect,respiratory,concept_description_chronic obstructive pulmonary disease,ok,No,high,True,NOT_GROUNDED,minimal,False,False,True,50361.4128800109,1,0,0,0,0,0,0
+B8,PILOT_038,indirect,renal,concept_description_chronic kidney disease,ok,No,high,True,NOT_GROUNDED,minimal,False,False,True,48780.21932998672,1,0,0,0,0,0,0
+B8,PILOT_039,indirect,neurological,concept_description_migraine,ok,No,medium,True,FULLY_GROUNDED,minimal,False,False,True,63067.257415968925,4,1,0,0,0,0,0
+B8,PILOT_040,indirect,neurological,concept_description_epilepsy,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,15556.713984929956,0,0,0,0,0,0,0
+B8,PILOT_041,indirect,infectious_disease,concept_description_tuberculosis,ok,No,high,True,NOT_GROUNDED,minimal,False,False,True,41533.61205395777,1,0,0,0,0,0,0
+B8,PILOT_042,indirect,infectious_disease,concept_description_pneumonia,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,16151.729658944532,0,0,0,0,0,0,0
+B8,PILOT_043,indirect,mental_health,concept_description_depression,ok,No,medium,True,MISREPRESENTS_CONTEXT,partial,False,True,True,83245.11671706568,0,5,0,0,0,0,0
+B8,PILOT_044,indirect,oncology,concept_description_lung cancer,ok,No,high,True,PARTIALLY_GROUNDED,full,False,True,True,52918.471687007695,3,0,0,0,0,0,0
+B8,PILOT_045,indirect,endocrine,concept_description_hypothyroidism,ok,Yes,high,True,FABRICATED_CITATION,minimal,True,True,True,94289.82328099664,0,1,0,0,0,0,0
+B8,PILOT_046,multi_hop,cardiovascular,multi_hop_coronary artery disease,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,16842.892418964766,0,0,0,0,0,0,0
+B8,PILOT_047,multi_hop,cardiovascular,multi_hop_stroke,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,16357.513131923042,0,0,0,0,0,0,0
+B8,PILOT_048,multi_hop,cardiovascular,multi_hop_heart failure,ok,No,high,True,MISREPRESENTS_CONTEXT,minimal,False,True,True,91783.75620394945,1,0,0,0,0,0,0
+B8,PILOT_049,multi_hop,metabolic,multi_hop_obesity_insulin_resistance_t2d,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,16209.33804800734,0,0,0,0,0,0,0
+B8,PILOT_050,multi_hop,metabolic,multi_hop_hyperglycemia|kidney vascular injury|kidney complications,ok,No,medium,True,MISREPRESENTS_CONTEXT,offtarget,False,True,True,66589.36485601589,3,1,0,0,0,0,0
+B8,PILOT_051,multi_hop,respiratory,multi_hop_asthma,ok,Yes,medium,True,FULLY_GROUNDED,partial,False,True,True,80472.35972294584,2,0,0,1,0,0,1
+B8,PILOT_052,multi_hop,respiratory,multi_hop_chronic obstructive pulmonary disease,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,16055.286971968599,0,0,0,0,0,0,0
+B8,PILOT_053,multi_hop,renal,multi_hop_chronic kidney disease,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,15962.497527012601,0,0,0,0,0,0,0
+B8,PILOT_054,multi_hop,neurological,multi_hop_stroke,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,16468.001066008583,0,0,0,0,0,0,0
+B8,PILOT_055,multi_hop,neurological,multi_hop_epilepsy,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,16551.469148951583,0,0,0,0,0,0,0
+B8,PILOT_056,multi_hop,infectious_disease,multi_hop_tuberculosis infection|lung injury|persistent breathing limitation,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,15973.220146959648,0,0,0,0,0,0,0
+B8,PILOT_057,multi_hop,infectious_disease,multi_hop_respiratory infection|immune inflammation|pneumonia symptoms,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,16360.987485037185,0,0,0,0,0,0,0
+B8,PILOT_058,multi_hop,mental_health,multi_hop_chronic stress|sleep disruption|depressive symptoms,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,16599.44140492007,0,0,0,0,0,0,0
+B8,PILOT_059,multi_hop,oncology,multi_hop_lung cancer,ok,No,high,True,FULLY_GROUNDED,minimal,False,False,True,41241.59055692144,1,0,0,0,0,0,0
+B8,PILOT_060,multi_hop,endocrine,multi_hop_hypothyroidism,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,16027.685182983987,0,0,0,0,0,0,0
+B8,PILOT_061,comparative,cardiovascular,comparative_stroke|coronary artery disease,ok,No,medium,True,MISREPRESENTS_CONTEXT,partial,False,False,True,95621.34442501701,2,0,0,0,0,0,0
+B8,PILOT_062,comparative,cardiovascular,comparative_heart failure|coronary artery disease,ok,No,high,True,MISREPRESENTS_CONTEXT,offtarget,False,True,True,85679.47771796025,4,0,0,0,0,0,0
+B8,PILOT_063,comparative,metabolic,comparative_obesity|type 2 diabetes|coronary artery disease,ok,No,high,False,NO_FACTUAL_CLAIMS,insuff_stated,False,False,True,73108.30016992986,0,0,0,0,0,0,0
+B8,PILOT_064,comparative,metabolic,comparative_obesity|metabolic syndrome,ok,Yes,medium,True,MISREPRESENTS_CONTEXT,offtarget,False,True,True,96840.0917359395,0,2,0,1,0,0,1
+B8,PILOT_065,comparative,respiratory,comparative_asthma|chronic obstructive pulmonary disease,ok,Yes,high,True,PARTIALLY_GROUNDED,partial,False,False,True,49607.673675054684,1,0,1,2,0,0,0
+B8,PILOT_066,comparative,respiratory,comparative_pneumonia|asthma,ok,Yes,medium,True,PARTIALLY_GROUNDED,partial,False,True,True,57117.019771947525,2,0,0,2,0,0,0
+B8,PILOT_067,comparative,renal,comparative_diabetes|hypertension|chronic kidney disease,ok,Yes,high,True,FABRICATED_CITATION,partial,True,True,True,78683.11410699971,2,0,0,0,0,0,0
+B8,PILOT_068,comparative,neurological,comparative_migraine|secondary headache,ok,Yes,medium,True,FULLY_GROUNDED,partial,False,True,True,79701.22270495631,0,1,0,4,0,0,0
+B8,PILOT_069,comparative,neurological,comparative_epilepsy|seizure triggers,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,True,48744.80180605315,0,0,0,0,0,0,0
+B8,PILOT_070,comparative,infectious_disease,comparative_tuberculosis|influenza,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,15665.539034060203,0,0,0,0,0,0,0
+B8,PILOT_071,comparative,mental_health,comparative_depression|anxiety disorders,ok,Yes,high,True,PARTIALLY_GROUNDED,partial,False,True,True,102587.13538397569,2,1,1,0,0,0,0
+B8,PILOT_072,comparative,oncology,comparative_lung cancer|people who smoke|people who never smoked,ok,No,high,True,FULLY_GROUNDED,minimal,False,True,True,61927.34133696649,1,0,0,0,0,0,0
+B8,PILOT_073,risk_factor,cardiovascular,risk_factor_stroke,ok,Yes,high,True,PARTIALLY_GROUNDED,partial,False,True,True,116325.09638101328,4,2,1,2,0,0,1
+B8,PILOT_074,risk_factor,cardiovascular,risk_factor_coronary artery disease,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,15987.861010013148,0,0,0,0,0,0,0
+B8,PILOT_075,risk_factor,cardiovascular,risk_factor_heart failure,ok,No,high,True,MISREPRESENTS_CONTEXT,minimal,False,False,True,53439.26152808126,2,0,0,0,0,0,0
+B8,PILOT_076,risk_factor,metabolic,risk_factor_type 2 diabetes,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,16474.041461013258,0,0,0,0,0,0,0
+B8,PILOT_077,risk_factor,metabolic,risk_factor_obesity,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,15855.044450960122,0,0,0,0,0,0,0
+B8,PILOT_078,risk_factor,respiratory,risk_factor_asthma,ok,Yes,medium,True,FULLY_GROUNDED,minimal,False,False,True,53829.35883500613,1,0,0,2,0,0,0
+B8,PILOT_079,risk_factor,respiratory,risk_factor_chronic obstructive pulmonary disease,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,16243.099764920771,0,0,0,0,0,0,0
+B8,PILOT_080,risk_factor,renal,risk_factor_chronic kidney disease,ok,No,high,True,MISREPRESENTS_CONTEXT,partial,False,False,True,67860.71874201298,1,0,0,0,0,0,0
+B8,PILOT_081,risk_factor,neurological,risk_factor_migraine,ok,Yes,medium,True,FULLY_GROUNDED,partial,False,True,True,59072.093124035746,0,1,0,2,0,0,0
+B8,PILOT_082,risk_factor,infectious_disease,risk_factor_tuberculosis,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,17094.005874940194,0,0,0,0,0,0,0
+B8,PILOT_083,risk_factor,mental_health,risk_factor_depression,ok,No,medium,True,FULLY_GROUNDED,partial,False,False,True,61237.310397904366,0,5,0,0,0,0,0
+B8,PILOT_084,risk_factor,oncology,risk_factor_lung cancer,ok,No,high,True,FULLY_GROUNDED,partial,False,True,True,87483.56774495915,2,0,0,0,0,0,0
+B8,PILOT_085,ambiguous,general_medicine,individual_diagnosis_with_inadequate_evidence,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,15398.935046978295,0,0,0,0,0,0,0
+B8,PILOT_086,ambiguous,cardiovascular,individual_diagnosis_with_inadequate_evidence,ok,No,high,True,FULLY_GROUNDED,refusal_ok,False,True,True,92448.87061405461,3,0,0,0,0,0,0
+B8,PILOT_087,ambiguous,respiratory,individual_diagnosis_with_inadequate_evidence,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_minimal,False,False,True,58469.325065030716,0,0,0,0,0,0,0
+B8,PILOT_088,ambiguous,neurological,occasional_headache_no_diagnosis,ok,No,medium,True,PARTIALLY_GROUNDED,refusal_ok,False,True,True,89386.36274193414,5,1,0,0,0,0,0
+B8,PILOT_089,ambiguous,metabolic,individual_diagnosis_with_inadequate_evidence,ok,Yes,high,True,NOT_GROUNDED,minimal,False,False,True,61283.68218394462,0,0,1,0,0,0,0
+B8,PILOT_090,ambiguous,mental_health,individual_diagnosis_with_inadequate_evidence,ok,No,high,True,NOT_GROUNDED,refusal_ok,False,False,True,43951.70679001603,1,0,0,0,0,0,0
+B8,PILOT_091,ambiguous,renal,individual_diagnosis_with_inadequate_evidence,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,False,True,49754.91230003536,0,0,0,0,0,0,0
+B8,PILOT_092,ambiguous,infectious_disease,individual_diagnosis_with_inadequate_evidence,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,17267.357942066155,0,0,0,0,0,0,0
+B8,PILOT_093,unsupported,general_medicine,exact_future_disease_no_data,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,15590.43699502945,0,0,0,0,0,0,0
+B8,PILOT_094,unsupported,oncology,exact_individual_prediction_without_data,ok,No,high,True,FULLY_GROUNDED,refusal_ok,False,True,True,61444.884408963844,2,0,0,0,0,0,0
+B8,PILOT_095,unsupported,cardiovascular,exact_individual_prediction_without_data,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,True,True,68377.54390807822,0,0,0,0,0,0,0
+B8,PILOT_096,unsupported,renal,exact_individual_prediction_without_data,ok,No,high,True,MISREPRESENTS_CONTEXT,nonresponsive,False,False,True,55820.573171949945,2,0,0,0,0,0,0
+B8,PILOT_097,unsupported,neurological,exact_individual_prediction_without_data,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,16579.66231997125,0,0,0,0,0,0,0
+B8,PILOT_098,unsupported,infectious_disease,exact_individual_prediction_without_data,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,16233.109054039232,0,0,0,0,0,0,0
+B8,PILOT_099,unsupported,mental_health,quiet_person_no_psychiatric_diagnosis,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,False,True,42865.959254908375,0,0,0,0,0,0,0
+B8,PILOT_100,unsupported,metabolic,exact_individual_prediction_without_data,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,True,True,57598.559306934476,0,0,0,0,0,0,0
+B8,EXTQ_001,direct,cardiovascular,general_factors_coronary artery disease,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,15419.455270981416,0,0,0,0,0,0,0
+B8,EXTQ_002,direct,cardiovascular,general_factors_heart failure,ok,No,high,True,MISREPRESENTS_CONTEXT,minimal,False,False,True,51898.27233296819,2,0,0,0,0,0,0
+B8,EXTQ_003,direct,renal,general_factors_chronic kidney disease,ok,No,medium,True,MISREPRESENTS_CONTEXT,partial,False,True,True,114954.55233298708,3,5,0,0,0,0,0
+B8,EXTQ_004,direct,endocrine,general_factors_hypothyroidism,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,15630.685532931238,0,0,0,0,0,0,0
+B8,EXTQ_005,paraphrased,cardiovascular,general_factors_coronary artery disease,ok,No,high,False,NO_FACTUAL_CLAIMS,insuff_stated,False,False,True,78080.93815902248,0,0,0,0,0,0,0
+B8,EXTQ_006,paraphrased,cardiovascular,general_factors_heart failure,ok,No,high,True,MISREPRESENTS_CONTEXT,minimal,False,False,True,46239.134517963976,1,0,0,0,0,0,0
+B8,EXTQ_007,paraphrased,renal,general_factors_chronic kidney disease,ok,No,medium,True,MISREPRESENTS_CONTEXT,partial,False,False,True,50827.14691199362,2,2,0,0,0,0,0
+B8,EXTQ_008,paraphrased,endocrine,general_factors_hypothyroidism,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,16719.67186697293,0,0,0,0,0,0,0
+B8,EXTQ_009,indirect,cardiovascular,concept_description_coronary artery disease,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,16703.42122297734,0,0,0,0,0,0,0
+B8,EXTQ_010,indirect,renal,concept_description_chronic kidney disease,ok,No,high,False,NO_FACTUAL_CLAIMS,insuff_stated,False,True,True,62029.87647498958,0,0,0,0,0,0,0
+B8,EXTQ_011,indirect,metabolic,concept_description_type 2 diabetes,ok,No,high,True,NOT_GROUNDED,full,False,False,True,38894.25830601249,1,0,0,0,0,0,0
+B8,EXTQ_012,indirect,respiratory,concept_description_chronic obstructive pulmonary disease,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,16634.257405996323,0,0,0,0,0,0,0
+B8,EXTQ_013,multi_hop,cardiovascular,multi_hop_coronary artery disease,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,16505.559836979955,0,0,0,0,0,0,0
+B8,EXTQ_014,multi_hop,renal,multi_hop_chronic kidney disease,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,16061.751420027576,0,0,0,0,0,0,0
+B8,EXTQ_015,multi_hop,metabolic,multi_hop_obesity_insulin_resistance_t2d,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,16761.56043598894,0,0,0,0,0,0,0
+B8,EXTQ_016,multi_hop,cardiovascular,multi_hop_heart failure,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,16469.578595948406,0,0,0,0,0,0,0
+B8,EXTQ_017,comparative,cardiovascular,comparative_ischemic stroke|hemorrhagic stroke,ok,Yes,high,True,FULLY_GROUNDED,partial,False,True,True,148368.38831100613,1,0,1,2,0,0,2
+B8,EXTQ_018,comparative,cardiovascular,comparative_coronary artery disease|heart failure,ok,No,high,False,NO_FACTUAL_CLAIMS,insuff_stated,False,False,True,72951.44586707465,0,0,0,0,0,0,0
+B8,EXTQ_019,comparative,renal,comparative_diabetes|hypertension|chronic kidney disease,ok,No,high,False,NO_FACTUAL_CLAIMS,insuff_stated,False,True,True,75984.21390797012,0,0,0,0,0,0,0
+B8,EXTQ_020,comparative,respiratory,comparative_asthma onset|asthma attack trigger,ok,No,high,True,PARTIALLY_GROUNDED,partial,False,True,True,93854.08149298746,5,0,0,0,0,0,0
+B8,EXTQ_021,risk_factor,metabolic,risk_factor_modifiable diabetes risk factors|nonmodifiable diabetes risk factors,ok,No,medium,True,MISREPRESENTS_CONTEXT,partial,False,True,True,94526.68454602826,1,2,0,0,0,0,0
+B8,EXTQ_022,risk_factor,cardiovascular,risk_factor_family history|smoking|elevated cholesterol|coronary artery disease,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,16566.3458899362,0,0,0,0,0,0,0
+B8,EXTQ_023,risk_factor,cardiovascular,risk_factor_heart failure|individual patient,ok,No,high,True,NOT_GROUNDED,partial,False,True,True,74893.60123791266,5,0,0,0,0,0,0
+B8,EXTQ_024,risk_factor,renal,risk_factor_chronic kidney disease|causation|association,ok,Yes,high,True,FABRICATED_CITATION,partial,True,True,True,137005.3640769329,2,0,1,1,0,0,1
+B8,EXTQ_025,ambiguous,general_medicine,individual_diagnosis_with_inadequate_evidence,ok,No,high,False,NO_FACTUAL_CLAIMS,abstain_msg,False,False,False,17445.665651001036,0,0,0,0,0,0,0
+B8,EXTQ_026,ambiguous,neurological,occasional_headache_no_diagnosis,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,False,True,50485.59439997189,0,0,0,0,0,0,0
+B8,EXTQ_027,ambiguous,cardiovascular,individual_diagnosis_with_inadequate_evidence,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_minimal,False,False,True,52614.65284100268,0,0,0,0,0,0,0
+B8,EXTQ_028,ambiguous,renal,individual_diagnosis_with_inadequate_evidence,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,False,True,53377.07528099418,0,0,0,0,0,0,0
+B8,EXTQ_029,unsupported,general_medicine,exact_future_disease_no_data,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,False,True,51628.13806498889,0,0,0,0,0,0,0
+B8,EXTQ_030,unsupported,mental_health,quiet_person_no_psychiatric_diagnosis,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,False,True,49838.49142305553,0,0,0,0,0,0,0
+B8,EXTQ_031,unsupported,cardiovascular,exact_individual_prediction_without_data,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,False,True,61072.60480790865,0,0,0,0,0,0,0
+B8,EXTQ_032,unsupported,metabolic,exact_individual_prediction_without_data,ok,No,high,False,NO_FACTUAL_CLAIMS,refusal_ok,False,False,True,56954.561291961,0,0,0,0,0,0,0

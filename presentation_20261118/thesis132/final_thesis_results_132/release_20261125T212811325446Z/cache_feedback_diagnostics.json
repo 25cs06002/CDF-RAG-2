@@ -1,0 +1,12 @@
+{
+  "reference_manifest_sha256": "4eea5fce78929d34342a18077745434df1d6960021d81e459ab19ce81029ce6c",
+  "questions": 132,
+  "adaptive_selector_calls": 100,
+  "multi_selector_queries": 0,
+  "valid_empty_selections": 0,
+  "actual_round_cache_hits": 1,
+  "median_uncached_retrieval_seconds": 0.11246521599969128,
+  "median_cached_retrieval_seconds": 0.03776818700134754,
+  "calls_per_trial": 396,
+  "note": "Synthetic repeated-query document retrieval workload only; no measured end-to-end speedup, no LLM calls. Feedback-off is not a measured counterfactual."
+}

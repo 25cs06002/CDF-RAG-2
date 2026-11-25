@@ -1,0 +1,63 @@
+{
+  "schema": "THESIS132_FINAL_EXPORT_V1",
+  "primary": "B9_v2",
+  "optional_speed_variant": "llama3b",
+  "dataset_sha256": "a45fcddfc153c0f9c2211c8167e001b03513216bf9191f2f08a4444d52df6c76",
+  "source_manifests": {
+    "presentation_20261118/thesis132/b9_final_evaluation_v2/quality_20261125T212505161710Z": "3ae6f11a9b504aabf3b5c25a6dd40a0e81f4cd54a43932ae40aee0cfbb882f00",
+    "presentation_20261118/thesis132/b9_final_evaluation_v2/semantic_20261125T211108434735Z": "d069a94a4fb644024fb6303f785246100e0f49c113e8d9ee06736719a5b77c9f",
+    "presentation_20261118/thesis132/b9_ablation_v2/ablation_132_20261125T194115545393Z": "b77784f3a63bb176cdbb7f02d321d328fb125d54d39c7f364186b86718b4e968",
+    "presentation_20261118/thesis132/b9_component_ablation_v2/comparison_20261125T200056094771Z_97903e": "6fc84dc180d03f06fc139e603f7a1c29b5345cd5a12ba56591a004a79a75e0b1",
+    "presentation_20261118/thesis132/b9_inference_optimization_v2/comparison_20261125T202923195711Z_b9bb44": "77e4f9cd2951a5a69f412be5967d1c38e81127069d00f9f281ffd593edcaba74",
+    "presentation_20261118/thesis132/b9_generator_comparison_v2/comparison_20261125T210538858356Z_2cf5b2": "0b8eb87df5bc3d4d87d4ea738e35c42fb3e05efb11c3d85da30b3cf211cdf13d"
+  },
+  "run_manifest_sha256": {
+    "B9_v1": "2a90a8bcf30cf92b7cbd6bbcac41cfec1f86d5e91b81e5ed840e3a9146f856f1",
+    "B9_v2": "4eea5fce78929d34342a18077745434df1d6960021d81e459ab19ce81029ce6c",
+    "fixed1": "68b504e18e3b94a0446d72983df2250378718f253cca0c7ab5ff439b6af515a2",
+    "fixed3": "fc1397efd0e7ae02b7731d3de1a03d0d0d9865db7003cce3b4d4336d26ce31c7",
+    "graph_off": "7746372e7bdfd0246b9ccc0169671dd373c93901920009c9b2914769f11d16ce",
+    "document_off": "3433b9a5f30141aecb89d9a0b8776db10bde297cd8f7b2cbf8720abf80fb35bd",
+    "original_ids": "e53b92e6e5f780cd8fdc768d0d08d458de691341c6de51c755df649aa07c1c13",
+    "compact_ids": "5edd8b11ad62572ffd54d508e0578a9bcd37eb4d3657c71dcb50edad2a1750ce",
+    "llama3b": "c1dc73fdcaa3349b38ece07370bd2ec4fe6a784e83e1aea52c099d6eaaf7c03a",
+    "llama1b": "8d6496a3cf5cb68a5394da8cbb0ccaf5bdb78d1e47672c9b323617e4250e3597",
+    "qwen15b": "2f723e507412c5cb347d0301f27dc283c4fc30dbc0777f32ed752f361185d2c0"
+  },
+  "cache_diagnostics_sha256": "a57a857a86be0b8da5eea3c6b874782e9c271fc7d3fd5c656b44e2fdbc3d17e0",
+  "limitations": [
+    "Fixed development-exposed cohort; no independent held-out clinical evaluation or independently human-adjudicated gold.",
+    "AI-reference judgments are single-judge, with limited source access and reused annotations; zero observed Yes labels do not prove zero hallucinations.",
+    "Strict supported-and-grounded yield includes incomplete or irrelevant answers. Completeness is a distinct B9-only AI judgment.",
+    "Graph/corpus and answer generation differ between B1-B8 and B9; descriptive comparisons, not causal attribution to any one component.",
+    "Semantic similarities are cosine proxies, with varying text bases and observation counts; they are not medical entailment or retrieval recall.",
+    "All-query latency includes abstentions; compare answered-only and common-answered subsets too. Single runs have uncontrolled OS/cache/thermal conditions.",
+    "Adaptive reduces retrieval rounds, not necessarily LLM calls or end-to-end latency. Selector-driven retry was not exercised in the reference run.",
+    "Resource samples describe system usage and sampled RSS, not energy or exclusive model memory. Cross-model tokens depend on tokenization.",
+    "Primary configuration selected after observing development results. Compact-ID variant is faster but has fewer complete answers; graph-off has more complete answers."
+  ],
+  "output_sha256": {
+    "README.md": "65eb81896dfc9ea5abe494617d38edba24c2abc9b94f8f6211f1823b48455e31",
+    "cache_feedback_diagnostics.json": "a57a857a86be0b8da5eea3c6b874782e9c271fc7d3fd5c656b44e2fdbc3d17e0",
+    "figures/01_baseline_latency.png": "789ae812f6b696ad1449576602271ba04050edb35fa03b865bfbd4fb7a46cf83",
+    "figures/01_baseline_latency.svg": "22c9c5d8a53d85a5c869ec272c13085aea77d280088b5cf4c31d5d8a493cf991",
+    "figures/02_baseline_strict_yield.png": "5a4c5f6290bfeb251c3721aff668db1bda88332efe024dba7b97dec205164042",
+    "figures/02_baseline_strict_yield.svg": "fd0a801ad77e782d6e3b06dcb564cefcd2b9e33272277d90c35cdfeaa0bdc25c",
+    "figures/03_baseline_ai_hallucination.png": "a107956a3d499f960844275be0f535bcf47d761181fa821fbcb7458ca10dea9d",
+    "figures/03_baseline_ai_hallucination.svg": "9f90bdb4025309146d7812be8dc8f83fe9240cb5059de4578da1da791a8c9c1f",
+    "figures/04_variant_strict_complete.png": "51355d7b76e50bc2ad359092aa402756da6090e8748a3f7a5e8a93bf3a2260d9",
+    "figures/04_variant_strict_complete.svg": "b39e4c256db2cfb6fdb7c8f6e1928ef32175c9f439a52de58eacdafb9920a6fa",
+    "figures/05_variant_tradeoff.png": "783ad089c554b5dc1e7222f1fc7077a13f96e784323b9dd3a7e57e54675b8851",
+    "figures/05_variant_tradeoff.svg": "06774dbc08a9973074cbc0e83f5fc40102a949a1b2f7818a4ba27d8f9b295b56",
+    "figures/06_generator_coverage.png": "7408ef76baa098c211116a0cea4eb44a28e3152e0f10824a6546d3d1119b4cb0",
+    "figures/06_generator_coverage.svg": "5fd011254b6412d0074d1476212d46b1d56892edf68961810153675d8e22504b",
+    "final_architecture_lock.json": "3c73d1c8a2611624510e1a08f56540773444b9c19773f4841bf91355c2d6eb34",
+    "table_B1_B9_132.csv": "e12b23bd0c6e86611fc088b26fa09c26a5f8d7f3d0cb4d9429672593c905b34e",
+    "table_B9_by_query_type.csv": "443f580515a81d20d1e58c2553f24fe6f35b700dfc6b2e9bd52c2915aefd4157",
+    "table_B9_variants_132.csv": "783b72e4b3af68c27f97501c63a81e34496803861f462ba48c841c9ac2c54602",
+    "table_component_operational.csv": "04f5084e53aaca0051d2b26dddccd3b824015ee51042771edf9162f73ae8de5d",
+    "table_generator_resource_profile.csv": "b37d404410f5d9501389a394e6656614f4dd471fe06e7ba46857c32483f10d23",
+    "table_identifier_resource_profile.csv": "08e8c43e0a901f4aac5734cdcee20cbc02cd5b9334a0ee201731f2986f3e922c",
+    "table_round_policy_operational.csv": "144ca5b8a6d61f8dbf62921cca292ff9dd0e809a33d6301b0358c2fea77b5de3"
+  }
+}

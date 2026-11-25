@@ -1,0 +1,48 @@
+{
+  "schema": "THESIS132_CONSOLIDATED_V1",
+  "models": [
+    "B1",
+    "B2",
+    "B3",
+    "B4",
+    "B5",
+    "B6",
+    "B7",
+    "B8"
+  ],
+  "records": 1056,
+  "source_manifest_sha256": "4c1c8b62f886457af846bb4d636ef06c3506f4afa69d858b191cbb5fcb98c174",
+  "full_metrics_manifest_sha256": "0677ec20ff1d1ef1afd991e54f712f5220a1d4ab1f1763e88eed6476795adadd",
+  "ai_analysis_manifest_sha256": "fdc288df95553acac1f1d6ee91464a0937df1143290471d7a06a2d33a27787eb",
+  "semantic_encoder_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "limitations": [
+    "Fixed development-exposed 132 questions; no independent clinical holdout.",
+    "AI-reference labels are single-judge estimates, not independent human gold.",
+    "B1-B4 use provisional documents; B5-B8 use unverified G0 graph.",
+    "Similarity scores are cosine proxies and have different text bases across pipelines.",
+    "Conditional rates exclude unavailable labels; substantive yield uses all 132 questions.",
+    "Non-substantive responses count as No in the original AI protocol; report coverage separately.",
+    "B5/B6 abstentions affect all-query latency; compare OK-only latency as well.",
+    "B1-B6 have no detector predictions, not zero detector performance.",
+    "No attribution of observed differences to PPO alone; no measured memory or energy claims.",
+    "Shell network access was disabled; sources were inspected only through the WebSearch and WebFetch tools on 2026-11-23.",
+    "WebFetch returns a model-extracted summary of a page rather than raw page text; some sources were checked from search-result snippets only. Evidence entries are therefore paraphrased findings, not verbatim excerpts.",
+    "Evidence gathering began before a context compaction in this session; verbatim text from earlier inspections was not retained, only the recorded findings and URLs.",
+    "Paywalled full texts were not accessed; journal evidence relies on abstracts/PMC pages.",
+    "Single AI judge; no inter-rater agreement and no human clinical adjudication.",
+    "The benchmark questions and the evaluation protocol were developed with exposure to the same systems' outputs, so these labels are not a blinded test-set evaluation.",
+    "Claim-type catalogue mapping is an AI judgement; equivalent claims share one verdict so errors in a catalogue entry propagate to every answer using it.",
+    "Checks establish structural consistency and original-answer alignment, not medical correctness.",
+    "Unsupported claims without evidence IDs are retained under the original AI protocol.",
+    "Missing detector predictions are never imputed; classification is agreement with AI reference.",
+    "Non-substantive responses counted as No by original protocol; separate substantive rates reported."
+  ],
+  "output_sha256": {
+    "comparison_thesis_metrics_132.csv": "1ef8b1eda8485a6b3df7946de511d193d6e80a5def8f5100e4507ef66e4cec1d",
+    "consolidated_B1_B8_132.csv": "217c4dae6cb26b5d31cea3bcadc30433667348e103055c9c67135b895b558118",
+    "consolidated_by_medical_domain_132.csv": "c73c46476cb36b8790350c2679482b2dd63ae5838742ec39bb1dd0f3d2bb71e9",
+    "consolidated_by_query_type_132.csv": "6717580ee6dad5551945867765fa1775e4ab13c2fc21673628b13c3d0b7252a4",
+    "consolidated_per_query_132.csv": "80623dbab6adfea457e457a6e0e7a5e42ce62af56579c2b22bdcd36e990359bb",
+    "paired_B7_B8_analysis.json": "da4edd92518d63dec35106e02862749eacf113c994fb5e4793fcabd1496b43e1"
+  }
+}

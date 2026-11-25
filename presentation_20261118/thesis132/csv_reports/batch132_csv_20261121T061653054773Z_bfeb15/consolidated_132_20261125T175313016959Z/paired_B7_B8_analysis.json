@@ -1,0 +1,17 @@
+{
+  "question_pairs": 132,
+  "B7_yes_common_substantive": 16,
+  "B8_yes_common_substantive": 16,
+  "both_substantive_binary": 44,
+  "label_No_to_No": 107,
+  "label_No_to_Yes": 5,
+  "label_Uncertain_to_No": 1,
+  "label_Yes_to_No": 3,
+  "label_Yes_to_Yes": 16,
+  "substantive_B7_only": 6,
+  "substantive_B8_only": 23,
+  "substantive_both": 45,
+  "substantive_neither": 58,
+  "mean_paired_latency_delta_ms": 21945.269083949934,
+  "note": "Descriptive same-query comparison. Common-substantive subset is selected by model behavior."
+}

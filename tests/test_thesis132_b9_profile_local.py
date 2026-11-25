@@ -9,7 +9,7 @@ class ProfileTests(unittest.TestCase):
         self.assertEqual(json.loads(restore_selection('{"selected_ids":[]}',m)),{"selected_ids":[]})
         self.assertEqual(restore_selection('{"selected_ids":["LONG_B"]}',m),"INVALID_COMPACT_SELECTION")
     def test_telemetry(self):
-        sel=Selector("compact_ids",{},lambda p:('{"selected_ids":["E1"]}',dict(eval_count=4,eval_duration=200000000,http_attempts=1)))
+        sel=Selector("compact_ids",{},lambda p,cfg:('{"selected_ids":["E1"]}',dict(eval_count=4,eval_duration=200000000,http_attempts=1)))
         sel.query_id="Q"
         answer=sel("Select\n"+json.dumps({"items":[{"id":"LONG_A"}],"groups":{}}))
         self.assertEqual(json.loads(answer)["selected_ids"],["LONG_A"])

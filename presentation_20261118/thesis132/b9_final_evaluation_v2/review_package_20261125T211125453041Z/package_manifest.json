@@ -1,0 +1,34 @@
+{
+  "schema": "B9_FINAL_REVIEW_V1",
+  "run_manifest_sha256": {
+    "B9_v1": "2a90a8bcf30cf92b7cbd6bbcac41cfec1f86d5e91b81e5ed840e3a9146f856f1",
+    "B9_v2": "4eea5fce78929d34342a18077745434df1d6960021d81e459ab19ce81029ce6c",
+    "fixed1": "68b504e18e3b94a0446d72983df2250378718f253cca0c7ab5ff439b6af515a2",
+    "fixed3": "fc1397efd0e7ae02b7731d3de1a03d0d0d9865db7003cce3b4d4336d26ce31c7",
+    "graph_off": "7746372e7bdfd0246b9ccc0169671dd373c93901920009c9b2914769f11d16ce",
+    "document_off": "3433b9a5f30141aecb89d9a0b8776db10bde297cd8f7b2cbf8720abf80fb35bd",
+    "original_ids": "e53b92e6e5f780cd8fdc768d0d08d458de691341c6de51c755df649aa07c1c13",
+    "compact_ids": "5edd8b11ad62572ffd54d508e0578a9bcd37eb4d3657c71dcb50edad2a1750ce",
+    "llama3b": "c1dc73fdcaa3349b38ece07370bd2ec4fe6a784e83e1aea52c099d6eaaf7c03a",
+    "llama1b": "8d6496a3cf5cb68a5394da8cbb0ccaf5bdb78d1e47672c9b323617e4250e3597",
+    "qwen15b": "2f723e507412c5cb347d0301f27dc283c4fc30dbc0777f32ed752f361185d2c0"
+  },
+  "prior_audit_sha256": "6087f8bafa431c6c833bc645d9e74bfae0aadca745d91be8a922d17c4ce3ab7f",
+  "total_outputs": 1452,
+  "prior_reused_outputs": 861,
+  "new_unique_cases": 372,
+  "new_review_mapped_outputs": 591,
+  "review_input_sha256": "350823c4d303c4f6b6242f9712e6fd65dee14bcdda83da26d45b566fc9741492",
+  "input_sha256": {
+    "PRIOR_PROTOCOL.md": "ab9c09766de1046a1d5e60761ffe2b9d0eb6c9d30896aa99df7ea028e039cfa4",
+    "README_MASTER_PROMPT.md": "e75f92f99ecdd9562f15148e6bd0135729273b84cbd195b3cb5777e796f89a23",
+    "documents.jsonl": "6d136603606ec8f5cfccfe064a8c9e8ff85d3720bb52b707dad47f7e155e9e8d",
+    "local_review_mapping.csv": "b77cf82312efcec1e2458f38abf52e29c2117cb014cf98a0e8dc66bcb1f07504",
+    "nodes.csv": "5e35da849ae4e464c02448de0e2a51a8b4d04c176f15eb29d157882a22120e27",
+    "provenance.jsonl": "dd8a2b3286128540c4a6fdc56cf5f887cf07dbaee64269370add7be6f3a166c8",
+    "review_cases.jsonl": "350823c4d303c4f6b6242f9712e6fd65dee14bcdda83da26d45b566fc9741492",
+    "review_label_template.csv": "4dea9da681102df55f987b17647f2ebed2e3f9c9d35c3ff30d503853ed6c52d0",
+    "source_catalog_screened_20261121.json": "caf04db403019a903d1d8286033cedbaf3ef215581f66f044268d975b85419b9",
+    "typed_relationships.csv": "d17533577dff7315046ce688491d7c33c65cff936f241727812f7ae29ebf5e9e"
+  }
+}

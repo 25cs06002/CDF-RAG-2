@@ -1,0 +1,456 @@
+{
+  "protocol_version": "AIJ-MED-HALLUC v1",
+  "evaluator": {
+    "model": "Claude Opus 5.5",
+    "version": "claude-opus-5-5",
+    "role": "single AI judge; no human adjudication"
+  },
+  "annotation_date": "2026-11-26",
+  "human_clinical_review": "none",
+  "scope": {
+    "total_responses": 372,
+    "records_processed": 372
+  },
+  "review_input_sha256": "350823c4d303c4f6b6242f9712e6fd65dee14bcdda83da26d45b566fc9741492",
+  "output_sha256": {
+    "ai_variant_labels.csv": "3b77580f10b5c1ea11075e92d45d0bb6d92547ddc244f3a15daad840cc250fed",
+    "ai_variant_claims.jsonl": "98b19dbf5a64a71d6bcea5fd1ffe884dc637c10117646753326b1c8ec5f680ff"
+  },
+  "access_limitations": [
+    "Sources were inspected only through WebSearch result page text and WebFetch; shell network access was disabled. WebFetch output is a model-extracted summary, not raw page text.",
+    "70 of the 78 rendered evidence items are byte-identical to items verified in the B9-v2 review earlier in this session (2026-11-26, plus B1-B8 sources inspected 2026-11-23); their verdicts and evidence were reused. The 8 new items were checked against sources inspected on 2026-11-26.",
+    "Exact quotes are limited to short passages from US-government pages that appeared verbatim in search-result page text; all other evidence is paraphrase. Verbatim text from the 2026-11-23 inspections was not retained.",
+    "Some cited pages were not themselves opened (epilepsy.com TBI page, PMC7618543, the DNA-adduct passages of the NCI lung-prevention PDQ, the PMID mapping of the adipose-tissue review); medical content was verified from other inspected authoritative sources and the attribution is reported as unconfirmed, not fabricated.",
+    "pmc.ncbi.nlm.nih.gov full texts returned a browser-verification page to WebFetch; PMC content came from search-result text, PubMed records or publisher copies. Paywalled full texts were not read.",
+    "local_review_mapping.csv is listed in package_manifest.json but was not included in the package; it was not needed for labelling.",
+    "Single AI judge with no inter-rater agreement or human clinical adjudication; development-exposed questions; provisional G1/document summaries; variant names withheld.",
+    "Relevance and completeness use a fixed per-question rubric applied identically to every variant; the rubric and the judgement that all 187 empty answers are inappropriate abstentions are interpretive."
+  ],
+  "label_provenance_statement": "Labels were generated through AI-assisted evidence verification and automatically accepted under a predefined evaluation protocol. They have not been independently adjudicated by human clinical reviewers.",
+  "supplementary": {
+    "package_zip_sha256": "b276757b5dfe582b98e029aa4c750adc3d7d7c63dca51d821f746404559af1dd",
+    "inner_package_sha256": "92d3d862c5eaf74f85d4595d65644ffa4aa031e75feb365f8d70b606b9a0cab5",
+    "input_sha256_verified": {
+      "PRIOR_PROTOCOL.md": "ab9c09766de1046a1d5e60761ffe2b9d0eb6c9d30896aa99df7ea028e039cfa4",
+      "README_MASTER_PROMPT.md": "e75f92f99ecdd9562f15148e6bd0135729273b84cbd195b3cb5777e796f89a23",
+      "documents.jsonl": "6d136603606ec8f5cfccfe064a8c9e8ff85d3720bb52b707dad47f7e155e9e8d",
+      "nodes.csv": "5e35da849ae4e464c02448de0e2a51a8b4d04c176f15eb29d157882a22120e27",
+      "provenance.jsonl": "dd8a2b3286128540c4a6fdc56cf5f887cf07dbaee64269370add7be6f3a166c8",
+      "review_cases.jsonl": "350823c4d303c4f6b6242f9712e6fd65dee14bcdda83da26d45b566fc9741492",
+      "review_label_template.csv": "4dea9da681102df55f987b17647f2ebed2e3f9c9d35c3ff30d503853ed6c52d0",
+      "source_catalog_screened_20261121.json": "caf04db403019a903d1d8286033cedbaf3ef215581f66f044268d975b85419b9",
+      "typed_relationships.csv": "d17533577dff7315046ce688491d7c33c65cff936f241727812f7ae29ebf5e9e"
+    },
+    "prior_audit_sha256_from_manifest": "6087f8bafa431c6c833bc645d9e74bfae0aadca745d91be8a922d17c4ce3ab7f",
+    "rules": {
+      "claim_unit": "Each sentence of an answer is one claim, quoted exactly; framing and scope/meta sentences are NON_FACTUAL. Attribution sentences are judged on their medical content; attribution fidelity is reported in citation_issues.",
+      "answer_label": "Yes if any CONTRADICTED/UNSUPPORTED claim or fabricated citation; Uncertain if any UNVERIFIABLE; otherwise No.",
+      "confidence": "high when every factual claim is fully supported from directly inspected text; medium when any claim is partially supported or relies on WebFetch-extracted evidence; low for Uncertain.",
+      "fabricated_citation": "true if a cited ID is absent from the record's retrieved/selected evidence, or the rendered text or URL differs from the stored evidence item.",
+      "grounding": "Exact entailment check of every rendered sentence against the cited evidence item in the record's own retrieved/selected evidence, plus URL match.",
+      "completeness": "Fixed per-question rubric (rubric.py): COMPLETE when every required element is covered; PARTIAL when some are; NONRESPONSIVE when no rendered item addresses the question; partial_path_evidence answers never COMPLETE; empty answers to these (all answerable) questions are INAPPROPRIATE_ABSTENTION.",
+      "relevance": "RELEVANT when every rendered item addresses the question, PARTIALLY_RELEVANT when some do, NOT_RELEVANT when none do (reported in verification_reasoning)."
+    },
+    "results": {
+      "labels": {
+        "No": 372
+      },
+      "confidence": {
+        "high": 352,
+        "medium": 20
+      },
+      "answer_completeness": {
+        "INAPPROPRIATE_ABSTENTION": 187,
+        "NONRESPONSIVE": 21,
+        "PARTIAL": 94,
+        "COMPLETE": 70
+      },
+      "grounding": {
+        "NOT_APPLICABLE_EMPTY_ANSWER": 187,
+        "FULLY_GROUNDED": 185
+      },
+      "claim_verdicts": {
+        "NON_FACTUAL": 243,
+        "SUPPORTED": 1090,
+        "PARTIALLY_SUPPORTED": 14
+      },
+      "fabricated_citations": 0
+    },
+    "sources_cited_in_claims": [
+      {
+        "url": "https://link.springer.com/article/10.1007/s40141-024-00475-1",
+        "title": "Reviews of post-traumatic epileptogenesis (Springer Curr Phys Med Rehabil Rep 2024; Yazdi et al. Seizure 2025)",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26"
+      },
+      {
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12257072",
+        "title": "Pease et al. Insights into epileptogenesis from post-traumatic epilepsy. Nat Rev Neurol 2024 (PMC12257072)",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26"
+      },
+      {
+        "url": "https://www.ninds.nih.gov/health-information/disorders/epilepsy-and-seizures",
+        "title": "NINDS - Epilepsy and Seizures",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26"
+      },
+      {
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4132580",
+        "title": "Post-traumatic epilepsy cohort/review (PMC4132580)",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26"
+      },
+      {
+        "url": "https://biausa.org/public-affairs/media/tbi-seizures-and-epilepsy",
+        "title": "Epilepsy Foundation author (Kiriakopoulos) via Brain Injury Association of America - TBI, Seizures and Epilepsy",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26"
+      },
+      {
+        "url": "https://www.nhlbi.nih.gov/health/coronary-heart-disease/causes",
+        "title": "NHLBI - Coronary Heart Disease - Causes",
+        "access_mode": "Inspected 2026-11-23 during the B1-B8 review in this session via WebSearch snippets and/or WebFetch model-extracted summaries; verbatim text not retained"
+      },
+      {
+        "url": "https://www.cdc.gov/heart-disease/about/coronary-artery-disease.html",
+        "title": "CDC - About Coronary Artery Disease (CAD)",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26"
+      },
+      {
+        "url": "https://www.nhlbi.nih.gov/health/heart-failure/causes",
+        "title": "NHLBI - Heart Failure - Causes and Risk Factors",
+        "access_mode": "Inspected 2026-11-23 during the B1-B8 review in this session via WebSearch snippets and/or WebFetch model-extracted summaries; verbatim text not retained"
+      },
+      {
+        "url": "https://www.niddk.nih.gov/health-information/kidney-disease/high-blood-pressure",
+        "title": "NIDDK - High Blood Pressure & Kidney Disease",
+        "access_mode": "Inspected 2026-11-23 during the B1-B8 review in this session via WebSearch snippets and/or WebFetch model-extracted summaries; verbatim text not retained"
+      },
+      {
+        "url": "https://www.niddk.nih.gov/health-information/kidney-disease/chronic-kidney-disease-ckd/causes",
+        "title": "NIDDK - Causes of Chronic Kidney Disease",
+        "access_mode": "Inspected 2026-11-23 during the B1-B8 review in this session via WebSearch snippets and/or WebFetch model-extracted summaries; verbatim text not retained"
+      },
+      {
+        "url": "https://www.niddk.nih.gov/health-information/endocrine-diseases/hashimotos-disease",
+        "title": "NIDDK - Hashimoto's Disease",
+        "access_mode": "Inspected 2026-11-23 during the B1-B8 review in this session via WebSearch snippets and/or WebFetch model-extracted summaries; verbatim text not retained"
+      },
+      {
+        "url": "https://www.niddk.nih.gov/health-information/endocrine-diseases/hypothyroidism",
+        "title": "NIDDK - Hypothyroidism (Underactive Thyroid)",
+        "access_mode": "Inspected 2026-11-23 during the B1-B8 review in this session via WebSearch snippets and/or WebFetch model-extracted summaries; verbatim text not retained"
+      },
+      {
+        "url": "https://www.heart.org/en/health-topics/high-blood-pressure/health-threats-from-high-blood-pressure/how-high-blood-pressure-can-lead-to-stroke",
+        "title": "American Heart Association / American Stroke Association - How High Blood Pressure Can Lead to Stroke",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26"
+      },
+      {
+        "url": "https://www.cdc.gov/chronicdisease/resources/publications/factsheets/heart-disease-stroke.htm",
+        "title": "CDC - Heart Disease and Stroke (fact sheet)",
+        "access_mode": "WebSearch result text, inspected 2026-11-23 (B1-B8 review, same session)"
+      },
+      {
+        "url": "https://www.nhlbi.nih.gov/health/high-blood-pressure/symptoms",
+        "title": "NHLBI - High Blood Pressure: Symptoms",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26"
+      },
+      {
+        "url": "https://www.nhlbi.nih.gov/health/stroke/causes",
+        "title": "NHLBI - Stroke - Causes and Risk Factors",
+        "access_mode": "Inspected 2026-11-23 during the B1-B8 review in this session via WebSearch snippets and/or WebFetch model-extracted summaries; verbatim text not retained"
+      },
+      {
+        "url": "https://www.cdc.gov/stroke/risk-factors/index.html",
+        "title": "CDC - Risk Factors for Stroke",
+        "access_mode": "WebSearch result text, inspected 2026-11-23 (B1-B8 review, same session)"
+      },
+      {
+        "url": "https://www.heart.org/en/health-topics/atrial-fibrillation/why-atrial-fibrillation-af-or-afib-matters",
+        "title": "American Heart Association - Why Atrial Fibrillation Matters",
+        "access_mode": "WebSearch result text, inspected 2026-11-23 (B1-B8 review, same session)"
+      },
+      {
+        "url": "https://www.heart.org/AFibfacts",
+        "title": "American Heart Association - Understanding AFib / What is Atrial Fibrillation",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26"
+      },
+      {
+        "url": "https://practicalneurology.com/diseases-diagnoses/epilepsy-seizures/concussion-and-epilepsy-what-is-the-link/30769/",
+        "title": "Practical Neurology - Concussion and Epilepsy: What is the Link?",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26"
+      },
+      {
+        "url": "https://www.cdc.gov/tobacco/about/cigarettes-and-cardiovascular-disease.html",
+        "title": "CDC - Cigarettes and Cardiovascular Disease",
+        "access_mode": "Inspected 2026-11-23 during the B1-B8 review in this session via WebSearch snippets and/or WebFetch model-extracted summaries; verbatim text not retained"
+      },
+      {
+        "url": "https://www.nhlbi.nih.gov/health/asthma/attacks",
+        "title": "NHLBI - Asthma Attack",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26"
+      },
+      {
+        "url": "https://webarchive.library.unt.edu/web/20201218063355/https://www.nhlbi.nih.gov/health-topics/asthma",
+        "title": "NHLBI - Asthma health topic (archived copy, UNT web archive)",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26"
+      },
+      {
+        "url": "https://www.nhlbi.nih.gov/health/asthma/causes",
+        "title": "NHLBI - Asthma - Causes and Triggers",
+        "access_mode": "Inspected 2026-11-23 during the B1-B8 review in this session via WebSearch snippets and/or WebFetch model-extracted summaries; verbatim text not retained"
+      },
+      {
+        "url": "https://www.nhlbi.nih.gov/health/pneumonia",
+        "title": "NHLBI - What Is Pneumonia?",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26"
+      },
+      {
+        "url": "https://www.niddk.nih.gov/health-information/diabetes/overview/preventing-problems/diabetic-kidney-disease",
+        "title": "NIDDK - Diabetic Kidney Disease",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26"
+      },
+      {
+        "url": "https://www.cdc.gov/diabetes/diabetes-complications/diabetes-and-chronic-kidney-disease.html",
+        "title": "CDC - Diabetes and Chronic Kidney Disease",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26"
+      },
+      {
+        "url": "https://medlineplus.gov/depression.html",
+        "title": "MedlinePlus - Depression",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26"
+      },
+      {
+        "url": "https://pubmed.ncbi.nlm.nih.gov/23814343",
+        "title": "Alvaro, Roberts, Harris. A systematic review assessing bidirectionality between sleep disturbances, anxiety, and depression. Sleep 2013 (PMC3669059)",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26"
+      },
+      {
+        "url": "https://pubmed.ncbi.nlm.nih.gov/27816065/",
+        "title": "Li et al. Insomnia and the risk of depression: a meta-analysis of prospective cohort studies. BMC Psychiatry 2016 (PMID 27816065)",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26"
+      },
+      {
+        "url": "https://bmcpsychiatry.biomedcentral.com/articles/10.1186/s12888-016-1075-3",
+        "title": "Li et al. 2016, BMC Psychiatry full text (methods)",
+        "access_mode": "WebFetch model-extracted page summary, inspected 2026-11-26"
+      },
+      {
+        "url": "https://www.niddk.nih.gov/health-information/diabetes/overview/symptoms-causes",
+        "title": "NIDDK - Symptoms & Causes of Diabetes",
+        "access_mode": "Inspected 2026-11-23 during the B1-B8 review in this session via WebSearch snippets and/or WebFetch model-extracted summaries; verbatim text not retained"
+      },
+      {
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK279115/",
+        "title": "Endotext - Pathogenesis of Type 2 Diabetes Mellitus (NCBI Bookshelf NBK279115)",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26"
+      },
+      {
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1483155",
+        "title": "Prentki & Nolan. Islet beta cell failure in type 2 diabetes. JCI 2006 (PMC1483155)",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26"
+      },
+      {
+        "url": "https://www.nhlbi.nih.gov/health/heart/smoking/risks",
+        "title": "NHLBI - How Smoking Affects the Heart and Blood Vessels",
+        "access_mode": "Inspected 2026-11-23 during the B1-B8 review in this session via WebSearch snippets and/or WebFetch model-extracted summaries; verbatim text not retained"
+      },
+      {
+        "url": "https://www.nhlbi.nih.gov/health/pneumonia/causes",
+        "title": "NHLBI - Pneumonia - Causes and Risk Factors",
+        "access_mode": "Inspected 2026-11-23 during the B1-B8 review in this session via WebSearch snippets and/or WebFetch model-extracted summaries; verbatim text not retained"
+      },
+      {
+        "url": "https://www.statpearls.com/sp/al/39/27366/",
+        "title": "StatPearls - Bacterial Pneumonia (NBK534295 family of chapters)",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26"
+      },
+      {
+        "url": "https://www.niddk.nih.gov/health-information/diabetes/overview/risk-factors-type-2-diabetes",
+        "title": "NIDDK - Risk Factors for Type 2 Diabetes",
+        "access_mode": "Inspected 2026-11-23 during the B1-B8 review in this session via WebSearch snippets and/or WebFetch model-extracted summaries; verbatim text not retained"
+      },
+      {
+        "url": "https://www.niddk.nih.gov/health-information/diabetes/overview/what-is-diabetes/prediabetes-insulin-resistance",
+        "title": "NIDDK - Insulin Resistance & Prediabetes",
+        "access_mode": "Inspected 2026-11-23 during the B1-B8 review in this session via WebSearch snippets and/or WebFetch model-extracted summaries; verbatim text not retained"
+      },
+      {
+        "url": "https://doaj.org/article/8046c970e30a421f80642f85accb4303",
+        "title": "Ahmed, Sultana, Greene. Adipose tissue and insulin resistance in obese. Biomed Pharmacother 2021;137:111315 (DOAJ record)",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26"
+      },
+      {
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6539070",
+        "title": "Longo et al. Adipose tissue dysfunction as determinant of obesity-associated metabolic complications. IJMS 2019 (PMC6539070)",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26"
+      },
+      {
+        "url": "https://www.nhlbi.nih.gov/health/atrial-fibrillation/living-with",
+        "title": "NHLBI - Atrial Fibrillation: Living With",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26"
+      },
+      {
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK53010/",
+        "title": "US Surgeon General 2010 - How Tobacco Smoke Causes Disease (NCBI Bookshelf NBK53010)",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26"
+      },
+      {
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3479369/",
+        "title": "Hecht SS. Lung carcinogenesis by tobacco smoke. Int J Cancer 2012 (PMC3479369)",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26"
+      },
+      {
+        "url": "https://www.cancer.gov/types/lung/hp/lung-prevention-pdq",
+        "title": "NCI - Lung Cancer Prevention (PDQ) Health Professional Version",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26"
+      },
+      {
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11417604/",
+        "title": "Wechsler ME, Wells JM. What every clinician should know about inflammation in COPD. ERJ Open Res 2024 (PMC11417604)",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26"
+      },
+      {
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3157944/",
+        "title": "Int J COPD (review, PMC3157944) - Pathogenic triad in COPD",
+        "access_mode": "WebSearch result text, inspected 2026-11-23 (B1-B8 review, same session)"
+      },
+      {
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11391604/",
+        "title": "Review of COPD pathogenesis (PMC11391604) and COPD inflammation figure (PMC10082417)",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26"
+      },
+      {
+        "url": "https://www.nhlbi.nih.gov/health/copd/causes",
+        "title": "NHLBI - COPD - Causes and Risk Factors",
+        "access_mode": "Inspected 2026-11-23 during the B1-B8 review in this session via WebSearch snippets and/or WebFetch model-extracted summaries; verbatim text not retained"
+      },
+      {
+        "url": "https://www.nhlbi.nih.gov/health/insomnia/causes",
+        "title": "NHLBI - Insomnia: Causes and Risk Factors",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26"
+      },
+      {
+        "url": "https://www.cancer.gov/tobacco",
+        "title": "NCI - Tobacco",
+        "access_mode": "WebSearch result text, inspected 2026-11-23 (B1-B8 review, same session)"
+      },
+      {
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9918720",
+        "title": "Review: neurophysiology of cough and cough induction by respiratory pathogens and inflammation (PMC9918720, PMID 36170660)",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26"
+      },
+      {
+        "url": "https://research.monash.edu/en/publications/translational-review-neuroimmune-mechanisms-in-cough-and-emerging/",
+        "title": "Translational review: Neuroimmune mechanisms in cough and emerging therapeutic targets. J Allergy Clin Immunol 2018;142(5)",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26"
+      },
+      {
+        "url": "https://www.cdc.gov/lung-cancer/risk-factors/",
+        "title": "CDC - Lung Cancer Risk Factors",
+        "access_mode": "Inspected 2026-11-23 during the B1-B8 review in this session via WebSearch snippets and/or WebFetch model-extracted summaries; verbatim text not retained"
+      },
+      {
+        "url": "https://www.cancer.gov/types/lung/patient/lung-prevention-pdq",
+        "title": "NCI - Lung Cancer Prevention (PDQ) Patient Version",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26"
+      },
+      {
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40127662/",
+        "title": "Meghji et al. Post-tuberculosis lung disease: towards prevention, diagnosis, and care. Lancet Respir Med 2025 (PubMed 40127662)",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26"
+      },
+      {
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10189364",
+        "title": "Residual respiratory disability after successful treatment of pulmonary TB: systematic review and meta-analysis (PMC10189364)",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26"
+      },
+      {
+        "url": "https://publications.ersnet.org/lookup/doi/10.1183/16000617.0077-2017",
+        "title": "Ravimohan et al. Tuberculosis and lung damage: from epidemiology to pathophysiology. Eur Respir Rev 2018 (PMC6019552)",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26"
+      },
+      {
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6019552/",
+        "title": "European Respiratory Review (PMC6019552) - Tuberculosis and lung damage: from epidemiology to pathophysiology",
+        "access_mode": "WebSearch result text, inspected 2026-11-23 (B1-B8 review, same session)"
+      },
+      {
+        "url": "https://www.cdc.gov/tb/risk-factors/index.html",
+        "title": "CDC - Tuberculosis Risk Factors",
+        "access_mode": "Inspected 2026-11-23 during the B1-B8 review in this session via WebSearch snippets and/or WebFetch model-extracted summaries; verbatim text not retained"
+      },
+      {
+        "url": "https://www.cdc.gov/tb/causes/index.html",
+        "title": "CDC - Tuberculosis: Causes and How It Spreads",
+        "access_mode": "WebSearch result text, inspected 2026-11-23 (B1-B8 review, same session)"
+      },
+      {
+        "url": "https://www.cancer.gov/about-cancer/causes-prevention/risk/substances/radon/radon-fact-sheet",
+        "title": "NCI - Radon and Cancer fact sheet",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26"
+      },
+      {
+        "url": "https://www.niddk.nih.gov/health-information/weight-management/adult-overweight-obesity/factors-affecting-weight-health",
+        "title": "NIDDK - Factors Affecting Weight & Health",
+        "access_mode": "Inspected 2026-11-23 during the B1-B8 review in this session via WebSearch snippets and/or WebFetch model-extracted summaries; verbatim text not retained"
+      },
+      {
+        "url": "https://niddk.nih.gov/health-information/endocrine-diseases/hashimotos-disease",
+        "title": "NIDDK - Hashimoto's Disease",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26"
+      },
+      {
+        "url": "https://www.heart.org/en/health-topics/heart-attack/about-heart-attacks",
+        "title": "American Heart Association - What is a Heart Attack?",
+        "access_mode": "WebSearch result text, inspected 2026-11-23 (B1-B8 review, same session)"
+      },
+      {
+        "url": "https://www.nhlbi.nih.gov/health/heart-attack/causes",
+        "title": "NHLBI - Heart Attack - Causes",
+        "access_mode": "WebSearch result text, inspected 2026-11-23 (B1-B8 review, same session)"
+      },
+      {
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4594762/",
+        "title": "European Respiratory Journal (BOLD study, PMC4594762) - Tuberculosis associates with both airflow obstruction and low lung function",
+        "access_mode": "WebSearch result text, inspected 2026-11-23 (B1-B8 review, same session)"
+      },
+      {
+        "url": "https://medlineplus.gov/migraine.html",
+        "title": "MedlinePlus - Migraine",
+        "access_mode": "Inspected 2026-11-23 during the B1-B8 review in this session via WebSearch snippets and/or WebFetch model-extracted summaries; verbatim text not retained"
+      },
+      {
+        "url": "https://webarchive.library.unt.edu/web/20201218063355/https://www.nhlbi.nih.gov/health-topics/pneumonia",
+        "title": "NHLBI - Pneumonia health topic (archived copy, UNT web archive)",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26"
+      },
+      {
+        "url": "https://medlineplus.gov/epilepsy.html",
+        "title": "MedlinePlus - Epilepsy",
+        "access_mode": "WebSearch result page text, inspected 2026-11-26"
+      }
+    ],
+    "integrity_checks": {
+      "csv_header_identical_to_template": true,
+      "csv_372_rows": true,
+      "csv_review_ids_order_match_template": true,
+      "csv_review_ids_unique": true,
+      "csv_preserved_columns": true,
+      "csv_all_label_fields_filled": true,
+      "jsonl_372_objects_unique_review_ids": true,
+      "jsonl_ids_match_input": true,
+      "jsonl_answers_and_hashes_exact": true,
+      "jsonl_keys_exact": true,
+      "jsonl_claim_and_evidence_keys": true,
+      "supported_partial_contradicted_have_evidence": true,
+      "empty_answers_no_claims_label_No": true,
+      "claims_exact_substrings_of_answer": true,
+      "csv_counts_labels_match_jsonl": true,
+      "status_confidence_rules": true,
+      "human_status_NOT_REVIEWED": true,
+      "no_human_approval_wording": true,
+      "partial_paths_never_complete": true,
+      "review_input_sha256_matches_manifest": true,
+      "package_inputs_match_manifest": true
+    },
+    "output_sha256_note": "The audit cannot contain its own digest; its SHA-256 is reported with the delivery."
+  }
+}

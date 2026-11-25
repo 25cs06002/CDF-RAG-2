@@ -1,0 +1,28 @@
+{
+  "schema": "B9_FINAL_SEMANTIC_V1",
+  "run_manifest_sha256": {
+    "B9_v1": "2a90a8bcf30cf92b7cbd6bbcac41cfec1f86d5e91b81e5ed840e3a9146f856f1",
+    "B9_v2": "4eea5fce78929d34342a18077745434df1d6960021d81e459ab19ce81029ce6c",
+    "fixed1": "68b504e18e3b94a0446d72983df2250378718f253cca0c7ab5ff439b6af515a2",
+    "fixed3": "fc1397efd0e7ae02b7731d3de1a03d0d0d9865db7003cce3b4d4336d26ce31c7",
+    "graph_off": "7746372e7bdfd0246b9ccc0169671dd373c93901920009c9b2914769f11d16ce",
+    "document_off": "3433b9a5f30141aecb89d9a0b8776db10bde297cd8f7b2cbf8720abf80fb35bd",
+    "original_ids": "e53b92e6e5f780cd8fdc768d0d08d458de691341c6de51c755df649aa07c1c13",
+    "compact_ids": "5edd8b11ad62572ffd54d508e0578a9bcd37eb4d3657c71dcb50edad2a1750ce",
+    "llama3b": "c1dc73fdcaa3349b38ece07370bd2ec4fe6a784e83e1aea52c099d6eaaf7c03a",
+    "llama1b": "8d6496a3cf5cb68a5394da8cbb0ccaf5bdb78d1e47672c9b323617e4250e3597",
+    "qwen15b": "2f723e507412c5cb347d0301f27dc283c4fc30dbc0777f32ed752f361185d2c0"
+  },
+  "encoder_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "encoder_snapshot_sha256": "42d8d798e4f01e68d9bb10634b9c712de00f7f8495271636fd6311b2db58e506",
+  "sentence_transformers_version": "4.1.0",
+  "baseline_semantic_manifest_sha256": "0677ec20ff1d1ef1afd991e54f712f5220a1d4ab1f1763e88eed6476795adadd",
+  "limitations": [
+    "Cosine similarity proxies only, not clinical entailment or accuracy. Text bases differ by pipeline. Missing refinement, evidence or answers produce N/A. Uses same pinned encoder; long texts may truncate."
+  ],
+  "outputs_sha256": {
+    "B9_variant_semantic_per_query.csv": "f35a7c1384139335ce5aa2d7183982fc6e427f46ec834f0967281d838206977e",
+    "B9_variant_semantic_summary.csv": "411116ff472af7bc3199da06bb2886424b5dcf7025916a3490684fadd3afeafb",
+    "consolidated_B1_B9_with_semantic_132.csv": "e12b23bd0c6e86611fc088b26fa09c26a5f8d7f3d0cb4d9429672593c905b34e"
+  }
+}

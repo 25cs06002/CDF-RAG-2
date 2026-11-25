@@ -1,0 +1,35 @@
+{
+  "schema": "B9_FINAL_QUALITY_V1",
+  "records": 1452,
+  "run_manifest_sha256": {
+    "B9_v1": "2a90a8bcf30cf92b7cbd6bbcac41cfec1f86d5e91b81e5ed840e3a9146f856f1",
+    "B9_v2": "4eea5fce78929d34342a18077745434df1d6960021d81e459ab19ce81029ce6c",
+    "fixed1": "68b504e18e3b94a0446d72983df2250378718f253cca0c7ab5ff439b6af515a2",
+    "fixed3": "fc1397efd0e7ae02b7731d3de1a03d0d0d9865db7003cce3b4d4336d26ce31c7",
+    "graph_off": "7746372e7bdfd0246b9ccc0169671dd373c93901920009c9b2914769f11d16ce",
+    "document_off": "3433b9a5f30141aecb89d9a0b8776db10bde297cd8f7b2cbf8720abf80fb35bd",
+    "original_ids": "e53b92e6e5f780cd8fdc768d0d08d458de691341c6de51c755df649aa07c1c13",
+    "compact_ids": "5edd8b11ad62572ffd54d508e0578a9bcd37eb4d3657c71dcb50edad2a1750ce",
+    "llama3b": "c1dc73fdcaa3349b38ece07370bd2ec4fe6a784e83e1aea52c099d6eaaf7c03a",
+    "llama1b": "8d6496a3cf5cb68a5394da8cbb0ccaf5bdb78d1e47672c9b323617e4250e3597",
+    "qwen15b": "2f723e507412c5cb347d0301f27dc283c4fc30dbc0777f32ed752f361185d2c0"
+  },
+  "package_sha256": "a96f5dc90e2016e5fc4e50baa78eb47378e0af156eefc5fdbf1c62c62b560749",
+  "review_audit_sha256": "93b28f5f3977bd09334f39228c041aca51fac452806427033f993db824c95869",
+  "prior_audit_sha256": "6087f8bafa431c6c833bc645d9e74bfae0aadca745d91be8a922d17c4ce3ab7f",
+  "limitations": [
+    "Sources were inspected only through WebSearch result page text and WebFetch; shell network access was disabled. WebFetch output is a model-extracted summary, not raw page text.",
+    "70 of the 78 rendered evidence items are byte-identical to items verified in the B9-v2 review earlier in this session (2026-11-26, plus B1-B8 sources inspected 2026-11-23); their verdicts and evidence were reused. The 8 new items were checked against sources inspected on 2026-11-26.",
+    "Exact quotes are limited to short passages from US-government pages that appeared verbatim in search-result page text; all other evidence is paraphrase. Verbatim text from the 2026-11-23 inspections was not retained.",
+    "Some cited pages were not themselves opened (epilepsy.com TBI page, PMC7618543, the DNA-adduct passages of the NCI lung-prevention PDQ, the PMID mapping of the adipose-tissue review); medical content was verified from other inspected authoritative sources and the attribution is reported as unconfirmed, not fabricated.",
+    "pmc.ncbi.nlm.nih.gov full texts returned a browser-verification page to WebFetch; PMC content came from search-result text, PubMed records or publisher copies. Paywalled full texts were not read.",
+    "local_review_mapping.csv is listed in package_manifest.json but was not included in the package; it was not needed for labelling.",
+    "Single AI judge with no inter-rater agreement or human clinical adjudication; development-exposed questions; provisional G1/document summaries; variant names withheld.",
+    "Relevance and completeness use a fixed per-question rubric applied identically to every variant; the rubric and the judgement that all 187 empty answers are inappropriate abstentions are interpretive.",
+    "Exact context identity reuse is AI reference reuse, not independent judgments. Different judge sessions may drift. Development cohort; no clinical gold."
+  ],
+  "outputs_sha256": {
+    "variant_quality_per_query.csv": "83885efc3c3b750dd51b53370bc36076b4316101ce41f383cbfba263c6f6ffa6",
+    "variant_quality_summary.csv": "d4e8f797e0490330bb8467a1f1c94ce4ecf0519ce8d1c7165be8d1f6b2f906b0"
+  }
+}

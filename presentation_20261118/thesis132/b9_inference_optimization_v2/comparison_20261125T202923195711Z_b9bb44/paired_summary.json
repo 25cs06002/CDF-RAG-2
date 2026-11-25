@@ -1,0 +1,20 @@
+{
+  "question_pairs": 132,
+  "both_answered": 99,
+  "transitions": {
+    "ok_to_ok": 99,
+    "abstained_to_abstained": 32,
+    "abstained_to_ok": 1
+  },
+  "identical_answers_among_both": 49,
+  "mean_all_query_latency_delta_ms": -1315.6117596592428,
+  "mean_common_answered_latency_delta_ms": -1709.4292155862154,
+  "mean_common_answered_from_ms": 7453.896350000051,
+  "mean_common_answered_to_ms": 5744.467134413836,
+  "mean_round_delta": 0,
+  "mean_selector_call_delta": 0,
+  "exact_answer_equal_all": 81,
+  "changed_answers": 51,
+  "mean_latency_reduction_fraction": 0.2313995395128141,
+  "quality_not_evaluated": true
+}

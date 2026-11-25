@@ -160,7 +160,7 @@ def validate(source,review):
         derived="Yes" if counts["CONTRADICTED"]+counts["UNSUPPORTED"] or fabricated else "Uncertain" if counts["UNVERIFIABLE"] else "No"
         require(label==derived,f"Protocol label conflict: {key}")
         detector=truth(original["is_hallucination"])
-        require(detector==c["detector_flag_not_used_for_labeling"],f"Detector prediction mismatch: {key}")
+        require(detector==truth(c["detector_flag_not_used_for_labeling"]),f"Detector prediction mismatch: {key}")
         substantive=any(counts[v] for v in VERDICTS[:-1])
         grounding=l["evidence_grounding_status"]
         require(grounding in audit["criteria"]["grounding_status_values"],f"Unknown grounding status: {key}")

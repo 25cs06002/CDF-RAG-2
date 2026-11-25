@@ -1,0 +1,43 @@
+{
+  "schema": "THESIS132_B9_E2E_V1",
+  "policy": "adaptive",
+  "top_k": 5,
+  "smoke": false,
+  "questions": 132,
+  "dataset_sha256": "a45fcddfc153c0f9c2211c8167e001b03513216bf9191f2f08a4444d52df6c76",
+  "inputs": {
+    "presentation_20261118/corpus/provisional_source_summaries_v1/documents.jsonl": "6d136603606ec8f5cfccfe064a8c9e8ff85d3720bb52b707dad47f7e155e9e8d",
+    "research_artifacts/graph-G1-reconciled-20261121/manifest.json": "469ed518b10274c69f8055e2179191faece03c3a1e97940dc532a95fd5ca9670",
+    "research_artifacts/graph-G1-reconciled-20261121/typed_relationships.csv": "d17533577dff7315046ce688491d7c33c65cff936f241727812f7ae29ebf5e9e",
+    "research_artifacts/graph-G1-reconciled-20261121/nodes.csv": "5e35da849ae4e464c02448de0e2a51a8b4d04c176f15eb29d157882a22120e27",
+    "research_artifacts/graph-G1-reconciled-20261121/approved_aliases.csv": "0b865b4a57689a4761d2df74bcc9e78c59be07502eedb26bb3190c8ad4c9d378",
+    "research_v2/thesis132_b9.py": "bd4e056bda47bd2932c78876edcbd20d3be304a5d8700e6aebfc8af080463992",
+    "research_v2/g1_typed_retrieval.py": "cf449c2c0d8fc6ff70d216ac04ae3f616fae1a5f437b950d8b5adf7906ffe4b9",
+    "research_v2/g1_target_resolution.py": "c2b265769ea97072e6fed779fe8fe569443554026ee6667d77e991b89460c150",
+    "research_v2/pipelines/baselines.py": "3a6d4804e565ff0a94471c39b1009debb232b44f5326411cb9d02ec9850689d0",
+    "research_v2/ollama_generation.py": "89e28f3183074ef30739a991085438a230714fe9af55baf0d411a1551454e930"
+  },
+  "generation_settings": {
+    "model": "llama3.2:latest",
+    "endpoint": "http://127.0.0.1:11434",
+    "num_ctx": 2048,
+    "num_predict": 256,
+    "unload_every_n": 5,
+    "attempts": 3,
+    "timeout_seconds": 180,
+    "keep_alive": "5m",
+    "temperature": 0
+  },
+  "model_digest": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+  "medical_gold": false,
+  "generation_method": "ollama_id_selection_and_deterministic_candidate_text_rendering",
+  "code_commit": "abfba385a198ad033a23ce4defd9a4df631761ee",
+  "status": "COMPLETE_132",
+  "reference_labels_used_for_inference": false,
+  "outputs_sha256": {
+    "B9_queries_132.csv": "29c9d16aa2dd63ac0569956e6d77bede0c8a2fbbcffff14c50b738e43fb2e9e1",
+    "round_traces.jsonl": "11b6e0d8c16e33671404f72534457a6905cf6dbd5e8d6f823df0b88ff37857e3",
+    "summary.json": "16a37ce094419297d0b3a9cc1605bc3c6faf9a08a337b374ffc5d8ceaf3a325d",
+    "records.jsonl": "a550bc3e32ea949916e975b3469605b2e081540aa633624620615f0c79a6edf1"
+  }
+}

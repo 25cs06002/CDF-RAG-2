@@ -1,0 +1,20 @@
+{
+  "schema": "B9_V2_AI_REVIEW_PACKAGE_V1",
+  "records": 132,
+  "run_manifest_sha256": "4eea5fce78929d34342a18077745434df1d6960021d81e459ab19ce81029ce6c",
+  "review_input_sha256": "f77821bd1d3bdde2ac0a67c75495bd1748eeb7893166b5a2a32b0ffafe825946",
+  "input_sha256": {
+    "B9_ai_label_template_132.csv": "6bc22d7a51fd2a7d91ecc5ed48001c75e263c2a38e35c1b80faed2fd202ebf95",
+    "B9_queries_132.csv": "cfc5b7ac6c491fcb457d0683ebeab9bfd30f0e7705428ee0298e4e4a2db345a8",
+    "B9_review_inputs_132.jsonl": "f77821bd1d3bdde2ac0a67c75495bd1748eeb7893166b5a2a32b0ffafe825946",
+    "B9_review_worksheet_132.csv": "5ef241e464a939fd856128ca66bbbb564f432cdc06e6e7e2d3544948891025b8",
+    "README_MASTER_PROMPT.md": "ab9c09766de1046a1d5e60761ffe2b9d0eb6c9d30896aa99df7ea028e039cfa4",
+    "b9_run_manifest.json": "4eea5fce78929d34342a18077745434df1d6960021d81e459ab19ce81029ce6c",
+    "documents.jsonl": "6d136603606ec8f5cfccfe064a8c9e8ff85d3720bb52b707dad47f7e155e9e8d",
+    "nodes.csv": "5e35da849ae4e464c02448de0e2a51a8b4d04c176f15eb29d157882a22120e27",
+    "provenance.jsonl": "dd8a2b3286128540c4a6fdc56cf5f887cf07dbaee64269370add7be6f3a166c8",
+    "source_catalog_screened_20261121.json": "caf04db403019a903d1d8286033cedbaf3ef215581f66f044268d975b85419b9",
+    "typed_relationships.csv": "d17533577dff7315046ce688491d7c33c65cff936f241727812f7ae29ebf5e9e"
+  },
+  "medical_gold": false
+}

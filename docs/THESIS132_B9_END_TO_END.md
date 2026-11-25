@@ -2,8 +2,9 @@
 
 Historical B9 retrieval-only and B1-B8 are unchanged. This implementation uses a
 rule-based query-only target/intent gate, bounded typed retrieval and BM25
-candidate-document fallback, and one local Ollama selection call when candidate
-evidence is available. The model selects evidence IDs; the final answer is
+candidate-document fallback, and bounded local Ollama selection when candidate evidence is available.
+A valid empty selection triggers further retrieval if the budget allows; the
+same evidence set is not sent again. Invalid selections fail closed. The model selects evidence IDs; the final answer is
 rendered deterministically from their original qualified source-summary wording.
 No free-form generator answer is accepted. This is an extractive/constrained
 generation design, not PPO and not a clinical proof of entailment.
@@ -11,7 +12,8 @@ generation design, not PPO and not a clinical proof of entailment.
 For multi-hop questions, only two-link CAUSES chains with both component IDs
 and source URLs are allowed; no transitive causal conclusion is asserted.
 Comparative, unresolved targets and patient-specific inference requests abstain.
-Document candidates are positive-score, explicit-target matches, not verified
+Document candidates are positive BM25-score, explicit-target matches (including
+COPD as a document-only abbreviation), not verified
 clinical evidence. G1 narrowing-warning edges are excluded. No evaluator labels
 or AI-reference audit inputs are read during inference.
 
@@ -34,7 +36,8 @@ Ablations, after the adaptive full run:
     python run_b9_132.py --allow-live --policy fixed3
 
 Same evidence, selection/rendering and model; only round budget/stopping varies.
-Adaptive may stop after one round, fixed3 executes all available scheduled rounds.
+Adaptive may stop after one round or continue when the selector declines;
+fixed3 executes its scheduled retrieval rounds before one selection call.
 A positive candidate gate is not true evidence sufficiency. The local selector
 can decline and invalid output abstains; transport failures are errors.
 No answer cache, only exact retrieval-query cache; no memory/energy metrics yet.

@@ -3,7 +3,8 @@
 % and front matter before submission. No signature or approval is asserted.
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{lmodern}
+% Latin Modern is optional if the distribution does not provide its .sty file.
+\IfFileExists{lmodern.sty}{\usepackage{lmodern}}{}
 \usepackage[a4paper,left=35mm,right=25mm,top=25mm,bottom=25mm]{geometry}
 \usepackage{setspace}
 \onehalfspacing

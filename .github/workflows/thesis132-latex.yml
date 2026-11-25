@@ -17,11 +17,21 @@ jobs:
       - name: Install document build tools
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y --no-install-recommends pandoc latexmk texlive-latex-extra texlive-fonts-recommended texlive-pictures poppler-utils
+          sudo apt-get install -y --no-install-recommends pandoc latexmk texlive-latex-extra texlive-fonts-recommended texlive-pictures lmodern poppler-utils
       - name: Build thesis
         run: |
           python3 docs/thesis_latex/build_thesis.py --compile
           pdfinfo docs/thesis_latex/build/main.pdf
+      - name: Preserve failed compilation log
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesis132-latex-debug
+          path: |
+            docs/thesis_latex/build/main.log
+            docs/thesis_latex/build/chapters/*.tex
+            docs/thesis_latex/build/main.tex
+          if-no-files-found: ignore
       - name: Upload editable sources and PDF
         uses: actions/upload-artifact@v4
         with:

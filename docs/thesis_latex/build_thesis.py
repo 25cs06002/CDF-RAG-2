@@ -100,15 +100,38 @@ def prepare(dest):
     (dest/"source_manifest.json").write_text(json.dumps(dict(schema="THESIS132_LATEX_DRAFT_V1",manuscript_sha256=sha(DRAFT),bibliography_sha256=sha(BIB),release_manifest_sha256=sha(RELEASE/"manifest.json"),files={str(p.relative_to(dest)):sha(p) for p in sorted(dest.rglob("*")) if p.is_file()}),indent=2)+"\n")
     print("Prepared editable source:",dest)
     return dest
+def compile_project(dest):
+    dest=Path(dest).resolve()
+    require((dest/"main.tex").is_file() and (dest/"references.bib").is_file(),"Missing prepared project sources")
+    require(shutil.which("latexmk"),"Install latexmk and TeX Live")
+    result=subprocess.run(["latexmk","-pdf","-interaction=nonstopmode","-halt-on-error","-file-line-error","main.tex"],cwd=dest)
+    logpath=dest/"main.log"
+    log=logpath.read_text(errors="replace") if logpath.exists() else ""
+    if result.returncode:
+        # Surface the real fatal diagnostic, not the downstream citation warnings.
+        lines=log.splitlines()
+        for i,line in enumerate(lines):
+            if (line.startswith("!") or re.match(r"^.*\.tex:\d+: ",line)) and "Warning" not in line:
+                print("\nFirst LaTeX error:\n"+"\n".join(lines[max(0,i-2):i+12]),flush=True)
+                break
+        print("\nBuild failed. Existing sources preserved. Inspect:",logpath,flush=True)
+        raise SystemExit(result.returncode)
+    require("undefined citations" not in log.lower() and "undefined references" not in log.lower(),"Unresolved citations/references")
+    require((dest/"main.pdf").is_file(),"No PDF generated")
+    print("Compiled working thesis:",dest/"main.pdf")
+
 def main():
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument("--output-dir",type=Path,default=HERE/"build");p.add_argument("--compile",action="store_true")
+    p=argparse.ArgumentParser(description=__doc__)
+    p.add_argument("--output-dir",type=Path,default=HERE/"build")
+    p.add_argument("--compile",action="store_true")
+    p.add_argument("--compile-existing",type=Path,help="Compile an existing editable project without regenerating it")
     a=p.parse_args()
+    if a.compile_existing:
+        require(not a.compile,"Use either --compile or --compile-existing")
+        compile_project(a.compile_existing)
+        return
     require(shutil.which("pandoc"),"Install pandoc")
     if a.compile:require(shutil.which("latexmk"),"Install latexmk and TeX Live")
     dest=prepare(a.output_dir)
-    if a.compile:
-        subprocess.run(["latexmk","-pdf","-interaction=nonstopmode","-halt-on-error","-file-line-error","main.tex"],cwd=dest,check=True)
-        log=(dest/"main.log").read_text(errors="replace")
-        require("undefined citations" not in log.lower() and "undefined references" not in log.lower(),"Unresolved citations/references")
-        print("Compiled working thesis:",dest/"main.pdf")
+    if a.compile:compile_project(dest)
 if __name__=="__main__":main()

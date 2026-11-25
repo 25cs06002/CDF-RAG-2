@@ -1,7 +1,7 @@
 """B9 end-to-end candidate-evidence adaptive RAG (selection + constrained rendering).
 
 No benchmark target/answer/evaluator labels are passed to the controller.
-The generator selects evidence IDs; deterministic rendering preserves the
+The generator selects evidence IDs; a valid decline can trigger another retrieval round. Deterministic rendering preserves the
 candidate source wording and qualifiers. Citation membership is structural,
 not medical entailment. G1 and document summaries are NOT clinical gold.
 Historical B1-B8 and B9 retrieval-only prototype remain unchanged.
@@ -168,7 +168,7 @@ class B9Controller:
         start=time.perf_counter()
         rounds=[]; pool={}; selected=[]; target=None; reason=None
         gen_ms=0.0; validation_ms=0.0; refinement_ms=0.0
-        calls=0; validator=None; raw_selection=None; refined=None
+        calls=0; validator=None; raw_selection=None; refined=None; selector_history=[]
         status="abstained"; answer=None; err=None
         path_required=bool(PATH.search(request.query))
         try:
@@ -182,27 +182,41 @@ class B9Controller:
                 steps=("typed_direct","typed_path","document_bm25_focus") if path_required else (
                     "typed_direct","document_bm25","document_bm25_focus")
                 budget=1 if self.policy=="fixed1" else 3
-                for step in steps[:budget]:
+                attempted=set()
+                selector_history=[]
+                for stage,step in enumerate(steps[:budget],1):
                     t=time.perf_counter();hit=False
                     if step=="typed_direct": found=self._direct(request.query,target)
                     elif step=="typed_path": found=self._paths(request.query,target)
                     else:
                         found,hit=self._docs(request,target,step.endswith("focus"))
                         if step.endswith("focus"):refined=target+" "+request.query
+                    newly_found=[x for x in found if x["id"] not in pool]
                     for item in found:pool.setdefault(item["id"],item)
-                    # Path questions require a typed two-link path; document
-                    # summaries/direct edges alone never certify a chain.
                     eligible=[x for x in pool.values() if not path_required or x["kind"]=="typed_path"]
                     enough=bool(eligible)
-                    rounds.append(dict(round=len(rounds)+1,action=step,target=target,
-                                       retrieval_ms=ms(t),cache_hit=hit,returned_ids=[x["id"] for x in found],
-                                       accumulated_ids=list(pool),sufficient_candidate=enough))
-                    if enough and self.policy=="adaptive":break
-                eligible=[x for x in pool.values() if not path_required or x["kind"]=="typed_path"]
-                if not eligible:reason="insufficient_candidate_evidence"
-                else:
-                    # Bounded context, deterministic ordering, no gold labels.
-                    allowed={x["id"]:x for x in eligible[:self.top_k]}
+                    round_row=dict(round=len(rounds)+1,action=step,target=target,
+                                   retrieval_ms=ms(t),cache_hit=hit,returned_ids=[x["id"] for x in found],
+                                   accumulated_ids=list(pool),sufficient_candidate=enough,
+                                   selector_attempted=False)
+                    rounds.append(round_row)
+                    if not enough:
+                        reason="insufficient_candidate_evidence"
+                        # A document-only round cannot establish a strict path.
+                        if self.policy=="adaptive" and path_required and step=="typed_path":break
+                        continue
+                    if self.policy!="adaptive" and stage<budget:continue
+                    # On a prior explicit decline, prioritize genuinely new evidence.
+                    # Do not call Ollama again for an unchanged set.
+                    if self.policy=="adaptive" and calls:
+                        eligible=[x for x in newly_found if not path_required or x["kind"]=="typed_path"]+eligible
+                    allowed={}
+                    for x in eligible:
+                        if len(allowed)>=self.top_k:break
+                        allowed.setdefault(x["id"],x)
+                    signature=frozenset(allowed)
+                    if signature in attempted:continue
+                    attempted.add(signature)
                     prompt=("Select up to "+str(self.top_k)+" evidence items that directly answer the question. "
                             "Return ONLY JSON {\"selected_ids\":[\"ID\"]}. Return an empty list if evidence is "
                             "irrelevant, inadequate, too broad, or fails to answer the question. "
@@ -211,14 +225,19 @@ class B9Controller:
                             json.dumps({"question":request.query,"target":target,
                                         "items":[{"id":k,"kind":v["kind"],"text":v["text"]} for k,v in allowed.items()]},
                                        ensure_ascii=False))
-                    t=time.perf_counter();calls+=1
+                    t=time.perf_counter();calls+=1;round_row["selector_attempted"]=True
                     try: raw_selection=self.selector(prompt)
                     finally:gen_ms+=ms(t)
                     t=time.perf_counter()
                     ids=parse_selection(raw_selection,allowed,self.top_k)
                     validator=ids is not None
-                    if ids is None:reason="invalid_selector_output"
-                    elif not ids:reason="selector_declined"
+                    selector_history.append(dict(round=stage,offered_ids=list(allowed),
+                                                 raw_output=raw_selection,valid=validator,
+                                                 selected_ids=ids))
+                    if ids is None:
+                        reason="invalid_selector_output"
+                    elif not ids:
+                        reason="selector_declined"
                     else:
                         selected=[allowed[k] for k in ids]
                         bullets=[]
@@ -233,6 +252,10 @@ class B9Controller:
                         if path_required:answer+="\nThese are separate candidate links, not proof of an inevitable end-to-end causal effect."
                         status="ok";reason="selected_candidate_evidence"
                     validation_ms+=ms(t)
+                    if status=="ok" or ids is None:break
+                    # Only a valid empty selection triggers feedback. At most
+                    # one selection per retrieval round; invalid JSON fails closed.
+
         except Exception as exc:
             status="error";err=type(exc).__name__+": "+str(exc);reason="execution_error"
             answer=None;selected=[]
@@ -263,7 +286,7 @@ class B9Controller:
         trace=dict(query_id=request.query_id,policy=self.policy,rounds=rounds,path_required=path_required,
                    stopping_reason=reason,selector_calls=calls,selector_output=raw_selection,
                    selected_ids=[x["id"] for x in selected],
-                   selected_evidence=selected,validation_scope="JSON schema and citation membership only",
+                   selected_evidence=selected,selector_history=selector_history,validation_scope="JSON schema and citation membership only",
                    candidate_provenance="source-attributed candidate evidence; not clinical gold")
         return record,trace
 

@@ -1,0 +1,32 @@
+Metric,Value,Unit,Status,Notes
+Queries Evaluated,132,queries,measured,
+Causal Retrieval Coverage,0.3106060606060606,fraction,operational_proxy,"Reported edges/paths; unverified G0, not medical recall"
+Causal Chain Depth,3.0,nodes,structural_proxy,"Average node count of returned paths, nonempty path queries only"
+Semantic Refinement Score,,cosine,embedding_proxy,Original versus recorded refined query; similarity is NOT refinement success
+Context Relevance,0.5060739277339563,cosine,embedding_proxy,Query vs rewriting or retrieved text; basis differs by pipeline
+Groundedness,0.6907656825170284,cosine,embedding_proxy,"Cosine similarity only, NOT factual/clinical groundedness"
+Average Answer Length,81.14634146341463,words,measured,Answer-present questions only; excludes blank abstentions
+Hallucination Rate,,fraction,not_available,Only with 132 independently approved output-specific labels per model
+Detector Flag Rate (Not Gold),,fraction,not_available,"B7/B8 detector flags, NOT medically verified hallucinations"
+Retrieval Success Rate,0.3106060606060606,fraction,operational_proxy,"Any candidate document or graph evidence returned, NOT accuracy"
+Average Direct Causes,1.4166666666666667,edges/query,structural_proxy,Reported CAUSES edges across all 132 questions
+Total Direct Causes,187,edges,structural_proxy,"G0 edge occurrences, not validated medical truth"
+Total Execution Time (s),522.998,seconds,measured,
+Average Latency (s),3.9615840217280276,seconds,measured,
+Average Latency (ms),3961.5840217280274,ms,measured,
+Minimum Latency (ms),0.012177042663097382,ms,measured,
+Maximum Latency (ms),21803.036088007502,ms,measured,
+Median Latency (ms),0.2762594958767295,ms,measured,
+P95 Latency (ms),16611.90738857258,ms,measured,
+Average Throughput (QPS),0.2523910225278108,queries/sec,measured,132 divided by measured model wall seconds
+"Minimum Throughput (QPS, latency proxy)",0.04586517198630139,1/sec,reciprocal_latency_proxy,"Min of 1 / individual query latency, NOT batch throughput"
+"Maximum Throughput (QPS, latency proxy)",82121.74562141491,1/sec,reciprocal_latency_proxy,"Max of 1 / individual query latency, NOT batch throughput"
+Refinement Success Rate,,fraction,not_available,Refinement success needs reviewed task-quality references
+Recorded Query Change Rate,,fraction,not_available,Fraction of available recorded refinements where text differs from original
+Answers Present,41,queries,measured,
+Abstained Queries,91,queries,measured,
+Execution Errors,0,queries,measured,
+Mean Latency if Answered (ms),12753.84141800062,ms,measured,
+Mean Latency if Abstained (ms),0.2372827480680176,ms,measured,
+Number of Causal Paths,31,paths,structural_proxy,
+Validation Pass Fraction (Not Gold),,fraction,not_available,Validator PASS is not ground-truth factual correctness

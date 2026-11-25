@@ -1,0 +1,379 @@
+model,query_id,query,query_type,medical_domain,semantic_group,status,matched_concept,refined_query_text,final_response,retrieval_success,causal_coverage,direct_causes_count,multi_hop_path_count,causal_chain_depth_nodes,answer_length_words,refinement_recorded,refinement_changed_query,SRS_Cosine_Proxy,Context_Relevance_Cosine_Proxy,Groundedness_Cosine_Proxy,context_basis,grounding_basis,hallucination_detector_flag,is_hallucination_gold,validator_passed,latency_seconds,latency_ms,reciprocal_latency_qps_proxy,num_retrieved_documents,answer_present,evidence_present
+B5,PILOT_001,What factors are reported to contribute to the development of coronary artery disease?,direct,cardiovascular,general_factors_coronary artery disease,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00020374602172523737,0.20374602172523737,4908.071291563938,0,False,False
+B5,PILOT_002,What factors are reported to contribute to the development of stroke?,direct,cardiovascular,general_factors_stroke,ok,stroke,,"Based on the provided evidence, the following factors are reported to contribute to the development of stroke:
+
+1. Atherosclerosis (G0_EDGE_0033)
+2. Blood clots (G0_EDGE_0034)
+3. Diabetes (G0_EDGE_0035)
+4. High blood pressure (G0_EDGE_0036)
+5. Traumatic brain injury (G0_EDGE_0037)
+
+Note that these factors are reported in the G0 graph snapshot, but it's essential to consult verified clinical guidance for a comprehensive understanding of stroke causes and risk factors.",True,True,5,0,,66,False,,,0.5121318697929382,0.7037224173545837,retrieved_evidence,final_response,,,,12.102998936898075,12102.998936898075,0.08262415003204933,5,True,True
+B5,PILOT_003,What factors are reported to contribute to the development of heart failure?,direct,cardiovascular,general_factors_heart failure,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.0002464680001139641,0.24646800011396408,4057.321841121813,0,False,False
+B5,PILOT_004,What factors are reported to contribute to the development of type 2 diabetes?,direct,metabolic,general_factors_type 2 diabetes,ok,Diabetes,,"Based on the provided evidence, the following factors are reported to contribute to the development of type 2 diabetes:
+
+1. Family history of diabetes (G0_EDGE_0001)
+2. Genetic predisposition (G0_EDGE_0002)
+3. Insulin resistance (G0_EDGE_0003)
+4. Lack of physical activity (G0_EDGE_0004)
+5. Poor diet (G0_EDGE_0005)
+
+Note that these factors are reported in the G0 graph snapshot, but it's essential to note that this evidence is unverified and not clinical guidance.",True,True,5,0,,68,False,,,0.6104671955108643,0.6846846342086792,retrieved_evidence,final_response,,,,11.994184153038077,11994.184153038077,0.08337374074306705,5,True,True
+B5,PILOT_005,What factors are reported to contribute to the development of obesity?,direct,metabolic,general_factors_obesity,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.0001919260248541832,0.1919260248541832,5210.3408110481905,0,False,False
+B5,PILOT_006,What factors are reported to contribute to the development of asthma?,direct,respiratory,general_factors_asthma,ok,asthma,,"According to the evidence, the following factors are reported to contribute to the development of asthma:
+
+1. Air pollution (G0_EDGE_0011)
+2. Allergies (G0_EDGE_0012)
+3. Environmental toxins (G0_EDGE_0013)
+4. Genetic predisposition (G0_EDGE_0014)
+5. Respiratory infections (G0_EDGE_0015)
+
+Note that these factors are based on the G0 graph snapshot and may not be comprehensive or up-to-date.",True,True,5,0,,53,False,,,0.5711966156959534,0.7864106893539429,retrieved_evidence,final_response,,,,10.684432114008814,10684.432114008814,0.093594117996113,5,True,True
+B5,PILOT_007,What factors are reported to contribute to the development of chronic obstructive pulmonary disease?,direct,respiratory,general_factors_chronic obstructive pulmonary disease,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00026640109717845917,0.26640109717845917,3753.738293840851,0,False,False
+B5,PILOT_008,What factors are reported to contribute to the development of chronic kidney disease?,direct,renal,general_factors_chronic kidney disease,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00019307900220155716,0.19307900220155716,5179.227096668387,0,False,False
+B5,PILOT_009,What factors are reported to contribute to the development of migraine?,direct,neurological,general_factors_migraine,ok,migraine,,"Based on the provided evidence, the following factors are reported to contribute to the development of migraine:
+
+1. Environmental toxins (G0_EDGE_0028)
+2. Food sensitivities (G0_EDGE_0029)
+3. Hormonal changes (G0_EDGE_0030)
+4. Sleep deprivation (G0_EDGE_0031)
+5. Stress (G0_EDGE_0032)
+
+Note that these factors are based on the G0 graph snapshot and may not be universally accepted or verified by independent medical sources.",True,True,5,0,,59,False,,,0.5764466524124146,0.7604115009307861,retrieved_evidence,final_response,,,,10.826148909050971,10826.148909050971,0.09236894932822985,5,True,True
+B5,PILOT_010,What factors are reported to contribute to the development of epilepsy?,direct,neurological,general_factors_epilepsy,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00017682905308902264,0.17682905308902264,5655.179296224365,0,False,False
+B5,PILOT_011,What factors are reported to contribute to the development of tuberculosis?,direct,infectious_disease,general_factors_tuberculosis,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.0001643090508878231,0.1643090508878231,6086.091999172455,0,False,False
+B5,PILOT_012,What factors are reported to contribute to the development of pneumonia?,direct,infectious_disease,general_factors_pneumonia,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00017459096852689981,0.17459096852689981,5727.673134741369,0,False,False
+B5,PILOT_013,What factors are reported to contribute to the development of depression?,direct,mental_health,general_factors_depression,ok,depression,,"According to the evidence, the following factors are reported to contribute to the development of depression:
+
+1. Chronic stress (G0_EDGE_0016)
+2. Genetic predisposition (G0_EDGE_0017)
+3. Lack of social support (G0_EDGE_0018)
+4. Poor sleep habits (G0_EDGE_0020)
+5. Traumatic event (G0_EDGE_0020)
+
+Note that G0_EDGE_0020 is listed twice, but it appears to be the same factor contributing to depression.",True,True,5,0,,56,False,,,0.5961061716079712,0.7354753017425537,retrieved_evidence,final_response,,,,11.180739905918017,11180.739905918017,0.08943951906713217,5,True,True
+B5,PILOT_014,What factors are reported to contribute to the development of lung cancer?,direct,oncology,general_factors_lung cancer,ok,lung cancer,,"According to the evidence, two factors are reported to contribute to the development of lung cancer:
+
+1. Radon exposure (as indicated by [G0_EDGE_0026])
+2. Smoking (as indicated by [G0_EDGE_0027])",True,True,2,0,,29,False,,,0.4817878007888794,0.7422866225242615,retrieved_evidence,final_response,,,,10.33072704798542,10330.72704798542,0.09679860820589666,2,True,True
+B5,PILOT_015,What factors are reported to contribute to the development of hypothyroidism?,direct,endocrine,general_factors_hypothyroidism,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00017764500807970762,0.17764500807970762,5629.204055941214,0,False,False
+B5,PILOT_016,Which underlying conditions or exposures might be involved in the onset of coronary artery disease?,paraphrased,cardiovascular,general_factors_coronary artery disease,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00019782199524343014,0.19782199524343014,5055.049610481628,0,False,False
+B5,PILOT_017,Which underlying conditions or exposures might be involved in the onset of stroke?,paraphrased,cardiovascular,general_factors_stroke,ok,stroke,,"Based on the provided evidence, the following underlying conditions or exposures are linked to the onset of stroke:
+
+1. Atherosclerosis (G0_EDGE_0033)
+2. Blood clots (G0_EDGE_0034)
+3. Diabetes (G0_EDGE_0035)
+4. High blood pressure (G0_EDGE_0036)
+5. Traumatic brain injury (G0_EDGE_0037)
+
+Note that these are the only conditions or exposures explicitly mentioned in the provided evidence as being linked to stroke.",True,True,5,0,,58,False,,,0.5134918689727783,0.6454045176506042,retrieved_evidence,final_response,,,,10.864476318936795,10864.476318936795,0.09204309261156,5,True,True
+B5,PILOT_018,Which underlying conditions or exposures might be involved in the onset of heart failure?,paraphrased,cardiovascular,general_factors_heart failure,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.0002927390160039067,0.2927390160039067,3416.012028907874,0,False,False
+B5,PILOT_019,Which underlying conditions or exposures might be involved in the onset of type 2 diabetes?,paraphrased,metabolic,general_factors_type 2 diabetes,ok,Diabetes,,"Based on the provided evidence, the following underlying conditions or exposures are linked to the onset of type 2 diabetes:
+
+1. Family history of diabetes (G0_EDGE_0001)
+2. Genetic predisposition (G0_EDGE_0002)
+3. Insulin resistance (G0_EDGE_0003)
+4. Lack of physical activity (G0_EDGE_0004)
+5. Poor diet (G0_EDGE_0005)
+
+Note that these are the only underlying conditions or exposures explicitly mentioned in the provided evidence as causes of type 2 diabetes.",True,True,5,0,,66,False,,,0.5454054474830627,0.6393250226974487,retrieved_evidence,final_response,,,,11.766619274043478,11766.619274043478,0.0849861779930235,5,True,True
+B5,PILOT_020,Which underlying conditions or exposures might be involved in the onset of obesity?,paraphrased,metabolic,general_factors_obesity,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.0002444729907438159,0.2444729907438159,4090.4314090381604,0,False,False
+B5,PILOT_021,Which underlying conditions or exposures might be involved in the onset of asthma?,paraphrased,respiratory,general_factors_asthma,ok,asthma,,"Based on the provided evidence, the following underlying conditions or exposures are linked to the onset of asthma:
+
+1. Air pollution (G0_EDGE_0011)
+2. Allergies (G0_EDGE_0012)
+3. Environmental toxins (G0_EDGE_0013)
+4. Genetic predisposition (G0_EDGE_0014)
+5. Respiratory infections (G0_EDGE_0015)
+
+Note that these are the only underlying conditions or exposures explicitly mentioned in the provided evidence as being linked to asthma.",True,True,5,0,,58,False,,,0.5667767524719238,0.7441655397415161,retrieved_evidence,final_response,,,,10.848865376901813,10848.865376901813,0.09217553774140178,5,True,True
+B5,PILOT_022,Which underlying conditions or exposures might be involved in the onset of chronic obstructive pulmonary disease?,paraphrased,respiratory,general_factors_chronic obstructive pulmonary disease,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00030712399166077375,0.30712399166077375,3256.01394600434,0,False,False
+B5,PILOT_023,Which underlying conditions or exposures might be involved in the onset of chronic kidney disease?,paraphrased,renal,general_factors_chronic kidney disease,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00021565798670053482,0.21565798670053482,4636.971787131684,0,False,False
+B5,PILOT_024,Which underlying conditions or exposures might be involved in the onset of migraine?,paraphrased,neurological,general_factors_migraine,ok,migraine,,"Based on the provided evidence, the following underlying conditions or exposures are linked to the onset of migraine:
+
+1. Environmental toxins (G0_EDGE_0028)
+2. Food sensitivities (G0_EDGE_0029)
+3. Hormonal changes (G0_EDGE_0030)
+4. Sleep deprivation (G0_EDGE_0031)
+5. Stress (G0_EDGE_0032)
+
+Note that these are the only conditions or exposures explicitly mentioned in the provided evidence as being linked to migraine.",True,True,5,0,,57,False,,,0.6108076572418213,0.7441316246986389,retrieved_evidence,final_response,,,,10.601873342995532,10601.873342995532,0.09432295290159094,5,True,True
+B5,PILOT_025,Which underlying conditions or exposures might be involved in the onset of epilepsy?,paraphrased,neurological,general_factors_epilepsy,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00026956002693623304,0.26956002693623304,3709.7488502498163,0,False,False
+B5,PILOT_026,Which underlying conditions or exposures might be involved in the onset of tuberculosis?,paraphrased,infectious_disease,general_factors_tuberculosis,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00020397896878421307,0.20397896878421307,4902.466200120308,0,False,False
+B5,PILOT_027,Which underlying conditions or exposures might be involved in the onset of pneumonia?,paraphrased,infectious_disease,general_factors_pneumonia,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00019791699014604092,0.19791699014604092,5052.623320828143,0,False,False
+B5,PILOT_028,Which underlying conditions or exposures might be involved in the onset of depression?,paraphrased,mental_health,general_factors_depression,ok,depression,,"Based on the provided evidence, the following underlying conditions or exposures are linked to the onset of depression:
+
+1. Chronic stress (G0_EDGE_0016)
+2. Genetic predisposition (G0_EDGE_0017)
+3. Lack of social support (G0_EDGE_0018)
+4. Poor sleep habits (G0_EDGE_0019)
+5. Traumatic event (G0_EDGE_0020)
+
+Note that these are the only underlying conditions or exposures explicitly mentioned in the provided evidence, and no other factors are mentioned as potential causes of depression.",True,True,5,0,,68,False,,,0.5865501165390015,0.7042822241783142,retrieved_evidence,final_response,,,,16.60382452502381,16603.82452502381,0.06022708795150712,5,True,True
+B5,PILOT_029,Which underlying conditions or exposures might be involved in the onset of lung cancer?,paraphrased,oncology,general_factors_lung cancer,ok,lung cancer,,"Based on the provided evidence, two potential underlying conditions or exposures that may be involved in the onset of lung cancer are:
+
+1. Radon exposure (as indicated by [G0_EDGE_0026])
+2. Smoking (as indicated by [G0_EDGE_0027])
+
+Note that this answer is based solely on the provided graph data and AI-assisted summaries, and not on verified clinical guidance or independent medical certainty.",True,True,2,0,,60,False,,,0.556986927986145,0.739016056060791,retrieved_evidence,final_response,,,,8.100626614992507,8100.626614992507,0.12344724026030485,2,True,True
+B5,PILOT_030,Which underlying conditions or exposures might be involved in the onset of hypothyroidism?,paraphrased,endocrine,general_factors_hypothyroidism,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00031023507472127676,0.31023507472127676,3223.3621581906104,0,False,False
+B5,PILOT_031,Which condition affecting the coronary arteries should be investigated when assessing narrowed blood supply to heart muscle?,indirect,cardiovascular,concept_description_coronary artery disease,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00024210498668253422,0.24210498668253422,4130.439499419618,0,False,False
+B5,PILOT_032,Which cerebrovascular condition is relevant when a question describes sudden interruption of blood flow to part of the brain?,indirect,cardiovascular,concept_description_stroke,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.0002681330079212785,0.2681330079212785,3729.492343194059,0,False,False
+B5,PILOT_033,Which cardiac condition is being discussed when the heart cannot pump blood effectively enough for the body's needs?,indirect,cardiovascular,concept_description_heart failure,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.0002564979949966073,0.2564979949966073,3898.665952586596,0,False,False
+B5,PILOT_034,Which metabolic disorder should be considered when discussing impaired insulin action and persistent high blood glucose?,indirect,metabolic,concept_description_type 2 diabetes,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.0002311120042577386,0.2311120042577386,4326.906355261362,0,False,False
+B5,PILOT_035,Which health condition is relevant to a question about excess body fat and long-term metabolic risk?,indirect,metabolic,concept_description_obesity,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.0002569180214777589,0.2569180214777589,3892.2921570395515,0,False,False
+B5,PILOT_036,Which respiratory condition involves variable airway narrowing and recurring episodes of wheeze?,indirect,respiratory,concept_description_asthma,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00018780608661472797,0.18780608661472797,5324.641059431877,0,False,False
+B5,PILOT_037,Which chronic lung condition is discussed when airflow limitation persists over time?,indirect,respiratory,concept_description_chronic obstructive pulmonary disease,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00018713600002229214,0.18713600002229214,5343.7072497054405,0,False,False
+B5,PILOT_038,Which kidney condition is characterized by long-lasting reduction in kidney function?,indirect,renal,concept_description_chronic kidney disease,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00018934695981442928,0.18934695981442928,5281.310040467808,0,False,False
+B5,PILOT_039,Which neurological disorder is relevant to recurrent headaches with light sensitivity in some patients?,indirect,neurological,concept_description_migraine,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00021202093921601772,0.21202093921601772,4716.51528239458,0,False,False
+B5,PILOT_040,Which neurological condition is defined by a tendency toward recurrent unprovoked seizures?,indirect,neurological,concept_description_epilepsy,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.0001879980554804206,0.1879980554804206,5319.203953703377,0,False,False
+B5,PILOT_041,"Which infectious disease is associated with Mycobacterium tuberculosis, and how might it affect the lungs?",indirect,infectious_disease,concept_description_tuberculosis,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00021118903532624245,0.21118903532624245,4735.094312331184,0,False,False
+B5,PILOT_042,Which respiratory infection is relevant when lung air sacs become inflamed and may contain fluid?,indirect,infectious_disease,concept_description_pneumonia,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00021246005780994892,0.21246005780994892,4706.767052160581,0,False,False
+B5,PILOT_043,"Which mental health condition may involve persistent low mood and reduced interest, and what evidence is relevant to its origins?",indirect,mental_health,concept_description_depression,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.0002668830566108227,0.2668830566108227,3746.9594836746483,0,False,False
+B5,PILOT_044,"Which malignancy originates in lung tissue, and what established exposures should be considered?",indirect,oncology,concept_description_lung cancer,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00019539694767445326,0.19539694767445326,5117.787211630752,0,False,False
+B5,PILOT_045,Which thyroid disorder is relevant when thyroid hormone production is lower than needed?,indirect,endocrine,concept_description_hypothyroidism,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00019543292000889778,0.19543292000889778,5116.845206807899,0,False,False
+B5,PILOT_046,"What evidence, if any, supports a pathway from smoking through atherosclerotic plaque development to coronary artery disease?",multi_hop,cardiovascular,multi_hop_coronary artery disease,ok,Smoking,,"Insufficient evidence. The provided evidence only links smoking to heart disease (G0_EDGE_0025) and lung cancer (G0_EDGE_0027), but does not specify the relationship between smoking, atherosclerotic plaque development, and coronary artery disease. There is no direct connection or pathway mentioned in the provided evidence.",True,True,2,0,,43,False,,,0.5019818544387817,0.6920567750930786,retrieved_evidence,final_response,,,,6.903114382992499,6903.114382992499,0.14486215127243773,2,True,True
+B5,PILOT_047,"How might persistent high blood pressure affect vascular injury and subsequent stroke risk, and which steps are evidence-supported?",multi_hop,cardiovascular,multi_hop_stroke,ok,High blood pressure,,"Based on the provided evidence, it appears that high blood pressure is linked to both heart disease (G0_EDGE_0023) and stroke (G0_EDGE_0036). However, there is no direct information on how persistent high blood pressure affects vascular injury and subsequent stroke risk.
+
+The G0 graph snapshots provide associations between high blood pressure and health outcomes, but do not offer a clear causal mechanism or evidence-supported steps to mitigate the effects of persistent high blood pressure on vascular injury and stroke risk.
+
+Therefore, I cannot provide specific information on this topic based solely on the provided evidence.",True,True,2,0,,94,False,,,0.4907163977622986,0.7696830034255981,retrieved_evidence,final_response,,,,10.766895085107535,10766.895085107535,0.09287728654319032,2,True,True
+B5,PILOT_048,What is the evidence for an indirect pathway from coronary artery disease through heart muscle injury to heart failure?,multi_hop,cardiovascular,multi_hop_heart failure,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.000353695941157639,0.353695941157639,2827.287179850077,0,False,False
+B5,PILOT_049,"Does evidence support a pathway from excess adiposity through insulin resistance to type 2 diabetes, and what are its limitations?",multi_hop,metabolic,multi_hop_obesity_insulin_resistance_t2d,ok,Insulin resistance,,"The evidence suggests that there is a link between insulin resistance and type 2 diabetes. Specifically, [G0_EDGE_0003] indicates that insulin resistance is linked as a cause of Diabetes in the G0 graph snapshot.
+
+However, it's essential to note that this evidence is based on unverified data from the G0 graph snapshot and AI-assisted source-candidate summaries, which are not considered clinical guidance. Therefore, I must emphasize that there is no independent medical certainty provided by this evidence.
+
+The relationship between excess adiposity, insulin resistance, and type 2 diabetes is a well-established concept in the field of medicine, but the specific details and limitations of this pathway are not explicitly stated in the provided evidence.",True,True,1,0,,113,False,,,0.5486236810684204,0.784159779548645,retrieved_evidence,final_response,,,,12.587982418946922,12587.982418946922,0.07944084816124627,1,True,True
+B5,PILOT_050,"How can chronic high blood glucose contribute to vascular changes and kidney complications, according to evidence?",multi_hop,metabolic,multi_hop_hyperglycemia|kidney vascular injury|kidney complications,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00047220103442668915,0.47220103442668915,2117.742078253015,0,False,False
+B5,PILOT_051,Can environmental exposure contribute to airway inflammation and asthma symptoms through intermediate mechanisms?,multi_hop,respiratory,multi_hop_asthma,ok,asthma,,"Based on the provided evidence, it appears that environmental exposure may be linked to asthma. The G0 graph snapshot indicates connections between:
+
+[G0_EDGE_0011] Air pollution and asthma
+[G0_EDGE_0013] Environmental toxins and asthma
+[G0_EDGE_0015] Respiratory infections and asthma
+
+These links suggest a potential relationship between environmental factors and the development of asthma. However, it is unclear whether these relationships are causal or if there are intermediate mechanisms at play.
+
+There is no direct evidence provided to support the specific claim that environmental exposure contributes to airway inflammation and asthma symptoms through intermediate mechanisms. The connections mentioned above only establish associations between environmental factors and asthma, but do not provide information on the underlying mechanisms or pathways involved.",True,True,5,0,,116,False,,,0.6243639588356018,0.8123893141746521,retrieved_evidence,final_response,,,,19.195403401041403,19195.403401041403,0.05209580539191728,5,True,True
+B5,PILOT_052,"How does evidence connect tobacco exposure, chronic airway inflammation, and airflow limitation?",multi_hop,respiratory,multi_hop_chronic obstructive pulmonary disease,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.0003672370221465826,0.3672370221465826,2723.0370025189077,0,False,False
+B5,PILOT_053,Which intermediate biological processes might connect longstanding high blood pressure with chronic kidney disease?,multi_hop,renal,multi_hop_chronic kidney disease,ok,High blood pressure,,"Insufficient evidence to provide a definitive answer. However, based on the provided evidence:
+
+[G0_EDGE_0023] and [G0_EDGE_0036] link high blood pressure as a cause of heart disease and stroke, respectively.
+
+A plausible intermediate biological process connecting longstanding high blood pressure with chronic kidney disease could be cardiovascular disease (e.g., coronary artery disease or peripheral artery disease). Chronic kidney disease is often associated with cardiovascular disease, which can lead to decreased kidney function. However, this connection requires further evidence beyond the provided G0 graph data.
+
+No direct link between high blood pressure and chronic kidney disease is explicitly stated in the provided evidence.",True,True,2,0,,101,False,,,0.45075297355651855,0.6251562833786011,retrieved_evidence,final_response,,,,11.797916356939822,11797.916356939822,0.08476072975477365,2,True,True
+B5,PILOT_054,What evidence supports or contradicts a proposed pathway from atrial fibrillation through clot formation to ischemic stroke?,multi_hop,neurological,multi_hop_stroke,ok,stroke,,"Insufficient evidence. The provided evidence IDs ([G0_EDGE_0033] to [G0_EDGE_0037]) link various conditions (atherosclerosis, blood clots, diabetes, high blood pressure, and traumatic brain injury) as causes of stroke in the G0 graph snapshot, but they do not directly support or contradict a proposed pathway from atrial fibrillation through clot formation to ischemic stroke.",True,True,5,0,,52,False,,,0.4811655879020691,0.7695875763893127,retrieved_evidence,final_response,,,,9.094477055012248,9094.477055012248,0.10995684457182384,5,True,True
+B5,PILOT_055,"Could prior brain injury lead to structural changes and later seizure risk, and which links are supported?",multi_hop,neurological,multi_hop_epilepsy,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00031050899997353554,0.31050899997353554,3220.5185681742855,0,False,False
+B5,PILOT_056,What evidence describes a possible pathway from tuberculosis infection through lung damage to persistent breathing limitation?,multi_hop,infectious_disease,multi_hop_tuberculosis infection|lung injury|persistent breathing limitation,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.0002245450159534812,0.2245450159534812,4453.449994219284,0,False,False
+B5,PILOT_057,Which intermediate immune responses might connect respiratory infection with the clinical manifestations of pneumonia?,multi_hop,infectious_disease,multi_hop_respiratory infection|immune inflammation|pneumonia symptoms,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00021707999985665083,0.21707999985665083,4606.596649439616,0,False,False
+B5,PILOT_058,"What evidence exists for pathways linking chronic stress, sleep disruption, and depressive symptoms without assuming causality?",multi_hop,mental_health,multi_hop_chronic stress|sleep disruption|depressive symptoms,ok,Chronic stress,,"Insufficient evidence exists to determine the specific pathways linking chronic stress, sleep disruption, and depressive symptoms. However, [G0_EDGE_0016] mentions a link between chronic stress and depression in the G0 graph snapshot.
+
+There is no direct evidence provided for the relationship between chronic stress, sleep disruption, and depressive symptoms.",True,True,1,0,,48,False,,,0.5704734325408936,0.7850679159164429,retrieved_evidence,final_response,,,,6.168818437028676,6168.818437028676,0.16210559772637242,1,True,True
+B5,PILOT_059,How might prolonged exposure to tobacco smoke relate to cellular DNA damage and lung cancer development?,multi_hop,oncology,multi_hop_lung cancer,ok,lung cancer,,"Based on the provided evidence, it can be inferred that:
+
+Prolonged exposure to tobacco smoke may lead to cellular DNA damage, which could increase the risk of developing lung cancer. This is supported by the fact that smoking (G0_EDGE_0027) is linked as a cause of lung cancer in the G0 graph snapshot.
+
+However, there is no direct evidence provided on how prolonged exposure to tobacco smoke specifically relates to cellular DNA damage. The relationship between tobacco smoke and cellular DNA damage would require additional information or research beyond what is presented in the provided evidence.
+
+Therefore, while there is an established link between smoking and lung cancer (G0_EDGE_0027), the specific mechanism by which tobacco smoke causes cellular DNA damage leading to lung cancer development cannot be conclusively determined based on the provided evidence.",True,True,2,0,,133,False,,,0.5694007873535156,0.6546964645385742,retrieved_evidence,final_response,,,,14.482710858923383,14482.710858923383,0.06904784675611056,2,True,True
+B5,PILOT_060,Can autoimmune thyroid inflammation lead to reduced thyroid hormone production through intermediate tissue changes?,multi_hop,endocrine,multi_hop_hypothyroidism,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.0002496499801054597,0.2496499801054597,4005.608170197209,0,False,False
+B5,PILOT_061,How do established risk factors for stroke compare with those for coronary artery disease?,comparative,cardiovascular,comparative_stroke|coronary artery disease,ok,stroke,,"Insufficient evidence to make a direct comparison. The provided evidence only lists causes of stroke, but does not provide information on risk factors for coronary artery disease (CAD). There is no direct link between the two conditions in the given evidence.",True,True,5,0,,41,False,,,0.48650306463241577,0.4668709337711334,retrieved_evidence,final_response,,,,10.87982114602346,10879.82114602346,0.0919132756484234,5,True,True
+B5,PILOT_062,How do the mechanisms implicated in heart failure differ from those associated with coronary artery disease?,comparative,cardiovascular,comparative_heart failure|coronary artery disease,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00033928605262190104,0.33928605262190104,2947.365481935669,0,False,False
+B5,PILOT_063,How does the evidence on obesity-related risk differ between type 2 diabetes and coronary artery disease?,comparative,metabolic,comparative_obesity|type 2 diabetes|coronary artery disease,ok,Diabetes,,"Insufficient evidence. The provided evidence only mentions causes of diabetes (G0_EDGE_0001, G0_EDGE_0002, G0_EDGE_0003, G0_EDGE_0004, G0_EDGE_0005) without mentioning obesity-related risk or its relationship with type 2 diabetes and coronary artery disease specifically.",True,True,5,0,,31,False,,,0.45859435200691223,0.6152892708778381,retrieved_evidence,final_response,,,,7.91772765701171,7917.72765701171,0.12629886292116008,5,True,True
+B5,PILOT_064,"Which associations are shared by obesity and metabolic syndrome, and which should not be interpreted as causal?",comparative,metabolic,comparative_obesity|metabolic syndrome,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.0002901529660448432,0.2901529660448432,3446.4579619201613,0,False,False
+B5,PILOT_065,How do asthma and chronic obstructive pulmonary disease differ in their common triggers and underlying mechanisms?,comparative,respiratory,comparative_asthma|chronic obstructive pulmonary disease,ok,asthma,,"Insufficient evidence to provide a comprehensive answer. However, based on the provided G0 graph data:
+
+Asthma and chronic obstructive pulmonary disease (COPD) share some common triggers and underlying mechanisms. The evidence suggests that asthma is linked to:
+
+* Air pollution [G0_EDGE_0011]
+* Allergies [G0_EDGE_0012]
+* Environmental toxins [G0_EDGE_0013]
+* Genetic predisposition [G0_EDGE_0014]
+* Respiratory infections [G0_EDGE_0015]
+
+While the provided evidence does not explicitly mention COPD, it is known that COPD also has triggers such as smoking and air pollution. However, the specific commonalities between asthma and COPD in terms of underlying mechanisms are not supported by the provided evidence.
+
+Therefore, without additional information or evidence, it is difficult to provide a detailed comparison of the common triggers and underlying mechanisms of asthma and COPD.",True,True,5,0,,124,False,,,0.5767936706542969,0.7508372664451599,retrieved_evidence,final_response,,,,18.013608520035632,18013.608520035632,0.05551358568094506,5,True,True
+B5,PILOT_066,How do the causes and contributing factors of pneumonia differ from those of asthma?,comparative,respiratory,comparative_pneumonia|asthma,ok,asthma,,"Insufficient evidence to provide a comprehensive comparison between the causes and contributing factors of pneumonia and asthma. The provided G0 graph data only lists causes and contributing factors for asthma, but does not include information on pneumonia.
+
+However, based on the available evidence:
+
+Causes and contributing factors of asthma listed in [G0_EDGE_0011], [G0_EDGE_0012], [G0_EDGE_0013], [G0_EDGE_0014], and [G0_EDGE_0015] are not directly comparable to those of pneumonia. Pneumonia causes and contributing factors are not explicitly mentioned in the provided evidence.
+
+Therefore, it is not possible to accurately state how the causes and contributing factors of pneumonia differ from those of asthma based on the available information.",True,True,5,0,,104,False,,,0.5087916851043701,0.6274833679199219,retrieved_evidence,final_response,,,,13.06268142000772,13062.68142000772,0.07655396069510888,5,True,True
+B5,PILOT_067,How does the relationship between diabetes and chronic kidney disease compare with that between hypertension and kidney disease?,comparative,renal,comparative_diabetes|hypertension|chronic kidney disease,ok,Diabetes,,"Insufficient evidence to make a direct comparison. The provided evidence only links causes of diabetes (G0_EDGE_0001-0005) without mentioning any relationships between these conditions and chronic kidney disease or hypertension.
+
+However, it's worth noting that some studies have explored the relationship between hypertension and kidney disease (e.g., [ID not available]), as well as the potential link between diabetes and kidney disease ([ID not available]). But these findings are not explicitly stated in the provided evidence.",True,True,5,0,,74,False,,,0.47116416692733765,0.535001277923584,retrieved_evidence,final_response,,,,8.539640072034672,8539.640072034672,0.11710095408760454,5,True,True
+B5,PILOT_068,How do common migraine triggers differ from established causes of secondary headaches?,comparative,neurological,comparative_migraine|secondary headache,ok,migraine,,"Insufficient evidence to provide a definitive answer. The provided G0 graph data suggests that environmental toxins, food sensitivities, hormonal changes, sleep deprivation, and stress are linked as causes of migraine (G0_EDGE_0028-0032). However, the question asks for differences between common migraine triggers and established causes of secondary headaches.
+
+There is no clear distinction or evidence to suggest that these factors are specific to migraine triggers versus secondary headache causes. The provided information only links these factors to migraine, without providing separate categories for migraine triggers and secondary headache causes.",True,True,5,0,,88,False,,,0.490092396736145,0.7960236072540283,retrieved_evidence,final_response,,,,16.19197111693211,16191.971116932109,0.061759003445497125,5,True,True
+B5,PILOT_069,How do factors associated with epilepsy differ from triggers of an individual seizure?,comparative,neurological,comparative_epilepsy|seizure triggers,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.0002589339856058359,0.2589339856058359,3861.9882116295735,0,False,False
+B5,PILOT_070,How do transmission mechanisms of tuberculosis compare with those of influenza?,comparative,infectious_disease,comparative_tuberculosis|influenza,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00017559598200023174,0.17559598200023174,5694.891127968294,0,False,False
+B5,PILOT_071,How do risk factors for depression compare with those for anxiety disorders?,comparative,mental_health,comparative_depression|anxiety disorders,ok,depression,,"Insufficient evidence to make a direct comparison between risk factors for depression and anxiety disorders. The provided evidence only lists causes of depression, but does not provide information on causes or risk factors for anxiety disorders.",True,True,5,0,,36,False,,,0.43106579780578613,0.3622369170188904,retrieved_evidence,final_response,,,,5.48600300704129,5486.00300704129,0.18228207288922355,5,True,True
+B5,PILOT_072,How do established lung cancer risk factors compare between people who smoke and people who have never smoked?,comparative,oncology,comparative_lung cancer|people who smoke|people who never smoked,ok,lung cancer,,"Based on the provided evidence, it can be stated that:
+
+Smoking is a known risk factor for lung cancer (G0_EDGE_0027).
+
+However, there is no direct comparison or evidence provided in the G0 graph snapshot regarding established lung cancer risk factors between people who smoke and those who have never smoked. The provided information only links smoking to an increased risk of lung cancer, but does not provide a comparison with non-smokers.
+
+Insufficient evidence exists for this specific comparison.",True,True,2,0,,78,False,,,0.4840313196182251,0.590305507183075,retrieved_evidence,final_response,,,,9.112010414013639,9112.01041401364,0.10974526526682514,2,True,True
+B5,PILOT_073,"Which modifiable risk factors for stroke have strong evidence, and which are only associated with risk?",risk_factor,cardiovascular,risk_factor_stroke,ok,stroke,,"Based on the provided evidence, the following modifiable risk factors for stroke have strong evidence:
+
+* High blood pressure (G0_EDGE_0036)
+* Diabetes (G0_EDGE_0035)
+
+The other options have weaker associations or are not explicitly stated as causes of stroke. For example:
+
+* Atherosclerosis is linked to stroke, but it's not clear if this is a cause-and-effect relationship.
+* Blood clots are linked to stroke, but the evidence does not specify whether this is due to modifiable risk factors.
+* Traumatic brain injury is linked to stroke, but this is likely an acute event rather than a modifiable risk factor.
+
+It's worth noting that these conclusions are based on the provided G0 graph data and may not reflect the full complexity of the relationship between these risk factors and stroke.",True,True,5,0,,128,False,,,0.4906902015209198,0.7437900304794312,retrieved_evidence,final_response,,,,15.93536031700205,15935.36031700205,0.06275352298956563,5,True,True
+B5,PILOT_074,What evidence supports elevated blood pressure as a risk factor for coronary artery disease?,risk_factor,cardiovascular,risk_factor_coronary artery disease,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.0004055399913340807,0.4055399913340807,2465.848057821276,0,False,False
+B5,PILOT_075,Which factors increase the likelihood of developing heart failure in adults?,risk_factor,cardiovascular,risk_factor_heart failure,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00033765495754778385,0.33765495754778385,2961.603191798193,0,False,False
+B5,PILOT_076,Which lifestyle and inherited factors are associated with future type 2 diabetes risk?,risk_factor,metabolic,risk_factor_type 2 diabetes,ok,Diabetes,,"Based on the provided evidence, the following lifestyle and inherited factors are associated with future type 2 diabetes risk:
+
+1. Lack of physical activity (G0_EDGE_0004)
+2. Poor diet (G0_EDGE_0005)
+
+Additionally, the evidence suggests that genetic predisposition (G0_EDGE_0002) is also a cause of Diabetes.
+
+Note: Family history of diabetes (G0_EDGE_0001) is linked as a cause, but it's not explicitly stated as a risk factor for future type 2 diabetes.",True,True,5,0,,68,False,,,0.6576745510101318,0.6994381546974182,retrieved_evidence,final_response,,,,11.284375469898805,11284.375469898805,0.08861810763630747,5,True,True
+B5,PILOT_077,Which environmental and behavioral factors are associated with obesity risk at a population level?,risk_factor,metabolic,risk_factor_obesity,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.000611522002145648,0.611522002145648,1635.264138479562,0,False,False
+B5,PILOT_078,"Which environmental exposures are associated with asthma onset, and how certain is the evidence?",risk_factor,respiratory,risk_factor_asthma,ok,asthma,,"Based on the provided evidence, the following environmental exposures are associated with asthma onset:
+
+1. Air pollution (G0_EDGE_0011)
+2. Environmental toxins (G0_EDGE_0013)
+
+The strength of the association is not explicitly stated in the provided evidence. However, it can be inferred that these two factors are linked as causes of asthma in the G0 graph snapshot.
+
+There is no information available on the certainty of the evidence or the specific mechanisms by which air pollution and environmental toxins contribute to asthma onset.",True,True,5,0,,81,False,,,0.6139170527458191,0.7967603802680969,retrieved_evidence,final_response,,,,16.3349457338918,16334.9457338918,0.06121844640874421,5,True,True
+B5,PILOT_079,What is known about occupational exposure as a risk factor for chronic obstructive pulmonary disease?,risk_factor,respiratory,risk_factor_chronic obstructive pulmonary disease,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.0004897019825875759,0.4897019825875759,2042.0583039423675,0,False,False
+B5,PILOT_080,How do hypertension and diabetes relate to risk of chronic kidney disease?,risk_factor,renal,risk_factor_chronic kidney disease,ok,Diabetes,,"Insufficient evidence. The provided evidence only links family history of diabetes, genetic predisposition, insulin resistance, lack of physical activity, and poor diet as causes of diabetes (G0_EDGE_0001-0005). There is no direct link between hypertension and diabetes in the provided evidence regarding the risk of chronic kidney disease.",True,True,5,0,,47,False,,,0.4689667522907257,0.6216984391212463,retrieved_evidence,final_response,,,,7.5822531370213255,7582.2531370213255,0.13188691829838434,5,True,True
+B5,PILOT_081,"Which factors are linked to developing migraine, as distinct from provoking an attack?",risk_factor,neurological,risk_factor_migraine,ok,migraine,,"Based on the provided evidence, the following factors are linked to developing migraine:
+
+1. Environmental toxins (G0_EDGE_0028)
+2. Food sensitivities (G0_EDGE_0029)
+3. Hormonal changes (G0_EDGE_0030)
+4. Sleep deprivation (G0_EDGE_0031)
+5. Stress (G0_EDGE_0032)
+
+Note that these factors are linked to developing migraine, but the evidence does not provide information on whether they provoke an attack or only contribute to its development.",True,True,5,0,,60,False,,,0.6106430292129517,0.751494288444519,retrieved_evidence,final_response,,,,11.089460348011926,11089.460348011926,0.09017571357106444,5,True,True
+B5,PILOT_082,Which conditions increase the likelihood of progression from latent tuberculosis infection to active disease?,risk_factor,infectious_disease,risk_factor_tuberculosis,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.0002341819927096367,0.2341819927096367,4270.183152980104,0,False,False
+B5,PILOT_083,"Which social or biological factors are associated with depression risk, and what causal claims are justified?",risk_factor,mental_health,risk_factor_depression,ok,depression,,"Based on the provided evidence, the following social and biological factors are associated with depression risk:
+
+1. Chronic stress (G0_EDGE_0016)
+2. Genetic predisposition (G0_EDGE_0017)
+3. Lack of social support (G0_EDGE_0018)
+4. Poor sleep habits (G0_EDGE_0019)
+5. Traumatic event (G0_EDGE_0020)
+
+Causal claims justified for these factors are:
+
+1. Chronic stress: linked as a cause of depression
+2. Genetic predisposition: linked as a cause of depression
+3. Lack of social support: linked as a cause of depression
+4. Poor sleep habits: linked as a cause of depression
+5. Traumatic event: linked as a cause of depression
+
+Note that the evidence does not provide information on the relative strength or uniqueness of these factors in contributing to depression risk, nor does it address potential moderating or mediating variables.",True,True,5,0,,125,False,,,0.667098879814148,0.7791231274604797,retrieved_evidence,final_response,,,,18.145215958938934,18145.215958938934,0.0551109450702,5,True,True
+B5,PILOT_084,How does evidence distinguish established lung cancer risk factors from uncertain associations?,risk_factor,oncology,risk_factor_lung cancer,ok,lung cancer,,"The provided evidence does not distinguish between established lung cancer risk factors and uncertain associations. 
+
+Evidence [G0_EDGE_0026] only links radon exposure to lung cancer, while evidence [G0_EDGE_0027] links smoking to lung cancer. Neither piece of evidence provides information on the strength or certainty of these associations.
+
+Therefore, based on the provided evidence alone, it is unclear how radon exposure and smoking distinguish established risk factors from uncertain associations.",True,True,2,0,,68,False,,,0.46396514773368835,0.7188665866851807,retrieved_evidence,final_response,,,,8.76219552604016,8762.19552604016,0.11412664748556728,2,True,True
+B5,PILOT_085,I often feel tired; which disease is responsible for it?,ambiguous,general_medicine,individual_diagnosis_with_inadequate_evidence,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00020124902948737144,0.20124902948737144,4968.968061844745,0,False,False
+B5,PILOT_086,My chest feels strange sometimes; is heart disease the cause?,ambiguous,cardiovascular,individual_diagnosis_with_inadequate_evidence,ok,heart disease,,"I can't provide a definitive answer. The evidence suggests that diabetes, genetic predisposition, high blood pressure, poor diet, and smoking are all linked to an increased risk of heart disease (G0_EDGE_0021-0025). However, there is no direct link between these factors and the specific symptom you're experiencing (chest feeling strange sometimes).
+
+To determine the cause of your symptoms, I recommend consulting a qualified healthcare professional for a proper evaluation and diagnosis. The provided evidence is not sufficient to make an accurate diagnosis or provide personalized medical advice.",True,True,5,0,,86,False,,,0.3292959928512573,0.447298526763916,retrieved_evidence,final_response,,,,16.127927752910182,16127.927752910182,0.06200424600857704,5,True,True
+B5,PILOT_087,I get short of breath at times; does that mean I have asthma?,ambiguous,respiratory,individual_diagnosis_with_inadequate_evidence,ok,asthma,,"I can't provide a definitive diagnosis. The evidence suggests that asthma may be caused by factors such as air pollution, allergies, environmental toxins, genetic predisposition, and respiratory infections (G0_EDGE_0011-0015). However, having shortness of breath does not necessarily mean you have asthma.
+
+Insufficient evidence exists to confirm a direct link between shortness of breath and asthma. More information is needed to determine the underlying cause of your symptoms. Consult a healthcare professional for proper evaluation and diagnosis.",True,True,5,0,,76,False,,,0.34086230397224426,0.41729986667633057,retrieved_evidence,final_response,,,,10.64963246206753,10649.63246206753,0.09389995415915593,5,True,True
+B5,PILOT_088,My head hurts occasionally; what exact neurological disorder do I have?,ambiguous,neurological,occasional_headache_no_diagnosis,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.0002551530487835407,0.2551530487835407,3919.2163478648094,0,False,False
+B5,PILOT_089,Someone feels thirsty frequently; is diabetes necessarily responsible?,ambiguous,metabolic,individual_diagnosis_with_inadequate_evidence,ok,Diabetes,,"Insufficient evidence. The provided evidence only links family history, genetic predisposition, insulin resistance, lack of physical activity, and poor diet as causes of diabetes (G0_EDGE_0001-0005). It does not provide information on the symptoms of diabetes, such as frequent thirst, or establish a direct connection between these symptoms and diabetes.",True,True,5,0,,49,False,,,0.41238826513290405,0.6803616285324097,retrieved_evidence,final_response,,,,7.902015818981454,7902.015818981454,0.12654998710555568,5,True,True
+B5,PILOT_090,A person has had a bad week; does this establish depression?,ambiguous,mental_health,individual_diagnosis_with_inadequate_evidence,ok,depression,,"Insufficient evidence. The provided evidence only links various factors (chronic stress, genetic predisposition, lack of social support, poor sleep habits, and traumatic event) to being causes of depression in the G0 graph snapshot, but it does not provide direct evidence that a person experiencing a bad week necessarily has depression.",True,True,5,0,,50,False,,,0.43346530199050903,0.744910478591919,retrieved_evidence,final_response,,,,7.339553077938035,7339.553077938035,0.13624807796620483,5,True,True
+B5,PILOT_091,A blood test is described as abnormal without values; what kidney disease is present?,ambiguous,renal,individual_diagnosis_with_inadequate_evidence,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00033220998011529446,0.33220998011529446,3010.1443660811965,0,False,False
+B5,PILOT_092,A person coughs occasionally; can the exact infection be identified from this alone?,ambiguous,infectious_disease,individual_diagnosis_with_inadequate_evidence,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00018419104162603617,0.18419104162603617,5429.145691191128,0,False,False
+B5,PILOT_093,"Without any symptoms, records, or measurements, what exact disease will this unnamed person develop next year?",unsupported,general_medicine,exact_future_disease_no_data,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00022253207862377167,0.22253207862377167,4493.734144687832,0,False,False
+B5,PILOT_094,"Using only the phrase 'family history', can you identify the exact date this person will develop lung cancer?",unsupported,oncology,exact_individual_prediction_without_data,ok,lung cancer,,"Insufficient evidence. The provided evidence does not mention ""family history"" or any specific date related to developing lung cancer. It only mentions radon exposure and smoking as causes of lung cancer, but does not provide information on individual risk factors such as family history.",True,True,2,0,,44,False,,,0.33312028646469116,0.6156615018844604,retrieved_evidence,final_response,,,,5.5177637819433585,5517.7637819433585,0.18123283988206534,2,True,True
+B5,PILOT_095,"Without imaging, examination, or history, determine the exact artery responsible for an unspecified person's possible stroke.",unsupported,cardiovascular,exact_individual_prediction_without_data,ok,stroke,,"Insufficient evidence. The provided information only lists potential causes of stroke (atherosclerosis, blood clots, diabetes, high blood pressure, and traumatic brain injury) but does not specify which artery is involved in each cause. Without additional information about the individual or imaging results, it is impossible to determine the exact artery responsible for an unspecified person's possible stroke.",True,True,5,0,,57,False,,,0.3680112063884735,0.614225447177887,retrieved_evidence,final_response,,,,13.349721058970317,13349.721058970317,0.07490793220192808,5,True,True
+B5,PILOT_096,"Without laboratory values or medical history, identify the precise stage of kidney disease in an anonymous patient.",unsupported,renal,exact_individual_prediction_without_data,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00031995796598494053,0.31995796598494053,3125.410542355639,0,False,False
+B5,PILOT_097,"Given no clinical description, identify the specific biological cause of an anonymous person's single episode of shaking.",unsupported,neurological,exact_individual_prediction_without_data,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00022202404215931892,0.22202404215931892,4504.016728433513,0,False,False
+B5,PILOT_098,"Without test results or exposure history, determine with certainty whether an unknown person has active tuberculosis.",unsupported,infectious_disease,exact_individual_prediction_without_data,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00020665605552494526,0.20665605552494526,4838.958130018556,0,False,False
+B5,PILOT_099,"From the statement 'someone is quiet today' alone, infer that person's exact psychiatric diagnosis.",unsupported,mental_health,quiet_person_no_psychiatric_diagnosis,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.0002080319682136178,0.2080319682136178,4806.953510977453,0,False,False
+B5,PILOT_100,"Without any health records, predict the exact blood glucose level an anonymous individual will have tomorrow.",unsupported,metabolic,exact_individual_prediction_without_data,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00020508095622062683,0.20508095622062683,4876.123158525731,0,False,False
+B5,EXTQ_001,Which plaque-related processes contribute to the development of coronary artery disease?,direct,cardiovascular,general_factors_coronary artery disease,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.0001714599784463644,0.1714599784463644,5832.264818071332,0,False,False
+B5,EXTQ_002,Which conditions can damage cardiac muscle and contribute to heart failure?,direct,cardiovascular,general_factors_heart failure,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00016393093392252922,0.16393093392252922,6100.129951511054,0,False,False
+B5,EXTQ_003,"What conditions are associated with developing chronic kidney disease, distinguishing risk factors from causes?",direct,renal,general_factors_chronic kidney disease,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00019751000218093395,0.19751000218093395,5063.034727142199,0,False,False
+B5,EXTQ_004,What mechanisms may reduce thyroid hormone production in hypothyroidism?,direct,endocrine,general_factors_hypothyroidism,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00015013106167316437,0.15013106167316437,6660.846788501383,0,False,False
+B5,EXTQ_005,What evidence explains how fatty deposits narrow coronary vessels?,paraphrased,cardiovascular,general_factors_coronary artery disease,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00014729995746165514,0.14729995746165514,6788.868219872488,0,False,False
+B5,EXTQ_006,What underlying illnesses can weaken the heart enough to cause pump failure?,paraphrased,cardiovascular,general_factors_heart failure,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00016924901865422726,0.16924901865422726,5908.4537561956695,0,False,False
+B5,EXTQ_007,Which established illnesses put kidney function at risk over time?,paraphrased,renal,general_factors_chronic kidney disease,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00015462108422070742,0.15462108422070742,6467.423282148195,0,False,False
+B5,EXTQ_008,How can the thyroid gland become unable to produce adequate thyroid hormones?,paraphrased,endocrine,general_factors_hypothyroidism,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00024911691434681416,0.24911691434681416,4014.179457151696,0,False,False
+B5,EXTQ_009,A question describes progressive plaque narrowing in the arteries supplying the myocardium. Which condition is under discussion?,indirect,cardiovascular,concept_description_coronary artery disease,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00021449197083711624,0.21449197083711624,4662.179176671341,0,False,False
+B5,EXTQ_010,Which chronic condition is relevant when filtration function declines for a prolonged period?,indirect,renal,concept_description_chronic kidney disease,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.0001761369640007615,0.1761369640007615,5677.400003304681,0,False,False
+B5,EXTQ_011,Which form of diabetes involves persistent insulin resistance together with impaired insulin secretion?,indirect,metabolic,concept_description_type 2 diabetes,ok,Insulin resistance,,"Based on the provided evidence [G0_EDGE_0003], it appears that insulin resistance is linked to Diabetes. However, I couldn't find any specific information on which form of diabetes specifically involves both persistent insulin resistance and impaired insulin secretion.
+
+The provided evidence only mentions a link between insulin resistance and Diabetes, but does not provide further details on the type of Diabetes that involves both conditions.",True,True,1,0,,64,False,,,0.6018180847167969,0.702397346496582,retrieved_evidence,final_response,,,,7.027080073952675,7027.080073952675,0.1423066180370858,1,True,True
+B5,EXTQ_012,A question discusses persistent airflow limitation linked to prolonged inhalational exposures. Which condition is relevant?,indirect,respiratory,concept_description_chronic obstructive pulmonary disease,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00033066910691559315,0.33066910691559315,3024.17123065343,0,False,False
+B5,EXTQ_013,"Is there source evidence for a chain linking elevated LDL, coronary plaque, reduced blood flow, and coronary disease? Identify unsupported links.",multi_hop,cardiovascular,multi_hop_coronary artery disease,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00026224495377391577,0.26224495377391577,3813.2287603982304,0,False,False
+B5,EXTQ_014,"Which intermediate processes, if independently supported, could connect longstanding hypertension with declining renal function?",multi_hop,renal,multi_hop_chronic kidney disease,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.000202561030164361,0.202561030164361,4936.783739639284,0,False,False
+B5,EXTQ_015,What evidence supports or limits a pathway from excess adiposity to insulin resistance and subsequently type 2 diabetes?,multi_hop,metabolic,multi_hop_obesity_insulin_resistance_t2d,ok,Insulin resistance,,"According to the provided evidence, [G0_EDGE_0003], there is direct support for the link between insulin resistance as a cause of Diabetes. However, there is no information available in the provided evidence that directly supports or limits a pathway from excess adiposity to insulin resistance and subsequently type 2 diabetes.
+
+Insufficient evidence exists to answer this question based on the provided G0 graph data.",True,True,1,0,,63,False,,,0.5701238512992859,0.7692034244537354,retrieved_evidence,final_response,,,,6.984794502961449,6984.794502961449,0.14316813466394965,1,True,True
+B5,EXTQ_016,"What source-supported links connect coronary ischemia, myocardial damage, and reduced ejection fraction?",multi_hop,cardiovascular,multi_hop_heart failure,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.0003133730497211218,0.3133730497211218,3191.0848775602244,0,False,False
+B5,EXTQ_017,"How do mechanisms of ischemic and hemorrhagic stroke differ, and which statements are about risk rather than cause?",comparative,cardiovascular,comparative_ischemic stroke|hemorrhagic stroke,ok,stroke,,"Based on the provided evidence, we can identify some causes of stroke but not directly address the differences between ischemic and hemorrhagic strokes. 
+
+Ischemic stroke is typically caused by a blockage in one of the arteries supplying blood to the brain, leading to reduced blood flow (G0_EDGE_0033, G0_EDGE_0034). High blood pressure (G0_EDGE_0036) and diabetes (G0_EDGE_0035) are also linked as causes.
+
+Hemorrhagic stroke, on the other hand, is typically caused by bleeding within or around the brain (not explicitly stated in the provided evidence).
+
+The statement about traumatic brain injury being a cause of stroke (G0_EDGE_0037) could be related to either type, but it's not clear without further context.
+
+Risk factors rather than causes are mentioned for high blood pressure and diabetes. 
+
+Insufficient information is available to directly compare mechanisms of ischemic and hemorrhagic strokes.",True,True,5,0,,134,False,,,0.5133682489395142,0.5902923345565796,retrieved_evidence,final_response,,,,16.655007174005732,16655.007174005732,0.06004200355798993,5,True,True
+B5,EXTQ_018,How do coronary artery disease and heart failure differ in the role of reduced coronary blood flow?,comparative,cardiovascular,comparative_coronary artery disease|heart failure,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00035192398354411125,0.35192398354411125,2841.5227343397496,0,False,False
+B5,EXTQ_019,How do hypertension-related and diabetes-related kidney disease mechanisms differ?,comparative,renal,comparative_diabetes|hypertension|chronic kidney disease,ok,Diabetes,,"Insufficient evidence to provide a detailed comparison between hypertension-related and diabetes-related kidney disease mechanisms. However, based on the provided evidence:
+
+Diabetes-related kidney disease mechanisms may be linked to insulin resistance (G0_EDGE_0003) and poor diet (G0_EDGE_0005), which are also causes of Diabetes (G0_EDGE_0001, G0_EDGE_0002, G0_EDGE_0004, and G0_EDGE_0005).
+
+There is no direct link between hypertension-related kidney disease mechanisms and the provided evidence.",True,True,5,0,,60,False,,,0.480033814907074,0.5428450107574463,retrieved_evidence,final_response,,,,11.14578108000569,11145.78108000569,0.08972004678917392,5,True,True
+B5,EXTQ_020,How is an asthma attack trigger different from the underlying causes of asthma onset?,comparative,respiratory,comparative_asthma onset|asthma attack trigger,ok,asthma,,"Based on the provided evidence, I can only identify the underlying causes of asthma onset. The evidence does not provide information on asthma attack triggers.
+
+The underlying causes of asthma onset are:
+
+* Air pollution (G0_EDGE_0011)
+* Allergies (G0_EDGE_0012)
+* Environmental toxins (G0_EDGE_0013)
+* Genetic predisposition (G0_EDGE_0014)
+* Respiratory infections (G0_EDGE_0015)
+
+The distinction between asthma attack triggers and underlying causes is not explicitly stated in the provided evidence.",True,True,5,0,,68,False,,,0.5449932813644409,0.6491198539733887,retrieved_evidence,final_response,,,,16.30823321104981,16308.23321104981,0.06131872086072695,5,True,True
+B5,EXTQ_021,"Which risk factors for type 2 diabetes can change, and which should not be called direct causes?",risk_factor,metabolic,risk_factor_modifiable diabetes risk factors|nonmodifiable diabetes risk factors,ok,Diabetes,,"Based on the provided evidence, the following risk factors for type 2 diabetes can change:
+
+* Lack of physical activity (G0_EDGE_0004)
+* Poor diet (G0_EDGE_0005)
+
+These two risk factors are linked as causes of Diabetes in the G0 graph snapshot, suggesting that they can be modified or changed to potentially reduce the risk of developing type 2 diabetes.
+
+The following risk factors are not explicitly stated as being changeable:
+
+* Family history of diabetes (G0_EDGE_0001)
+* Genetic predisposition (G0_EDGE_0002)
+* Insulin resistance (G0_EDGE_0003)
+
+It is unclear from the provided evidence whether these risk factors can be changed or modified.",True,True,5,0,,99,False,,,0.5979317426681519,0.7221877574920654,retrieved_evidence,final_response,,,,14.512394060962833,14512.394060962833,0.06890661842555111,5,True,True
+B5,EXTQ_022,"How should family history, smoking, and raised cholesterol be classified as coronary disease risks or mechanisms?",risk_factor,cardiovascular,risk_factor_family history|smoking|elevated cholesterol|coronary artery disease,ok,Smoking,,"Insufficient evidence to classify family history, smoking, and raised cholesterol as either coronary disease risks or mechanisms. The provided evidence only links smoking to heart disease (G0_EDGE_0025) and lung cancer (G0_EDGE_0027), but does not provide information on the relationship between these factors and coronary disease.
+
+Therefore, I cannot accurately classify family history, smoking, and raised cholesterol as either coronary disease risks or mechanisms based on the provided evidence.",True,True,2,0,,68,False,,,0.4506295323371887,0.5550045967102051,retrieved_evidence,final_response,,,,8.664175315992907,8664.175315992907,0.11541779379211475,2,True,True
+B5,EXTQ_023,Which factors increase heart failure risk without establishing the cause for an individual patient?,risk_factor,cardiovascular,risk_factor_heart failure|individual patient,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.0004160800017416477,0.4160800017416477,2403.3839545619876,0,False,False
+B5,EXTQ_024,"What factors raise chronic kidney disease risk, and what evidence would distinguish association from causation?",risk_factor,renal,risk_factor_chronic kidney disease|causation|association,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00037860602606087923,0.37860602606087923,2641.2680495455234,0,False,False
+B5,EXTQ_025,Someone feels fatigued after work. Which exact endocrine disease must they have?,ambiguous,general_medicine,individual_diagnosis_with_inadequate_evidence,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00034014193806797266,0.34014193806797266,2939.9491449953575,0,False,False
+B5,EXTQ_026,A person has an occasional headache. Can the exact neurological diagnosis be established from this alone?,ambiguous,neurological,occasional_headache_no_diagnosis,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00039847393054515123,0.39847393054515123,2509.5744623290725,0,False,False
+B5,EXTQ_027,Someone reports palpitations without an ECG. Which specific arrhythmia is definitely present?,ambiguous,cardiovascular,individual_diagnosis_with_inadequate_evidence,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.000332654919475317,0.332654919475317,3006.1181766897034,0,False,False
+B5,EXTQ_028,An isolated elevated laboratory value is mentioned without context. Is a particular chronic kidney diagnosis certain?,ambiguous,renal,individual_diagnosis_with_inadequate_evidence,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.0003814770607277751,0.3814770607277751,2621.3896009689756,0,False,False
+B5,EXTQ_029,Predict the exact disease that an unidentified healthy person will develop five years from now without any measurements.,unsupported,general_medicine,exact_future_disease_no_data,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.00042743096128106117,0.4274309612810612,2339.5591114945946,0,False,False
+B5,EXTQ_030,Diagnose a specific psychiatric disorder solely because an unnamed individual was silent today.,unsupported,mental_health,quiet_person_no_psychiatric_diagnosis,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.000326648005284369,0.326648005284369,3061.399377380042,0,False,False
+B5,EXTQ_031,"Prove that one lifestyle factor caused an individual's stroke without history, examination, or investigation.",unsupported,cardiovascular,exact_individual_prediction_without_data,ok,stroke,,I cannot provide a diagnosis or prove a cause of a stroke. Can I help you with something else?,True,True,5,0,,19,False,,,0.43116772174835205,0.4633886516094208,retrieved_evidence,final_response,,,,4.10830152395647,4108.30152395647,0.2434095925454267,5,True,True
+B5,EXTQ_032,Deduce an individual's blood glucose measurement from their occupation alone.,unsupported,metabolic,exact_individual_prediction_without_data,abstained,,,,False,False,0,0,,,False,,,,,missing,missing,,,,0.0002539120614528656,0.2539120614528656,3938.3713962939596,0,False,False
